@@ -3,6 +3,7 @@ import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class RegisterView {
     private JFrame frame;
@@ -509,10 +510,67 @@ public class RegisterView {
         frame.getContentPane().add(paymentComboBox);
         paymentComboBox.setVisible(false);
 
+        JPanel cardIconPanel = new JPanel();
+        cardIconPanel.setBounds(119,543,180,20);
+        cardIconPanel.setOpaque(false);
+
+        cardIconPanel.setLayout(null);
+
+            JLabel visaIcon = new JLabel();
+            visaIcon.setBounds(0,0,28, 20);
+            visaIcon.setSize(new Dimension(28,20));
+            ImageIcon img = new ImageIcon("C:\\Users\\aran0\\IdeaProjects\\GlobalMusic\\src\\Images\\CardIcons\\VisaIcon.jpg");
+            Image image = img.getImage().getScaledInstance(visaIcon.getWidth(),visaIcon.getHeight(),Image.SCALE_SMOOTH);
+            visaIcon.setIcon(new ImageIcon(image));
+            cardIconPanel.add(visaIcon);
+
+            JLabel masterIcon = new JLabel();
+            masterIcon.setBounds(30,0,28, 20);
+            masterIcon.setSize(new Dimension(28, 20));
+            img = new ImageIcon("C:\\Users\\aran0\\IdeaProjects\\GlobalMusic\\src\\Images\\CardIcons\\MasterCardIcon.jpg");
+            image = img.getImage().getScaledInstance(masterIcon.getWidth(),masterIcon.getHeight(),Image.SCALE_SMOOTH);
+            masterIcon.setIcon(new ImageIcon(image));
+            cardIconPanel.add(masterIcon);
+
+            JLabel jcbIcon = new JLabel();
+            jcbIcon.setBounds(60,0,28, 20);
+            jcbIcon.setSize(new Dimension(28, 20));
+            img = new ImageIcon("C:\\Users\\aran0\\IdeaProjects\\GlobalMusic\\src\\Images\\CardIcons\\JCBIcon.jpg");
+            image = img.getImage().getScaledInstance(jcbIcon.getWidth(),jcbIcon.getHeight(),Image.SCALE_SMOOTH);
+            jcbIcon.setIcon(new ImageIcon(image));
+            cardIconPanel.add(jcbIcon);
+
+            JLabel discoverIcon = new JLabel();
+            discoverIcon.setBounds(90,0,28, 20);
+            discoverIcon.setSize(new Dimension(28, 20));
+            img = new ImageIcon("C:\\Users\\aran0\\IdeaProjects\\GlobalMusic\\src\\Images\\CardIcons\\DiscoversIcon.jpg");
+            image = img.getImage().getScaledInstance(discoverIcon.getWidth(),discoverIcon.getHeight(),Image.SCALE_SMOOTH);
+            discoverIcon.setIcon(new ImageIcon(image));
+            cardIconPanel.add(discoverIcon);
+
+            JLabel dinersIcon = new JLabel();
+            dinersIcon.setBounds(120,0,28, 20);
+            dinersIcon.setSize(new Dimension(28, 20));
+            img = new ImageIcon("C:\\Users\\aran0\\IdeaProjects\\GlobalMusic\\src\\Images\\CardIcons\\DinersIcon.jpg");
+            image = img.getImage().getScaledInstance(dinersIcon.getWidth(),dinersIcon.getHeight(),Image.SCALE_SMOOTH);
+            dinersIcon.setIcon(new ImageIcon(image));
+            cardIconPanel.add(dinersIcon);
+
+            JLabel amexIcon = new JLabel();
+            amexIcon.setBounds(150,0,28, 20);
+            amexIcon.setSize(new Dimension(28, 20));
+            img = new ImageIcon("C:\\Users\\aran0\\IdeaProjects\\GlobalMusic\\src\\Images\\CardIcons\\AmexIcon.jpg");
+            image = img.getImage().getScaledInstance(amexIcon.getWidth(),amexIcon.getHeight(),Image.SCALE_SMOOTH);
+            amexIcon.setIcon(new ImageIcon(image));
+            cardIconPanel.add(amexIcon);
+
+
+        frame.add(cardIconPanel);
+
         cardNoField = new JTextField();
         cardNoField.setBackground(SystemColor.activeCaption);
         cardNoField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
-        cardNoField.setBounds(119, 563, 150, 20);
+        cardNoField.setBounds(119, 563, 180, 20);
         frame.getContentPane().add(cardNoField);
         cardNoField.setColumns(10);
         cardNoField.setVisible(true);
@@ -523,13 +581,47 @@ public class RegisterView {
             @Override
             public void focusLost(FocusEvent e) {
                 try{
-                    Long.parseLong(cardNoField.getText());
-                    if (!(cardNoField.getText().length()==16)){
+                    Pattern regVisa = Pattern.compile("^4[0-9]{12}(?:[0-9]{3})?$");
+                    Pattern regMaster = Pattern.compile("^5[1-5][0-9]{14}$");
+                    Pattern regExpress = Pattern.compile("^3[47][0-9]{13}$");
+                    Pattern regDiners = Pattern.compile("^3(?:0[0-5]|[68][0-9])[0-9]{11}$");
+                    Pattern regDiscover = Pattern.compile("^6(?:011|5[0-9]{2})[0-9]{12}$");
+                    Pattern regJCB= Pattern.compile("^(?:2131|1800|35\\d{3})\\d{11}$");
+
+
+                    if(regVisa.matcher(cardNoField.getText()).matches()){
+                        cardIconPanel.removeAll();
+                        cardIconPanel.repaint();
+                        cardIconPanel.add(visaIcon);
+                        lblInvalidCardNumber.setVisible(false);}
+                    else if (regMaster.matcher(cardNoField.getText()).matches()){
+                        cardIconPanel.removeAll();
+                        cardIconPanel.repaint();
+                        cardIconPanel.add(masterIcon);
+                        lblInvalidCardNumber.setVisible(false);}
+                    else  if (regExpress.matcher(cardNoField.getText()).matches()){
+                        cardIconPanel.removeAll();
+                        cardIconPanel.repaint();
+                        cardIconPanel.add(amexIcon);
+                        lblInvalidCardNumber.setVisible(false);}
+                    else if (regDiners.matcher(cardNoField.getText()).matches()){
+                        cardIconPanel.removeAll();
+                        cardIconPanel.repaint();
+                        cardIconPanel.add(dinersIcon);
+                        lblInvalidCardNumber.setVisible(false);}
+                    else if (regDiscover.matcher(cardNoField.getText()).matches()){
+                        cardIconPanel.removeAll();
+                        cardIconPanel.repaint();
+                        cardIconPanel.add(discoverIcon);
+                        lblInvalidCardNumber.setVisible(false);}
+                    else   if (regJCB.matcher(cardNoField.getText()).matches()){
+                        cardIconPanel.removeAll();
+                        cardIconPanel.repaint();
+                        cardIconPanel.add(jcbIcon);
+                        lblInvalidCardNumber.setVisible(false);}
+                    else{
                         lblInvalidCardNumber.setText("Invalid Card Number");
-                        lblInvalidCardNumber.setVisible(true);
-                    } else {
-                    	lblInvalidCardNumber.setVisible(false);
-                    }
+                        lblInvalidCardNumber.setVisible(true);}
                 }
                 catch(NumberFormatException k){
                     lblInvalidCardNumber.setVisible(true);

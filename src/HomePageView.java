@@ -12,7 +12,7 @@ import javax.swing.border.MatteBorder;
 
 public class HomePageView {
 
-	JButton searchButton;
+	JButton searchButton, myAccountButton, bookingsButton, changePassButton ;
     JFrame frame;
     JPanel newPanel;
     //private String username;
@@ -82,10 +82,16 @@ public class HomePageView {
         searchButton.setEnabled(false);
         frame.getContentPane().add(searchButton);
 
-        JButton myAccountButton = new JButton("My Account");
+        myAccountButton = new JButton("My Account");
         myAccountButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-                ((CardLayout)c.getLayout()).show(c,"MyAccount");
+
+        	    ((CardLayout)c.getLayout()).show(c,"MyAccount");
+        	    searchButton.setEnabled(true);
+        	    myAccountButton.setEnabled(false);
+        	    changePassButton.setEnabled(true);
+        	    bookingsButton.setEnabled(true);
+
         	}
         });
         myAccountButton.setForeground(SystemColor.inactiveCaption);
@@ -98,10 +104,15 @@ public class HomePageView {
         myAccountButton.setToolTipText("Edit your personal details");
         frame.getContentPane().add(myAccountButton);
         
-        JButton changePassButton = new JButton("Change Password");
+        changePassButton = new JButton("Change Password");
         changePassButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
                 ((CardLayout)c.getLayout()).show(c,"Password");
+                searchButton.setEnabled(true);
+                myAccountButton.setEnabled(true);
+                changePassButton.setEnabled(false);
+                bookingsButton.setEnabled(true);
             }
         });
         changePassButton.setForeground(SystemColor.inactiveCaption);
@@ -114,11 +125,16 @@ public class HomePageView {
         changePassButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         frame.getContentPane().add(changePassButton);
 
-        JButton bookingsButton = new JButton("My bookings");
+        bookingsButton = new JButton("My bookings");
         bookingsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 ((CardLayout)c.getLayout()).show(c,"History");
+                searchButton.setEnabled(true);
+                myAccountButton.setEnabled(true);
+                changePassButton.setEnabled(true);
+                bookingsButton.setEnabled(false);
             }
         });
         bookingsButton.setForeground(SystemColor.inactiveCaption);

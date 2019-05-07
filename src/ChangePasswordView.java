@@ -126,7 +126,7 @@ public class ChangePasswordView extends JPanel {
         	public void actionPerformed(ActionEvent arg0) {
         		if (String.valueOf(oldPassField.getPassword()).equals(User.getData(User.username,"Pass")) && String.valueOf(newPassField.getPassword()).equals(
         				String.copyValueOf(confPassField.getPassword()))) {
-    				User.updatePass(newPassField.getPassword().toString().replace("'", "''"), User.username);
+    				User.updatePass(String.valueOf(newPassField.getPassword()).replace("'", "''"), User.username);
     				JOptionPane.showMessageDialog(null,"Password changed!");
         		}
         		
@@ -154,11 +154,5 @@ public class ChangePasswordView extends JPanel {
         this.add(label);
         label.setVisible(false);   
 
-
-        JLabel lblNewLabel = new JLabel("New label");
-        lblNewLabel.setBounds(250, 203, 56, 16);
-        this.add(lblNewLabel);
-        
-        
 	}
 }
