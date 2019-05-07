@@ -3,9 +3,6 @@ import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Pattern;
 
 public class RegisterView {
     private JFrame frame;
@@ -26,6 +23,7 @@ public class RegisterView {
     private JTextField CVVField;
     private JTextField webAddressField;
     static boolean checkType = false;
+    private CreditCardIconsPanel cardIconPanel;
 
     /**
      * Launch the application.
@@ -512,61 +510,8 @@ public class RegisterView {
         frame.getContentPane().add(paymentComboBox);
         paymentComboBox.setVisible(false);
 
-        JPanel cardIconPanel = new JPanel();
-        cardIconPanel.setBounds(119,543,180,20);
-        cardIconPanel.setOpaque(false);
 
-        cardIconPanel.setLayout(null);
-
-            JLabel visaIcon = new JLabel();
-            visaIcon.setBounds(0,0,28, 20);
-            visaIcon.setSize(new Dimension(28,20));
-            ImageIcon img = new ImageIcon(RegisterView.class.getResource(Main.CARD_ICON_DIR+"VisaIcon.jpg"));
-            Image image = img.getImage().getScaledInstance(visaIcon.getWidth(),visaIcon.getHeight(),Image.SCALE_SMOOTH);
-            visaIcon.setIcon(new ImageIcon(image));
-            cardIconPanel.add(visaIcon);
-
-            JLabel masterIcon = new JLabel();
-            masterIcon.setBounds(30,0,28, 20);
-            masterIcon.setSize(new Dimension(28, 20));
-            img = new ImageIcon(RegisterView.class.getResource(Main.CARD_ICON_DIR+"MasterCardIcon.jpg"));
-            image = img.getImage().getScaledInstance(masterIcon.getWidth(),masterIcon.getHeight(),Image.SCALE_SMOOTH);
-            masterIcon.setIcon(new ImageIcon(image));
-            cardIconPanel.add(masterIcon);
-
-            JLabel jcbIcon = new JLabel();
-            jcbIcon.setBounds(60,0,28, 20);
-            jcbIcon.setSize(new Dimension(28, 20));
-            img = new ImageIcon(RegisterView.class.getResource(Main.CARD_ICON_DIR+"JCBIcon.jpg"));
-            image = img.getImage().getScaledInstance(jcbIcon.getWidth(),jcbIcon.getHeight(),Image.SCALE_SMOOTH);
-            jcbIcon.setIcon(new ImageIcon(image));
-            cardIconPanel.add(jcbIcon);
-
-            JLabel discoverIcon = new JLabel();
-            discoverIcon.setBounds(90,0,28, 20);
-            discoverIcon.setSize(new Dimension(28, 20));
-            img = new ImageIcon(RegisterView.class.getResource(Main.CARD_ICON_DIR+"DiscoversIcon.jpg"));
-            image = img.getImage().getScaledInstance(discoverIcon.getWidth(),discoverIcon.getHeight(),Image.SCALE_SMOOTH);
-            discoverIcon.setIcon(new ImageIcon(image));
-            cardIconPanel.add(discoverIcon);
-
-            JLabel dinersIcon = new JLabel();
-            dinersIcon.setBounds(120,0,28, 20);
-            dinersIcon.setSize(new Dimension(28, 20));
-            img = new ImageIcon(RegisterView.class.getResource(Main.CARD_ICON_DIR+"DinersIcon.jpg"));
-            image = img.getImage().getScaledInstance(dinersIcon.getWidth(),dinersIcon.getHeight(),Image.SCALE_SMOOTH);
-            dinersIcon.setIcon(new ImageIcon(image));
-            cardIconPanel.add(dinersIcon);
-
-            JLabel amexIcon = new JLabel();
-            amexIcon.setBounds(150,0,28, 20);
-            amexIcon.setSize(new Dimension(28, 20));
-            img = new ImageIcon(RegisterView.class.getResource(Main.CARD_ICON_DIR+"AmexIcon.jpg"));
-            image = img.getImage().getScaledInstance(amexIcon.getWidth(),amexIcon.getHeight(),Image.SCALE_SMOOTH);
-            amexIcon.setIcon(new ImageIcon(image));
-            cardIconPanel.add(amexIcon);
-
-
+        cardIconPanel = new CreditCardIconsPanel(119,543);
         frame.add(cardIconPanel);
 
         cardNoField = new JTextField();
@@ -582,36 +527,13 @@ public class RegisterView {
 
             @Override
             public void focusLost(FocusEvent e) {
-                Pattern regVisa = Pattern.compile("^4[0-9]{12}(?:[0-9]{3})?$");
-                Pattern regMaster = Pattern.compile("^5[1-5][0-9]{14}$");
-                Pattern regExpress = Pattern.compile("^3[47]\\d{13,14}$");
-                Pattern regDiners = Pattern.compile("^3(?:0[0-5]|[68][0-9])[0-9]{11}$");
-                Pattern regDiscover = Pattern.compile("^6(?:011|5[0-9]{2})[0-9]{12}$");
-                Pattern regJCB= Pattern.compile("^(?:2131|1800|35\\d{3})\\d{11}$");
-
-                Map<Pattern, JLabel> typeOfCard = new HashMap<Pattern, JLabel>();
-                typeOfCard.put(regVisa, visaIcon);
-                typeOfCard.put(regMaster,masterIcon);
-                typeOfCard.put(regExpress,amexIcon);
-                typeOfCard.put(regDiners,dinersIcon);
-                typeOfCard.put(regDiscover,discoverIcon);
-                typeOfCard.put(regJCB,discoverIcon);
-
-                boolean validNo = false;
-                for (Pattern key : typeOfCard.keySet()){
-                    if(key.matcher(cardNoField.getText()).matches()){
-                        cardIconPanel.removeAll();
-                        cardIconPanel.repaint();
-                        cardIconPanel.add(typeOfCard.get(key));
-                        lblInvalidCardNumber.setVisible(false);
-                        validNo = true;
-                    }
-                }
+                boolean validNo = cardIconPanel.repaint(cardNoField.getText());
                 if (!validNo){
                     lblInvalidCardNumber.setText("Invalid Card No");
                     lblInvalidCardNumber.setVisible(true);
                     cardNoField.setText("");
                 }
+                else{lblInvalidCardNumber.setVisible(false);}
             }
         });
 

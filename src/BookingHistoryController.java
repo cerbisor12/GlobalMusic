@@ -20,29 +20,31 @@ public class BookingHistoryController
         this.panel = panel;
         this.table = panel.table;
         List<List<Object>> data = getBookings();
-        Object[] columnNames = data.get(0).toArray();
-        data.remove(0);
-        Object[][] bookingData = new Object[data.size()][data.get(0).size()];
-        for (int i = 0; i<data.size(); i++){
-            bookingData[i] = data.get(i).toArray();
-        }
 
-        table.setModel(new DefaultTableModel(bookingData, columnNames) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                //all cells false
-                return false;
+        if (data.size()>1){
+            Object[] columnNames = data.get(0).toArray();
+            data.remove(0);
+            Object[][] bookingData = new Object[data.size()][data.get(0).size()];
+            for (int i = 0; i<data.size(); i++){
+                bookingData[i] = data.get(i).toArray();
             }
-        });
-        table.getColumnModel().getColumn(0).setPreferredWidth(170);
-        table.setFont(new Font("Open Sans",Font.PLAIN,16));
 
-        table.getTableHeader().setReorderingAllowed(false);
-        table.getTableHeader().setPreferredSize(new Dimension(table.getWidth(),35));
-        table.getTableHeader().setFont(new Font("Open Sans",Font.BOLD,18));
-        table.setRowHeight(30);
-        //setCellsAlignment(table,SwingConstants.CENTER);
-        getNewRenderedTable(table);
+            table.setModel(new DefaultTableModel(bookingData, columnNames) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    //all cells false
+                    return false;
+                }
+            });
+            table.getColumnModel().getColumn(0).setPreferredWidth(170);
+            table.setFont(new Font("Open Sans",Font.PLAIN,16));
+
+            table.getTableHeader().setReorderingAllowed(false);
+            table.getTableHeader().setPreferredSize(new Dimension(table.getWidth(),35));
+            table.getTableHeader().setFont(new Font("Open Sans",Font.BOLD,18));
+            table.setRowHeight(30);
+            //setCellsAlignment(table,SwingConstants.CENTER);
+            getNewRenderedTable(table);}
 
     }
 

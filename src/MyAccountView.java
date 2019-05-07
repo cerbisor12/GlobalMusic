@@ -4,10 +4,7 @@ import javax.swing.*;
 
 import java.awt.Font;
 import java.awt.SystemColor;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 import javax.swing.border.MatteBorder;
@@ -28,6 +25,7 @@ public class MyAccountView extends JPanel {
 	private JTextField orgEmailTextField;
 	private JTextField webAddressTextField;
 	public JButton saveButton;
+	private CreditCardIconsPanel cardIconPanel;
 
 
 	
@@ -58,7 +56,7 @@ public class MyAccountView extends JPanel {
 		firstNameTextField = new JTextField();
 		firstNameTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
 		firstNameTextField.setBackground(SystemColor.activeCaption);
-		firstNameTextField.setBounds(116, 200, 162, 30);
+		firstNameTextField.setBounds(116, 200, 180, 30);
 		firstNameTextField.setColumns(10);
 		this.add(firstNameTextField);
 		
@@ -71,7 +69,7 @@ public class MyAccountView extends JPanel {
 		lastNameTextField = new JTextField();
 		lastNameTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
 		lastNameTextField.setBackground(SystemColor.activeCaption);
-		lastNameTextField.setBounds(432, 200, 162, 30);
+		lastNameTextField.setBounds(432, 200, 180, 30);
 		lastNameTextField.setColumns(10);
 		this.add(lastNameTextField);
 
@@ -85,20 +83,20 @@ public class MyAccountView extends JPanel {
 		address1TextField = new JTextField();
 		address1TextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
 		address1TextField.setBackground(SystemColor.activeCaption);
-		address1TextField.setBounds(116, 241, 162, 30);
+		address1TextField.setBounds(116, 241, 180, 30);
 		address1TextField.setColumns(10);
 		this.add(address1TextField);
 
 		
 		JLabel address1Label = new JLabel("Address 1");
-		address1Label.setBounds(35, 254, 69, 16);
+		address1Label.setBounds(35, 250, 69, 16);
 		address1Label.setForeground(SystemColor.inactiveCaption);
 		address1Label.setFont(new Font("Open Sans", Font.BOLD, 13));
 		this.add(address1Label);
 		
 		address2TextField = new JTextField();
 		address2TextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
-		address2TextField.setBounds(432, 241, 162, 30);
+		address2TextField.setBounds(432, 241, 180, 30);
 		address2TextField.setBackground(SystemColor.activeCaption);
 		address2TextField.setColumns(10);
 		this.add(address2TextField);
@@ -107,13 +105,13 @@ public class MyAccountView extends JPanel {
 		JLabel address2Label = new JLabel("Address 2");
 		address2Label.setForeground(SystemColor.inactiveCaption);
 		address2Label.setFont(new Font("Open Sans", Font.BOLD, 13));
-		address2Label.setBounds(351, 244, 69, 16);
+		address2Label.setBounds(351, 250, 69, 16);
 		this.add(address2Label);
 		
 		townTextField = new JTextField();
 		townTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
 		townTextField.setBackground(SystemColor.activeCaption);
-		townTextField.setBounds(116, 284, 162, 30);
+		townTextField.setBounds(116, 284, 180, 30);
 		townTextField.setColumns(10);
 		this.add(townTextField);
 		
@@ -124,7 +122,7 @@ public class MyAccountView extends JPanel {
 		this.add(townLabel);
 		
 		postcodeTextField = new JTextField();
-		postcodeTextField.setBounds(432, 284, 162, 30);
+		postcodeTextField.setBounds(432, 284, 180, 30);
 		postcodeTextField.setBorder(new MatteBorder(3,3,3,3, (Color)SystemColor.activeCaption));
 		postcodeTextField.setBackground(SystemColor.activeCaption);
 		postcodeTextField.setColumns(10);
@@ -138,7 +136,7 @@ public class MyAccountView extends JPanel {
 		
 		emailTextField = new JTextField();
 		emailTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
-		emailTextField.setBounds(116, 327, 162, 30);
+		emailTextField.setBounds(116, 327, 180, 30);
 		emailTextField.setBackground(SystemColor.activeCaption);
 		emailTextField.setColumns(10);
 		this.add(emailTextField);
@@ -151,7 +149,7 @@ public class MyAccountView extends JPanel {
 		
 		phoneNoTextField = new JTextField();
 		phoneNoTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
-		phoneNoTextField.setBounds(432, 327, 162, 30);
+		phoneNoTextField.setBounds(432, 327, 180, 30);
 		phoneNoTextField.setBackground(SystemColor.activeCaption);
 		phoneNoTextField.setColumns(10);
 		this.add(phoneNoTextField);
@@ -162,40 +160,90 @@ public class MyAccountView extends JPanel {
 		phoneLabel.setForeground(SystemColor.inactiveCaption);
 		phoneLabel.setFont(new Font("Open Sans", Font.BOLD, 13));
 		this.add(phoneLabel);
+
+		JLabel lblInvalidCardNumber = new JLabel("Invalid Card Number");
+		lblInvalidCardNumber.setForeground(Color.RED);
+		lblInvalidCardNumber.setBounds(116, 421, 110, 14);
+		this.add(lblInvalidCardNumber);
+		lblInvalidCardNumber.setVisible(false);
+
+		cardIconPanel = new CreditCardIconsPanel(116,370);
+		this.add(cardIconPanel);
 		
 		cardNoTextField = new JTextField();
 		cardNoTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
-		cardNoTextField.setBounds(116, 370, 162, 30);
+		cardNoTextField.setBounds(116, 390, 180, 30);
 		cardNoTextField.setBackground(SystemColor.activeCaption);
 		cardNoTextField.setColumns(10);
+		cardNoTextField.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent e) {}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				boolean validNo = cardIconPanel.repaint(cardNoTextField.getText());
+				if (!validNo){
+					lblInvalidCardNumber.setText("Invalid Card No");
+					lblInvalidCardNumber.setVisible(true);
+					cardNoTextField.setText("");
+				}
+				else{lblInvalidCardNumber.setVisible(false);}
+			}
+		});
 		this.add(cardNoTextField);
 
 		
 		JLabel cardNoLabel = new JLabel("Card No");
-		cardNoLabel.setBounds(54, 377, 63, 16);
+		cardNoLabel.setBounds(54, 397, 63, 16);
 		cardNoLabel.setForeground(SystemColor.inactiveCaption);
 		cardNoLabel.setFont(new Font("Open Sans", Font.BOLD, 13));
 		this.add(cardNoLabel);
+
+		JLabel lblInvalidCVV = new JLabel("Invalid Number");
+		lblInvalidCVV.setForeground(Color.RED);
+		lblInvalidCVV.setBounds(432, 421, 110, 14);
+		this.add(lblInvalidCVV);
+		lblInvalidCVV.setVisible(false);
 		
 		cvvTextField = new JTextField();
 		cvvTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
-		cvvTextField.setBounds(432, 370, 162, 30);
+		cvvTextField.setBounds(432, 390, 180, 30);
 		cvvTextField.setBackground(SystemColor.activeCaption);
 		cvvTextField.setColumns(10);
+		cvvTextField.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent e) {}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				try{
+					Integer.parseInt(cvvTextField.getText());
+					if (!(cvvTextField.getText().length()==3)){
+						lblInvalidCVV.setText("Invalid Card Number");
+						lblInvalidCVV.setVisible(true);
+					} else {
+						lblInvalidCVV.setVisible(false);
+					}
+				}
+				catch(NumberFormatException k){
+					lblInvalidCVV.setVisible(true);
+					cvvTextField.setText("");}
+			}
+		});
 		this.add(cvvTextField);
 
 		
 		JLabel cvvLabel = new JLabel("CVV");
 		cvvLabel.setForeground(SystemColor.inactiveCaption);
 		cvvLabel.setFont(new Font("Open Sans", Font.BOLD, 13));
-		cvvLabel.setBounds(394, 377, 63, 16);
+		cvvLabel.setBounds(394, 397, 63, 16);
 		this.add(cvvLabel);
 		
 		
 		
 		orgNameTextField = new JTextField();
 		orgNameTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
-		orgNameTextField.setBounds(798, 200, 162, 30);
+		orgNameTextField.setBounds(798, 200, 180, 30);
 		orgNameTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
 		orgNameTextField.setBackground(SystemColor.activeCaption);
 		orgNameTextField.setColumns(10);
@@ -209,7 +257,7 @@ public class MyAccountView extends JPanel {
 		
 		orgEmailTextField = new JTextField();
 		orgEmailTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
-		orgEmailTextField.setBounds(798, 241, 162, 30);
+		orgEmailTextField.setBounds(798, 241, 180, 30);
 		orgEmailTextField.setBackground(SystemColor.activeCaption);
 		orgEmailTextField.setColumns(10);
 		this.add(orgEmailTextField);
@@ -225,7 +273,7 @@ public class MyAccountView extends JPanel {
 		paymentComboBox.setToolTipText("");
 		paymentComboBox.setEditable(false);
 		paymentComboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"On Booking", "Monthly Invoice"}));
-		paymentComboBox.setBounds(798, 284, 162, 30);
+		paymentComboBox.setBounds(798, 284, 180, 30);
 		this.add(paymentComboBox);
 		
 		JLabel paymentLabel = new JLabel("Payment Method");
@@ -237,7 +285,7 @@ public class MyAccountView extends JPanel {
 		webAddressTextField = new JTextField();
 		webAddressTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
 		webAddressTextField.setBackground(SystemColor.activeCaption);
-		webAddressTextField.setBounds(798, 327, 162, 30);
+		webAddressTextField.setBounds(798, 327, 180, 30);
 		webAddressTextField.setColumns(10);
 		this.add(webAddressTextField);
 		
@@ -279,13 +327,37 @@ public class MyAccountView extends JPanel {
 		saveButton = new JButton("Save");
 		saveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				ArrayList<JTextField> textFieldArray;
+				textFieldArray = new ArrayList<>();
+				textFieldArray.add(firstNameTextField);
+				textFieldArray.add(lastNameTextField);
+				textFieldArray.add(address1TextField);
+				textFieldArray.add(townTextField);
+				textFieldArray.add(postcodeTextField);
+				textFieldArray.add(emailTextField);
+				textFieldArray.add(cardNoTextField);
+				textFieldArray.add(cvvTextField);
+
+				if (User.getData(User.username,"Type").equalsIgnoreCase("organization")){
+					textFieldArray.add(orgNameTextField);
+				}
+				boolean checker = true;
+				for(JTextField field : textFieldArray) {
+					if (field.getText().equals("")) {
+						checker = false;
+						field.setBackground(new Color(255, 228, 225));
+					} else {
+						field.setBackground(SystemColor.activeCaption);
+					}
+				}
+				if(checker){
 				User.updateDetails(User.username, titleComboBox.getSelectedItem().toString(), firstNameTextField.getText().replace("'", "''"), 
 						lastNameTextField.getText().replace("'", "''"), address1TextField.getText().replace("'", "''"), address2TextField.getText().replace("'", "''"), 
 						townTextField.getText().replace("'", "''"), postcodeTextField.getText().replace("'", "''"), emailTextField.getText().replace("'", "''"), 
 						phoneNoTextField.getText().replace("'", "''"), Long.parseLong(cardNoTextField.getText().replace("'", "''")), 
 						Integer.parseInt(cvvTextField.getText().replace("'", "''")), orgNameTextField.getText().replace("'", "''"), orgEmailTextField.getText().replace("'", "''"),
 						webAddressTextField.getText(),paymentComboBox.getSelectedItem().toString());
-				JOptionPane.showMessageDialog(null,"Update succesfull!");
+				JOptionPane.showMessageDialog(null,"Update succesfull!");}
 			}
 		});
 		saveButton.setBounds(497, 457, 97, 25);
