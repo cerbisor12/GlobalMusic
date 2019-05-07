@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b89e92a4-688d-4fc7-9b4b-7d8c1d6995f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Images/CardIcons/AmexIcon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/CardIcons/DinersIcon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/CardIcons/DiscoversIcon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/CardIcons/JCBIcon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/CardIcons/MasterCardIcon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/CardIcons/VisaIcon.jpg" afterDir="false" />
+    <list default="true" id="b89e92a4-688d-4fc7-9b4b-7d8c1d6995f5" name="Default Changelist" comment="Made Paths for Icons Relative and improved the code a bit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChangePasswordView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChangePasswordView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomePageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomePageView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/CardIcons/AmexIcon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/Card_Icons/AmexIcon.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/CardIcons/DinersIcon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/Card_Icons/DinersIcon.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/CardIcons/DiscoversIcon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/Card_Icons/DiscoversIcon.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/CardIcons/JCBIcon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/Card_Icons/JCBIcon.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/CardIcons/MasterCardIcon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/Card_Icons/MasterCardIcon.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/CardIcons/VisaIcon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/Card_Icons/VisaIcon.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegisterView.java" afterDir="false" />
     </list>
@@ -62,20 +60,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RegisterView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="614" column="51" selection-start-line="614" selection-start-column="51" selection-end-line="614" selection-end-column="51" />
+            <state relative-caret-position="99">
+              <caret line="588" column="62" lean-forward="true" selection-start-line="588" selection-start-column="62" selection-end-line="588" selection-end-column="62" />
+              <folding>
+                <element signature="e#24958#24975#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" selection-start-line="11" selection-end-line="32" selection-end-column="30" />
+            <state relative-caret-position="34">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -100,9 +101,9 @@
       <list>
         <option value="$PROJECT_DIR$/src/HomePageView.java" />
         <option value="$PROJECT_DIR$/src/ChangePasswordView.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Test.java" />
         <option value="$PROJECT_DIR$/src/RegisterView.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -142,7 +143,14 @@
               <item name="GlobalMusic" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Images" type="462c0819:PsiDirectoryNode" />
-              <item name="CardIcons" type="462c0819:PsiDirectoryNode" />
+              <item name="Artist_Images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GlobalMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GlobalMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Images" type="462c0819:PsiDirectoryNode" />
+              <item name="Card_Icons" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GlobalMusic" type="b2602c69:ProjectViewProjectNode" />
@@ -155,7 +163,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557244939929" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557257053349" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/creditcard-validator-master/app/src" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -221,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557179615123</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added Card Types and changed checker in Register Card No">
+      <created>1557245065549</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1557245065549</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -236,7 +251,7 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -286,7 +301,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added libraries" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added libraries" />
+    <MESSAGE value="Added Card Types and changed checker in Register Card No" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Card Types and changed checker in Register Card No" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -325,7 +341,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Images/CardIcons/VisaIcon.jpg">
+    <entry file="file://$PROJECT_DIR$/src/Images/Card_Icons/VisaIcon.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Test.java">
@@ -338,20 +354,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/RegisterView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="32" selection-end-column="30" />
+        <state relative-caret-position="99">
+          <caret line="588" column="62" lean-forward="true" selection-start-line="588" selection-start-column="62" selection-end-line="588" selection-end-column="62" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#24958#24975#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RegisterView.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="614" column="51" selection-start-line="614" selection-start-column="51" selection-end-line="614" selection-end-column="51" />
+        <state relative-caret-position="34">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
