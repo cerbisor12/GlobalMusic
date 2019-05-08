@@ -136,13 +136,13 @@ public class MyAccountView extends JPanel {
 		
 		emailTextField = new JTextField();
 		emailTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
-		emailTextField.setBounds(116, 327, 180, 30);
+		emailTextField.setBounds(116, 325, 180, 30);
 		emailTextField.setBackground(SystemColor.activeCaption);
 		emailTextField.setColumns(10);
 		this.add(emailTextField);
 		
 		JLabel emailLabel = new JLabel("E-mail");
-		emailLabel.setBounds(66, 332, 70, 20);
+		emailLabel.setBounds(66, 330, 70, 20);
 		emailLabel.setForeground(SystemColor.inactiveCaption);
 		emailLabel.setFont(new Font("Open Sans", Font.BOLD, 13));
 		this.add(emailLabel);
@@ -163,16 +163,17 @@ public class MyAccountView extends JPanel {
 
 		JLabel lblInvalidCardNumber = new JLabel("Invalid Card Number");
 		lblInvalidCardNumber.setForeground(Color.RED);
-		lblInvalidCardNumber.setBounds(116, 421, 110, 14);
+		lblInvalidCardNumber.setBounds(116, 442, 110, 14);
 		this.add(lblInvalidCardNumber);
 		lblInvalidCardNumber.setVisible(false);
 
 		cardIconPanel = new CreditCardIconsPanel(116,370);
+		cardIconPanel.setLocation(116, 391);
 		this.add(cardIconPanel);
 		
 		cardNoTextField = new JTextField();
 		cardNoTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
-		cardNoTextField.setBounds(116, 390, 180, 30);
+		cardNoTextField.setBounds(116, 411, 180, 30);
 		cardNoTextField.setBackground(SystemColor.activeCaption);
 		cardNoTextField.setColumns(10);
 		cardNoTextField.addFocusListener(new FocusListener() {
@@ -194,7 +195,7 @@ public class MyAccountView extends JPanel {
 
 		
 		JLabel cardNoLabel = new JLabel("Card No");
-		cardNoLabel.setBounds(54, 397, 63, 16);
+		cardNoLabel.setBounds(54, 418, 63, 16);
 		cardNoLabel.setForeground(SystemColor.inactiveCaption);
 		cardNoLabel.setFont(new Font("Open Sans", Font.BOLD, 13));
 		this.add(cardNoLabel);
@@ -383,7 +384,7 @@ public class MyAccountView extends JPanel {
 
         JLabel emailInUseLabel = new JLabel("Email already exists");
         emailInUseLabel.setForeground(Color.RED);
-        emailInUseLabel.setBounds(116, 355, 162, 16);
+        emailInUseLabel.setBounds(118, 353, 162, 16);
         this.add(emailInUseLabel);
         emailInUseLabel.setVisible(false);
         
