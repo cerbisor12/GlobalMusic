@@ -15,7 +15,6 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
@@ -221,8 +220,8 @@ public class NewBandView extends JFrame {
 					int agentID = Agent.getAgentId(agentComboBox.getSelectedItem().toString());					
 					new Band(nameTxtField.getText().replace("'", "''"),genreTxtField.getText().replace("'", "''"),linkTxtField.getText().replace("'", "''"),imageName,agentID);
 					DefaultListModel performersModel = new DefaultListModel();
-					for(int i = 0; i < Band.getBands().size(); i++) {
-						performersModel.addElement(Band.getBands().get(i));
+					for(int i = 0; i < Band.getAllBands().size(); i++) {
+						performersModel.addElement(Band.getAllBands().get(i));
 			        	EventOrganizerView.allPerformersList.setModel(performersModel);
 			        }
 					JOptionPane.showMessageDialog(null,"Band added.");

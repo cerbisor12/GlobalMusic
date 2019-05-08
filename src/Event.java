@@ -37,8 +37,8 @@ public class Event {
 	
 	
 	
-	static ArrayList<String> getEventsList() {
-		String query = "SELECT Name FROM `tbl_event`;";
+	static ArrayList<String> getEventsList(int ID) {
+		String query = "SELECT Name FROM `tbl_event` WHERE OrganizerID = " +ID+";";
 		ArrayList<String> eventsList = new ArrayList<String>();
 		try {
             ResultSet results = Connect.selectStm(query);
@@ -53,7 +53,36 @@ public class Event {
         }
         return eventsList;
 	}
-	
+
+	public static ArrayList<String> eventDetailsList(String eventName) {
+		String query = "SELECT E.*, V.Name VName FROM tbl_event E, tbl_venue V WHERE E.Name = '" + eventName + "'" +
+				"AND V.VenueID = E.VenueID;";
+		ArrayList<String> details = new ArrayList<String>();
+		try {
+			ResultSet rs = Connect.selectStm(query);
+
+			while (rs.next()) {
+				details.add(String.valueOf(rs.getInt("EventID")));
+				details.add(rs.getString("Name"));
+				details.add(String.valueOf(rs.getFloat("Price")));
+				details.add(rs.getString("VName"));
+				details.add(rs.getString("DateOFEvent"));
+				details.add(rs.getString("Image"));
+				details.add(String.valueOf(rs.getInt("Duration")));
+
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NullPointerException f){
+			f.printStackTrace();
+		}
+
+		return details;
+	}
 	
 	public void setName(String name) {
 		this.name = name;

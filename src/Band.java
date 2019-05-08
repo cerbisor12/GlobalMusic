@@ -28,7 +28,7 @@ public class Band {
         }
 	}
 	
-	static ArrayList<String> getBands(){
+	static ArrayList<String> getAllBands(){
 		String query = "SELECT Name FROM tbl_band;";
 		ArrayList<String> bandsList = new ArrayList<String>();
 		try {
@@ -44,7 +44,25 @@ public class Band {
         }
         return bandsList;
 	}
-	
+
+	static ArrayList<String> getEventBands(int eventID) {
+		String query = "SELECT B.Name FROM tbl_band B, tbl_event_band EB WHERE EB.EventID = " +eventID +
+		" AND B.BandID = EB.BandID;";
+		ArrayList<String> bandsList = new ArrayList<String>();
+		try {
+			ResultSet results = Connect.selectStm(query);
+			while (results.next()) {
+				String agent = results.getString("Name");
+				bandsList.add(agent);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException k) {
+			System.out.println(k.getMessage());
+		}
+		return bandsList;
+	}
+
 	static int getPerfID(String bandName) {
 		String query = "SELECT * FROM tbl_band WHERE Name = '" + bandName + "';";
     	int ID = 0;

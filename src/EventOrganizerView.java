@@ -34,9 +34,6 @@ public class EventOrganizerView {
 	 private JTextField textEventName;
 	 private JTextField textDuration;
 	 private JTextField textFieldPrice;
-	 private JTextField venueNameTextField;
-	 private JTextField venueAddressTextField;
-	 private JTextField venueCapacityTextField;
 	 private ArrayList<String> bandsList;
 	 static JComboBox<String> venueComboBox;
 	 static JList allPerformersList;
@@ -371,7 +368,7 @@ public class EventOrganizerView {
 	        lblLogo.setBounds(186, 583, 200, 96);
 	        frame.getContentPane().add(lblLogo);
 	        
-	        ArrayList<String> bandsAvailable = Band.getBands();
+	        ArrayList<String> bandsAvailable = Band.getAllBands();
 	        
 	        JScrollPane scrollPane = new JScrollPane();
 	        scrollPane.setBounds(605, 407, 189, 140);
