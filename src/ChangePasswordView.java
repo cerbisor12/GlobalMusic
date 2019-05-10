@@ -10,8 +10,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.ChangeEvent;
 
 public class ChangePasswordView extends JPanel {
+
 
 	private JPasswordField oldPassField;
 	private JPasswordField newPassField;
@@ -24,6 +28,7 @@ public class ChangePasswordView extends JPanel {
         this.setBounds(250,50,1000,550);
         this.setOpaque(false);
         this.setLayout(null);
+
 		
 		JLabel changePassLabel = new JLabel("Account Security");
 		changePassLabel.setForeground(SystemColor.inactiveCaption);

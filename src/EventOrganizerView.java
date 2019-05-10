@@ -327,7 +327,8 @@ public class EventOrganizerView {
 									java.nio.file.StandardCopyOption.COPY_ATTRIBUTES,
 									java.nio.file.LinkOption.NOFOLLOW_LINKS );
 						}else {
-							imageName = "No file selected!";
+                            if(lblImageName.getText().equals("")){
+                                lblImageName.setText("No file selected!");}
 						}
 					}catch(Exception e1) {
 						e1.printStackTrace();
@@ -399,7 +400,7 @@ public class EventOrganizerView {
 	        performersAddedLabel.setForeground(SystemColor.inactiveCaption);
 	        frame.getContentPane().add(performersAddedLabel);
 	        
-	        JButton addPerformerToEvent = new JButton("Add to Event ->");
+	        JButton addPerformerToEvent = new JButton("Add ->");
 	        addPerformerToEvent.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
 	        		String addedBand = (String) allPerformersList.getSelectedValue();
@@ -407,25 +408,53 @@ public class EventOrganizerView {
 	        			JOptionPane.showMessageDialog(null,"Band already added.");
 	        		else
 	        			addedPerformersModel.addElement(addedBand);
-	        		
+	        		    allPerformersModel.removeElement(addedBand);
 	        	}
 	        });
 	        addPerformerToEvent.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	        addPerformerToEvent.setFont(new Font("Dialog", Font.PLAIN, 18));
-	        addPerformerToEvent.setBounds(793, 467, 167, 25);
+	        addPerformerToEvent.setBounds(793, 447, 167, 25);
 	        addPerformerToEvent.setContentAreaFilled(false);
 	        addPerformerToEvent.setOpaque(false);
 	        addPerformerToEvent.setBorderPainted(false);
 	        addPerformerToEvent.setForeground(SystemColor.inactiveCaption);
 	        frame.getContentPane().add(addPerformerToEvent);
+
+            JButton removePerformerFromEvent = new JButton("<- Remove");
+            removePerformerFromEvent.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    String addedBand = (String) addedPerfList.getSelectedValue();
+                    if(allPerformersModel.contains(addedBand))
+                        JOptionPane.showMessageDialog(null,"Band already added.");
+                    else
+                        allPerformersModel.addElement(addedBand);
+                        addedPerformersModel.removeElement(addedBand);
+
+                }
+            });
+            removePerformerFromEvent.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            removePerformerFromEvent.setFont(new Font("Dialog", Font.PLAIN, 18));
+            removePerformerFromEvent.setBounds(793, 487, 167, 25);
+            removePerformerFromEvent.setContentAreaFilled(false);
+            removePerformerFromEvent.setOpaque(false);
+            removePerformerFromEvent.setBorderPainted(false);
+            removePerformerFromEvent.setForeground(SystemColor.inactiveCaption);
+            frame.getContentPane().add(removePerformerFromEvent);
 	        
-	        JSeparator separator = new JSeparator();
-	        separator.setBackground(SystemColor.inactiveCaption);
-	        separator.setForeground(SystemColor.inactiveCaption);
-	        separator.setOpaque(true);
-	        separator.setBounds(805, 490, 140, 3);
-	        frame.getContentPane().add(separator);
-	        
+	        JSeparator addSeperator = new JSeparator();
+	        addSeperator.setBackground(SystemColor.inactiveCaption);
+	        addSeperator.setForeground(SystemColor.inactiveCaption);
+	        addSeperator.setOpaque(true);
+	        addSeperator.setBounds(805, 470, 140, 3);
+	        frame.getContentPane().add(addSeperator);
+
+            JSeparator removeSeperator = new JSeparator();
+            removeSeperator.setBackground(SystemColor.inactiveCaption);
+            removeSeperator.setForeground(SystemColor.inactiveCaption);
+            removeSeperator.setOpaque(true);
+            removeSeperator.setBounds(805, 510, 140, 3);
+            frame.getContentPane().add(removeSeperator);
+
 	        JButton addNewPerfButton = new JButton("Add Performer");
 	        addNewPerfButton.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
@@ -458,11 +487,9 @@ public class EventOrganizerView {
 	        			String query = "INSERT INTO tbl_event_band VALUES("+EventID+"," + Band.getPerfID(addedPerfList.getModel().getElementAt(i).toString().replace("'","''"))+ ");";
 	        			try {
 	        	            Connect.updateData(query);
-	        	        } catch (SQLException e) {
+	        	        } catch (SQLException | ClassNotFoundException e) {
 	        	            e.printStackTrace();
-	        	        } catch (ClassNotFoundException e1) {
-	        	            e1.printStackTrace();
-	        	        }//BASICALLY THIS IS THE CODE BUT RIGHT NOW IT THROWS SQL EXCEPTIONS BECAUSE OF THE CONSTRAINTS 
+	        	        }
 	        		}
 	        	}
 	        });

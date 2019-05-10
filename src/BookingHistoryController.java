@@ -3,6 +3,8 @@ import javax.swing.table.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -10,8 +12,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BookingHistoryController
-{
+public class BookingHistoryController{
+
+
     private String username = User.username;
     private JTable table;
     private BookingsHistoryView panel;
@@ -49,10 +52,7 @@ public class BookingHistoryController
     }
 
     private List<List<Object>> getBookings(){
-        String query = "SELECT B.BookingNo, B.DateOfBooking Date, E.Name Event, B.NoOfSeats 'Tickets'," +
-                " B.TotalPrice Total, B.Paid, B.Status FROM tbl_booking B, tbl_event E " +
-                "WHERE CustomerID= '" + User.getData(username,"UserID") + "' " +
-                "AND E.EventID=B.EventID;";
+        String query = "SELECT B.BookingNo,B.DateOFBooking 'Date', B.NoOfSeats 'Tickets',B.Paid, B.TotalPrice 'Total', B.Status, IFNULL(E.Name,'-') 'Event' FROM tbl_booking B LEFT JOIN tbl_event E ON E.EventID = B.EventID WHERE CustomerID= "+User.getUserId(User.username)+";";
         List<List<Object>> bookingData= new ArrayList<>();
 
         try{

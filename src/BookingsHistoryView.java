@@ -24,7 +24,7 @@ public class BookingsHistoryView extends JPanel {
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setBounds(210, 136, 790, 284);
         this.add(scrollPane);
-        
+
         table = new JTable();
         table.setBackground(SystemColor.inactiveCaption);
         new BookingHistoryController(this);

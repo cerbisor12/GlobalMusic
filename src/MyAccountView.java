@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Cursor;
+import javax.security.auth.Refreshable;
 import javax.swing.*;
 
 import java.awt.Font;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.border.MatteBorder;
 
 public class MyAccountView extends JPanel {
+
 
 	private JTextField firstNameTextField;
 	private JTextField lastNameTextField;
@@ -38,7 +40,6 @@ public class MyAccountView extends JPanel {
 		this.setOpaque(false);
 		this.setLayout(null);
 
-		
 		JLabel existDetailsLabel = new JLabel("Existing Details");
 		existDetailsLabel.setForeground(SystemColor.inactiveCaption);
 		existDetailsLabel.setFont(new Font("Open Sans", Font.PLAIN, 20));
@@ -358,7 +359,7 @@ public class MyAccountView extends JPanel {
 						phoneNoTextField.getText().replace("'", "''"), Long.parseLong(cardNoTextField.getText().replace("'", "''")), 
 						Integer.parseInt(cvvTextField.getText().replace("'", "''")), orgNameTextField.getText().replace("'", "''"), orgEmailTextField.getText().replace("'", "''"),
 						webAddressTextField.getText(),paymentComboBox.getSelectedItem().toString());
-				JOptionPane.showMessageDialog(null,"Update succesfull!");}
+				JOptionPane.showMessageDialog(null,"Update successful!");}
 			}
 		});
 		saveButton.setBounds(497, 457, 97, 25);

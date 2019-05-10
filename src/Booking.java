@@ -27,12 +27,20 @@ public class Booking {
                 + this.status +"'," + this.price + ");";
         try {
             Connect.updateData(query);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());
         }
 
+    }
+
+    static void updateStatus(int eventID, String status){
+        String query = "UPDATE tbl_booking SET Status= '"+ status + "',EventID= null WHERE EventID = "+ eventID +";";
+
+        try {
+            Connect.updateData(query);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 }

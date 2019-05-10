@@ -1,3 +1,5 @@
+import javax.security.auth.RefreshFailedException;
+import javax.security.auth.Refreshable;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -56,10 +58,12 @@ public class HomePageView {
         Container c = new Container();
         c.setBounds(250,50,1000,550);
         c.setLayout(new CardLayout());
-        c.add("Search",new SearchEventsPanel());
+        JPanel search = new SearchEventsPanel();
+        JPanel pass = new ChangePasswordView();
+        c.add("Search",search);
         c.add("History",new BookingsHistoryView());
         c.add("MyAccount", new MyAccountView());
-        c.add("Password",new ChangePasswordView());
+        c.add("Password",pass);
         ((CardLayout)c.getLayout()).first(c);
         frame.add(c);
 
@@ -67,8 +71,12 @@ public class HomePageView {
         searchButton = new JButton("Search events");
         searchButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new HomePageView();
-                frame.setVisible(false);
+                ((CardLayout)c.getLayout()).show(c,"Search");
+
+                searchButton.setEnabled(false);
+                myAccountButton.setEnabled(true);
+                changePassButton.setEnabled(true);
+                bookingsButton.setEnabled(true);
             }
         });
         searchButton.setForeground(SystemColor.inactiveCaption);
@@ -85,7 +93,6 @@ public class HomePageView {
         myAccountButton = new JButton("My Account");
         myAccountButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-
         	    ((CardLayout)c.getLayout()).show(c,"MyAccount");
         	    searchButton.setEnabled(true);
         	    myAccountButton.setEnabled(false);
@@ -130,7 +137,12 @@ public class HomePageView {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                for (Component card : c.getComponents()){
+                    if (card instanceof BookingsHistoryView){
+                        new BookingHistoryController((BookingsHistoryView) card); }
+                }
                 ((CardLayout)c.getLayout()).show(c,"History");
+
                 searchButton.setEnabled(true);
                 myAccountButton.setEnabled(true);
                 changePassButton.setEnabled(true);
@@ -241,5 +253,6 @@ public class HomePageView {
         backgroundLabel.setIcon(new ImageIcon(HomePageView.class.getResource("Images/Silhouette-Rock-Concert-Wallpaper1.jpg")));
         backgroundLabel.setBounds(0, 0, 1280, 690);
         frame.getContentPane().add(backgroundLabel);
+
     }
 }

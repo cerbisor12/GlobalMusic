@@ -10,6 +10,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -178,7 +181,7 @@ public class EditEventView {
 	        comboBoxEventName.setBounds(605, 191, 159, 20);
 	        comboBoxEventName.setModel(new DefaultComboBoxModel(Event.getEventsList(User.getUserId(User.username)).toArray()));
 	        comboBoxEventName.setSelectedIndex(-1);
-	        comboBoxEventName.setEditable(false);
+	        //comboBoxEventName.setEditable(false);
 	        frame.getContentPane().add(comboBoxEventName);
 	        
 	        
@@ -255,45 +258,42 @@ public class EditEventView {
 	        lblUploadImage.setFont(new Font("Open Sans", Font.BOLD, 13));
 	        lblUploadImage.setBounds(878, 316, 99, 21);
 	        frame.getContentPane().add(lblUploadImage);
-	        
+
+            lblImgName = new JLabel("");
+            lblImgName.setBounds(987,335,159,20);
+            lblImgName.setForeground(SystemColor.inactiveCaption);
+            lblImgName.setFont(new Font("Open Sans",Font.PLAIN,14));
+            frame.getContentPane().add(lblImgName);
 	        
 	        JButton btnUploadButton = new JButton("");
 	        btnUploadButton.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					JFileChooser fileChooser = new JFileChooser();
-					fileChooser.setFileFilter(new FileNameExtensionFilter("JPG images","jpg"));
-					StringBuilder sb = new StringBuilder();
+                public void actionPerformed(ActionEvent arg0) {
+                    JFileChooser fileChooser = new JFileChooser();
+                    fileChooser.setFileFilter(new FileNameExtensionFilter("Images","jpg","png","jpeg"));
 
-					try {
-						if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
-							File file = fileChooser.getSelectedFile();
-							Scanner input = new Scanner(file);
-							
-							while (input.hasNext()) {
-								sb.append(input.nextLine());
-								sb.append("\n");
-							}
-							input.close();
-						}
-						else {
-							sb.append("No file selected.");
-						}
-					}catch(Exception e1) {
-						e1.printStackTrace();
-					}
-				}
-			});
+                    try {
+                        if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+                            File file = fileChooser.getSelectedFile();
+                            lblImgName.setText(file.getName());
+
+                            Files.copy(file.toPath(), Paths.get(System.getProperty("user.dir")+"/src/"+Main.EVENT_IMAGE_DIR+file.getName()),
+                                    java.nio.file.StandardCopyOption.REPLACE_EXISTING,
+                                    java.nio.file.StandardCopyOption.COPY_ATTRIBUTES,
+                                    java.nio.file.LinkOption.NOFOLLOW_LINKS );
+                        }else {
+                            if(lblImgName.getText().equals("")){
+                            lblImgName.setText("No file selected!");}
+                        }
+                    }catch(Exception e1) {
+                        e1.printStackTrace();
+                    }
+                }
+            });
 	        btnUploadButton.setBorderPainted(false);
 	        btnUploadButton.setIcon(new ImageIcon(LoginView.class.getResource("Images/UploadButton.jpg")));
 	        btnUploadButton.setBounds(987, 312, 159, 23);
 	        btnUploadButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	        frame.getContentPane().add(btnUploadButton);
-
-	        lblImgName = new JLabel("placeholder");
-	        lblImgName.setBounds(987,335,159,20);
-	        lblImgName.setForeground(SystemColor.inactiveCaption);
-	        lblImgName.setFont(new Font("Open Sans",Font.PLAIN,14));
-	        frame.getContentPane().add(lblImgName);
 
 
 			JLabel lblPerformers = new JLabel("Available Performers");
@@ -337,33 +337,60 @@ public class EditEventView {
 			performersAddedLabel.setForeground(SystemColor.inactiveCaption);
 			frame.getContentPane().add(performersAddedLabel);
 
-			JButton addPerformerToEvent = new JButton("Add to Event ->");
-			addPerformerToEvent.setEnabled(false);
-			addPerformerToEvent.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					String addedBand = (String) allPerformersList.getSelectedValue();
-					if(addedPerformersModel.contains(addedBand))
-						JOptionPane.showMessageDialog(null,"Band already added.");
-					else
-						addedPerformersModel.addElement(addedBand);
+            JButton addPerformerToEvent = new JButton("Add ->");
+            addPerformerToEvent.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    String addedBand = (String) allPerformersList.getSelectedValue();
+                    if(addedPerformersModel.contains(addedBand))
+                        JOptionPane.showMessageDialog(null,"Band already added.");
+                    else
+                        addedPerformersModel.addElement(addedBand);
+                    allPerformersModel.removeElement(addedBand);
+                }
+            });
+            addPerformerToEvent.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            addPerformerToEvent.setFont(new Font("Dialog", Font.PLAIN, 18));
+            addPerformerToEvent.setBounds(793, 447, 167, 25);
+            addPerformerToEvent.setContentAreaFilled(false);
+            addPerformerToEvent.setOpaque(false);
+            addPerformerToEvent.setBorderPainted(false);
+            addPerformerToEvent.setForeground(SystemColor.inactiveCaption);
+            frame.getContentPane().add(addPerformerToEvent);
 
-				}
-			});
-			addPerformerToEvent.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-			addPerformerToEvent.setFont(new Font("Dialog", Font.PLAIN, 18));
-			addPerformerToEvent.setBounds(793, 467, 167, 25);
-			addPerformerToEvent.setContentAreaFilled(false);
-			addPerformerToEvent.setOpaque(false);
-			addPerformerToEvent.setBorderPainted(false);
-			addPerformerToEvent.setForeground(SystemColor.inactiveCaption);
-			frame.getContentPane().add(addPerformerToEvent);
+            JButton removePerformerFromEvent = new JButton("<- Remove");
+            removePerformerFromEvent.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    String addedBand = (String) addedPerfList.getSelectedValue();
+                    if(allPerformersModel.contains(addedBand))
+                        JOptionPane.showMessageDialog(null,"Band already added.");
+                    else
+                        allPerformersModel.addElement(addedBand);
+                    addedPerformersModel.removeElement(addedBand);
 
-			JSeparator separator1 = new JSeparator();
-			separator1.setBackground(SystemColor.inactiveCaption);
-			separator1.setForeground(SystemColor.inactiveCaption);
-			separator1.setOpaque(true);
-			separator1.setBounds(805, 490, 140, 3);
-			frame.getContentPane().add(separator1);
+                }
+            });
+            removePerformerFromEvent.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            removePerformerFromEvent.setFont(new Font("Dialog", Font.PLAIN, 18));
+            removePerformerFromEvent.setBounds(793, 487, 167, 25);
+            removePerformerFromEvent.setContentAreaFilled(false);
+            removePerformerFromEvent.setOpaque(false);
+            removePerformerFromEvent.setBorderPainted(false);
+            removePerformerFromEvent.setForeground(SystemColor.inactiveCaption);
+            frame.getContentPane().add(removePerformerFromEvent);
+
+            JSeparator addSeperator = new JSeparator();
+            addSeperator.setBackground(SystemColor.inactiveCaption);
+            addSeperator.setForeground(SystemColor.inactiveCaption);
+            addSeperator.setOpaque(true);
+            addSeperator.setBounds(805, 470, 140, 3);
+            frame.getContentPane().add(addSeperator);
+
+            JSeparator removeSeperator = new JSeparator();
+            removeSeperator.setBackground(SystemColor.inactiveCaption);
+            removeSeperator.setForeground(SystemColor.inactiveCaption);
+            removeSeperator.setOpaque(true);
+            removeSeperator.setBounds(805, 510, 140, 3);
+            frame.getContentPane().add(removeSeperator);
 
 			JButton addNewPerfButton = new JButton("Add Performer");
 			addNewPerfButton.addActionListener(new ActionListener() {
@@ -421,6 +448,7 @@ public class EditEventView {
 	        btnCancel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	        btnCancel.setContentAreaFilled(false);
 	        btnCancel.setBorderPainted(false);
+	        btnCancel.setEnabled(false);
 	        frame.getContentPane().add(btnCancel);
 	        
 	        
@@ -456,17 +484,54 @@ public class EditEventView {
 					textDuration.setText(details.get(6));
 
 					ArrayList<String> bandsInEvent = Band.getEventBands(Integer.parseInt(details.get(0)));
+					addedPerformersModel.removeAllElements();
 					for(String band : bandsInEvent) {
 						addedPerformersModel.addElement(band); }
 					addedPerfList.setModel(addedPerformersModel);
 
 					comboBoxVenue.setEnabled(true);
 					btnSaveButton.setEnabled(true);
-					addNewPerfButton.setEnabled(true);
+					addPerformerToEvent.setEnabled(true);
+					btnCancel.setEnabled(true);
 
 				}
 			});
-	         
-	        
+
+			btnSaveButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent arg0) {
+                    int eventId = Event.getEventId(comboBoxEventName.getSelectedItem().toString());
+                    String eventName = comboBoxEventName.getSelectedItem().toString().replace("'", "''");
+                    float price = Float.parseFloat(textFieldPrice.getText());
+                    int venueID = Venue.getVenueId(comboBoxVenue.getSelectedItem().toString());
+                    String date = datePicker.getDate().toString();
+                    String image = lblImgName.getText();
+                    int duration = Integer.parseInt(textDuration.getText());
+                    Event.updateEventDetails(eventId, eventName, price, venueID, date, image, duration);
+                    for (int i = 0; i < addedPerfList.getModel().getSize(); i++) {
+                        String perfomerName = addedPerfList.getModel().getElementAt(i).toString().replace("'", "''");
+                        int bandID = Band.getPerfID(perfomerName);
+                        String query = "INSERT IGNORE INTO tbl_event_band VALUES(" + eventId + "," + bandID + ");";
+                        try {
+                            Connect.updateData(query);
+                        } catch (SQLException | ClassNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    JOptionPane.showMessageDialog(null,"Update successful!");
+                }
+            });
+
+	        btnCancel.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    int eventId = Event.getEventId(comboBoxEventName.getSelectedItem().toString());
+					Booking.updateStatus(eventId,"cancelled");
+                    Event.deleteEvent(eventId);
+                    frame.dispose();
+                    new EditEventView();
+
+
+                }
+            });
 	    }
 }

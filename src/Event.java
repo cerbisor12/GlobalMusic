@@ -128,4 +128,30 @@ public class Event {
         return ID;
 	}
 
+    static void updateEventDetails(int eventID, String eventName, float price, int venueID, String date, String image, int duration){
+
+        String query = "UPDATE tbl_event SET Name='"+ eventName +"', Price = "+ price +", VenueID = "+venueID+
+                ", DateOfEvent = '"+date+"', Image = '"+image+"', Duration = "+duration+" " +
+                "WHERE EventID = " + eventID + ";";
+        try {
+            Connect.updateData(query);
+        } catch (ClassNotFoundException | SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    static void deleteEvent(int eventID){
+        String query = "DELETE FROM tbl_event_band WHERE EventID  = " + eventID + ";";
+	    String query1 = "DELETE FROM tbl_event WHERE EventID = "+ eventID +";";
+
+        try {
+            Connect.updateData(query);
+            Connect.updateData(query1);
+        } catch (ClassNotFoundException | SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
 }
