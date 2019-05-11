@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b89e92a4-688d-4fc7-9b4b-7d8c1d6995f5" name="Default Changelist" comment="">
+    <list default="true" id="b89e92a4-688d-4fc7-9b4b-7d8c1d6995f5" name="Default Changelist" comment="EditEventView now works properly&#10;&#10;Added action listeners to update or delete event.&#10;Also added button to remove artist from event(does not work 100% yet)&#10;Fixed bookingHistory which was not refreshing after making a new booking, user had to log out and log in again to see it.">
       <change beforePath="$PROJECT_DIR$/.idea/libraries/LGoodDatePicker_10_3_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_15.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GlobalMusic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GlobalMusic.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Booking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BookingHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BookingHistoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EditEventView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditEventView.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,41 +21,68 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EditEventView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/notes">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+            <state relative-caret-position="181">
+              <caret line="515" column="33" selection-start-line="515" selection-start-column="33" selection-end-line="515" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/TestMail.java">
+        <entry file="file://$PROJECT_DIR$/src/ToDoList">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+            <state relative-caret-position="153">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-725">
+              <caret line="159" column="54" selection-start-line="159" selection-start-column="54" selection-end-line="159" selection-end-column="54" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#673#902#0" expanded="true" />
-                <element signature="e#901#902#0" expanded="true" />
+                <element signature="e#1773#1774#0" expanded="true" />
+                <element signature="e#1802#1803#0" expanded="true" />
+                <element signature="e#1839#1840#0" expanded="true" />
+                <element signature="e#1875#1876#0" expanded="true" />
+                <element signature="e#1927#1928#0" expanded="true" />
+                <element signature="e#1964#1965#0" expanded="true" />
+                <element signature="e#2072#2073#0" expanded="true" />
+                <element signature="e#2103#2104#0" expanded="true" />
+                <element signature="e#2151#2152#0" expanded="true" />
+                <element signature="e#2191#2192#0" expanded="true" />
+                <element signature="e#2223#2224#0" expanded="true" />
+                <element signature="e#2251#2252#0" expanded="true" />
+                <element signature="e#2293#2294#0" expanded="true" />
+                <element signature="e#2327#2328#0" expanded="true" />
+                <element signature="e#2362#2363#0" expanded="true" />
+                <element signature="e#2393#2394#0" expanded="true" />
+                <element signature="e#2441#2442#0" expanded="true" />
+                <element signature="e#2481#2482#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BookingHistoryController.java">
+        <entry file="file://$PROJECT_DIR$/src/BookingsHistoryView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="56" column="17" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
+            <state relative-caret-position="351">
+              <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SendMail.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="44" column="87" selection-start-line="44" selection-start-column="87" selection-end-line="44" selection-end-column="87" />
               <folding>
-                <element signature="e#3553#4576#0" expanded="true" />
-                <element signature="e#4575#4576#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#673#902#0" expanded="true" />
+                <element signature="e#901#902#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,8 +100,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Booking.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="36" column="80" selection-start-line="36" selection-start-column="80" selection-end-line="36" selection-end-column="80" />
+            <state relative-caret-position="255">
+              <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BookingHistoryController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-532">
+              <caret line="56" column="17" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -115,11 +155,13 @@
         <option value="$PROJECT_DIR$/src/BandDetailsPanel.java" />
         <option value="$PROJECT_DIR$/src/MyAccountView.java" />
         <option value="$PROJECT_DIR$/src/SearchEventsPanel.java" />
-        <option value="$PROJECT_DIR$/src/Booking.java" />
-        <option value="$PROJECT_DIR$/src/EditEventView.java" />
         <option value="$PROJECT_DIR$/src/BookingHistoryController.java" />
-        <option value="$PROJECT_DIR$/src/notes" />
         <option value="$PROJECT_DIR$/src/TestMail.java" />
+        <option value="$PROJECT_DIR$/src/Booking.java" />
+        <option value="$PROJECT_DIR$/src/SendMail.java" />
+        <option value="$PROJECT_DIR$/src/EditEventView.java" />
+        <option value="$PROJECT_DIR$/src/notes" />
+        <option value="$PROJECT_DIR$/src/ToDoList" />
       </list>
     </option>
   </component>
@@ -151,6 +193,22 @@
             <path>
               <item name="GlobalMusic" type="b2602c69:ProjectViewProjectNode" />
               <item name="GlobalMusic" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GlobalMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GlobalMusic" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+              <item name="libraries" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GlobalMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GlobalMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="Libraries" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GlobalMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GlobalMusic" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -171,7 +229,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557608574213" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557614642236" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Libraries/LGoodDatePicker-10.4.1.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -195,7 +253,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestMail">
+  <component name="RunManager" selected="Application.LoginView">
     <configuration name="CreditCardIconsPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CreditCardIconsPanel" />
       <module name="GlobalMusic" />
@@ -205,6 +263,13 @@
     </configuration>
     <configuration name="EditEventView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="EditEventView" />
+      <module name="GlobalMusic" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LoginView" />
       <module name="GlobalMusic" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -220,8 +285,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestMail" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TestMail" />
+    <configuration name="SendMail" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SendMail" />
       <module name="GlobalMusic" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -229,8 +294,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TestMail" />
+        <item itemvalue="Application.LoginView" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.SendMail" />
         <item itemvalue="Application.EditEventView" />
         <item itemvalue="Application.CreditCardIconsPanel" />
       </list>
@@ -289,11 +355,19 @@
       <option name="project" value="LOCAL" />
       <updated>1557526265072</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added folder with all used Libraries">
+      <created>1557608688498</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1557608688498</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -370,7 +444,8 @@
     <MESSAGE value="MyAccount View Updated&#10;&#10;Made class for the credit card Icons, it's reusable as fuck now :D&#10;MyAccount checks if all necessary fields are filled now and added some invalid value lbls as well.&#10;&#10;Missing the email checker and it's done" />
     <MESSAGE value="Edit/Cancel Event started:&#10;&#10;Edited the layout, added events on combobox and textfields are filled with details. Missing action listeners for save (update) and cancel (delete) event." />
     <MESSAGE value="EditEventView now works properly&#10;&#10;Added action listeners to update or delete event.&#10;Also added button to remove artist from event(does not work 100% yet)&#10;Fixed bookingHistory which was not refreshing after making a new booking, user had to log out and log in again to see it." />
-    <option name="LAST_COMMIT_MESSAGE" value="EditEventView now works properly&#10;&#10;Added action listeners to update or delete event.&#10;Also added button to remove artist from event(does not work 100% yet)&#10;Fixed bookingHistory which was not refreshing after making a new booking, user had to log out and log in again to see it." />
+    <MESSAGE value="Added folder with all used Libraries" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added folder with all used Libraries" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -426,33 +501,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="159" column="54" selection-start-line="159" selection-start-column="54" selection-end-line="159" selection-end-column="54" />
-          <folding>
-            <element signature="e#1773#1774#0" expanded="true" />
-            <element signature="e#1802#1803#0" expanded="true" />
-            <element signature="e#1839#1840#0" expanded="true" />
-            <element signature="e#1875#1876#0" expanded="true" />
-            <element signature="e#1927#1928#0" expanded="true" />
-            <element signature="e#1964#1965#0" expanded="true" />
-            <element signature="e#2072#2073#0" expanded="true" />
-            <element signature="e#2103#2104#0" expanded="true" />
-            <element signature="e#2151#2152#0" expanded="true" />
-            <element signature="e#2191#2192#0" expanded="true" />
-            <element signature="e#2223#2224#0" expanded="true" />
-            <element signature="e#2251#2252#0" expanded="true" />
-            <element signature="e#2293#2294#0" expanded="true" />
-            <element signature="e#2327#2328#0" expanded="true" />
-            <element signature="e#2362#2363#0" expanded="true" />
-            <element signature="e#2393#2394#0" expanded="true" />
-            <element signature="e#2441#2442#0" expanded="true" />
-            <element signature="e#2481#2482#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -547,13 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BookingsHistoryView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Event.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="409">
@@ -568,45 +609,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-725">
+          <caret line="159" column="54" selection-start-line="159" selection-start-column="54" selection-end-line="159" selection-end-column="54" />
+          <folding>
+            <element signature="e#1773#1774#0" expanded="true" />
+            <element signature="e#1802#1803#0" expanded="true" />
+            <element signature="e#1839#1840#0" expanded="true" />
+            <element signature="e#1875#1876#0" expanded="true" />
+            <element signature="e#1927#1928#0" expanded="true" />
+            <element signature="e#1964#1965#0" expanded="true" />
+            <element signature="e#2072#2073#0" expanded="true" />
+            <element signature="e#2103#2104#0" expanded="true" />
+            <element signature="e#2151#2152#0" expanded="true" />
+            <element signature="e#2191#2192#0" expanded="true" />
+            <element signature="e#2223#2224#0" expanded="true" />
+            <element signature="e#2251#2252#0" expanded="true" />
+            <element signature="e#2293#2294#0" expanded="true" />
+            <element signature="e#2327#2328#0" expanded="true" />
+            <element signature="e#2362#2363#0" expanded="true" />
+            <element signature="e#2393#2394#0" expanded="true" />
+            <element signature="e#2441#2442#0" expanded="true" />
+            <element signature="e#2481#2482#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BookingsHistoryView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Booking.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="36" column="80" selection-start-line="36" selection-start-column="80" selection-end-line="36" selection-end-column="80" />
+        <state relative-caret-position="255">
+          <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BookingHistoryController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
+        <state relative-caret-position="-532">
           <caret line="56" column="17" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
-          <folding>
-            <element signature="e#3553#4576#0" expanded="true" />
-            <element signature="e#4575#4576#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/notes">
+    <entry file="file://$PROJECT_DIR$/src/SendMail.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EditEventView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestMail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+        <state relative-caret-position="195">
+          <caret line="44" column="87" selection-start-line="44" selection-start-column="87" selection-end-line="44" selection-end-column="87" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#673#902#0" expanded="true" />
             <element signature="e#901#902#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EditEventView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="515" column="33" selection-start-line="515" selection-start-column="33" selection-end-line="515" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ToDoList">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>

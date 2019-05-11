@@ -1,4 +1,9 @@
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 
 public class Booking {
 
@@ -41,6 +46,27 @@ public class Booking {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    static List<List<String>> getCustomerInfo(int eventID){
+        String query = "SELECT U.LName, U.Title, U.Email FROM tbl_user U, tbl_booking B WHERE B.EventID = " +eventID +
+                " AND B.CustomerID = U.UserID;";
+        List<List<String>> customerInfo = new ArrayList<>();
+
+        try{
+            ResultSet rs = Connect.selectStm(query);
+
+            while(rs.next()){
+                String email = rs.getString("Email");
+                String title = rs.getString("Title");
+                String lName = rs.getString("LName");
+                List<String> cust = Arrays.asList(new String[]{email,title,lName});
+                customerInfo.add(cust);
+            }
+        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+
+        return customerInfo;
+
     }
 
 }

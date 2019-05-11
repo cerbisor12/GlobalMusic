@@ -52,7 +52,9 @@ public class BookingHistoryController{
     }
 
     private List<List<Object>> getBookings(){
-        String query = "SELECT B.BookingNo,B.DateOFBooking 'Date', B.NoOfSeats 'Tickets',B.Paid, B.TotalPrice 'Total', B.Status, IFNULL(E.Name,'-') 'Event' FROM tbl_booking B LEFT JOIN tbl_event E ON E.EventID = B.EventID WHERE CustomerID= "+User.getUserId(User.username)+";";
+        String query = "SELECT B.BookingNo,B.DateOFBooking 'Date' , IFNULL(E.Name,'-') 'Event', B.NoOfSeats 'Tickets'," +
+                " B.TotalPrice 'Total (£)',B.Paid, B.Status FROM tbl_booking B " +
+                "LEFT JOIN tbl_event E ON E.EventID = B.EventID WHERE CustomerID= "+User.getUserId(User.username)+";";
         List<List<Object>> bookingData= new ArrayList<>();
 
         try{
@@ -77,7 +79,7 @@ public class BookingHistoryController{
                 if(rs.getInt("Paid")==1){ paid = "\u2611"; }
                 else{ paid = "\u2612"; }
 
-                float total = rs.getFloat("Total");
+                float total = rs.getFloat("Total (£)");
                 String status = rs.getString("Status");
 
                 List<Object> booking = Arrays.asList(new Object[]{bookingNo,date,event,tickets,total,paid,status});
@@ -90,18 +92,6 @@ public class BookingHistoryController{
         return bookingData;
     }
 
-    public static void setCellsAlignment(JTable table, int alignment)
-    {
-        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
-        rightRenderer.setHorizontalAlignment(alignment);
-
-        TableModel tableModel = table.getModel();
-
-        for (int columnIndex = 0; columnIndex < tableModel.getColumnCount(); columnIndex++)
-        {
-            table.getColumnModel().getColumn(columnIndex).setCellRenderer(rightRenderer);
-        }
-    }
 
     private void getNewRenderedTable(JTable table) {
             table.setDefaultRenderer(Object.class,new DefaultTableCellRenderer(){
@@ -115,14 +105,11 @@ public class BookingHistoryController{
                 renderer.setHorizontalAlignment(SwingConstants.CENTER);
 
                 renderer.setText(value.toString());
-                if ("pending".equalsIgnoreCase(status)) {
-                    //System.out.println("HELLOOOO");
+                if ("cancelled".equalsIgnoreCase(status)) {
                     setBackground(Color.PINK);
-                } else {
-                    //System.out.println("BYEEEEE");
-                    setBackground(table.getBackground());
-                    setForeground(table.getForeground());
-                }
+                } else if("confirmed".equalsIgnoreCase(status)) {
+                    setBackground(new Color(164, 247, 37));
+                } else {setBackground(table.getBackground());}
                 return this;
             }
         });

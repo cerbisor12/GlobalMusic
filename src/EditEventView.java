@@ -9,6 +9,7 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.print.Book;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -18,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
@@ -508,9 +510,10 @@ public class EditEventView {
                     int duration = Integer.parseInt(textDuration.getText());
                     Event.updateEventDetails(eventId, eventName, price, venueID, date, image, duration);
                     for (int i = 0; i < addedPerfList.getModel().getSize(); i++) {
-                        String perfomerName = addedPerfList.getModel().getElementAt(i).toString().replace("'", "''");
-                        int bandID = Band.getPerfID(perfomerName);
-                        String query = "INSERT IGNORE INTO tbl_event_band VALUES(" + eventId + "," + bandID + ");";
+                        String performerName = addedPerfList.getModel().getElementAt(i).toString().replace("'", "''");
+                        int bandID = Band.getPerfID(performerName);
+                        String query = "DELETE FROM tbl_event_band WHERE EventID = "+ eventId+ "; " +
+                                "INSERT IGNORE INTO tbl_event_band VALUES(" + eventId + "," + bandID + ");";
                         try {
                             Connect.updateData(query);
                         } catch (SQLException | ClassNotFoundException e) {
@@ -525,6 +528,15 @@ public class EditEventView {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     int eventId = Event.getEventId(comboBoxEventName.getSelectedItem().toString());
+                    List<List<String>> customerInfo = Booking.getCustomerInfo(eventId);
+
+                    for (List cust : customerInfo){
+                        String email = cust.get(0).toString();
+                        String title = cust.get(1).toString();
+                        String lName = cust.get(2).toString();
+                        new SendMail(title,lName).sendCancellationMail(email);
+                    }
+
 					Booking.updateStatus(eventId,"cancelled");
                     Event.deleteEvent(eventId);
                     frame.dispose();
