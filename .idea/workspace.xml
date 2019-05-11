@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b89e92a4-688d-4fc7-9b4b-7d8c1d6995f5" name="Default Changelist" comment="Edit/Cancel Event started:&#10;&#10;Edited the layout, added events on combobox and textfields are filled with details. Missing action listeners for save (update) and cancel (delete) event.">
+    <list default="true" id="b89e92a4-688d-4fc7-9b4b-7d8c1d6995f5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/LGoodDatePicker_10_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_15.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GlobalMusic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GlobalMusic.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BookingHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BookingHistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BookingsHistoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BookingsHistoryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChangePasswordView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChangePasswordView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EditEventView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditEventView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventOrganizerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventOrganizerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomePageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomePageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyAccountView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyAccountView.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,11 +17,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EditEventView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="529" column="36" selection-start-line="529" selection-start-column="36" selection-end-line="529" selection-end-column="36" />
+            <state relative-caret-position="-7" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/notes">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/TestMail.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#673#902#0" expanded="true" />
+                <element signature="e#901#902#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BookingHistoryController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7">
+              <caret line="56" column="17" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
+              <folding>
+                <element signature="e#3553#4576#0" expanded="true" />
+                <element signature="e#4575#4576#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -34,7 +63,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FrameTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
+            <state>
               <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
             </state>
           </provider>
@@ -43,7 +72,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Booking.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
+            <state>
               <caret line="36" column="80" selection-start-line="36" selection-start-column="80" selection-end-line="36" selection-end-column="80" />
             </state>
           </provider>
@@ -81,7 +110,6 @@
         <option value="$PROJECT_DIR$/src/Event.java" />
         <option value="$PROJECT_DIR$/src/EventOrganizerView.java" />
         <option value="$PROJECT_DIR$/src/BookingsHistoryView.java" />
-        <option value="$PROJECT_DIR$/src/BookingHistoryController.java" />
         <option value="$PROJECT_DIR$/src/HomePageView.java" />
         <option value="$PROJECT_DIR$/src/ChangePasswordView.java" />
         <option value="$PROJECT_DIR$/src/BandDetailsPanel.java" />
@@ -89,6 +117,9 @@
         <option value="$PROJECT_DIR$/src/SearchEventsPanel.java" />
         <option value="$PROJECT_DIR$/src/Booking.java" />
         <option value="$PROJECT_DIR$/src/EditEventView.java" />
+        <option value="$PROJECT_DIR$/src/BookingHistoryController.java" />
+        <option value="$PROJECT_DIR$/src/notes" />
+        <option value="$PROJECT_DIR$/src/TestMail.java" />
       </list>
     </option>
   </component>
@@ -124,6 +155,12 @@
             </path>
             <path>
               <item name="GlobalMusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GlobalMusic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GlobalMusic" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -134,11 +171,12 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557526092143" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/creditcard-validator-master/app/src" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557608574213" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Libraries/LGoodDatePicker-10.4.1.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propGUI" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -157,7 +195,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.TestMail">
     <configuration name="CreditCardIconsPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CreditCardIconsPanel" />
       <module name="GlobalMusic" />
@@ -182,8 +220,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestMail" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestMail" />
+      <module name="GlobalMusic" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestMail" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.EditEventView" />
         <item itemvalue="Application.CreditCardIconsPanel" />
@@ -236,14 +282,20 @@
       <option name="project" value="LOCAL" />
       <updated>1557330801084</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="EditEventView now works properly&#10;&#10;Added action listeners to update or delete event.&#10;Also added button to remove artist from event(does not work 100% yet)&#10;Fixed bookingHistory which was not refreshing after making a new booking, user had to log out and log in again to see it.">
+      <created>1557526265072</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1557526265072</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25718608" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -253,6 +305,35 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49924356" weight="0.3289689" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.9039334" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49621785" weight="0.3289689" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.096066564" side_tool="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49924356" weight="0.3289689" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3289689" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="11" weight="0.3289689" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven" order="7" weight="0.32980332" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49924356" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.9039334" weight="0.3289689" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -270,34 +351,6 @@
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven" order="7" weight="0.32980332" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25340393" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3289689" />
-      <window_info anchor="bottom" id="Messages" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -316,7 +369,8 @@
     <MESSAGE value="Made Paths for Icons Relative and improved the code a bit" />
     <MESSAGE value="MyAccount View Updated&#10;&#10;Made class for the credit card Icons, it's reusable as fuck now :D&#10;MyAccount checks if all necessary fields are filled now and added some invalid value lbls as well.&#10;&#10;Missing the email checker and it's done" />
     <MESSAGE value="Edit/Cancel Event started:&#10;&#10;Edited the layout, added events on combobox and textfields are filled with details. Missing action listeners for save (update) and cancel (delete) event." />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit/Cancel Event started:&#10;&#10;Edited the layout, added events on combobox and textfields are filled with details. Missing action listeners for save (update) and cancel (delete) event." />
+    <MESSAGE value="EditEventView now works properly&#10;&#10;Added action listeners to update or delete event.&#10;Also added button to remove artist from event(does not work 100% yet)&#10;Fixed bookingHistory which was not refreshing after making a new booking, user had to log out and log in again to see it." />
+    <option name="LAST_COMMIT_MESSAGE" value="EditEventView now works properly&#10;&#10;Added action listeners to update or delete event.&#10;Also added button to remove artist from event(does not work 100% yet)&#10;Fixed bookingHistory which was not refreshing after making a new booking, user had to log out and log in again to see it." />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -458,13 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BookingHistoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540">
-          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SearchEventsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -514,24 +561,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrameTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Booking.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
+        <state>
           <caret line="36" column="80" selection-start-line="36" selection-start-column="80" selection-end-line="36" selection-end-column="80" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrameTest.java">
+    <entry file="file://$PROJECT_DIR$/src/BookingHistoryController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="-7">
+          <caret line="56" column="17" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
+          <folding>
+            <element signature="e#3553#4576#0" expanded="true" />
+            <element signature="e#4575#4576#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/notes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EditEventView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="529" column="36" selection-start-line="529" selection-start-column="36" selection-end-line="529" selection-end-column="36" />
+        <state relative-caret-position="-7" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestMail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#673#902#0" expanded="true" />
+            <element signature="e#901#902#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -599,7 +674,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>LGoodDatePicker-10.3.1</last-edited>
+          <last-edited>activation</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
