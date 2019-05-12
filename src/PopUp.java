@@ -26,9 +26,17 @@ import javax.swing.JComboBox;
 
 import javax.swing.*;
 
+/**
+ * This class is for the admin, it gives him the option to edit users accounts.
+ * The pop up inherits from the MyAccountView class.
+ * @author Rhadoo
+ *
+ */
 public class PopUp extends JFrame {
 	
-	
+	/**
+	 * This constructs the pop up for the admin edit accounts option.
+	 */
 	public PopUp() {
         getContentPane().setForeground(new Color(128, 128, 128));
         setResizable(false);

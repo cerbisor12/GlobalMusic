@@ -14,6 +14,11 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.util.ArrayList;
 
+/**
+ * This class is for adding venues by the concert organizer.
+ * @author Rhadoo
+ *
+ */
 public class NewVenueView {
 
 	private JFrame frame;
@@ -125,6 +130,9 @@ public class NewVenueView {
 		numberFormatLabel.setVisible(false);
 		frame.getContentPane().add(numberFormatLabel);
 		
+		/**
+		 * This method checks if the value od the capacity is an integer.
+		 */
 		capacityTxtField = new JTextField();
 		capacityTxtField.addFocusListener(new FocusAdapter() {
 			@Override
@@ -144,6 +152,9 @@ public class NewVenueView {
 		frame.getContentPane().add(capacityTxtField);
 		capacityTxtField.setColumns(10);
 		
+		/**
+		 * This method checks if all the fields with the venue details are complete.
+		 */
 		JButton addButton = new JButton("Add venue");
 		addButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

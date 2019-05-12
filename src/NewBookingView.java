@@ -14,6 +14,12 @@ import java.util.Arrays;
 import java.util.Date;
 import javax.swing.*;
 
+/**
+ *This class is for users to book concert tickets.  
+ * @author Rhadoo
+ *
+ */
+
 public class NewBookingView {
 
     int availableTickets;
@@ -211,13 +217,16 @@ public class NewBookingView {
         comboBoxStudentPrice.setBackground(SystemColor.activeCaption);
         comboBoxStudentPrice.setBounds(773, 427, 84, 20);
         frame.getContentPane().add(comboBoxStudentPrice);
-
+        
+        
         JComboBox<Integer> comboBoxCorporatePrice = new JComboBox<Integer>(intList);
         comboBoxCorporatePrice.setBackground(SystemColor.activeCaption);
         comboBoxCorporatePrice.setBounds(773, 495, 84, 20);
         //frame.getContentPane().add(comboBoxCorporatePrice);
 
-
+        /**
+         * This method takes the values from the comboboxes and updates the number of tickets and total price.
+         */
         ActionListener updateTotal = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -304,10 +313,6 @@ public class NewBookingView {
 
 
         btnProceedToBooking = new JButton("Proceed To Booking");
-        btnProceedToBooking.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-            }
-        });
         btnProceedToBooking.setBounds(715, 615, 250, 23);
         btnProceedToBooking.setForeground(SystemColor.inactiveCaption);
         btnProceedToBooking.setFont(new Font("Open Sans", Font.PLAIN, 20));
@@ -317,6 +322,12 @@ public class NewBookingView {
         btnProceedToBooking.setContentAreaFilled(false);
         btnProceedToBooking.setEnabled(false);
         btnProceedToBooking.addActionListener(new ActionListener() {
+        	/**
+        	 * This method checks if the payment is made on booking or
+        	 * on a monthly invoice in case the user is corporate,
+        	 * it gives a pop up window with the booking details to 
+        	 * double check if the user had done the booking correctly.
+        	 */
             @Override
             public void actionPerformed(ActionEvent e) {
                 String bookingNo = User.username + String.valueOf(new Timestamp(System.currentTimeMillis()).getTime());

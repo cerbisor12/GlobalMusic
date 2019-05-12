@@ -9,11 +9,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 
+
+/**
+ * This class creates a panel that includes all the events in the event list.
+ * @author Rhadoo
+ *
+ */
 public class SearchEventsPanel extends JPanel {
 
     JTextField searchTxtField;
 
-
+    /**
+     * This is the constructor of the panel with the following details.
+     */
     public SearchEventsPanel(){
         this.setBounds(250,50,1000,550);
         this.setOpaque(false);
@@ -48,7 +56,10 @@ public class SearchEventsPanel extends JPanel {
         scrollPane.setBackground(Color.BLACK);
         this.add(scrollPane);
         scrollPane.setViewportView(new ResultPanel());
-
+        
+        /**
+         * This method searches for events by a specified name and displays them in the events panel.
+         */
         JButton searchButton1 = new JButton("");
         searchButton1.setBorderPainted(false);
         searchButton1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -60,7 +71,10 @@ public class SearchEventsPanel extends JPanel {
         });
         searchButton1.setBounds(802, 22, 30, 30);
         this.add(searchButton1);
-
+        
+        /**
+         * This method searches for events by a specified date and displays them in the events panel.
+         */
         JButton searchButton2 = new JButton("");
         searchButton2.setBorderPainted(false);
         searchButton2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

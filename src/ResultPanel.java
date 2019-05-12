@@ -16,11 +16,20 @@ import java.util.Date;
 import java.util.List;
 
 @SuppressWarnings("serial")
+
+/**
+ * This class displays the events in a result panel.
+ * @author Rhadoo
+ *
+ */
 public class ResultPanel extends JPanel{
     private JPanel panel;
     private JLabel nameLabel, dateLabel, imageLabel, bandsLabel, priceLabel,noResults;
     private JTextArea venueLabel;
 
+    /**
+     * This constructs the result panel.
+     */
     public ResultPanel(){
     	//////////////////////////////////////
     	//for UPCOMING RESULTS
@@ -41,6 +50,11 @@ public class ResultPanel extends JPanel{
 
     }
     
+    /**
+     * This constructs the result panel according to the specified search criteria 
+     * entered by the user
+     * @param searchCriteria input serch criteria
+     */
     public ResultPanel(String searchCriteria) {
     	this.setBackground(Color.black);
     	this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -54,6 +68,10 @@ public class ResultPanel extends JPanel{
     	createPanels(query);
     }
     
+    /**
+     * This constructs the search panel according to the date the user has input.
+     * @param datePicker selected date by the user
+     */
     public ResultPanel(DatePicker datePicker) {
     	this.setBackground(Color.black);
     	this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -67,7 +85,12 @@ public class ResultPanel extends JPanel{
     	
     	createPanels(query);
     }
-
+    
+    /**
+     * This method returns all the events from the database.
+     * @param query the mysql query
+     * @return resulted events
+     */
     private List<List<String>> getResults(String query){
         ResultSet rs = null;
         List<List<String>> results = new ArrayList<>();
@@ -100,7 +123,7 @@ public class ResultPanel extends JPanel{
 
         }
         catch (NullPointerException f){
-            System.out.println("fuck off"+f.getStackTrace()[0]);f.getStackTrace();
+            System.out.println("error"+f.getStackTrace()[0]);f.getStackTrace();
         }
         catch (SQLException e){
         	e.printStackTrace();
@@ -111,7 +134,10 @@ public class ResultPanel extends JPanel{
         return results;
     }
 
-    
+    /**
+     * This method puts each event into a panel.
+     * @param query the mysql query
+     */
     private void createPanels(String query){
         List<List<String>> results = getResults(query);
         System.out.println(results);

@@ -3,16 +3,45 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * This class creates, adds to database, checks login and erases users.
+ * @author Rhadoo
+ *
+ */
+
 public class User {
     private int userID, cardCVV;
     private long cardNo;
     private String title, fName, lName, address1, address2, town, postcode, password;
     static String username; 
     private String email, phoneNo, orgName, webAddress, orgEmail, paymentMethod, userType;
-
+    
+    /**
+     * Empty constructor
+     */
     public User() {
     }
 
+    /**
+     * This constructs a user with the specified parameters.
+     * @param cardNo the card number                    
+     * @param cardCVV credit card security code
+     * @param title the user gender                     
+     * @param fName the users first name
+     * @param lName the users last name                 
+     * @param address1 the users address
+     * @param address2 the users second address         
+     * @param town the users town
+     * @param postcode the users post code              
+     * @param username the users login username
+     * @param password the users password               
+     * @param email the users email address
+     * @param phoneNo the users phone number            
+     * @param orgName the organization name
+     * @param webAddres the organization web address    
+     * @param orgEmail the organization email
+     * @param paymentMethod the payment method
+     */
     public User(long cardNo, int cardCVV, String title, String fName, String lName, String address1,
                 String address2, String town, String postcode, String username, String password, String email,
                 String phoneNo, String orgName, String webAddress, String orgEmail, String paymentMethod) {
@@ -49,15 +78,27 @@ public class User {
         if (RegisterView.checkType == true)
         	this.userType = "organization";
     }
-
+    
+    /**
+     * This method returns the users ID.
+     * @return userID
+     */
     public int getID() {
         return userID;
     }
-
+    
+    /**
+     * This methos sets the users ID.
+     * @param userID
+     */
     public void setID(int userID) {
         this.userID = userID;
     }
     
+    /**
+     * This method sets the users username.
+     * @param username
+     */
     public void setUsername(String username) {
     	User.username = username;
     }
@@ -66,31 +107,57 @@ public class User {
 //        return username;
 //    }
 
-
+    /**
+     * This method returns the users password.
+     * @return password
+     */
     public String getPassword() {
         return password;
     }
-
+    
+    /**
+     * This method sets the users password.
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
-
+    
+    /**
+     * This method returns the users email address.
+     * @return email
+     */
     public String getEmail() {
         return email;
     }
-
+    
+    /**
+     * This method sets the users email address.
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * This method returns the user type.
+     * @return userType
+     */
     public String getUserType() {
         return userType;
     }
-
+    
+    /**
+     * This method sets the user type
+     * @param userType
+     */
     public void setUserType(String userType) {
         this.userType = userType;
     }
-
+    
+    /**
+     * This method inserts users details into the database.
+     */
     public void insertCustomerData() {
         String query = "";
             query = "INSERT INTO tbl_user(UserID,Title,Fname,LNAme,Address1,Address2,Town,PostCode,Username,Pass,Email" +
@@ -109,7 +176,13 @@ public class User {
             System.out.println(k.getMessage());
         }
     }
-
+    
+    /**
+     * This method checks if the attribute exists in the specified field in the database.
+     * @param field table column
+     * @param attribute actual data in the column
+     * @return results
+     */
     public boolean checkFieldInDB(String field, String attribute) {
         String query = "SELECT * FROM tbl_user WHERE " + field + "='" + attribute + "';";
         try {
@@ -124,7 +197,11 @@ public class User {
         }
         return false;
     }
-
+    
+    /**
+     * This method checks if the input made by the user exists in the database. 
+     * @return true or false depending on the users input
+     */
     public boolean loginCheck() {
         String query = "SELECT * FROM tbl_user WHERE Username='" + User.username + "' AND Pass='" + this.password + "';";
         try {
@@ -139,7 +216,11 @@ public class User {
         }
         return false;
     }
-
+    
+    /**
+     * This method deletes a user from the database with the specified user ID.
+     * @param userID the users ID
+     */
     public static void deleteUser(int userID) {
         String query = "DELETE FROM tbl_user WHERE ID='" + userID + "';";
         try {
@@ -151,6 +232,25 @@ public class User {
         }
     }
     
+    /**
+     * This method gives the option to edit user details
+     * @param username the users username
+     * @param title the users gender
+     * @param firstName the users first name
+     * @param lastName the users last name
+     * @param addressOne the users address
+     * @param addressTwo the users second address
+     * @param town the users town
+     * @param postcode the users post code
+     * @param email the users email address
+     * @param phoneNumber the users phone number
+     * @param cardNumber the users card number
+     * @param cvv the users security card number
+     * @param orgName the organization name
+     * @param orgEmail the organization email
+     * @param webAddress the organization web address
+     * @param paymentMethod the payment method
+     */
     static void updateDetails(String username,String title, String firstName, String lastName, String addressOne, String addressTwo, String town, String postcode,
     		String email, String phoneNumber, long cardNumber, int cvv, String orgName, String orgEmail, String webAddress, String paymentMethod) {
     	
@@ -165,7 +265,10 @@ public class User {
 			e.printStackTrace();
 		}
     }
-
+    /**
+     * This method returns a list of all the users that are registered from the database.
+     * @return finalUsers list
+     */
     public static String[] userList() {
         String query = "SELECT Username FROM tbl_user;";
         ArrayList<String> users = new ArrayList<>();
@@ -184,7 +287,13 @@ public class User {
     	String[] finalUsers = Arrays.copyOf(objDetails,objDetails.length,String[].class);
         return finalUsers;
     }
-
+    
+    /**
+     * This method returns a specified data from the users details.
+     * @param username the actual username
+     * @param field the actual field from where the data will be returned
+     * @return the specified field data
+     */
     public static String getData(String username, String field) {
         String query = "SELECT "+ field+" FROM tbl_user WHERE Username='" + username + "';";
         String data = "";
@@ -200,7 +309,11 @@ public class User {
         return data;
     }
 
-    
+    /**
+     * This method allows a user to change his password.
+     * @param newPass the new users password
+     * @param username the actual user that is changing password
+     */
     static void updatePass(String newPass, String username) {
     	String query = "UPDATE tbl_user SET Pass='" + newPass + "' WHERE Username='" + username + "'"; 
 
@@ -212,6 +325,11 @@ public class User {
 		}
     }
     
+    /**
+     * This method returns all the details of a specified username.
+     * @param username the users username
+     * @return users details
+     */
     public static ArrayList<String> detailsList(String username) {
     	String query = "SELECT * FROM `tbl_user` WHERE Username = '" + username + "';";
     	ArrayList<String> details = new ArrayList<String>();
@@ -251,6 +369,11 @@ public class User {
     	return details;
     }
     
+    /**
+     * This method returns a users ID according to the specified username. 
+     * @param username the users username
+     * @return users ID
+     */
     static int getUserId(String username) {
     	String query = "SELECT * FROM tbl_user WHERE Username = '" + username + "';";
     	int ID = 0;

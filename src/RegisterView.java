@@ -4,6 +4,12 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
+
+/**
+ * This class is for registering the users.
+ * @author Rhadoo
+ *
+ */
 public class RegisterView {
     private JFrame frame;
     private JTextField firstNameField;
@@ -299,7 +305,9 @@ public class RegisterView {
         frame.getContentPane().add(lblEmail);
         lblEmail.setVisible(true);
 
-
+        /**
+         * This method checks if the email address already exists in the database.
+         */
         emailField = new JTextField();
         emailField.setBackground(SystemColor.activeCaption);
         emailField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
@@ -348,7 +356,9 @@ public class RegisterView {
         frame.getContentPane().add(lblUsername);
         lblUsername.setVisible(true);
 
-
+        /**
+         * This method checks if the username already exists in the database.
+         */
         usernameField = new JTextField();
         usernameField.setBackground(SystemColor.activeCaption);
         usernameField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
@@ -379,7 +389,9 @@ public class RegisterView {
         frame.getContentPane().add(lblPassword);
         lblPassword.setVisible(true);
 
-
+        /**
+         * This method checks if the password meets the input requirements.
+         */
         passwordField = new JTextField();
         passwordField.setBackground(SystemColor.activeCaption);
         passwordField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
@@ -408,7 +420,9 @@ public class RegisterView {
         frame.getContentPane().add(lblConfirmPassword);
         lblConfirmPassword.setVisible(true);
 
-
+        /**
+         * This method makes sure that the users inputs is the same as in the password field.
+         */
         confirmPasswordField = new JTextField();
         confirmPasswordField.setBackground(SystemColor.activeCaption);
         confirmPasswordField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
@@ -510,7 +524,9 @@ public class RegisterView {
         frame.getContentPane().add(paymentComboBox);
         paymentComboBox.setVisible(false);
 
-
+        /**
+         * This method checks if the user entered a valid card number.
+         */
         cardIconPanel = new CreditCardIconsPanel(119,543);
         frame.add(cardIconPanel);
 
@@ -537,7 +553,9 @@ public class RegisterView {
             }
         });
 
-
+        /**
+         * This method checks if the CVV code is a 3 number digit.
+         */
         CVVField = new JTextField();
         CVVField.setBackground(SystemColor.activeCaption);
         CVVField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
@@ -610,7 +628,10 @@ public class RegisterView {
         chckbxNewCheckBox_1.setVisible(true);
 
 
-
+        /**
+         * This method adds the user details into the database, and checks if
+         * the user is an organization or normal user.
+         */
         JButton btnRegisterButton = new JButton("Register");
         btnRegisterButton.setForeground(SystemColor.inactiveCaption);
         btnRegisterButton.setFont(new Font("Open Sans", Font.PLAIN, 20));

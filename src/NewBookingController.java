@@ -8,6 +8,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * This class takes data from the event table according to the event ID and populates 
+ * all the fields from the NewBookingView. 
+ * @author Rhadoo
+ *
+ */
 public class NewBookingController implements ActionListener {
 
     int eventID;
@@ -23,7 +29,11 @@ public class NewBookingController implements ActionListener {
         setEventDetails(newBooking);
         newBooking.bandPanel.setViewportView(new BandDetailsPanel(eventID));
     }
-
+    
+    /**
+     * This method adds the event details into the database.
+     * @param newBooking
+     */
     public void setEventDetails(NewBookingView newBooking){
         String query = "SELECT V.Name venueName,V.Address, V.Capacity, E.*, SUM(NoOfSeats) booked " +
                 "FROM tbl_venue V,tbl_booking B,tbl_event E " +

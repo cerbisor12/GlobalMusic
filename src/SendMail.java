@@ -3,6 +3,12 @@ import java.util.List;
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
+
+/**
+ * This class handles the canceled events, by sending email messages 
+ * to all the users that have bought tickets. 
+ */
+
 class SendMail {
 
     final static String CANCELLATION_SUB = "One of your bookings have been cancelled :(";
@@ -14,12 +20,22 @@ class SendMail {
 
     private String title;
     private String lastName;
-
+    /**
+     * This constructs the details of the user that will receive the canceling email.
+     * @param title the title of the user
+     * @param lastName the last name of the user
+     */
     public SendMail(String title, String lastName){
         this.title = title;
         this.lastName = lastName;
     }
-
+    
+    
+    
+    /**
+     * This method send's the canceling of the event email.
+     * @param userMail the receiving user email
+     */
     public void sendCancellationMail( String userMail){
         //Get properties object
         Properties props = new Properties();
