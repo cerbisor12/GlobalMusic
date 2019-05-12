@@ -76,9 +76,9 @@ public class NewBookingView {
         JButton btnExitButton = new JButton("X");
         btnExitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
+                int reply = JOptionPane.showConfirmDialog(null, "Cancel changes?","Back to Search" ,JOptionPane.YES_NO_OPTION);
                 if (reply == JOptionPane.YES_OPTION) {
-                    System.exit(0);
+                    frame.dispose();
                 }
             }
         });

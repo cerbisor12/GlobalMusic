@@ -3,6 +3,8 @@ import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -72,11 +74,11 @@ public class RegisterView {
 
 
 
-        JLabel lblEmailAlreadyExists = new JLabel("Email Allready Exists");
-        lblEmailAlreadyExists.setForeground(Color.RED);
-        lblEmailAlreadyExists.setBounds(119, 361, 124, 14);
-        frame.getContentPane().add(lblEmailAlreadyExists);
-        lblEmailAlreadyExists.setVisible(false);
+        JLabel lblEmailInvalid = new JLabel("Email Allready Exists");
+        lblEmailInvalid.setForeground(Color.RED);
+        lblEmailInvalid.setBounds(119, 361, 124, 14);
+        frame.getContentPane().add(lblEmailInvalid);
+        lblEmailInvalid.setVisible(false);
 
 
         JLabel lblBetweenAnd = new JLabel("(between 5 and 16 characters)");
@@ -291,7 +293,7 @@ public class RegisterView {
 
         postcodeField = new JTextField();
         postcodeField.setBackground(SystemColor.activeCaption);
-        postcodeField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        postcodeField.setBorder(new MatteBorder(2, 2, 2, 2,  SystemColor.activeCaption));
         postcodeField.setBounds(393, 268, 150, 20);
         frame.getContentPane().add(postcodeField);
         postcodeField.setColumns(10);
@@ -310,22 +312,34 @@ public class RegisterView {
          */
         emailField = new JTextField();
         emailField.setBackground(SystemColor.activeCaption);
-        emailField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        emailField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         emailField.setBounds(119, 342, 150, 20);
         frame.getContentPane().add(emailField);
         emailField.setColumns(10);
         emailField.setVisible(true);
         emailField.addFocusListener(new FocusListener() {
-            public void focusGained(FocusEvent e) {};
+            public void focusGained(FocusEvent e) {}
             public void focusLost(FocusEvent e) {
+                String email = emailField.getText();
+                //Regex source: emailregex.com
+                Pattern emailRegex = Pattern.compile("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)" +
+                        "*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\" +
+                        "[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+" +
+                        "[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}" +
+                        "(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:" +
+                        "(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)])");
                 User user = new User();
-                user.setEmail(emailField.getText().replace("'", "''"));
-                if (user.checkFieldInDB("Email",user.getEmail())) {
-                    lblEmailAlreadyExists.setVisible(true);
+                if(!emailRegex.matcher(email).matches()){
+                    lblEmailInvalid.setText("Invalid email address");
+                    lblEmailInvalid.setVisible(true);
                     emailField.setText("");
                 }
-                else {lblEmailAlreadyExists.setVisible(false);}
-                System.out.println(user.checkFieldInDB("Email",user.getEmail()));
+                else if (user.checkFieldInDB("Email",email.replace("'", "''"))) {
+                    lblEmailInvalid.setText("Email already exists");
+                    lblEmailInvalid.setVisible(true);
+                    emailField.setText("");
+                }
+                else {lblEmailInvalid.setVisible(false);}
 
             }
         });

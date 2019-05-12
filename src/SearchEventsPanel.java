@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.util.Locale;
 
 
 /**
@@ -46,6 +47,9 @@ public class SearchEventsPanel extends JPanel {
 
         DatePicker datePicker = new DatePicker(dateSettings);
         dateSettings.setDateRangeLimits(LocalDate.now(),null);
+        System.out.println(datePicker.getLocale().toString());
+        datePicker.setLocale(Locale.UK);
+        System.out.println(datePicker.getLocale().toString());
         datePicker.getComponentDateTextField().setBackground(SystemColor.activeCaption);
         datePicker.getComponentToggleCalendarButton().setText("Select Date");
         datePicker.setBounds(622, 65, 168, 30);

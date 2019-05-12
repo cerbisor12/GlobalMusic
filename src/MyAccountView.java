@@ -1,12 +1,12 @@
 import java.awt.Color;
 import java.awt.Cursor;
-import javax.security.auth.Refreshable;
 import javax.swing.*;
 
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import javax.swing.border.MatteBorder;
 
@@ -46,16 +46,16 @@ public class MyAccountView extends JPanel {
 		existDetailsLabel.setBounds(35, 92, 142, 25);
 		this.add(existDetailsLabel);
 		
-		JComboBox<String> titleComboBox = new JComboBox<String>();
+		JComboBox<String> titleComboBox = new JComboBox<>();
 		titleComboBox.setBackground(SystemColor.activeCaption);
 		titleComboBox.setToolTipText("");
 		titleComboBox.setEditable(false);
-		titleComboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Mr.", "Ms."}));
+		titleComboBox.setModel(new DefaultComboBoxModel<>(new String[] {"Mr.", "Ms."}));
 		titleComboBox.setBounds(118, 159, 47, 22);
 		this.add(titleComboBox);
 		
 		firstNameTextField = new JTextField();
-		firstNameTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		firstNameTextField.setBorder(new MatteBorder(3, 3, 3, 3,  SystemColor.activeCaption));
 		firstNameTextField.setBackground(SystemColor.activeCaption);
 		firstNameTextField.setBounds(116, 200, 180, 30);
 		firstNameTextField.setColumns(10);
@@ -68,7 +68,7 @@ public class MyAccountView extends JPanel {
 		this.add(firstNameLabel);
 		
 		lastNameTextField = new JTextField();
-		lastNameTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		lastNameTextField.setBorder(new MatteBorder(3, 3, 3, 3,  SystemColor.activeCaption));
 		lastNameTextField.setBackground(SystemColor.activeCaption);
 		lastNameTextField.setBounds(432, 200, 180, 30);
 		lastNameTextField.setColumns(10);
@@ -82,7 +82,7 @@ public class MyAccountView extends JPanel {
 		this.add(lastNameLabel);
 		
 		address1TextField = new JTextField();
-		address1TextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		address1TextField.setBorder(new MatteBorder(3, 3, 3, 3,  SystemColor.activeCaption));
 		address1TextField.setBackground(SystemColor.activeCaption);
 		address1TextField.setBounds(116, 241, 180, 30);
 		address1TextField.setColumns(10);
@@ -96,7 +96,7 @@ public class MyAccountView extends JPanel {
 		this.add(address1Label);
 		
 		address2TextField = new JTextField();
-		address2TextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		address2TextField.setBorder(new MatteBorder(3, 3, 3, 3,  SystemColor.activeCaption));
 		address2TextField.setBounds(432, 241, 180, 30);
 		address2TextField.setBackground(SystemColor.activeCaption);
 		address2TextField.setColumns(10);
@@ -110,7 +110,7 @@ public class MyAccountView extends JPanel {
 		this.add(address2Label);
 		
 		townTextField = new JTextField();
-		townTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		townTextField.setBorder(new MatteBorder(3, 3, 3, 3,  SystemColor.activeCaption));
 		townTextField.setBackground(SystemColor.activeCaption);
 		townTextField.setBounds(116, 284, 180, 30);
 		townTextField.setColumns(10);
@@ -124,7 +124,7 @@ public class MyAccountView extends JPanel {
 		
 		postcodeTextField = new JTextField();
 		postcodeTextField.setBounds(432, 284, 180, 30);
-		postcodeTextField.setBorder(new MatteBorder(3,3,3,3, (Color)SystemColor.activeCaption));
+		postcodeTextField.setBorder(new MatteBorder(3,3,3,3,SystemColor.activeCaption));
 		postcodeTextField.setBackground(SystemColor.activeCaption);
 		postcodeTextField.setColumns(10);
 		this.add(postcodeTextField);
@@ -134,12 +134,46 @@ public class MyAccountView extends JPanel {
 		postcodeLabel.setForeground(SystemColor.inactiveCaption);
 		postcodeLabel.setFont(new Font("Open Sans", Font.BOLD, 13));
 		this.add(postcodeLabel);
+
+		JLabel lblEmailInvalid = new JLabel("Email already exists");
+		lblEmailInvalid.setForeground(Color.RED);
+		lblEmailInvalid.setBounds(118, 353, 162, 16);
+		this.add(lblEmailInvalid);
+		lblEmailInvalid.setVisible(false);
 		
 		emailTextField = new JTextField();
-		emailTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		emailTextField.setBorder(new MatteBorder(3, 3, 3, 3,SystemColor.activeCaption));
 		emailTextField.setBounds(116, 325, 180, 30);
 		emailTextField.setBackground(SystemColor.activeCaption);
 		emailTextField.setColumns(10);
+		emailTextField.addFocusListener(new FocusListener() {
+			public void focusGained(FocusEvent e) {}
+			public void focusLost(FocusEvent e) {
+				String email = emailTextField.getText();
+				//Regex source: emailregex.com
+				Pattern emailRegex = Pattern.compile("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)" +
+						"*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\" +
+						"[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+" +
+						"[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}" +
+						"(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:" +
+						"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)])");
+				User user = new User();
+				if(!emailRegex.matcher(email).matches()){
+					lblEmailInvalid.setText("Invalid email address");
+					lblEmailInvalid.setVisible(true);
+					emailTextField.setText("");
+				}
+				else if (user.checkFieldInDB("Email",email.replace("'", "''"))) {
+					lblEmailInvalid.setText("Email already exists");
+					lblEmailInvalid.setVisible(true);
+					emailTextField.setText("");
+				}
+				else {lblEmailInvalid.setVisible(false);}
+
+			}
+		});
+
+
 		this.add(emailTextField);
 		
 		JLabel emailLabel = new JLabel("E-mail");
@@ -149,7 +183,7 @@ public class MyAccountView extends JPanel {
 		this.add(emailLabel);
 		
 		phoneNoTextField = new JTextField();
-		phoneNoTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		phoneNoTextField.setBorder(new MatteBorder(3, 3, 3, 3,  SystemColor.activeCaption));
 		phoneNoTextField.setBounds(432, 327, 180, 30);
 		phoneNoTextField.setBackground(SystemColor.activeCaption);
 		phoneNoTextField.setColumns(10);
@@ -173,7 +207,7 @@ public class MyAccountView extends JPanel {
 		this.add(cardIconPanel);
 		
 		cardNoTextField = new JTextField();
-		cardNoTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		cardNoTextField.setBorder(new MatteBorder(3, 3, 3, 3,  SystemColor.activeCaption));
 		cardNoTextField.setBounds(116, 411, 180, 30);
 		cardNoTextField.setBackground(SystemColor.activeCaption);
 		cardNoTextField.setColumns(10);
@@ -208,7 +242,7 @@ public class MyAccountView extends JPanel {
 		lblInvalidCVV.setVisible(false);
 		
 		cvvTextField = new JTextField();
-		cvvTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		cvvTextField.setBorder(new MatteBorder(3, 3, 3, 3,  SystemColor.activeCaption));
 		cvvTextField.setBounds(432, 390, 180, 30);
 		cvvTextField.setBackground(SystemColor.activeCaption);
 		cvvTextField.setColumns(10);
@@ -244,9 +278,9 @@ public class MyAccountView extends JPanel {
 		
 		
 		orgNameTextField = new JTextField();
-		orgNameTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		orgNameTextField.setBorder(new MatteBorder(3, 3, 3, 3,  SystemColor.activeCaption));
 		orgNameTextField.setBounds(798, 200, 180, 30);
-		orgNameTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		orgNameTextField.setBorder(new MatteBorder(3, 3, 3, 3,  SystemColor.activeCaption));
 		orgNameTextField.setBackground(SystemColor.activeCaption);
 		orgNameTextField.setColumns(10);
 		this.add(orgNameTextField);
@@ -258,7 +292,7 @@ public class MyAccountView extends JPanel {
 		this.add(orgNameLabel);
 		
 		orgEmailTextField = new JTextField();
-		orgEmailTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		orgEmailTextField.setBorder(new MatteBorder(3, 3, 3, 3,  SystemColor.activeCaption));
 		orgEmailTextField.setBounds(798, 241, 180, 30);
 		orgEmailTextField.setBackground(SystemColor.activeCaption);
 		orgEmailTextField.setColumns(10);
@@ -270,11 +304,11 @@ public class MyAccountView extends JPanel {
 		orgEmailLabel.setFont(new Font("Open Sans", Font.BOLD, 13));
 		this.add(orgEmailLabel);
 		
-		JComboBox<String> paymentComboBox = new JComboBox<String>();
+		JComboBox<String> paymentComboBox = new JComboBox<>();
 		paymentComboBox.setBackground(SystemColor.activeCaption);
 		paymentComboBox.setToolTipText("");
 		paymentComboBox.setEditable(false);
-		paymentComboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"On Booking", "Monthly Invoice"}));
+		paymentComboBox.setModel(new DefaultComboBoxModel<>(new String[] {"On Booking", "Monthly Invoice"}));
 		paymentComboBox.setBounds(798, 284, 180, 30);
 		this.add(paymentComboBox);
 		
@@ -285,7 +319,7 @@ public class MyAccountView extends JPanel {
 		this.add(paymentLabel);
 		
 		webAddressTextField = new JTextField();
-		webAddressTextField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		webAddressTextField.setBorder(new MatteBorder(3, 3, 3, 3,  SystemColor.activeCaption));
 		webAddressTextField.setBackground(SystemColor.activeCaption);
 		webAddressTextField.setBounds(798, 327, 180, 30);
 		webAddressTextField.setColumns(10);
@@ -382,12 +416,7 @@ public class MyAccountView extends JPanel {
 		titleLabel.setForeground(SystemColor.inactiveCaption);
 		titleLabel.setFont(new Font("Open Sans", Font.BOLD, 13));
 		this.add(titleLabel);
-
-        JLabel emailInUseLabel = new JLabel("Email already exists");
-        emailInUseLabel.setForeground(Color.RED);
-        emailInUseLabel.setBounds(118, 353, 162, 16);
-        this.add(emailInUseLabel);
-        emailInUseLabel.setVisible(false);
+		
         
         JLabel invalidCardNoLabel = new JLabel("Invalid Number");
         invalidCardNoLabel.setForeground(Color.RED);
