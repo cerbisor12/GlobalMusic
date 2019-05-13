@@ -557,7 +557,7 @@ public class EditEventView {
                 for(String band : bandsInEvent) {
                     addedPerformersModel.addElement(band); }
                 addedPerfList.setModel(addedPerformersModel);
-
+                
                 comboBoxVenue.setEnabled(true);
                 btnSaveButton.setEnabled(true);
                 addPerformerToEvent.setEnabled(true);

@@ -153,6 +153,8 @@ public class AdminView {
         scrollPaneViewEvent.setBackground(Color.BLACK);
         frame.getContentPane().add(scrollPaneViewEvent);
         scrollPaneViewEvent.setViewportView(new ResultPanel(false));
+        ResultPanel.bookButton.setVisible(false);
+        ResultPanel.priceLabel.setVisible(false);
 
 
         JScrollPane scrollPaneConfirmBooking = new JScrollPane();

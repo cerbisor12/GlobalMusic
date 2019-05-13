@@ -206,7 +206,7 @@ public class MyAccountView extends JPanel {
 
 		JLabel lblInvalidCardNumber = new JLabel("Invalid Card Number");
 		lblInvalidCardNumber.setForeground(Color.RED);
-		lblInvalidCardNumber.setBounds(116, 442, 110, 14);
+		lblInvalidCardNumber.setBounds(116, 442, 125, 14);
 		this.add(lblInvalidCardNumber);
 		lblInvalidCardNumber.setVisible(false);
 
@@ -246,9 +246,9 @@ public class MyAccountView extends JPanel {
 		cardNoLabel.setFont(new Font("Open Sans", Font.BOLD, 13));
 		this.add(cardNoLabel);
 
-		JLabel lblInvalidCVV = new JLabel("Invalid Number");
+		JLabel lblInvalidCVV = new JLabel("Invalid CVV");
 		lblInvalidCVV.setForeground(Color.RED);
-		lblInvalidCVV.setBounds(432, 421, 110, 14);
+		lblInvalidCVV.setBounds(432, 421, 125, 14);
 		this.add(lblInvalidCVV);
 		lblInvalidCVV.setVisible(false);
 		
@@ -269,7 +269,6 @@ public class MyAccountView extends JPanel {
 				try{
 					Integer.parseInt(cvvTextField.getText());
 					if (!(cvvTextField.getText().length()==3)){
-						lblInvalidCVV.setText("Invalid Card Number");
 						lblInvalidCVV.setVisible(true);
 					} else {
 						lblInvalidCVV.setVisible(false);

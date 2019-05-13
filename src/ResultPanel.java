@@ -24,9 +24,10 @@ import java.util.List;
  */
 public class ResultPanel extends JPanel{
     private JPanel panel;
-    private JLabel nameLabel, dateLabel, imageLabel, bandsLabel, priceLabel,noResults;
+    private JLabel nameLabel, dateLabel, imageLabel, bandsLabel, noResults;
+    static JLabel priceLabel;
     private JTextArea venueLabel;
-
+    static JButton bookButton;
     /**
      * This constructs the result panel.
      */
@@ -202,7 +203,7 @@ public class ResultPanel extends JPanel{
             dateLabel.setBounds(170, 49, 120, 16);
             panel.add(dateLabel);
 
-            JButton bookButton = new JButton("Book Tickets");
+            bookButton = new JButton("Book Tickets");
             bookButton.setForeground(SystemColor.inactiveCaption);
             bookButton.setBackground(new Color(0, 0, 128));
             bookButton.setBounds(650, 34, 135, 43);
