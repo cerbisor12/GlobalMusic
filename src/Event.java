@@ -56,23 +56,6 @@ public class Event {
 	 * @param ID organizer's id
 	 * @return eventsList arrayList 
 	 */
-	static ArrayList<String> getEventsList(int ID) {
-		String query = "SELECT Name FROM `tbl_event` WHERE OrganizerID = " +ID+" AND DateofEvent>NOW();";
-		ArrayList<String> eventsList = new ArrayList<String>();
-		try {
-            ResultSet results = Connect.selectStm(query);
-            while (results.next()) {
-                String event = results.getString("Name");
-                eventsList.add(event);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());
-        }
-        return eventsList;
-	}
-	
 	static ArrayList<String> getFutureEventsOrganizer(int ID){
 		String query = "SELECT Name FROM 'tbl_event' WHERE OrganizerID = " + ID + "AND DateOfEvent > NOW();";
 		ArrayList<String> futureEventsList = new ArrayList<String>();

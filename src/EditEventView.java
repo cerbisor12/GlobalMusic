@@ -416,6 +416,7 @@ public class EditEventView {
         addPerformerToEvent.setOpaque(false);
         addPerformerToEvent.setBorderPainted(false);
         addPerformerToEvent.setForeground(SystemColor.inactiveCaption);
+        addPerformerToEvent.setEnabled(false);
         frame.getContentPane().add(addPerformerToEvent);
 
         JButton removePerformerFromEvent = new JButton("<- Remove");
@@ -437,6 +438,7 @@ public class EditEventView {
         removePerformerFromEvent.setOpaque(false);
         removePerformerFromEvent.setBorderPainted(false);
         removePerformerFromEvent.setForeground(SystemColor.inactiveCaption);
+        removePerformerFromEvent.setEnabled(false);
         frame.getContentPane().add(removePerformerFromEvent);
 
         JSeparator addSeperator = new JSeparator();
@@ -560,6 +562,8 @@ public class EditEventView {
                 btnSaveButton.setEnabled(true);
                 addPerformerToEvent.setEnabled(true);
                 btnCancel.setEnabled(true);
+                removePerformerFromEvent.setEnabled(true);
+                addPerformerToEvent.setEnabled(true);
 
             }
         });
