@@ -8,9 +8,10 @@
 --8. On EditEvent -> "Band Added successfully" appears for no reason on Remove Button
 --9. On NewBooking -> Change "X" Button to dispose the frame instead of killing the app
 --10. On CancelEvent Button -> JOptionPane "Event Cancelled"
-11. On CancelEvent -> Make Add disabled until event is chosen.
+--11. On CancelEvent -> Make Add-Remove disabled until event is chosen.
 --12. On CancelEvent -> Action Listeners for Add venue and Add performer?
---13. On Edit/Cancel Event -> View only future events.??? NOT TESTED
+--13. On Edit/Cancel Event -> View only future events
+
 Missing:
 AdminView - Confirm Bookings (a similar controller to Booking History)
 AdminView - Generate Invoices

@@ -57,7 +57,7 @@ public class Event {
 	 * @return eventsList arrayList 
 	 */
 	static ArrayList<String> getEventsList(int ID) {
-		String query = "SELECT Name FROM `tbl_event` WHERE OrganizerID = " +ID+";";
+		String query = "SELECT Name FROM `tbl_event` WHERE OrganizerID = " +ID+" AND DateofEvent>NOW();";
 		ArrayList<String> eventsList = new ArrayList<String>();
 		try {
             ResultSet results = Connect.selectStm(query);
