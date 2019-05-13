@@ -1,8 +1,5 @@
-import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Cursor;
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
@@ -12,17 +9,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.border.MatteBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JTextField;
-import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 
 /**
@@ -154,47 +147,14 @@ public class AdminView {
         comboBoxUsername.setBackground(SystemColor.activeCaption);
         comboBoxUsername.setBounds(204, 55, 182, 25);
         frame.getContentPane().add(comboBoxUsername);
-        
-        
-        JScrollPane scrollPaneViewEvent = new JScrollPane();
-        scrollPaneViewEvent.setBounds(548, 173, 550, 222);
+
+        JScrollPane scrollPaneViewEvent = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPaneViewEvent.setBounds(400, 173, 840, 374);
+        scrollPaneViewEvent.setBackground(Color.BLACK);
         frame.getContentPane().add(scrollPaneViewEvent);
-        scrollPaneViewEvent.setVisible(false);
-        
-        
-        JPanel panelViewEvent = new JPanel();
-        scrollPaneViewEvent.setViewportView(panelViewEvent);
-        panelViewEvent.setLayout(new BoxLayout(panelViewEvent, BoxLayout.Y_AXIS));
-        
-        JPanel panel_1 = new JPanel();
-        panel_1.setPreferredSize(new Dimension(50,50));
-        panelViewEvent.add(panel_1);
-        panel_1.setLayout(null);
-        
-        JLabel lblPanel_1 = new JLabel("New label");
-        lblPanel_1.setBounds(0, 0, 150, 55);
-        panel_1.add(lblPanel_1);
-        
-        JPanel panel_2 = new JPanel();
-        panel_2.setPreferredSize(new Dimension(50,50));
-        panelViewEvent.add(panel_2);
-        panel_2.setLayout(null);
-        
-        JLabel lblPanel_2 = new JLabel("New label");
-        lblPanel_2.setBounds(0, 0, 150, 55);
-        panel_2.add(lblPanel_2);
-        
-        JPanel panel_3 = new JPanel();
-        panel_3.setPreferredSize(new Dimension(50,50));
-        panelViewEvent.add(panel_3);
-        panel_3.setLayout(null);
-        
-        JLabel lblPanel_3 = new JLabel("New label");
-        lblPanel_3.setBounds(0, 0, 150, 55);
-        panel_3.add(lblPanel_3);
-        
-        
-        
+        scrollPaneViewEvent.setViewportView(new ResultPanel(false));
+
+
         JScrollPane scrollPaneConfirmBooking = new JScrollPane();
         scrollPaneConfirmBooking.setBounds(548, 173, 550, 222);
         frame.getContentPane().add(scrollPaneConfirmBooking);

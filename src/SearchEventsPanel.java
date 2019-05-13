@@ -58,7 +58,7 @@ public class SearchEventsPanel extends JPanel {
         scrollPane.setBounds(123, 139, 844, 374);
         scrollPane.setBackground(Color.BLACK);
         this.add(scrollPane);
-        scrollPane.setViewportView(new ResultPanel());
+        scrollPane.setViewportView(new ResultPanel(true));
         
         /**
          * This method searches for events by a specified name and displays them in the events panel.

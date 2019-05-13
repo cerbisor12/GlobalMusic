@@ -30,7 +30,7 @@ public class ResultPanel extends JPanel{
     /**
      * This constructs the result panel.
      */
-    public ResultPanel(){
+    public ResultPanel(boolean showFutureEvents){
     	//////////////////////////////////////
     	//for UPCOMING RESULTS
     	////////////////////////////////////////
@@ -38,13 +38,14 @@ public class ResultPanel extends JPanel{
         this.setPreferredSize(new Dimension(200,500));
         this.setBackground(Color.black);
         this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
-//        group.setAutoCreateContainerGaps(true);
-//        group.setAutoCreateGaps(true);
-
-        String query = "SELECT E.EventID, E.Name, E.Price, B.Name ArtistName, E.DateOfEvent, E.Image, V.Name Venue, V.Address" +
+        String query ="SELECT E.EventID, E.Name, E.Price, B.Name ArtistName, E.DateOfEvent, E.Image, V.Name Venue, V.Address" +
                 " FROM tbl_venue V, tbl_event E, tbl_event_band EB, tbl_band B " +
-                "WHERE E.VenueID = V.VenueID AND E.EventID = EB.EventID AND B.BandID = EB.BandID " +
-                "AND E.DateOfEvent>=NOW() ORDER BY E.DateOfEvent";
+                "WHERE E.VenueID = V.VenueID AND E.EventID = EB.EventID AND B.BandID = EB.BandID ";
+        if(showFutureEvents){
+        query +="AND E.DateOfEvent>=NOW() ORDER BY E.DateOfEvent";}
+        else{
+            query += "ORDER BY E.DateOfEvent";
+        }
 
         createPanels(query);
 
@@ -53,7 +54,7 @@ public class ResultPanel extends JPanel{
     /**
      * This constructs the result panel according to the specified search criteria 
      * entered by the user
-     * @param searchCriteria input serch criteria
+     * @param searchCriteria input search criteria
      */
     public ResultPanel(String searchCriteria) {
     	this.setBackground(Color.black);
@@ -230,13 +231,6 @@ public class ResultPanel extends JPanel{
             add(panel);
 
         }
-    }
-
-
-    public static void main(String[] args){
-        new ResultPanel("2019-04-20");
-//        List<List<String>> resluts = panel.getResultsOnlyDate(DatePicker datepicker);
-//        System.out.println(resluts);
     }
 
 }
