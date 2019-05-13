@@ -72,6 +72,23 @@ public class Event {
         }
         return eventsList;
 	}
+	
+	static ArrayList<String> getFutureEventsOrganizer(int ID){
+		String query = "SELECT Name FROM 'tbl_event' WHERE OrganizerID = " + ID + "AND DateOfEvent > NOW();";
+		ArrayList<String> futureEventsList = new ArrayList<String>();
+		try {
+            ResultSet results = Connect.selectStm(query);
+            while (results.next()) {
+                String event = results.getString("Name");
+                futureEventsList.add(event);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException k) {
+            System.out.println(k.getMessage());
+        }
+        return futureEventsList;
+	}
 
 	/**
 	 * Method for returning an event's details based on the event's name by querying the database.

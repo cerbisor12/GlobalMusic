@@ -235,13 +235,6 @@ public class EventOrganizerView {
 	        durationFormatLabel.setBounds(605, 337, 139, 16);
 	        frame.getContentPane().add(durationFormatLabel);
 
-
-			JLabel lblInvalidNumber = new JLabel("Invalid Number");
-			lblInvalidNumber.setForeground(Color.RED);
-			lblInvalidNumber.setBounds(605, 333, 159, 14);
-			frame.getContentPane().add(lblInvalidNumber);
-			lblInvalidNumber.setVisible(false);
-
 			textDuration = new JTextField();
 			textDuration.setColumns(10);
 			textDuration.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
@@ -258,9 +251,9 @@ public class EventOrganizerView {
 				public void focusLost(FocusEvent e) {
 					try{
 						Integer.parseInt(textDuration.getText());
-						lblInvalidNumber.setVisible(false);
+						durationFormatLabel.setVisible(false);
 					}catch(NumberFormatException f){
-						lblInvalidNumber.setVisible(true);
+						durationFormatLabel.setVisible(true);
 						textDuration.setText("");
 					}
 				}

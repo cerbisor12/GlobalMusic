@@ -195,11 +195,10 @@ public class EditEventView {
         JComboBox<String> comboBoxEventName = new JComboBox<String>();
         comboBoxEventName.setBackground(SystemColor.activeCaption);
         comboBoxEventName.setBounds(605, 191, 159, 20);
-        comboBoxEventName.setModel(new DefaultComboBoxModel(Event.getEventsList(User.getUserId(User.username)).toArray()));
+        comboBoxEventName.setModel(new DefaultComboBoxModel(Event.getFutureEventsOrganizer(User.getUserId(User.username)).toArray()));
         comboBoxEventName.setSelectedIndex(-1);
         comboBoxEventName.setEditable(false);
         frame.getContentPane().add(comboBoxEventName);
-
 
         JLabel lblDate = new JLabel("Date");
         lblDate.setForeground(SystemColor.inactiveCaption);
@@ -412,7 +411,7 @@ public class EditEventView {
         });
         addPerformerToEvent.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         addPerformerToEvent.setFont(new Font("Dialog", Font.PLAIN, 18));
-        addPerformerToEvent.setBounds(793, 447, 167, 25);
+        addPerformerToEvent.setBounds(833, 439, 99, 25);
         addPerformerToEvent.setContentAreaFilled(false);
         addPerformerToEvent.setOpaque(false);
         addPerformerToEvent.setBorderPainted(false);
@@ -444,14 +443,14 @@ public class EditEventView {
         addSeperator.setBackground(SystemColor.inactiveCaption);
         addSeperator.setForeground(SystemColor.inactiveCaption);
         addSeperator.setOpaque(true);
-        addSeperator.setBounds(805, 470, 140, 3);
+        addSeperator.setBounds(845, 460, 70, 3);
         frame.getContentPane().add(addSeperator);
 
         JSeparator removeSeperator = new JSeparator();
         removeSeperator.setBackground(SystemColor.inactiveCaption);
         removeSeperator.setForeground(SystemColor.inactiveCaption);
         removeSeperator.setOpaque(true);
-        removeSeperator.setBounds(805, 510, 140, 3);
+        removeSeperator.setBounds(822, 510, 110, 3);
         frame.getContentPane().add(removeSeperator);
 
         JButton addNewPerfButton = new JButton("Add Performer");
@@ -613,6 +612,7 @@ public class EditEventView {
 
                 Booking.updateStatus(eventId,"cancelled");
                 Event.deleteEvent(eventId);
+				JOptionPane.showMessageDialog(null,"Event cancelled.");
                 frame.dispose();
                 new EditEventView();
 
