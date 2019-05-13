@@ -23,6 +23,11 @@ import java.util.Locale;
 import javax.swing.border.MatteBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+/**
+ * Class for editing or canceling an event.
+ * @author x64
+ *
+ */
 public class EditEventView {
 
     private JFrame frame;
@@ -72,6 +77,9 @@ public class EditEventView {
 
 
         JButton btnExitButton = new JButton("X");
+        /**
+         * Listener for exiting the application after confirmation.
+         */
         btnExitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
@@ -91,11 +99,10 @@ public class EditEventView {
 
 
         JButton minimizeButton = new JButton("___");
-        minimizeButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-            }
-        });
         minimizeButton.setForeground(SystemColor.inactiveCaption);
+        /**
+         * Listener for minimizing the application.
+         */
         minimizeButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent arg0) {
@@ -114,10 +121,12 @@ public class EditEventView {
 
 
         JButton btnAddNewEvent = new JButton("Add New Event");
+        /**
+         * Listener for the Add Event button.
+         */
         btnAddNewEvent.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new EventOrganizerView();
-                frame.setVisible(false);
                 frame.setVisible(false);
             }
         });
@@ -139,6 +148,9 @@ public class EditEventView {
         btnLogOut.setOpaque(false);
         btnLogOut.setBorderPainted(false);
         btnLogOut.setContentAreaFilled(false);
+        /**
+         * Logout Button listener, opens the Login window.
+         */
         btnLogOut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 new LoginView();
@@ -175,14 +187,17 @@ public class EditEventView {
         lblEventName.setForeground(SystemColor.inactiveCaption);
         lblEventName.setFont(new Font("Open Sans", Font.BOLD, 13));
         frame.getContentPane().add(lblEventName);
-
-
+        
+        
+        /**
+         * Combobox populated with all the events made available by a certain organizer.
+         */
         JComboBox<String> comboBoxEventName = new JComboBox<String>();
         comboBoxEventName.setBackground(SystemColor.activeCaption);
         comboBoxEventName.setBounds(605, 191, 159, 20);
         comboBoxEventName.setModel(new DefaultComboBoxModel(Event.getEventsList(User.getUserId(User.username)).toArray()));
         comboBoxEventName.setSelectedIndex(-1);
-        //comboBoxEventName.setEditable(false);
+        comboBoxEventName.setEditable(false);
         frame.getContentPane().add(comboBoxEventName);
 
 
@@ -223,6 +238,9 @@ public class EditEventView {
         textFieldDuration.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
         textFieldDuration.setBackground(SystemColor.activeCaption);
         textFieldDuration.setBounds(605, 313, 159, 20);
+        /**
+         * focus listener for duration field format. only integers accepted.
+         */
         textFieldDuration.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) { }
@@ -248,6 +266,10 @@ public class EditEventView {
         frame.getContentPane().add(lblVenue);
 
 
+        /**
+         * Combobox populated with available venues, with 'add venue' as the default option.
+         * If selected, opens the newVenueView window.
+         */
         comboBoxVenue = new JComboBox<String>();
         ArrayList venuesList = Venue.getVenueList();
         venuesList.add(0, "-Add Venue-");
@@ -295,6 +317,9 @@ public class EditEventView {
         frame.getContentPane().add(lblImgName);
 
         JButton btnUploadButton = new JButton("");
+        /**
+         * Listener for uploading a new image. Only certain formats accepted, "jpg","png","jpeg".
+         */
         btnUploadButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 JFileChooser fileChooser = new JFileChooser();
@@ -342,6 +367,9 @@ public class EditEventView {
         scrollPane.setBounds(605, 407, 189, 140);
         frame.getContentPane().add(scrollPane);
 
+        /**
+         * Two lists, one for all performers available and the other for performers added to the event. 
+         */
         DefaultListModel allPerformersModel = new DefaultListModel();
         for(int i = 0; i < bandsAvailable.size(); i++) {
             allPerformersModel.addElement(bandsAvailable.get(i));
@@ -367,6 +395,9 @@ public class EditEventView {
         frame.getContentPane().add(performersAddedLabel);
 
         JButton addPerformerToEvent = new JButton("Add ->");
+        /**
+         * Listener for adding an artist to the event.
+         */
         addPerformerToEvent.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(!allPerformersList.isSelectionEmpty()) {
@@ -389,6 +420,9 @@ public class EditEventView {
         frame.getContentPane().add(addPerformerToEvent);
 
         JButton removePerformerFromEvent = new JButton("<- Remove");
+        /**
+         * Listener for removing the artist from the already added list.
+         */
         removePerformerFromEvent.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(!addedPerfList.isSelectionEmpty()){
@@ -421,6 +455,9 @@ public class EditEventView {
         frame.getContentPane().add(removeSeperator);
 
         JButton addNewPerfButton = new JButton("Add Performer");
+        /**
+         * Listener for adding a new performer to the database, opens NewBandView window.
+         */
         addNewPerfButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new NewBandView();
@@ -494,6 +531,9 @@ public class EditEventView {
         lblImageLabel.setBounds(0, 0, 1297, 693);
         frame.getContentPane().add(lblImageLabel);
 
+        /**
+         * Combobox listener for populating the fields with the selected event's details by creating an arrayList and extracting values one by one.
+         */
         comboBoxEventName.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -525,6 +565,9 @@ public class EditEventView {
             }
         });
 
+        /**
+         * Listener for updating event details by querying the database.
+         */
         btnSaveButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 if (checkEmptyFields()) {
@@ -552,6 +595,9 @@ public class EditEventView {
             }
         });
 
+        /**
+         * Listener for canceling the event. Opens the EditEventView.
+         */
         btnCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -575,6 +621,11 @@ public class EditEventView {
         });
     }
 
+    /**
+     * private method for checking for empty fields.
+     * @return false if any 'if' is false.
+     * else return true.
+     */
     private boolean checkEmptyFields(){
         if (textFieldPrice.getText().equals("") || textFieldDuration.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Please fill all fields!");

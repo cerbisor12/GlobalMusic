@@ -46,12 +46,20 @@ public class PopUp extends JFrame {
         setLocationRelativeTo(null);
         setUndecorated(true);
         MyAccountView panel = new MyAccountView();
+        panel.setBounds(0, 0, 0, 0);
         panel.saveButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		dispose();
         	}
         });
-        add(panel);
+        panel.cancelButton.setVisible(true);
+        panel.cancelButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+        	
+        });
+        getContentPane().add(panel);
         setVisible(true);
         JButton btnExitButton = new JButton("X");
         btnExitButton.addActionListener(new ActionListener() {
@@ -100,8 +108,9 @@ public class PopUp extends JFrame {
         JLabel lblImageLabel = new JLabel("Image");
         lblImageLabel.setForeground(Color.BLACK);
         lblImageLabel.setIcon(new ImageIcon(LoginView.class.getResource("Images/Silhouette-Rock-Concert-Wallpaper1.jpg")));
-        lblImageLabel.setBounds(0, 0, 1297, 693);
+        lblImageLabel.setBounds(0, 0, 1280, 690);
         this.getContentPane().add(lblImageLabel);
+        
+        
 	}
-
 }

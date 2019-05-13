@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="Libraries/activation.jar"/>
+	<classpathentry kind="lib" path="Libraries/javax.mail.jar"/>
+	<classpathentry kind="lib" path="Libraries/LGoodDatePicker-10.4.1.jar"/>
+	<classpathentry kind="lib" path="Libraries/mysql-connector-java-8.0.15.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

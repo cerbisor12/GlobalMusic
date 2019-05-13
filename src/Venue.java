@@ -114,7 +114,7 @@ public class Venue {
 	}
 	
 	/**
-	 * This method returns the venue ID from the databaase according to the venue name.
+	 * This method returns the venue ID from the database according to the venue name.
 	 * @param name the name of the venue
 	 * @return returns the venue ID
 	 */

@@ -10,6 +10,12 @@ import javax.swing.border.MatteBorder;
 import java.awt.Color;
 import java.awt.Rectangle;
 
+/**
+ * Class for adding new agents.
+ * @author x64
+ *
+ */
+
 public class NewAgentView {
 
 	private JFrame frame;
@@ -113,6 +119,9 @@ public class NewAgentView {
 		cancelButton.setOpaque(false);
         cancelButton.setContentAreaFilled(false);
         cancelButton.setBorderPainted(false);
+        /**
+         * Listener for the cancel button, to cancel the process of adding a new agent.
+         */
         cancelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -121,6 +130,11 @@ public class NewAgentView {
 		frame.getContentPane().add(cancelButton);
 		
 		JButton addButton = new JButton("Add agent");
+		
+		/**
+		 * Listener for the "Add Agent" button. After checking if the name field is filled, will write into the database the new agent's details.
+		 * After that, will modify the newBandView agents combobox's model to include the new agent too.
+		 */
 		addButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (nameTxtField.getText() == null | nameTxtField.getText().equals(""))
@@ -131,7 +145,7 @@ public class NewAgentView {
 					JOptionPane.showMessageDialog(null,"Agent added.");
 					DefaultComboBoxModel model = new DefaultComboBoxModel(Agent.getAgentsList().toArray());
 					model.insertElementAt("-Add new Agent-",0);
-					NewBandView.agentComboBox.setModel(model); //no errors here :P
+					NewBandView.agentComboBox.setModel(model); 
 					NewBandView.agentComboBox.setSelectedIndex(model.getSize()-1);
 					frame.dispose();
 				}

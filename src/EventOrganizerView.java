@@ -31,6 +31,11 @@ import javax.swing.JList;
 import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 
+/**
+ * Class for diplaying the event organizer type of user's main window.
+ * @author x64
+ *
+ */
 public class EventOrganizerView {
 
 	 private JFrame frame;
@@ -85,6 +90,9 @@ public class EventOrganizerView {
 
 
 	        JButton btnExitButton = new JButton("X");
+	        /**
+	         * Exit button listener for exiting the application after confirmation.
+	         */
 	        btnExitButton.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
 	            	int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
@@ -104,11 +112,10 @@ public class EventOrganizerView {
 
 
 	        JButton minimizeButton = new JButton("___");
-	        minimizeButton.addActionListener(new ActionListener() {
-	        	public void actionPerformed(ActionEvent arg0) {
-	        	}
-	        });
 	        minimizeButton.setForeground(SystemColor.inactiveCaption);
+	        /**
+	         * Listener for minizing the window.
+	         */
 	        minimizeButton.addMouseListener(new MouseAdapter() {
 	            @Override
 	            public void mouseClicked(MouseEvent arg0) {
@@ -131,6 +138,9 @@ public class EventOrganizerView {
 	        btnEditEvent.setOpaque(false);
 	        btnEditEvent.setBorderPainted(false);
 	        btnEditEvent.setContentAreaFilled(false);
+	        /**
+	         * Listener for opening the EditEvent frame.
+	         */
 	        btnEditEvent.addActionListener(new ActionListener() {
 	            public void actionPerformed(ActionEvent arg0) {
 	            	new EditEventView();
@@ -149,6 +159,9 @@ public class EventOrganizerView {
 	        btnLogOut.setOpaque(false);
 	        btnLogOut.setBorderPainted(false);
 	        btnLogOut.setContentAreaFilled(false);
+	        /**
+	         * Listener for the logout button which opens the login frame.
+	         */
 	        btnLogOut.addActionListener(new ActionListener() {
 	            public void actionPerformed(ActionEvent arg0) {
 	                new LoginView();
@@ -190,11 +203,12 @@ public class EventOrganizerView {
 
 	        DatePickerSettings dateSettings = new DatePickerSettings();
 	        dateSettings.setFormatForDatesCommonEra("dd/MM/yyyy");
-	        dateSettings.setAllowKeyboardEditing(true);
+	        dateSettings.setAllowKeyboardEditing(false);
 	        dateSettings.setAllowEmptyDates(false);
 
 	        datePicker = new DatePicker(dateSettings);
 	        datePicker.setLocale(Locale.UK);
+	        datePicker.setDateToToday();
 	        dateSettings.setDateRangeLimits(LocalDate.now(),null);
 	        datePicker.getComponentDateTextField().setBackground(SystemColor.activeCaption);
 	        datePicker.getComponentToggleCalendarButton().setText("Date");
@@ -233,6 +247,9 @@ public class EventOrganizerView {
 			textDuration.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
 			textDuration.setBackground(SystemColor.activeCaption);
 			textDuration.setBounds(605, 313, 159, 20);
+			/**
+			 * Focus listener to check the format of the duration textField. Only integers accepted.
+			 */
 			textDuration.addFocusListener(new FocusListener() {
 				@Override
 				public void focusGained(FocusEvent e) { }
@@ -258,6 +275,10 @@ public class EventOrganizerView {
 	        frame.getContentPane().add(lblVenue);
 
 
+	        /**
+	         * Combobox populated with the available venues.
+	         * First option set to "Add Venue" which when clicked opens the newVenue frame for adding a new location.
+	         */
 	        venueComboBox = new JComboBox<String>();
 	        ArrayList venuesList = Venue.getVenueList();
 	        venuesList.add(0, "-Add Venue-");
@@ -295,6 +316,9 @@ public class EventOrganizerView {
 	        textFieldPrice.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
 	        textFieldPrice.setBackground(SystemColor.activeCaption);
 	        textFieldPrice.setBounds(987, 251, 159, 20);
+	        /**
+	         * Focus listener for the price textField format, only integers of floats accepted.
+	         */
 	        textFieldPrice.addFocusListener(new FocusListener() {
 				@Override
 				public void focusGained(FocusEvent e) { }
@@ -326,6 +350,9 @@ public class EventOrganizerView {
 
 
 	        JButton btnUploadButton = new JButton("");
+	        /**
+	         * Listener for adding an image to the event.Restricted to .jpg, .png and .jpeg formats.
+	         */
 	        btnUploadButton.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent arg0) {
 	        		JFileChooser fileChooser = new JFileChooser();
@@ -390,11 +417,17 @@ public class EventOrganizerView {
 	        scrollPane.setBounds(605, 407, 189, 140);
 	        frame.getContentPane().add(scrollPane);
 
+	        /**
+	         * Default model for populating the JList with available performers.
+	         */
 	        DefaultListModel allPerformersModel = new DefaultListModel();
 	        for(int i = 0; i < bandsAvailable.size(); i++) {
 	        	allPerformersModel.addElement(bandsAvailable.get(i));
 	        }
 
+	        /**
+	         * JList for all the performers available.
+	         */
 	        allPerformersList = new JList(allPerformersModel);
 	        scrollPane.setViewportView(allPerformersList);
 	        allPerformersList.setBackground(SystemColor.activeCaption);
@@ -403,6 +436,9 @@ public class EventOrganizerView {
 	        scrollPane_1.setBounds(957, 407, 189, 140);
 	        frame.getContentPane().add(scrollPane_1);
 
+	        /**
+	         * Default model for the added performers JList.
+	         */
 	        DefaultListModel addedPerformersModel = new DefaultListModel();
 
 	        addedPerfList = new JList(addedPerformersModel);
@@ -416,6 +452,9 @@ public class EventOrganizerView {
 	        frame.getContentPane().add(performersAddedLabel);
 
 	        JButton addPerformerToEvent = new JButton("Add ->");
+	        /**
+	         * Listener for adding a performer to the 'added performers' list.
+	         */
 	        addPerformerToEvent.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
 					if (!allPerformersList.isSelectionEmpty()) {
@@ -438,6 +477,9 @@ public class EventOrganizerView {
 	        frame.getContentPane().add(addPerformerToEvent);
 
             JButton removePerformerFromEvent = new JButton("<- Remove");
+            /**
+             * Listener for removing a performer from the 'added performers' list.
+             */
             removePerformerFromEvent.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                 	if(!addedPerfList.isSelectionEmpty()) {
@@ -471,6 +513,9 @@ public class EventOrganizerView {
             frame.getContentPane().add(removeSeperator);
 
 	        JButton addNewPerfButton = new JButton("Add Performer");
+	        /**
+	         * Listener for adding a new perfomer which will open the newBandView frame.
+	         */
 	        addNewPerfButton.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
 	        		new NewBandView();
@@ -492,6 +537,11 @@ public class EventOrganizerView {
 	        frame.getContentPane().add(separator_3);
 
 	        JButton btnAddEventButton = new JButton("Add Event");
+	        /**
+	         * Listener for adding a new event.
+	         * After all the required fields are filled in, the database will be updated with the new details.
+	         * 
+	         */
 	        btnAddEventButton.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent arg0) {
 					if (checkEmptyFields()) {
@@ -530,6 +580,12 @@ public class EventOrganizerView {
 	        frame.getContentPane().add(lblImageLabel);
 	    }
 
+	    /**
+	     * private method to check for empty fields in the process of adding a new event.
+	     * @return false if any of the 'ifs' is false.
+	     * else return true.
+	     * 
+	     */
 	private boolean checkEmptyFields(){
 		if (textFieldPrice.getText().equals("") || textDuration.getText().equals("") || textEventName.equals("")){
 			JOptionPane.showMessageDialog(null,"Please fill all fields!");
@@ -540,7 +596,7 @@ public class EventOrganizerView {
 		}else if (lblImageName.getText().equalsIgnoreCase("No file selected!") || lblImageName.getText().equals("")){
 			JOptionPane.showMessageDialog(null,"No image uploaded!");
 			return false;
-		}else if (venueComboBox.getSelectedItem().toString().equals("-Add Venue-")){
+		}else if (venueComboBox.getSelectedItem().toString().equals("-Add Venue-") || venueComboBox.getSelectedItem() == null){
 			JOptionPane.showMessageDialog(null,"No Venue selected!");
 			return false;
 		}else if (addedPerfList.getModel().getSize()==0){

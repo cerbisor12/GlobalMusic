@@ -10,6 +10,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author x64
+ *
+ */
 public class BandDetailsPanel extends JPanel {
 
     int eventID;

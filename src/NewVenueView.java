@@ -131,7 +131,7 @@ public class NewVenueView {
 		frame.getContentPane().add(numberFormatLabel);
 		
 		/**
-		 * This method checks if the value od the capacity is an integer.
+		 * This method checks if the value of the capacity is an integer.
 		 */
 		capacityTxtField = new JTextField();
 		capacityTxtField.addFocusListener(new FocusAdapter() {
@@ -152,10 +152,12 @@ public class NewVenueView {
 		frame.getContentPane().add(capacityTxtField);
 		capacityTxtField.setColumns(10);
 		
-		/**
-		 * This method checks if all the fields with the venue details are complete.
-		 */
+		
 		JButton addButton = new JButton("Add venue");
+		/**
+		 * This listener checks if all the fields with the venue details are complete and after that writes the new Venue into the database.
+		 * Also will include the new Venue in the eventOrganizerView "venueCombobox" by adding the new venue to its default model.
+		 */
 		addButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if ((nameTxtField.getText() == null | nameTxtField.getText().isEmpty()) | (addressTxtField.getText() == null | addressTxtField.getText().isEmpty())

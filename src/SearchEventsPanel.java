@@ -46,10 +46,9 @@ public class SearchEventsPanel extends JPanel {
         dateSettings.setAllowEmptyDates(false);
 
         DatePicker datePicker = new DatePicker(dateSettings);
-        dateSettings.setDateRangeLimits(LocalDate.now(),null);
-        System.out.println(datePicker.getLocale().toString());
         datePicker.setLocale(Locale.UK);
-        System.out.println(datePicker.getLocale().toString());
+        datePicker.setDateToToday();
+        dateSettings.setDateRangeLimits(LocalDate.now(),null);
         datePicker.getComponentDateTextField().setBackground(SystemColor.activeCaption);
         datePicker.getComponentToggleCalendarButton().setText("Select Date");
         datePicker.setBounds(622, 65, 168, 30);

@@ -12,6 +12,12 @@ import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.border.MatteBorder;
 
+/**
+ * Class for the homepage (for customer and organization type of users).
+ * @author x64
+ *
+ */
+
 public class HomePageView {
 
 	JButton searchButton, myAccountButton, bookingsButton, changePassButton ;
@@ -55,6 +61,10 @@ public class HomePageView {
         frame.setLocationRelativeTo(null);
         frame.getContentPane().setLayout(null);
 
+        /**
+         * Container for creating the 4 panels in one frame.
+         * With CardLayout.
+         */
         Container c = new Container();
         c.setBounds(250,50,1000,550);
         c.setLayout(new CardLayout());
@@ -69,6 +79,10 @@ public class HomePageView {
 
 
         searchButton = new JButton("Search events");
+        /**
+         * Search button listener to hide the search button while on this panel. This happens for every other button since there is no point for
+         * having the button on its own panel.
+         */
         searchButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ((CardLayout)c.getLayout()).show(c,"Search");
@@ -91,6 +105,9 @@ public class HomePageView {
         frame.getContentPane().add(searchButton);
 
         myAccountButton = new JButton("My Account");
+        /**
+         * ibid.
+         */
         myAccountButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         	    ((CardLayout)c.getLayout()).show(c,"MyAccount");
@@ -112,6 +129,9 @@ public class HomePageView {
         frame.getContentPane().add(myAccountButton);
         
         changePassButton = new JButton("Change Password");
+        /**
+         * ibid.
+         */
         changePassButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
@@ -133,6 +153,9 @@ public class HomePageView {
         frame.getContentPane().add(changePassButton);
 
         bookingsButton = new JButton("My bookings");
+        /**
+         * ibid.
+         */
         bookingsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -160,6 +183,9 @@ public class HomePageView {
         frame.getContentPane().add(bookingsButton);
         
         JButton logOutButton = new JButton("Log Out");
+        /**
+         * LogOut button listener, to log out of the system and return to the Login window.
+         */
         logOutButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		new LoginView();
@@ -181,6 +207,9 @@ public class HomePageView {
        
         JButton exitButton = new JButton("X");
         exitButton.setForeground(SystemColor.inactiveCaption);
+        /**
+         * Exit button listener for quiting the application after confirmation.
+         */
         exitButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
             	int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
@@ -199,6 +228,9 @@ public class HomePageView {
 
         JButton minimizeButton = new JButton("___");
         minimizeButton.setForeground(SystemColor.inactiveCaption);
+        /**
+         * Listener for minimizing the window.
+         */
         minimizeButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent arg0) {

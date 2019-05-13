@@ -1,6 +1,10 @@
 import java.awt.*;
 
-
+/**
+ * Class for running the main frame of the application.
+ * @author x64
+ *
+ */
 public class Main {
 
     final static String ARTIST_IMAGE_DIR = "Images/Artist_Images/";

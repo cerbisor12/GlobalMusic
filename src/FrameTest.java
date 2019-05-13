@@ -8,6 +8,9 @@ import javax.swing.BoxLayout;
 import java.awt.Dimension;
 import java.awt.Color;
 
+//THIS NEEDS TO BE DELETED AS SOON AS POSSIBLE :)) 
+
+
 public class FrameTest {
 
 	private JFrame frame;

@@ -10,6 +10,12 @@ import java.util.regex.Pattern;
 
 import javax.swing.border.MatteBorder;
 
+/**
+ * Class for viewing and editing account details.
+ * @author x64
+ *
+ */
+
 public class MyAccountView extends JPanel {
 
 
@@ -28,7 +34,7 @@ public class MyAccountView extends JPanel {
 	private JTextField webAddressTextField;
 	public JButton saveButton;
 	private CreditCardIconsPanel cardIconPanel;
-
+	public JButton cancelButton;
 
 	
 
@@ -146,6 +152,9 @@ public class MyAccountView extends JPanel {
 		emailTextField.setBounds(116, 325, 180, 30);
 		emailTextField.setBackground(SystemColor.activeCaption);
 		emailTextField.setColumns(10);
+		/**
+		 * Focus listener to check the format of the email address.
+		 */
 		emailTextField.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {}
 			public void focusLost(FocusEvent e) {
@@ -172,8 +181,6 @@ public class MyAccountView extends JPanel {
 
 			}
 		});
-
-
 		this.add(emailTextField);
 		
 		JLabel emailLabel = new JLabel("E-mail");
@@ -211,6 +218,9 @@ public class MyAccountView extends JPanel {
 		cardNoTextField.setBounds(116, 411, 180, 30);
 		cardNoTextField.setBackground(SystemColor.activeCaption);
 		cardNoTextField.setColumns(10);
+		/**
+		 * Focus listener for checking the card number format.
+		 */
 		cardNoTextField.addFocusListener(new FocusListener() {
 			@Override
 			public void focusGained(FocusEvent e) {}
@@ -246,6 +256,9 @@ public class MyAccountView extends JPanel {
 		cvvTextField.setBounds(432, 390, 180, 30);
 		cvvTextField.setBackground(SystemColor.activeCaption);
 		cvvTextField.setColumns(10);
+		/**
+		 * Focus listener to check the cvvNumber format.
+		 */
 		cvvTextField.addFocusListener(new FocusListener() {
 			@Override
 			public void focusGained(FocusEvent e) {}
@@ -274,8 +287,6 @@ public class MyAccountView extends JPanel {
 		cvvLabel.setFont(new Font("Open Sans", Font.BOLD, 13));
 		cvvLabel.setBounds(394, 397, 63, 16);
 		this.add(cvvLabel);
-		
-		
 		
 		orgNameTextField = new JTextField();
 		orgNameTextField.setBorder(new MatteBorder(3, 3, 3, 3,  SystemColor.activeCaption));
@@ -331,6 +342,9 @@ public class MyAccountView extends JPanel {
 		webAddressLabel.setFont(new Font("Open Sans", Font.BOLD, 13));
 		this.add(webAddressLabel);
 		
+		/**
+		 * if statement to check the user's type. For displaying or not certain textFields and labels.
+		 */
 		if (User.getData(User.username,"Type").equalsIgnoreCase("Customer")) {
 			orgNameTextField.setVisible(false);
 			orgNameLabel.setVisible(false);
@@ -342,6 +356,10 @@ public class MyAccountView extends JPanel {
 			webAddressLabel.setVisible(false);
 		}
 		
+		/**
+		 * First a string ArrayList to get the user's details.
+		 * Secondly, populating all the textField with the existing details.
+		 */
 		ArrayList<String> details = User.detailsList(User.username);
 		titleComboBox.setSelectedItem(details.get(0));
 		firstNameTextField.setText(details.get(1));
@@ -361,6 +379,10 @@ public class MyAccountView extends JPanel {
 		
 		
 		saveButton = new JButton("Save");
+		/**
+		 * Action listener for the Save button which will eventually update the database after checking if certain textFields are not empty.
+		 * The fields are checked by making a new arraylist and checking if any string contained by it equals "".
+		 */
 		saveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ArrayList<JTextField> textFieldArray;
@@ -428,11 +450,24 @@ public class MyAccountView extends JPanel {
         invalidCVVLabel.setForeground(Color.RED);
         invalidCVVLabel.setBounds(432, 400, 100, 16);
         this.add(invalidCVVLabel);
+        
+        cancelButton = new JButton("Cancel");
+        cancelButton.setBounds(320, 457, 97, 25);
+		cancelButton.setOpaque(false);
+		cancelButton.setContentAreaFilled(false);
+        cancelButton.setBorderPainted(false);
+        cancelButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        cancelButton.setForeground(SystemColor.inactiveCaption);
+        cancelButton.setFont(new Font("Open Sans", Font.PLAIN, 20));
+        cancelButton.setVisible(false);
+        add(cancelButton);
+        
+        JSeparator separator = new JSeparator();
+        separator.setBackground(SystemColor.inactiveCaption);
+        separator.setOpaque(true);
+        separator.setBounds(320, 482, 100, 3);
+        add(separator);
         invalidCVVLabel.setVisible(false);
         
-
-
-
 	}
-
 }

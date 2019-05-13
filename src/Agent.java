@@ -2,13 +2,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * Class for creating Agent object.
+ * @author x64
+ *
+ */
 public class Agent {
 	
 
 	private String name;
 	private String email;
 	private String phoneNo;
-	
+	/**
+	 * Class' constructor with query for inserting data into the database included.
+	 * @param name name of agent
+	 * @param phoneNo agent's phone number
+	 * @param email agent's email
+	 */
 	public Agent(String name, String phoneNo, String email) {
 		this.name = name;
 		
@@ -34,6 +44,10 @@ public class Agent {
 	public Agent() {
 	}	
 	
+	/**
+	 * Static method for retrieving all agents.
+	 * @return Returns an arrayList filled with strings representing the names of all agents existing in the database.
+	 */
 	static ArrayList<String> getAgentsList() {
 		String query = "SELECT Name FROM `tbl_agent`;";
 		ArrayList<String> agentsList = new ArrayList<String>();
@@ -51,6 +65,9 @@ public class Agent {
         return agentsList;
 	}
 
+	/**
+	 * Getters and setters for all the fields
+	 */
 	public String getName() {
 		return name;
 	}
@@ -75,6 +92,11 @@ public class Agent {
 		this.email = email;
 	}
 	
+	/**
+	 * Static method for getting an agent's Id based on its name.
+	 * @param name Name of Agent
+	 * @return Returns an integer matching agent's ID.
+	 */
 	static int getAgentId(String name) {
 		String query = "SELECT AgentID FROM tbl_agent WHERE Name ='" + name + "';";
 		int ID = 0;

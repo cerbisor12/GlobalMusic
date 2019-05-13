@@ -2,6 +2,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * Class for creating a new band Object.
+ * @author x64
+ *
+ */
 public class Band {
 	
 	private String name = "";
@@ -10,6 +15,14 @@ public class Band {
 	private String image = "";
 	private int agent;
 	
+	/**
+	 * Class' constructor with query for inserting data in the database included.
+	 * @param name
+	 * @param genre
+	 * @param link
+	 * @param image
+	 * @param ID
+	 */
 	public Band(String name, String genre, String link,String image, int ID) {
 		if (this.link == null)
 				this.link = "";
@@ -28,6 +41,10 @@ public class Band {
         }
 	}
 	
+	/**
+	 * Static method to get all the bands.
+	 * @return Returns an ArrayList of strings, which contains all the bands existing in the database.
+	 */
 	static ArrayList<String> getAllBands(){
 		String query = "SELECT Name FROM tbl_band;";
 		ArrayList<String> bandsList = new ArrayList<String>();
@@ -45,6 +62,11 @@ public class Band {
         return bandsList;
 	}
 
+	/**
+	 * static method for retrieving the bands of a certain event/
+	 * @param eventID event's ID for identifying the desired event
+	 * @return ArrayList of strings which contains all the bands registered with the event.
+	 */
 	static ArrayList<String> getEventBands(int eventID) {
 		String query = "SELECT B.Name FROM tbl_band B, tbl_event_band EB WHERE EB.EventID = " +eventID +
 		" AND B.BandID = EB.BandID;";

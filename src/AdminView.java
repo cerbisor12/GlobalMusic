@@ -25,6 +25,11 @@ import javax.swing.JTextField;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 
+/**
+ * Class for creating the frame for the admin's window.
+ * @author x64
+ *
+ */
 public class AdminView {
 
 	private JFrame frame;
@@ -70,6 +75,9 @@ public class AdminView {
 
 
         JButton btnExitButton = new JButton("X");
+        /**
+         * Listener for exiting the application after user's confirmation.
+         */
         btnExitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
@@ -89,11 +97,10 @@ public class AdminView {
         
         
         JButton minimizeButton = new JButton("___");
-        minimizeButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-        	}
-        });
         minimizeButton.setForeground(SystemColor.inactiveCaption);
+        /**
+         * Listener for minimizing the window.
+         */
         minimizeButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent arg0) {
@@ -116,6 +123,9 @@ public class AdminView {
         btnLogOut.setOpaque(false);
         btnLogOut.setBorderPainted(false);
         btnLogOut.setContentAreaFilled(false);
+        /**
+         * Listener for logging out of the system, opens the LoginView.
+         */
         btnLogOut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 new LoginView();
@@ -131,7 +141,10 @@ public class AdminView {
         lblChooseUsername.setFont(new Font("Open Sans", Font.BOLD, 14));
         frame.getContentPane().add(lblChooseUsername);
         
-        JComboBox<String> comboBoxUsername = new JComboBox<String>(User.userList());
+        /**
+         * Combobox populated with all users names for selection.
+         */
+        JComboBox comboBoxUsername = new JComboBox(User.userList());
         comboBoxUsername.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		User.username = comboBoxUsername.getSelectedItem().toString();
@@ -218,6 +231,9 @@ public class AdminView {
         scrollPaneConfirmBooking.setViewportView(tableConfirmBooking);
 
         JButton btnViewEventList = new JButton("View Event List");
+        /**
+         * Listener for setting the event panel visible.
+         */
         btnViewEventList.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 scrollPaneViewEvent.setVisible(true);
@@ -242,6 +258,9 @@ public class AdminView {
         btnConfirmBooking.setOpaque(false);
         btnConfirmBooking.setBorderPainted(false);
         btnConfirmBooking.setContentAreaFilled(false);
+        /**
+         * Listener for setting the confirm booking panel visible.
+         */
         btnConfirmBooking.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 scrollPaneViewEvent.setVisible(false);
@@ -253,6 +272,9 @@ public class AdminView {
 
 
         JButton btnGenerateInvoice = new JButton("Generate Invoice");
+        /**
+         * Listener for generating invoices.
+         */
         btnGenerateInvoice.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 scrollPaneViewEvent.setVisible(false);

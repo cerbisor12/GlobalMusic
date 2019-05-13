@@ -6,6 +6,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * Class for creating the login window.
+ * @author x64
+ *
+ */
 public class LoginView {
 
 	private JFrame frame;
@@ -75,6 +80,11 @@ public class LoginView {
         lblIncorrectUsername.setVisible(false);
 
         JButton btnLogin = new JButton("Login");
+        
+        /**
+         * Listener for the Login button to check the user's type and open different windows for each of them(except customer and organization).
+         * Also checking if the user exists already and if the password matches.
+         */
         btnLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 User user = new User();
@@ -134,6 +144,9 @@ public class LoginView {
 
 
         JButton btnRegister = new JButton("Register");
+        /**
+         * Listener for the register button, which will open the registration window.
+         */
         btnRegister.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new RegisterView();
@@ -153,6 +166,9 @@ public class LoginView {
 
 
         JButton btnExitButton = new JButton("X");
+        /**
+         * Exit button listener. Exits the application after user confirmation.
+         */
         btnExitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
@@ -189,11 +205,10 @@ public class LoginView {
         
         
         JButton minimizeButton = new JButton("___");
-        minimizeButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-        	}
-        });
         minimizeButton.setForeground(SystemColor.inactiveCaption);
+        /**
+         * Listener for the minimize button which will hide the window.
+         */
         minimizeButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent arg0) {
@@ -220,6 +235,9 @@ public class LoginView {
         lblImageLabel.setBounds(0, 0, 1297, 693);
         frame.getContentPane().add(lblImageLabel);
         
+        /**
+         * Code for setting the login button available by pressing thse Enter key.
+         */
         frame.getRootPane().setDefaultButton(btnLogin);
 
     }

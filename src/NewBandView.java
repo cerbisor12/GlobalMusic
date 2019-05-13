@@ -24,13 +24,19 @@ import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import java.awt.Rectangle;
 
+/**
+ * This class is for adding artists by the organizer.
+ * @author x64
+ *
+ */
+
 public class NewBandView extends JFrame {
 
 	private JFrame frame;
 	private JTextField nameTxtField;
 	private JTextField genreTxtField;
 	private JTextField linkTxtField;
-	static JComboBox<String> agentComboBox; //this is a combobox
+	static JComboBox<String> agentComboBox; 
 	private String imageName = "";
 	private JLabel lblImageName;
 
@@ -74,7 +80,7 @@ public class NewBandView extends JFrame {
 		JLabel windowTitleLabel = new JLabel("Band details");
 		windowTitleLabel.setFont(new Font("Open Sans", Font.PLAIN, 16));
 		windowTitleLabel.setForeground(SystemColor.inactiveCaption);
-		windowTitleLabel.setBounds(12, 13, 85, 16);
+		windowTitleLabel.setBounds(12, 13, 98, 16);
 		frame.getContentPane().add(windowTitleLabel);
 		
 		JLabel nameLabel = new JLabel("Name*");
@@ -104,6 +110,10 @@ public class NewBandView extends JFrame {
 		cancelButton.setOpaque(false);
         cancelButton.setContentAreaFilled(false);
         cancelButton.setBorderPainted(false);
+        
+        /**
+         * Action listener for closing the window by pressing the cancel buton.
+         */
         cancelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -144,6 +154,10 @@ public class NewBandView extends JFrame {
 		frame.getContentPane().add(linkTxtField);
 		linkTxtField.setColumns(10);
 		
+		
+		/**
+		 * Static combobox populated with an arrayList of Strings. Will display the agents available for selection.
+		 */
 		agentComboBox = new JComboBox<String>();
 		ArrayList<String> aList = Agent.getAgentsList();
 		aList.add(0, "-Add new Agent-");
@@ -151,6 +165,9 @@ public class NewBandView extends JFrame {
 		agentComboBox.setBackground(SystemColor.activeCaption);
 		agentComboBox.setBounds(93, 116, 116, 22);
 		agentComboBox.setEditable(false);
+		/**
+		 * Listener for checking if the selection equals "Add new Agent", if so another popup will appear for adding the new agent's details.
+		 */
 		agentComboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Object selected = agentComboBox.getSelectedItem();
@@ -167,6 +184,10 @@ public class NewBandView extends JFrame {
 		frame.getContentPane().add(lblImageName);
 		
 		JButton uploadButton = new JButton();
+		
+		/**
+		 * Listener for the "upload" button, adding an image to the new artist. Restricted to .jpg, .png and .jpeg formats only. 
+		 */
 		uploadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFileChooser fileChooser = new JFileChooser();
@@ -207,6 +228,12 @@ public class NewBandView extends JFrame {
         addButton.setContentAreaFilled(false);
         addButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         addButton.setBorderPainted(false);
+        
+        /**
+         * Listener for the "Add Band" button. Inserts all the details of the new artist into the database after checking if some requirements are met or not.
+         * Such as null name, null genre, the agent combobox set to "Add new Agent", or the image is not uploaded.
+         * After completing the process, the JList's default model will be modified to include the new artist.
+         */
 		addButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if ( (nameTxtField.getText() == null || nameTxtField.getText().isEmpty()) || (genreTxtField.getText() == null ||

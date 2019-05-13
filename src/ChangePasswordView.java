@@ -14,6 +14,11 @@ import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 import javax.swing.event.ChangeEvent;
 
+/**
+ * Class for changing the user's password.
+ * @author x64
+ *
+ */
 public class ChangePasswordView extends JPanel {
 
 
@@ -50,6 +55,9 @@ public class ChangePasswordView extends JPanel {
         incorrectPassLabel.setVisible(false);
         
         oldPassField = new JPasswordField();
+        /**
+         * Focus listener for checking if the old password is correct.
+         */
         oldPassField.addFocusListener(new FocusAdapter() {
         	@Override
         	public void focusGained(FocusEvent e) {}
@@ -79,6 +87,9 @@ public class ChangePasswordView extends JPanel {
         this.add(lblBetween5and16);
         
         newPassField = new JPasswordField();
+        /**
+         * Focus listener for checking the length of the new password.
+         */
         newPassField.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {}
@@ -109,6 +120,9 @@ public class ChangePasswordView extends JPanel {
         passDontMatchLabel.setVisible(false);
         
         confPassField = new JPasswordField();
+        /**
+         * Focus listener for checking if the new passwords match.
+         */
         confPassField.addFocusListener(new FocusAdapter() {
         	@Override
         	public void focusGained(FocusEvent e) {}
@@ -127,6 +141,9 @@ public class ChangePasswordView extends JPanel {
         this.add(confPassField);
         
         JButton saveButton = new JButton("Save");
+        /**
+         * Listener for updating the password by querying the database.
+         */
         saveButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         		if (String.valueOf(oldPassField.getPassword()).equals(User.getData(User.username,"Pass")) && String.valueOf(newPassField.getPassword()).equals(

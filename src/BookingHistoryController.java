@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Class for populating the BookingHistoryView table and making the panel.
+ * @author x64
+ *
+ */
 public class BookingHistoryController{
 
 
@@ -19,6 +24,7 @@ public class BookingHistoryController{
     private JTable table;
     private BookingsHistoryView panel;
 
+    
     public BookingHistoryController(BookingsHistoryView panel){
         this.panel = panel;
         this.table = panel.table;

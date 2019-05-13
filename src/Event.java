@@ -3,6 +3,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * Event class for creating event objects.
+ * @author x64
+ *
+ */
 public class Event {
 	private int ID;
 	private String name = "";
@@ -12,7 +17,17 @@ public class Event {
 	private int duration;
 	private float price;
 	private String image;
-	
+	/**
+	 * Class' constructor
+	 * @param name, event name
+	 * @param price, event price 
+	 * @param organizerId, organizer's id
+	 * @param venueId, venue's id
+	 * @param date, date of event
+	 * @param image, event image
+	 * @param duration, event length by days
+	 * Query for inserting data straight to the database included.
+	 */
 	public Event(String name, float price, int organizerId, int venueId, String date, String image, int duration) {
 
 		this.name = name;
@@ -36,7 +51,11 @@ public class Event {
 	}	
 	
 	
-	
+	/**
+	 * Method for returning events based on organizer's id by querying the database.
+	 * @param ID organizer's id
+	 * @return eventsList arrayList 
+	 */
 	static ArrayList<String> getEventsList(int ID) {
 		String query = "SELECT Name FROM `tbl_event` WHERE OrganizerID = " +ID+";";
 		ArrayList<String> eventsList = new ArrayList<String>();
@@ -54,6 +73,11 @@ public class Event {
         return eventsList;
 	}
 
+	/**
+	 * Method for returning an event's details based on the event's name by querying the database.
+	 * @param eventName name of event
+	 * @return arrayList eventDetailsList 
+	 */
 	public static ArrayList<String> eventDetailsList(String eventName) {
 		String query = "SELECT E.*, V.Name VName FROM tbl_event E, tbl_venue V WHERE E.Name = '" + eventName + "'" +
 				"AND V.VenueID = E.VenueID;";
@@ -84,6 +108,10 @@ public class Event {
 		return details;
 	}
 	
+	
+	/**
+	 * Setters and getters for all the fields.
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -113,6 +141,11 @@ public class Event {
 		return price;
 	}
 	
+	/**
+	 * Method for returning an event's id based on its name, by querying database.
+	 * @param name of Event
+	 * @return integer ID, id of event.
+	 */
 	static int getEventId(String name) {
 		String query = "SELECT EventID FROM tbl_event WHERE Name ='" + name + "';";
 		int ID = 0;
@@ -128,6 +161,16 @@ public class Event {
         return ID;
 	}
 
+	/**
+	 * Method for updating the event details by querying database.
+	 * @param eventID id of event
+	 * @param eventName name of event
+	 * @param price price per day
+	 * @param venueID venue's id
+	 * @param date date of event
+	 * @param image image string
+	 * @param duration in days(integer)
+	 */
     static void updateEventDetails(int eventID, String eventName, float price, int venueID, String date, String image, int duration){
 
         String query = "UPDATE tbl_event SET Name='"+ eventName +"', Price = "+ price +", VenueID = "+venueID+
@@ -141,6 +184,10 @@ public class Event {
         }
     }
 
+    /**
+     * Method for canceling an event based on it's ID by querying the database.
+     * @param eventID 
+     */
     static void deleteEvent(int eventID){
         String query = "DELETE FROM tbl_event_band WHERE EventID  = " + eventID + ";";
 	    String query1 = "DELETE FROM tbl_event WHERE EventID = "+ eventID +";";

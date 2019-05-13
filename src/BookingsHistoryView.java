@@ -8,6 +8,11 @@ import java.awt.event.MouseEvent;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * Class for viewing existing bookings.
+ * @author x64
+ *
+ */
 public class BookingsHistoryView extends JPanel {
 
 
