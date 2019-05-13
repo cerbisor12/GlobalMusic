@@ -3,7 +3,6 @@ import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
@@ -557,7 +556,7 @@ public class RegisterView {
 
             @Override
             public void focusLost(FocusEvent e) {
-                boolean validNo = cardIconPanel.repaint(cardNoField.getText());
+                boolean validNo = cardIconPanel.checkAndRepaint(cardNoField.getText());
                 if (!validNo){
                     lblInvalidCardNumber.setText("Invalid Card No");
                     lblInvalidCardNumber.setVisible(true);

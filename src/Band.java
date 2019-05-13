@@ -1,6 +1,7 @@
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class for creating a new band Object.
@@ -98,6 +99,28 @@ public class Band {
             System.out.println(f.getMessage());
         }
     	return ID;
+	}
+
+	public static List<String[]> getBandDetails(int eventID){
+		String query = "SELECT B.Name, B.Image, B.Genre, B.Link FROM tbl_band B, tbl_event_band EB WHERE EventID= "+eventID+
+				" AND B.BandID = EB.BandID";
+		List<String[]> bandDetails = new ArrayList<>();
+		try{
+			ResultSet rs = Connect.selectStm(query);
+
+			while(rs.next()){
+				String name = rs.getString("Name");
+				String image = rs.getString("Image");
+				String genre = rs.getString("Genre");
+				String link = rs.getString("Link");
+				bandDetails.add(new String[]{name,image,genre,link});
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException k) {
+			System.out.println(k.getMessage());}
+
+		return bandDetails;
 	}
 }
 

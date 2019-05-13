@@ -5,10 +5,24 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.*;
 
+/**
+ *
+ * Child class of JPanel, creates a toolbar with all credit card icons. Combined with a text field, it checks
+ * if the input is a valid credit card number and displays the respective icon.
+ *
+ * @author aran0ia
+ */
+
 public class CreditCardIconsPanel extends JPanel{
 
     private JLabel visaIcon, masterIcon, amexIcon, dinersIcon, discoverIcon, jcbIcon;
 
+    /**
+     * Class' constructor for creating the toolbar with all icons
+     * Creates and positions the panel on its parent container (container Layout must be Absolut)
+     * @param posX the horizontal position on the parent container
+     * @param posY the vertical position on the parent container
+     */
     public CreditCardIconsPanel(int posX, int posY){
         this.setBounds(posX,posY,180,20);
         this.setOpaque(false);
@@ -64,8 +78,13 @@ public class CreditCardIconsPanel extends JPanel{
         this.add(amexIcon);
     }
 
-
-    public boolean repaint(String CardNo){
+    /**
+     * Check input provided against available regexes and repaints the panel to show only the matching card Icon
+     * @param CardNo input from textfield
+     * @return true if CardNo is a valid card number, false otherwise
+     */
+    public boolean checkAndRepaint(String CardNo){
+        //Credit card regex, found online. More can be added
         Pattern regVisa = Pattern.compile("^4[0-9]{12}(?:[0-9]{3})?$");
         Pattern regMaster = Pattern.compile("^5[1-5][0-9]{14}$");
         Pattern regExpress = Pattern.compile("^3[47]\\d{13,14}$");
@@ -73,6 +92,7 @@ public class CreditCardIconsPanel extends JPanel{
         Pattern regDiscover = Pattern.compile("^6(?:011|5[0-9]{2})[0-9]{12}$");
         Pattern regJCB= Pattern.compile("^(?:2131|1800|35\\d{3})\\d{11}$");
 
+        //Create dictionary with regex as key and respective Icon as value
         Map<Pattern, JLabel> typeOfCard = new HashMap<Pattern, JLabel>();
         typeOfCard.put(regVisa, visaIcon);
         typeOfCard.put(regMaster,masterIcon);
@@ -81,16 +101,16 @@ public class CreditCardIconsPanel extends JPanel{
         typeOfCard.put(regDiscover,discoverIcon);
         typeOfCard.put(regJCB,discoverIcon);
 
-        boolean validNo = false;
+        //Loop through dictionary and if the input matches any regex, repaint the panel and return true
         for (Pattern key : typeOfCard.keySet()){
             if(key.matcher(CardNo).matches()){
                 this.removeAll();
                 this.repaint();
                 this.add(typeOfCard.get(key));
-                validNo = true;
+                return true;
             }
         }
-        return validNo;
+        return false;
         }
     }
 

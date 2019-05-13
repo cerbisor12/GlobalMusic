@@ -35,10 +35,11 @@ public class MyAccountView extends JPanel {
 	public JButton saveButton;
 	private CreditCardIconsPanel cardIconPanel;
 	public JButton cancelButton;
+	public JSeparator cancelBtnSeparator;
 
-	
 
-	/**
+
+    /**
 	 * Create the window
 	 */
 	public MyAccountView() {
@@ -227,7 +228,7 @@ public class MyAccountView extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				boolean validNo = cardIconPanel.repaint(cardNoTextField.getText());
+				boolean validNo = cardIconPanel.checkAndRepaint(cardNoTextField.getText());
 				if (!validNo){
 					lblInvalidCardNumber.setText("Invalid Card No");
 					lblInvalidCardNumber.setVisible(true);
@@ -449,6 +450,7 @@ public class MyAccountView extends JPanel {
         JLabel invalidCVVLabel = new JLabel("Invalid Number");
         invalidCVVLabel.setForeground(Color.RED);
         invalidCVVLabel.setBounds(432, 400, 100, 16);
+        invalidCVVLabel.setVisible(false);
         this.add(invalidCVVLabel);
         
         cancelButton = new JButton("Cancel");
@@ -462,12 +464,13 @@ public class MyAccountView extends JPanel {
         cancelButton.setVisible(false);
         add(cancelButton);
         
-        JSeparator separator = new JSeparator();
-        separator.setBackground(SystemColor.inactiveCaption);
-        separator.setOpaque(true);
-        separator.setBounds(320, 482, 100, 3);
-        add(separator);
-        invalidCVVLabel.setVisible(false);
+        cancelBtnSeparator = new JSeparator();
+        cancelBtnSeparator.setBackground(SystemColor.inactiveCaption);
+        cancelBtnSeparator.setOpaque(true);
+        cancelBtnSeparator.setBounds(320, 482, 100, 3);
+        cancelBtnSeparator.setVisible(false);
+        add(cancelBtnSeparator);
+
         
 	}
 }

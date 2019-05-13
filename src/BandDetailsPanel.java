@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ *
+ * Creates the JPanel for displaying the performers included on an event on the NewBookingView
  * @author x64
  *
  */
@@ -19,6 +20,10 @@ public class BandDetailsPanel extends JPanel {
 
     int eventID;
 
+    /**
+     * Class' constructor, sets the layout of the panel and the eventID to retrieve data from the database
+     * @param eventID
+     */
     public BandDetailsPanel(int eventID){
         this.setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
 
@@ -26,33 +31,20 @@ public class BandDetailsPanel extends JPanel {
         createPanel();
     }
 
-    public List<String[]> getBandDetails(){
-        String query = "SELECT B.Name, B.Image, B.Genre, B.Link FROM tbl_band B, tbl_event_band EB WHERE EventID= "+eventID+
-                " AND B.BandID = EB.BandID";
-        List<String[]> bandDetails = new ArrayList<>();
-        try{
-            ResultSet rs = Connect.selectStm(query);
 
-            while(rs.next()){
-                String name = rs.getString("Name");
-                String image = rs.getString("Image");
-                String genre = rs.getString("Genre");
-                String link = rs.getString("Link");
-                bandDetails.add(new String[]{name,image,genre,link});
-            }
-        }catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());}
-
-        return bandDetails;
-    }
-
+    /**
+     * Method for creating individual panels for every performer and adding them to the container panel
+     */
     public void createPanel(){
-        List<String[]> bandDetails = getBandDetails();
+        List<String[]> bandDetails = Band.getBandDetails(eventID);//get all performer details from the DB
+
         int size = bandDetails.size();
+        //set the size of container panel according to the number of performers
         this.setPreferredSize(new Dimension(173*size,230));
+
+        //for each result, create a panel and populate it with performer data from the DB
         for (int i = 0; i<size; i++){
+
             JPanel panel = new JPanel();
             panel.setPreferredSize(new Dimension(173,230));
             if(i%2==0){panel.setBackground(SystemColor.inactiveCaption);}
@@ -88,6 +80,7 @@ public class BandDetailsPanel extends JPanel {
             websiteBtn.setBorderPainted(false);
             websiteBtn.addActionListener(new ActionListener() {
                 /**
+                 * Action Listener for opening website on default browser
                  * @author Brajesh Kumar
                  * Source: https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
                  */

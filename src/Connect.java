@@ -2,9 +2,23 @@ import javax.swing.*;
 import java.io.File;
 import java.sql.*;
 
+/**
+ *
+ * Class for establishing connection to the DB through JDBC
+ * @author aran0ia
+ *
+ */
 public class Connect
 {
     private static Connection c = null;
+
+    /**
+     *
+     * Checks if a connection already exists, and creates one if not
+     * @return c
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public static Connection connect() throws SQLException, ClassNotFoundException
     {
         if (c==null){
@@ -14,6 +28,13 @@ public class Connect
         return c;
     }
 
+    /**
+     * General method for executing SQL Select Statements and return their result set
+     * @param query
+     * @return ResultSet
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public static ResultSet selectStm(String query) throws SQLException,ClassNotFoundException{
         Connection c = connect();
         ResultSet rs = null;
@@ -22,6 +43,12 @@ public class Connect
         return rs;
     }
 
+    /**
+     * General method for SQL statements that update/alter the data (no Results)
+     * @param query
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public static void updateData(String query) throws SQLException,ClassNotFoundException
     {
         Connection c = connect();
@@ -30,29 +57,6 @@ public class Connect
         s.close();
     }
 
-    //Add image path to database, read it back and add to label!!!!!!!
-    public static void main(String[] args)
-    {
-        String path = null;
-        JFileChooser chooser = new JFileChooser();
-        chooser.showOpenDialog(null);
-        File file = chooser.getSelectedFile();
-        String filepath = file.getAbsolutePath().toString().replaceAll("\\\\","\\\\\\\\");
-        try {
-            Connect.updateData("INSERT INTO tbl_event(EventRefNo,Image) VALUES('test7','" + filepath + "');");
-            ResultSet rs = Connect.selectStm("SELECT Image FROM tbl_event WHERE EventRefNo = 'test7';");
-            rs.next();
-            path = rs.getString("Image");
-        }
-        catch(Exception e){e.getStackTrace();}
-        System.out.println(path);
-        System.out.println(filepath);
-        JFrame frame = new JFrame();
-        JLabel lbl = new JLabel("Image");
-        lbl.setIcon(new ImageIcon(path));
-        frame.add(lbl);
-        frame.setVisible(true);
-    }
 
 }
 

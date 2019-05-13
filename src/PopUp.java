@@ -28,7 +28,7 @@ import javax.swing.*;
 
 /**
  * This class is for the admin, it gives him the option to edit users accounts.
- * The pop up inherits from the MyAccountView class.
+ * The pop up uses the MyAccountView class.
  * @author Rhadoo
  *
  */
@@ -53,6 +53,7 @@ public class PopUp extends JFrame {
         	}
         });
         panel.cancelButton.setVisible(true);
+        panel.cancelBtnSeparator.setVisible(true);
         panel.cancelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
