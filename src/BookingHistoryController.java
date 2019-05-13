@@ -1,10 +1,7 @@
 import javax.swing.*;
 import javax.swing.table.*;
+import javax.swing.text.DefaultEditorKit;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -21,15 +18,13 @@ public class BookingHistoryController{
 
 
     private String username = User.username;
-    private JTable table;
-    private BookingsHistoryView panel;
+
 
     
-    public BookingHistoryController(BookingsHistoryView panel){
-        this.panel = panel;
-        this.table = panel.table;
-        List<List<Object>> data = getBookings();
+    public BookingHistoryController(JTable table){
 
+        List<List<Object>> data = getBookings(username);
+        System.out.println(data);
         if (data.size()>1){
             Object[] columnNames = data.get(0).toArray();
             data.remove(0);
@@ -53,14 +48,19 @@ public class BookingHistoryController{
             table.getTableHeader().setFont(new Font("Open Sans",Font.BOLD,18));
             table.setRowHeight(30);
             //setCellsAlignment(table,SwingConstants.CENTER);
-            getNewRenderedTable(table);}
+            table.setDefaultRenderer(Object.class,createRenderer());}
 
     }
 
-    private List<List<Object>> getBookings(){
+    private List<List<Object>> getBookings(String username){
+        String userID;
+        System.out.println("username "+username);
+        if(username.equals("admin")){
+            userID = "'%'";
+        }else{userID = String.valueOf(User.getUserId(username));}
         String query = "SELECT B.BookingNo,B.DateOFBooking 'Date' , IFNULL(E.Name,'-') 'Event', B.NoOfSeats 'Tickets'," +
                 " B.TotalPrice 'Total (£)',B.Paid, B.Status FROM tbl_booking B " +
-                "LEFT JOIN tbl_event E ON E.EventID = B.EventID WHERE CustomerID= "+User.getUserId(User.username)+";";
+                "LEFT JOIN tbl_event E ON E.EventID = B.EventID WHERE CustomerID LIKE "+ userID +";";
         List<List<Object>> bookingData= new ArrayList<>();
 
         try{
@@ -99,8 +99,14 @@ public class BookingHistoryController{
     }
 
 
-    private void getNewRenderedTable(JTable table) {
-            table.setDefaultRenderer(Object.class,new DefaultTableCellRenderer(){
+    public String getUsername() {
+        return username;
+    }
+
+    private TableCellRenderer createRenderer(){
+
+
+           TableCellRenderer renderer = new DefaultTableCellRenderer(){
             @Override
             public Component getTableCellRendererComponent(JTable table,
                                                            Object value, boolean isSelected, boolean hasFocus, int row, int col) {
@@ -118,7 +124,18 @@ public class BookingHistoryController{
                 } else {setBackground(table.getBackground());}
                 return this;
             }
-        });
+        };
+        return renderer;
     }
+
+    public static void updateStatus(JTable table){
+        String query = "UPDATE tbl_booking SET Status = 'confirmed' WHERE Status = 'pending' AND paid = 1;";
+        try{
+            Connect.updateData(query);
+        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        new BookingHistoryController(table);
+    }
+
+
 }
 

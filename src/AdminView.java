@@ -156,40 +156,39 @@ public class AdminView {
         ResultPanel.bookButton.setVisible(false);
         ResultPanel.priceLabel.setVisible(false);
 
+        JButton btnConfirmAll = new JButton("Confirm All Bookings");
+        btnConfirmAll.setBounds(448, 485, 230, 53);
+        btnConfirmAll.setForeground(SystemColor.inactiveCaption);
+        btnConfirmAll.setFont(new Font("Open Sans", Font.PLAIN, 20));
+        btnConfirmAll.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btnConfirmAll.setOpaque(false);
+        btnConfirmAll.setBorderPainted(false);
+        btnConfirmAll.setContentAreaFilled(false);
+        btnConfirmAll.setVisible(false);
+        btnConfirmAll.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                BookingHistoryController.updateStatus(tableConfirmBooking);
+            }
+        });
+        frame.getContentPane().add(btnConfirmAll);
+
+        JSeparator separatorConfirmAll = new JSeparator();
+        separatorConfirmAll.setBounds(448, 530, 230, 3);
+        separatorConfirmAll.setBackground(SystemColor.inactiveCaption);
+        separatorConfirmAll.setForeground(SystemColor.inactiveCaption);
+        separatorConfirmAll.setVisible(false);
+        separatorConfirmAll.setOpaque(true);
+        frame.getContentPane().add(separatorConfirmAll);
 
         JScrollPane scrollPaneConfirmBooking = new JScrollPane();
-        scrollPaneConfirmBooking.setBounds(548, 173, 550, 222);
+        scrollPaneConfirmBooking.setBounds(448, 173, 750, 300);
         frame.getContentPane().add(scrollPaneConfirmBooking);
         scrollPaneConfirmBooking.setVisible(false);
         
         tableConfirmBooking = new JTable();
+        new BookingHistoryController(tableConfirmBooking);
         tableConfirmBooking.setBackground(SystemColor.inactiveCaption);
-        tableConfirmBooking.setForeground(SystemColor.inactiveCaption);
-        tableConfirmBooking.setModel(new DefaultTableModel(
-        	new Object[][] {
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        		{null, null, null, null, null, null},
-        	},
-        	new String[] {
-        		"New column", "New column", "New column", "New column", "New column", "New column"
-        	}
-        ));
         scrollPaneConfirmBooking.setViewportView(tableConfirmBooking);
 
         JButton btnViewEventList = new JButton("View Event List");
@@ -200,6 +199,8 @@ public class AdminView {
             public void actionPerformed(ActionEvent e) {
                 scrollPaneViewEvent.setVisible(true);
                 scrollPaneConfirmBooking.setVisible(false);
+                btnConfirmAll.setVisible(true);
+                separatorConfirmAll.setVisible(true);
             }
         });
         btnViewEventList.setBounds(27, 173, 190, 53);
@@ -227,6 +228,7 @@ public class AdminView {
             public void actionPerformed(ActionEvent arg0) {
                 scrollPaneViewEvent.setVisible(false);
                 scrollPaneConfirmBooking.setVisible(true);
+
             }
         });
         frame.getContentPane().add(btnConfirmBooking);

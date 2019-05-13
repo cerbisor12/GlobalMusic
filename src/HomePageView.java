@@ -80,7 +80,8 @@ public class HomePageView {
 
         searchButton = new JButton("Search events");
         /**
-         * Search button listener to hide the search button while on this panel. This happens for every other button since there is no point for
+         * Search button listener to hide the search button while on this panel. This happens for every other button
+         * since there is no point for
          * having the button on its own panel.
          */
         searchButton.addActionListener(new ActionListener() {
@@ -162,7 +163,8 @@ public class HomePageView {
 
                 for (Component card : c.getComponents()){
                     if (card instanceof BookingsHistoryView){
-                        new BookingHistoryController((BookingsHistoryView) card); }
+                        new BookingHistoryController(((BookingsHistoryView) card).table);
+                        }
                 }
                 ((CardLayout)c.getLayout()).show(c,"History");
 

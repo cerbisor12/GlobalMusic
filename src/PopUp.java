@@ -58,7 +58,6 @@ public class PopUp extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
-        	
         });
         getContentPane().add(panel);
         setVisible(true);

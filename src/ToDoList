@@ -12,6 +12,8 @@
 --12. On CancelEvent -> Action Listeners for Add venue and Add performer?
 --13. On Edit/Cancel Event -> View only future events
 
+14. Remove "Book Tickets" from event list in admin view
+
 Missing:
 AdminView - Confirm Bookings (a similar controller to Booking History)
 AdminView - Generate Invoices
