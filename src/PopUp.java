@@ -1,8 +1,5 @@
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
@@ -11,20 +8,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.border.MatteBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JSeparator;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.ImageIcon;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JTextField;
-import javax.swing.BoxLayout;
-import javax.swing.JComboBox;
-
-import javax.swing.*;
 
 /**
  * This class is for the admin, it gives him the option to edit users accounts.
@@ -100,14 +86,14 @@ public class PopUp extends JFrame {
         this.getContentPane().add(minimizeButton);
         
         JLabel lblLogo = new JLabel("");
-        lblLogo.setIcon(new ImageIcon(LoginView.class.getResource("Images/Logo.jpg")));
+        lblLogo.setIcon(new ImageIcon(Main.IMAGE_DIR+"Logo.jpg"));
         lblLogo.setBounds(186, 583, 200, 96);
         this.getContentPane().add(lblLogo);
 
 
         JLabel lblImageLabel = new JLabel("Image");
         lblImageLabel.setForeground(Color.BLACK);
-        lblImageLabel.setIcon(new ImageIcon(LoginView.class.getResource("Images/Silhouette-Rock-Concert-Wallpaper1.jpg")));
+        lblImageLabel.setIcon(new ImageIcon(Main.IMAGE_DIR+"Silhouette-Rock-Concert-Wallpaper1.jpg"));
         lblImageLabel.setBounds(0, 0, 1280, 690);
         this.getContentPane().add(lblImageLabel);
         

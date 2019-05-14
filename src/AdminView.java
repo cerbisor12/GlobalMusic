@@ -15,7 +15,6 @@ import javax.swing.JSeparator;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ImageIcon;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.JComboBox;
 
 /**
@@ -152,9 +151,10 @@ public class AdminView {
         scrollPaneViewEvent.setBounds(400, 173, 840, 374);
         scrollPaneViewEvent.setBackground(Color.BLACK);
         frame.getContentPane().add(scrollPaneViewEvent);
-        scrollPaneViewEvent.setViewportView(new ResultPanel(false));
-        ResultPanel.bookButton.setVisible(false);
-        ResultPanel.priceLabel.setVisible(false);
+        ResultPanel resultPanel = new ResultPanel(false);
+        resultPanel.hideBookButton();
+        scrollPaneViewEvent.setViewportView(resultPanel);
+
 
         JButton btnConfirmAll = new JButton("Confirm All Bookings");
         btnConfirmAll.setBounds(448, 485, 230, 53);
@@ -230,7 +230,6 @@ public class AdminView {
                 scrollPaneConfirmBooking.setVisible(true);
                 btnConfirmAll.setVisible(true);
                 separatorConfirmAll.setVisible(true);
-
             }
         });
         frame.getContentPane().add(btnConfirmBooking);
@@ -291,14 +290,14 @@ public class AdminView {
         
         
         JLabel lblLogo = new JLabel("");
-        lblLogo.setIcon(new ImageIcon(LoginView.class.getResource("Images/Logo.jpg")));
+        lblLogo.setIcon(new ImageIcon(Main.IMAGE_DIR+"Logo.jpg"));
         lblLogo.setBounds(186, 583, 200, 96);
         frame.getContentPane().add(lblLogo);
 
 
         JLabel lblImageLabel = new JLabel("Image");
         lblImageLabel.setForeground(Color.BLACK);
-        lblImageLabel.setIcon(new ImageIcon(LoginView.class.getResource("Images/Silhouette-Rock-Concert-Wallpaper1.jpg")));
+        lblImageLabel.setIcon(new ImageIcon(Main.IMAGE_DIR+"Silhouette-Rock-Concert-Wallpaper1.jpg"));
         lblImageLabel.setBounds(0, 0, 1297, 693);
         frame.getContentPane().add(lblImageLabel);
         

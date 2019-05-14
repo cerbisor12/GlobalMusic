@@ -738,7 +738,7 @@ public class RegisterView {
         
         
         JLabel lblLogo = new JLabel("");
-        lblLogo.setIcon(new ImageIcon(LoginView.class.getResource("Images/Logo.jpg")));
+        lblLogo.setIcon(new ImageIcon(Main.IMAGE_DIR+"Logo.jpg"));
         lblLogo.setBounds(186, 583, 200, 96);
         frame.getContentPane().add(lblLogo);
 
@@ -746,7 +746,7 @@ public class RegisterView {
         JLabel lblImageLabel = new JLabel("Image");
         lblImageLabel.setFont(new Font("Open Sans", Font.PLAIN, 11));
         lblImageLabel.setForeground(Color.BLACK);
-        lblImageLabel.setIcon(new ImageIcon(HomePageView.class.getResource("Images/Silhouette-Rock-Concert-Wallpaper1.jpg")));
+        lblImageLabel.setIcon(new ImageIcon(Main.IMAGE_DIR+"Silhouette-Rock-Concert-Wallpaper1.jpg"));
         lblImageLabel.setBounds(0, 0, 1297, 693);
         frame.getContentPane().add(lblImageLabel);
 

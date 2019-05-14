@@ -32,7 +32,7 @@ public class CreditCardIconsPanel extends JPanel{
         visaIcon = new JLabel();
         visaIcon.setBounds(0,0,28, 20);
         visaIcon.setSize(new Dimension(28,20));
-        ImageIcon img = new ImageIcon(RegisterView.class.getResource(Main.CARD_ICON_DIR+"VisaIcon.jpg"));
+        ImageIcon img = new ImageIcon(Main.CARD_ICON_DIR+"VisaIcon.jpg");
         Image image = img.getImage().getScaledInstance(visaIcon.getWidth(),visaIcon.getHeight(),Image.SCALE_SMOOTH);
         visaIcon.setIcon(new ImageIcon(image));
         this.add(visaIcon);
@@ -40,7 +40,7 @@ public class CreditCardIconsPanel extends JPanel{
         masterIcon = new JLabel();
         masterIcon.setBounds(30,0,28, 20);
         masterIcon.setSize(new Dimension(28, 20));
-        img = new ImageIcon(RegisterView.class.getResource(Main.CARD_ICON_DIR+"MasterCardIcon.jpg"));
+        img = new ImageIcon(Main.CARD_ICON_DIR+"MasterCardIcon.jpg");
         image = img.getImage().getScaledInstance(masterIcon.getWidth(),masterIcon.getHeight(),Image.SCALE_SMOOTH);
         masterIcon.setIcon(new ImageIcon(image));
         this.add(masterIcon);
@@ -48,7 +48,7 @@ public class CreditCardIconsPanel extends JPanel{
         jcbIcon = new JLabel();
         jcbIcon.setBounds(60,0,28, 20);
         jcbIcon.setSize(new Dimension(28, 20));
-        img = new ImageIcon(RegisterView.class.getResource(Main.CARD_ICON_DIR+"JCBIcon.jpg"));
+        img = new ImageIcon(Main.CARD_ICON_DIR+"JCBIcon.jpg");
         image = img.getImage().getScaledInstance(jcbIcon.getWidth(),jcbIcon.getHeight(),Image.SCALE_SMOOTH);
         jcbIcon.setIcon(new ImageIcon(image));
         this.add(jcbIcon);
@@ -56,7 +56,7 @@ public class CreditCardIconsPanel extends JPanel{
         discoverIcon = new JLabel();
         discoverIcon.setBounds(90,0,28, 20);
         discoverIcon.setSize(new Dimension(28, 20));
-        img = new ImageIcon(RegisterView.class.getResource(Main.CARD_ICON_DIR+"DiscoversIcon.jpg"));
+        img = new ImageIcon(Main.CARD_ICON_DIR+"DiscoversIcon.jpg");
         image = img.getImage().getScaledInstance(discoverIcon.getWidth(),discoverIcon.getHeight(),Image.SCALE_SMOOTH);
         discoverIcon.setIcon(new ImageIcon(image));
         this.add(discoverIcon);
@@ -64,7 +64,7 @@ public class CreditCardIconsPanel extends JPanel{
         dinersIcon = new JLabel();
         dinersIcon.setBounds(120,0,28, 20);
         dinersIcon.setSize(new Dimension(28, 20));
-        img = new ImageIcon(RegisterView.class.getResource(Main.CARD_ICON_DIR+"DinersIcon.jpg"));
+        img = new ImageIcon(Main.CARD_ICON_DIR+"DinersIcon.jpg");
         image = img.getImage().getScaledInstance(dinersIcon.getWidth(),dinersIcon.getHeight(),Image.SCALE_SMOOTH);
         dinersIcon.setIcon(new ImageIcon(image));
         this.add(dinersIcon);
@@ -72,7 +72,7 @@ public class CreditCardIconsPanel extends JPanel{
         amexIcon = new JLabel();
         amexIcon.setBounds(150,0,28, 20);
         amexIcon.setSize(new Dimension(28, 20));
-        img = new ImageIcon(RegisterView.class.getResource(Main.CARD_ICON_DIR+"AmexIcon.jpg"));
+        img = new ImageIcon(Main.CARD_ICON_DIR+"AmexIcon.jpg");
         image = img.getImage().getScaledInstance(amexIcon.getWidth(),amexIcon.getHeight(),Image.SCALE_SMOOTH);
         amexIcon.setIcon(new ImageIcon(image));
         this.add(amexIcon);

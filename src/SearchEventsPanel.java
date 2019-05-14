@@ -66,7 +66,7 @@ public class SearchEventsPanel extends JPanel {
         JButton searchButton1 = new JButton("");
         searchButton1.setBorderPainted(false);
         searchButton1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        searchButton1.setIcon(new ImageIcon(LoginView.class.getResource("Images/SearchIcon.png")));
+        searchButton1.setIcon(new ImageIcon(Main.IMAGE_DIR+"SearchIcon.png"));
         searchButton1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 scrollPane.setViewportView(new ResultPanel(searchTxtField.getText().replace("'", "''")));
@@ -81,7 +81,7 @@ public class SearchEventsPanel extends JPanel {
         JButton searchButton2 = new JButton("");
         searchButton2.setBorderPainted(false);
         searchButton2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        searchButton2.setIcon(new ImageIcon(LoginView.class.getResource("Images/SearchIcon.png")));
+        searchButton2.setIcon(new ImageIcon(Main.IMAGE_DIR+"SearchIcon.png"));
         searchButton2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 

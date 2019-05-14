@@ -44,7 +44,7 @@ public class NewBookingController implements ActionListener {
             ResultSet rs = Connect.selectStm(query);
             rs.next();
 
-            ImageIcon img = new ImageIcon((HomePageView.class.getResource(Main.EVENT_IMAGE_DIR+rs.getString("Image"))));
+            ImageIcon img = new ImageIcon((Main.EVENT_IMAGE_DIR+rs.getString("Image")));
             int width = newBooking.lblFestivalImage.getWidth();
             int height = newBooking.lblFestivalImage.getHeight();
             Image image = img.getImage().getScaledInstance(width,height,Image.SCALE_SMOOTH);

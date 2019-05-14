@@ -12,7 +12,6 @@ import javax.swing.border.MatteBorder;
 import java.awt.Color;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.util.ArrayList;
 
 /**
  * This class is for adding venues by the concert organizer.
@@ -184,7 +183,7 @@ public class NewVenueView {
 		frame.getContentPane().add(addButton);
 
 		JLabel backgroundLabel = new JLabel("New label");
-		backgroundLabel.setIcon(new ImageIcon(NewBandView.class.getResource("/Images/rsz_silhouette-rock-concert-wallpaper1.jpg")));
+		backgroundLabel.setIcon(new ImageIcon(Main.IMAGE_DIR+"rsz_silhouette-Rock-Concert-Wallpaper1.jpg"));
 		backgroundLabel.setBounds(0, 0, 432, 253);
 		frame.getContentPane().add(backgroundLabel);
 		

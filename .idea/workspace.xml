@@ -8,6 +8,50 @@
     <list default="true" id="b89e92a4-688d-4fc7-9b4b-7d8c1d6995f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdminView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BandDetailsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BandDetailsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChangePasswordView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChangePasswordView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CreditCardIconsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CreditCardIconsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EditEventView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditEventView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventOrganizerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventOrganizerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FrameTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HomePageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomePageView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Artist_Images/Logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Artist_Images/Logo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Artist_Images/Shakira.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Artist_Images/Shakira.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Artist_Images/sagicho-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Artist_Images/sagicho-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Card_Icons/AmexIcon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Card_Icons/AmexIcon.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Card_Icons/DinersIcon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Card_Icons/DinersIcon.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Card_Icons/DiscoversIcon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Card_Icons/DiscoversIcon.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Card_Icons/JCBIcon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Card_Icons/JCBIcon.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Card_Icons/MasterCardIcon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Card_Icons/MasterCardIcon.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Card_Icons/VisaIcon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Card_Icons/VisaIcon.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Event_Images/CardIcons.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Event_Images/CardIcons.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Event_Images/Logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Event_Images/Logo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Event_Images/Pooja_kalash_png_colour_ful.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Event_Images/Pooja_kalash_png_colour_ful.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Event_Images/Shakira.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Event_Images/Shakira.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Event_Images/computer_programming.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Event_Images/computer_programming.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Event_Images/html.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Event_Images/html.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Event_Images/sagicho-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Event_Images/sagicho-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Event_Images/testImage.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Event_Images/testImage.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Logo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/SearchIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/SearchIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/Silhouette-Rock-Concert-Wallpaper1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Silhouette-Rock-Concert-Wallpaper1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/UploadButton.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/UploadButton.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/rsz_silhouette-rock-concert-wallpaper1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/rsz_silhouette-rock-concert-wallpaper1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyAccountView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyAccountView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NewAgentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewAgentView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NewBandView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewBandView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NewBookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewBookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NewBookingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewBookingView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NewVenueView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewVenueView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PopUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegisterView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ResultPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResultPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SearchEventsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchEventsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ToDoList" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToDoList" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,62 +67,55 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NewAgentView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="161" column="67" selection-start-line="161" selection-start-column="67" selection-end-line="161" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SearchEventsPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/AdminView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="306" column="1" lean-forward="true" selection-start-line="306" selection-start-column="1" selection-end-line="306" selection-end-column="1" />
-              <folding>
-                <element signature="e#6235#6236#0" expanded="true" />
-                <element signature="e#6306#6307#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1062">
+              <caret line="83" column="70" selection-start-line="83" selection-start-column="70" selection-end-line="83" selection-end-column="70" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BookingHistoryController.java">
+        <entry file="file://$PROJECT_DIR$/src/RegisterView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="135" column="44" selection-start-line="135" selection-start-column="44" selection-end-line="135" selection-end-column="44" />
-              <folding>
-                <element signature="e#3695#3696#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="192">
+              <caret line="740" column="58" selection-start-line="740" selection-start-column="58" selection-end-line="740" selection-end-column="58" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HomePageView.java">
+        <entry file="file://$PROJECT_DIR$/src/NewBookingView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2635">
-              <caret line="167" selection-start-line="167" selection-end-line="168" />
+            <state relative-caret-position="5595">
+              <caret line="408" selection-start-line="408" selection-end-line="408" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LoginView.java">
+        <entry file="file://$PROJECT_DIR$/src/Event.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1345">
-              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+            <state relative-caret-position="77">
+              <caret line="59" column="50" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BookingsHistoryView.java">
+        <entry file="file://$PROJECT_DIR$/src/NewVenueView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="57" />
+            <state relative-caret-position="144">
+              <caret line="185" column="67" selection-start-line="185" selection-start-column="67" selection-end-line="185" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -86,8 +123,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PopUp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+            <state relative-caret-position="247">
+              <caret line="95" column="99" selection-start-line="95" selection-start-column="99" selection-end-line="95" selection-end-column="99" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NewBandView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="261" column="101" selection-start-line="261" selection-start-column="101" selection-end-line="261" selection-end-column="101" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/NewBookingController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="46" column="59" selection-start-line="46" selection-start-column="59" selection-end-line="46" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -95,17 +150,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ResultPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="43" column="99" selection-start-line="43" selection-start-column="99" selection-end-line="43" selection-end-column="99" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ToDoList">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="120">
+              <caret line="173" column="83" selection-start-line="173" selection-start-column="83" selection-end-line="173" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -139,11 +185,15 @@
       <find>Rem</find>
       <find>invalidCVVLabel.setVisible</find>
       <find>table.</find>
+      <find>&quot;/src/&quot;</find>
+      <find>class.getResource(</find>
     </findStrings>
     <replaceStrings>
       <replace>lblImageLabel.add</replace>
       <replace>this.add</replace>
       <replace>this.</replace>
+      <replace>&quot;/&quot;</replace>
+      <replace />
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -152,36 +202,41 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/User.java" />
         <option value="$PROJECT_DIR$/src/Test.java" />
-        <option value="$PROJECT_DIR$/src/ChangePasswordView.java" />
         <option value="$PROJECT_DIR$/src/TestMail.java" />
         <option value="$PROJECT_DIR$/src/Booking.java" />
         <option value="$PROJECT_DIR$/src/SendMail.java" />
         <option value="$PROJECT_DIR$/src/notes" />
         <option value="$PROJECT_DIR$/src/GMJFrame.java" />
-        <option value="$PROJECT_DIR$/src/RegisterView.java" />
-        <option value="$PROJECT_DIR$/src/EventOrganizerView.java" />
-        <option value="$PROJECT_DIR$/src/NewBookingView.java" />
         <option value="$PROJECT_DIR$/src/Template/invoice.tex" />
-        <option value="$PROJECT_DIR$/src/EditEventView.java" />
-        <option value="$PROJECT_DIR$/src/Event.java" />
-        <option value="$PROJECT_DIR$/src/MyAccountView.java" />
         <option value="$PROJECT_DIR$/src/Band.java" />
-        <option value="$PROJECT_DIR$/src/BandDetailsPanel.java" />
         <option value="$PROJECT_DIR$/src/Connect.java" />
-        <option value="$PROJECT_DIR$/src/CreditCardIconsPanel.java" />
-        <option value="$PROJECT_DIR$/src/SearchEventsPanel.java" />
         <option value="$PROJECT_DIR$/src/EventsPanel.java" />
-        <option value="$PROJECT_DIR$/src/ResultPanel.java" />
-        <option value="$PROJECT_DIR$/src/ToDoList" />
-        <option value="$PROJECT_DIR$/src/PopUp.java" />
         <option value="$PROJECT_DIR$/src/MyTable.java" />
-        <option value="$PROJECT_DIR$/src/HomePageView.java" />
         <option value="$PROJECT_DIR$/src/BookingsHistoryView.java" />
         <option value="$PROJECT_DIR$/src/BookingHistoryController.java" />
+        <option value="$PROJECT_DIR$/src/ToDoList" />
+        <option value="$PROJECT_DIR$/src/User.java" />
+        <option value="$PROJECT_DIR$/src/MyAccountView.java" />
+        <option value="$PROJECT_DIR$/src/ChangePasswordView.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/LoginView.java" />
         <option value="$PROJECT_DIR$/src/AdminView.java" />
+        <option value="$PROJECT_DIR$/src/BandDetailsPanel.java" />
+        <option value="$PROJECT_DIR$/src/CreditCardIconsPanel.java" />
+        <option value="$PROJECT_DIR$/src/EditEventView.java" />
+        <option value="$PROJECT_DIR$/src/EventOrganizerView.java" />
+        <option value="$PROJECT_DIR$/src/HomePageView.java" />
+        <option value="$PROJECT_DIR$/src/NewAgentView.java" />
+        <option value="$PROJECT_DIR$/src/NewBandView.java" />
+        <option value="$PROJECT_DIR$/src/NewBookingView.java" />
+        <option value="$PROJECT_DIR$/src/NewVenueView.java" />
+        <option value="$PROJECT_DIR$/src/PopUp.java" />
+        <option value="$PROJECT_DIR$/src/RegisterView.java" />
+        <option value="$PROJECT_DIR$/src/ResultPanel.java" />
+        <option value="$PROJECT_DIR$/src/SearchEventsPanel.java" />
+        <option value="$PROJECT_DIR$/src/Event.java" />
+        <option value="$PROJECT_DIR$/src/NewBookingController.java" />
       </list>
     </option>
   </component>
@@ -212,13 +267,13 @@
             <path>
               <item name="GlobalMusic" type="b2602c69:ProjectViewProjectNode" />
               <item name="GlobalMusic" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+              <item name="Images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GlobalMusic" type="b2602c69:ProjectViewProjectNode" />
               <item name="GlobalMusic" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-              <item name="libraries" type="462c0819:PsiDirectoryNode" />
+              <item name="Images" type="462c0819:PsiDirectoryNode" />
+              <item name="Event_Images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GlobalMusic" type="b2602c69:ProjectViewProjectNode" />
@@ -229,12 +284,6 @@
               <item name="GlobalMusic" type="b2602c69:ProjectViewProjectNode" />
               <item name="GlobalMusic" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GlobalMusic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GlobalMusic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GlobalMusic" type="b2602c69:ProjectViewProjectNode" />
@@ -252,7 +301,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557849882414" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557858529912" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -260,6 +309,9 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aran0\IdeaProjects\GlobalMusic" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\aran0\IdeaProjects\GlobalMusic\src\Images\CardIcons" />
     </key>
@@ -435,7 +487,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557776326578</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added confirm Bookings functionality to AdminView">
+      <created>1557849925101</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1557849925101</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -445,7 +504,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.27155825" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27155825" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -454,7 +513,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49924356" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.9039334" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.9039334" visible="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -569,17 +628,7 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Lalala.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/javax/swing/ImageIcon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="216" selection-start-line="216" selection-end-line="216" />
-          <folding>
-            <element signature="e#6742#6743#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Images/Card_Icons/VisaIcon.jpg">
+    <entry file="file://$PROJECT_DIR$/Images/Card_Icons/VisaIcon.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/uiDesigner.xml">
@@ -624,34 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ChangePasswordView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NewAgentView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NewBandView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="191" column="11" selection-start-line="169" selection-start-column="39" selection-end-line="191" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Venue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -665,17 +686,6 @@
           <caret line="44" column="87" selection-start-line="44" selection-start-column="87" selection-end-line="44" selection-end-column="87" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NewVenueView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="165" column="8" selection-start-line="165" selection-start-column="8" selection-end-line="165" selection-end-column="8" />
-          <folding>
-            <element signature="e#4172#4478#0" expanded="true" />
-            <element signature="e#4477#4478#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -706,27 +716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RegisterView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3026">
-          <caret line="199" selection-start-line="199" selection-end-line="199" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EventOrganizerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7259">
-          <caret line="458" column="73" selection-start-line="458" selection-start-column="73" selection-end-line="458" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/invoice.tex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -734,123 +723,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="57" column="7" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
-          <folding>
-            <element signature="e#2433#2441#0" expanded="true" />
-            <element signature="e#3312#3320#0" expanded="true" />
-            <element signature="e#4107#4108#0" expanded="true" />
-            <element signature="e#4130#4131#0" expanded="true" />
-            <element signature="e#4161#4162#0" expanded="true" />
-            <element signature="e#4179#4180#0" expanded="true" />
-            <element signature="e#4224#4225#0" expanded="true" />
-            <element signature="e#4255#4256#0" expanded="true" />
-            <element signature="e#4287#4288#0" expanded="true" />
-            <element signature="e#4309#4310#0" expanded="true" />
-            <element signature="e#4348#4349#0" expanded="true" />
-            <element signature="e#4373#4374#0" expanded="true" />
-            <element signature="e#4411#4412#0" expanded="true" />
-            <element signature="e#4430#4431#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NewBookingView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="374" column="13" selection-start-line="374" selection-start-column="13" selection-end-line="374" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Band.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3">
           <caret line="98" column="47" selection-start-line="98" selection-start-column="47" selection-end-line="98" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BandDetailsPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Connect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MyAccountView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CreditCardIconsPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="865">
-          <caret line="103" column="103" selection-start-line="103" selection-start-column="103" selection-end-line="103" selection-end-column="103" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EditEventView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-163">
-          <caret line="565" column="53" selection-start-line="565" selection-start-column="53" selection-end-line="565" selection-end-column="53" />
-          <folding>
-            <element signature="e#3336#3516#0" expanded="true" />
-            <element signature="e#3515#3516#0" expanded="true" />
-            <element signature="e#6919#6927#0" expanded="true" />
-            <element signature="e#19354#19355#0" expanded="true" />
-            <element signature="e#19403#19404#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SearchEventsPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ResultPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="43" column="99" selection-start-line="43" selection-start-column="99" selection-end-line="43" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ToDoList">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PopUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NewBookingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -866,6 +742,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/BookingHistoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="101" column="33" lean-forward="true" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+          <folding>
+            <element signature="e#3695#3696#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/BookingsHistoryView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -873,38 +759,180 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HomePageView.java">
+    <entry file="file://$PROJECT_DIR$/src/Connect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2635">
-          <caret line="167" selection-start-line="167" selection-end-line="168" />
+        <state relative-caret-position="128">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ToDoList">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="296" column="10" selection-start-line="296" selection-start-column="10" selection-end-line="296" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyAccountView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6919">
+          <caret line="407" column="70" selection-start-line="407" selection-start-column="70" selection-end-line="407" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/javax/swing/ImageIcon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="216" selection-start-line="216" selection-end-line="216" />
+          <folding>
+            <element signature="e#6742#6743#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ChangePasswordView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1247">
+          <caret line="154" column="17" selection-start-line="154" selection-start-column="17" selection-end-line="154" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LoginView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1345">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BookingHistoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="135" column="44" selection-start-line="135" selection-start-column="44" selection-end-line="135" selection-end-column="44" />
-          <folding>
-            <element signature="e#3695#3696#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="272">
+          <caret line="234" column="99" lean-forward="true" selection-start-line="234" selection-start-column="44" selection-end-line="234" selection-end-column="99" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="306" column="1" lean-forward="true" selection-start-line="306" selection-start-column="1" selection-end-line="306" selection-end-column="1" />
+        <state relative-caret-position="219">
+          <caret line="295" lean-forward="true" selection-start-line="295" selection-end-line="295" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BandDetailsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="55" column="87" lean-forward="true" selection-start-line="55" selection-start-column="87" selection-end-line="55" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CreditCardIconsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-382">
+          <caret line="74" column="61" selection-start-line="74" selection-start-column="61" selection-end-line="74" selection-end-column="61" />
           <folding>
-            <element signature="e#6235#6236#0" expanded="true" />
-            <element signature="e#6306#6307#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EditEventView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="529" column="99" selection-start-line="529" selection-start-column="99" selection-end-line="529" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EventOrganizerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="570" column="103" selection-start-line="570" selection-start-column="103" selection-end-line="570" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HomePageView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="278" column="46" selection-start-line="278" selection-start-column="46" selection-end-line="278" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NewAgentView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="161" column="67" selection-start-line="161" selection-start-column="67" selection-end-line="161" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NewBandView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="261" column="101" selection-start-line="261" selection-start-column="101" selection-end-line="261" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NewVenueView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="185" column="67" selection-start-line="185" selection-start-column="67" selection-end-line="185" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PopUp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="95" column="99" selection-start-line="95" selection-start-column="99" selection-end-line="95" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RegisterView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="740" column="58" selection-start-line="740" selection-start-column="58" selection-end-line="740" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ResultPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="173" column="83" selection-start-line="173" selection-start-column="83" selection-end-line="173" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SearchEventsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1062">
+          <caret line="83" column="70" selection-start-line="83" selection-start-column="70" selection-end-line="83" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="59" column="50" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NewBookingView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5595">
+          <caret line="408" selection-start-line="408" selection-end-line="408" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NewBookingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="46" column="59" selection-start-line="46" selection-start-column="59" selection-end-line="46" selection-end-column="59" />
         </state>
       </provider>
     </entry>

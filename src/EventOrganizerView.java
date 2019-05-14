@@ -357,7 +357,7 @@ public class EventOrganizerView {
 							imageName = file.getName();
 							lblImageName.setText(imageName);
 
-							Files.copy(file.toPath(),Paths.get(System.getProperty("user.dir")+"/src/"+Main.EVENT_IMAGE_DIR+file.getName()),
+							Files.copy(file.toPath(),Paths.get(System.getProperty("user.dir")+"/"+Main.EVENT_IMAGE_DIR+file.getName()),
 									StandardCopyOption.REPLACE_EXISTING,
 									StandardCopyOption.COPY_ATTRIBUTES,
 									LinkOption.NOFOLLOW_LINKS );
@@ -371,7 +371,7 @@ public class EventOrganizerView {
 	        	}
 	        });
 	        btnUploadButton.setBorderPainted(false);
-	        btnUploadButton.setIcon(new ImageIcon(LoginView.class.getResource("Images/UploadButton.jpg")));
+	        btnUploadButton.setIcon(new ImageIcon(Main.IMAGE_DIR+"UploadButton.jpg"));
 	        btnUploadButton.setBounds(987, 312, 159, 23);
 	        btnUploadButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	        frame.getContentPane().add(btnUploadButton);
@@ -400,7 +400,7 @@ public class EventOrganizerView {
 
 
 	        JLabel lblLogo = new JLabel("");
-	        lblLogo.setIcon(new ImageIcon(LoginView.class.getResource("Images/Logo.jpg")));
+	        lblLogo.setIcon(new ImageIcon(Main.IMAGE_DIR+"Logo.jpg"));
 	        lblLogo.setBounds(186, 583, 200, 96);
 	        frame.getContentPane().add(lblLogo);
 
@@ -568,7 +568,7 @@ public class EventOrganizerView {
 	        lblImageLabel.setOpaque(true);
 	        lblImageLabel.setBackground(SystemColor.inactiveCaption);
 	        lblImageLabel.setForeground(SystemColor.inactiveCaption);
-	        lblImageLabel.setIcon(new ImageIcon(LoginView.class.getResource("Images/Silhouette-Rock-Concert-Wallpaper1.jpg")));
+	        lblImageLabel.setIcon(new ImageIcon(Main.IMAGE_DIR+"Silhouette-Rock-Concert-Wallpaper1.jpg"));
 	        lblImageLabel.setBounds(0, 0, 1280, 690);
 	        frame.getContentPane().add(lblImageLabel);
 	    }

@@ -199,7 +199,7 @@ public class NewBandView extends JFrame {
 						imageName = file.getName();
 						lblImageName.setText(imageName);
 
-						Files.copy(file.toPath(), Paths.get(System.getProperty("user.dir")+"/GroupProject/src/"+Main.ARTIST_IMAGE_DIR+file.getName()),
+						Files.copy(file.toPath(), Paths.get(System.getProperty("user.dir")+"/"+Main.ARTIST_IMAGE_DIR+file.getName()),
 								java.nio.file.StandardCopyOption.REPLACE_EXISTING,
 								java.nio.file.StandardCopyOption.COPY_ATTRIBUTES,
 								java.nio.file.LinkOption.NOFOLLOW_LINKS );
@@ -212,7 +212,7 @@ public class NewBandView extends JFrame {
 			}
 		});
 		uploadButton.setBorderPainted(false);
-        uploadButton.setIcon(new ImageIcon(LoginView.class.getResource("Images/UploadButton.jpg")));
+        uploadButton.setIcon(new ImageIcon(Main.IMAGE_DIR+"Upload.jpg"));
 		uploadButton.setBounds(245, 100, 159, 23);
 		uploadButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		frame.getContentPane().add(uploadButton);
@@ -259,7 +259,7 @@ public class NewBandView extends JFrame {
 		frame.getContentPane().add(addButton);
 		
 		JLabel backgroundLabel = new JLabel("New label");
-		backgroundLabel.setIcon(new ImageIcon(NewBandView.class.getResource("/Images/rsz_silhouette-rock-concert-wallpaper1.jpg")));
+		backgroundLabel.setIcon(new ImageIcon(Main.IMAGE_DIR+"Silhouette-Rock-Concert-Wallpaper1.jpg"));
 		backgroundLabel.setBounds(0, 0, 432, 253);
 		frame.getContentPane().add(backgroundLabel);
 	}

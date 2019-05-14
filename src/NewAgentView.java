@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import java.awt.Color;
-import java.awt.Rectangle;
 
 /**
  * Class for adding new agents.
@@ -160,7 +159,7 @@ public class NewAgentView {
 		frame.getContentPane().add(addButton);
 		
 		JLabel backgroundLabel = new JLabel("New label");
-		backgroundLabel.setIcon(new ImageIcon(NewBandView.class.getResource("/Images/rsz_silhouette-rock-concert-wallpaper1.jpg")));
+		backgroundLabel.setIcon(new ImageIcon(Main.IMAGE_DIR+"rsz_silhouette-Rock-Concert-Wallpaper1.jpg"));
 		backgroundLabel.setBounds(0, 0, 432, 253);
 		frame.getContentPane().add(backgroundLabel);		
 	}

@@ -16,7 +16,6 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.awt.SystemColor;
 import java.util.Locale;
@@ -329,7 +328,7 @@ public class EditEventView {
                         File file = fileChooser.getSelectedFile();
                         lblImgName.setText(file.getName());
 
-                        Files.copy(file.toPath(), Paths.get(System.getProperty("user.dir")+"/src/"+Main.EVENT_IMAGE_DIR+file.getName()),
+                        Files.copy(file.toPath(), Paths.get(System.getProperty("user.dir")+"/"+Main.EVENT_IMAGE_DIR+file.getName()),
                                 java.nio.file.StandardCopyOption.REPLACE_EXISTING,
                                 java.nio.file.StandardCopyOption.COPY_ATTRIBUTES,
                                 java.nio.file.LinkOption.NOFOLLOW_LINKS );
@@ -343,7 +342,7 @@ public class EditEventView {
             }
         });
         btnUploadButton.setBorderPainted(false);
-        btnUploadButton.setIcon(new ImageIcon(LoginView.class.getResource("Images/UploadButton.jpg")));
+        btnUploadButton.setIcon(new ImageIcon(Main.IMAGE_DIR+"UploadButton.jpg"));
         btnUploadButton.setBounds(987, 312, 159, 23);
         btnUploadButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         frame.getContentPane().add(btnUploadButton);
@@ -356,7 +355,7 @@ public class EditEventView {
         frame.getContentPane().add(lblPerformers);
 
         JLabel lblLogo = new JLabel("");
-        lblLogo.setIcon(new ImageIcon(LoginView.class.getResource("Images/Logo.jpg")));
+        lblLogo.setIcon(new ImageIcon(Main.IMAGE_DIR+"Logo.jpg"));
         lblLogo.setBounds(186, 583, 200, 96);
         frame.getContentPane().add(lblLogo);
 
@@ -528,7 +527,7 @@ public class EditEventView {
 
         JLabel lblImageLabel = new JLabel("Image");
         lblImageLabel.setForeground(Color.BLACK);
-        lblImageLabel.setIcon(new ImageIcon(LoginView.class.getResource("Images/Silhouette-Rock-Concert-Wallpaper1.jpg")));
+        lblImageLabel.setIcon(new ImageIcon(Main.IMAGE_DIR+"Silhouette-Rock-Concert-Wallpaper1.jpg"));
         lblImageLabel.setBounds(0, 0, 1297, 693);
         frame.getContentPane().add(lblImageLabel);
 

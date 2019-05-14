@@ -9,8 +9,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import javax.swing.*;
 
@@ -271,8 +269,9 @@ public class NewBookingView {
         lblCorpPriceValue.setForeground(SystemColor.inactiveCaption);
         lblCorpPriceValue.setFont(new Font("Open Sans", Font.BOLD, 14));
         //frame.getContentPane().add(lblCorpPriceValue);
+        String type = new User().getData(User.username,"Type");
 
-        if (User.getData(User.username, "Type").equalsIgnoreCase("organization")) {
+        if (type.equalsIgnoreCase("organization")) {
             frame.getContentPane().add(lblCorpPriceValue);
             frame.getContentPane().add(lblCorporateTicketPrice);
             frame.getContentPane().add(comboBoxCorporatePrice);
@@ -344,11 +343,13 @@ public class NewBookingView {
 
                 String msg = "Total Tickets: " + lblTotalTickets.getText() +
                         "\nAmount to be paid: " + lblAmount.getText() + "\u00A3\n";
-
-                String paymentMethod = User.getData(User.username, "PaymentMethod");
+                User user = new User();
+                String paymentMethod =user.getData(User.username, "PaymentMethod");
+                String CardNo =user.getData(User.username,"CardNo");
+                String CVV = user.getData(User.username,"CVV");
                 if (paymentMethod.equalsIgnoreCase("On Booking")) {
-                    msg += "Card No: " + User.getData(User.username, "CardNo") +
-                            " Card CVV: " + User.getData(User.username, "CVVCode");
+                    msg += "Card No: " + CardNo +
+                            " Card CVV: " + CVV;
                     status = "pending";
                     paid = 1;
                 } else {
@@ -401,7 +402,7 @@ public class NewBookingView {
 
 
         JLabel lblLogo = new JLabel("");
-        lblLogo.setIcon(new ImageIcon(LoginView.class.getResource("Images/Logo.jpg")));
+        lblLogo.setIcon(new ImageIcon(Main.IMAGE_DIR+"Logo.jpg"));
         lblLogo.setBounds(186, 583, 200, 96);
         frame.getContentPane().add(lblLogo);
 
@@ -409,7 +410,7 @@ public class NewBookingView {
         JLabel lblImageLabel = new JLabel("Image");
         lblImageLabel.setFont(new Font("Open Sans", Font.PLAIN, 11));
         lblImageLabel.setForeground(Color.BLACK);
-        lblImageLabel.setIcon(new ImageIcon(LoginView.class.getResource("Images/Silhouette-Rock-Concert-Wallpaper1.jpg")));
+        lblImageLabel.setIcon(new ImageIcon(Main.IMAGE_DIR+"Silhouette-Rock-Concert-Wallpaper1.jpg"));
         lblImageLabel.setBounds(0, 0, 1297, 693);
         frame.getContentPane().add(lblImageLabel);
 

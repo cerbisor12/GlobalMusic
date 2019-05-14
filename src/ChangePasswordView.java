@@ -34,6 +34,8 @@ public class ChangePasswordView extends JPanel {
         this.setOpaque(false);
         this.setLayout(null);
 
+        User user = new User();
+        String password = user.getData(User.username,"Pass");
 		
 		JLabel changePassLabel = new JLabel("Account Security");
 		changePassLabel.setForeground(SystemColor.inactiveCaption);
@@ -64,7 +66,7 @@ public class ChangePasswordView extends JPanel {
         	
         	@Override
         	public void focusLost(FocusEvent e) {
-        		if (!(User.getData(User.username,"Pass").equals(String.valueOf(oldPassField.getPassword()))))
+        		if (!(password.equals(String.valueOf(oldPassField.getPassword()))))
         			incorrectPassLabel.setVisible(true);
         		else
         			incorrectPassLabel.setVisible(false);
@@ -146,7 +148,7 @@ public class ChangePasswordView extends JPanel {
          */
         saveButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
-        		if (String.valueOf(oldPassField.getPassword()).equals(User.getData(User.username,"Pass")) && String.valueOf(newPassField.getPassword()).equals(
+        		if (String.valueOf(oldPassField.getPassword()).equals(password) && String.valueOf(newPassField.getPassword()).equals(
         				String.copyValueOf(confPassField.getPassword()))) {
     				User.updatePass(String.valueOf(newPassField.getPassword()).replace("'", "''"), User.username);
     				JOptionPane.showMessageDialog(null,"Password changed!");

@@ -90,14 +90,15 @@ public class LoginView {
                 User user = new User();
                 user.setUsername(usernameField.getText().replace("'", "''"));
                 user.setPassword(new String(passwordField.getPassword()));
+                String type = user.getData(User.username, "Type");
                 if (user.loginCheck()) {
-                    if (User.getData(User.username,"Type").equalsIgnoreCase("Customer") ||
-                            User.getData(User.username,"Type").equalsIgnoreCase("organization"))
+                    if (type.equalsIgnoreCase("Customer") ||
+                            type.equalsIgnoreCase("organization"))
                     {
                         new HomePageView();
                         frame.setVisible(false);
                     }
-                    else if (User.getData(User.username,"Type").equalsIgnoreCase("organizer"))
+                    else if (type.equalsIgnoreCase("organizer"))
                     {
                         new EventOrganizerView();
                         frame.setVisible(false);
@@ -224,14 +225,14 @@ public class LoginView {
 
         
         JLabel lblLogo = new JLabel("");
-        lblLogo.setIcon(new ImageIcon(LoginView.class.getResource("Images/Logo.jpg")));
+        lblLogo.setIcon(new ImageIcon(Main.IMAGE_DIR+"Logo.jpg"));
         lblLogo.setBounds(186, 583, 200, 96);
         frame.getContentPane().add(lblLogo);
 
         JLabel lblImageLabel = new JLabel("Image");
         lblImageLabel.setFont(new Font("Open Sans", Font.PLAIN, 11));
         lblImageLabel.setForeground(Color.BLACK);
-        lblImageLabel.setIcon(new ImageIcon(LoginView.class.getResource("Images/Silhouette-Rock-Concert-Wallpaper1.jpg")));
+        lblImageLabel.setIcon(new ImageIcon(Main.IMAGE_DIR+"Silhouette-Rock-Concert-Wallpaper1.jpg"));
         lblImageLabel.setBounds(0, 0, 1297, 693);
         frame.getContentPane().add(lblImageLabel);
         

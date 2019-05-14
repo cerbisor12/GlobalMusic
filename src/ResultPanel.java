@@ -25,9 +25,9 @@ import java.util.List;
 public class ResultPanel extends JPanel{
     private JPanel panel;
     private JLabel nameLabel, dateLabel, imageLabel, bandsLabel, noResults;
-    static JLabel priceLabel;
+    private JLabel priceLabel, priceTxtLabel;
     private JTextArea venueLabel;
-    static JButton bookButton;
+    private JButton bookButton;
     /**
      * This constructs the result panel.
      */
@@ -97,6 +97,7 @@ public class ResultPanel extends JPanel{
         ResultSet rs = null;
         List<List<String>> results = new ArrayList<>();
 
+
         try {
             rs = Connect.selectStm(query);
             while(rs.next()){
@@ -154,6 +155,10 @@ public class ResultPanel extends JPanel{
             this.add(noResults);
         }
         this.setPreferredSize(new Dimension(200,140*size));
+
+
+
+        //Loop to create one panel for each search result
         for (int i=0;i<size;i++){
             List<String> eventDetails = results.get(i);
 
@@ -166,7 +171,7 @@ public class ResultPanel extends JPanel{
 
             imageLabel = new JLabel("image");
             imageLabel.setBounds(12, 13, 135, 109);
-            ImageIcon img = new ImageIcon((HomePageView.class.getResource(Main.EVENT_IMAGE_DIR+eventDetails.get(3))));
+            ImageIcon img = new ImageIcon((Main.EVENT_IMAGE_DIR+eventDetails.get(3)));
             Image image = img.getImage().getScaledInstance(imageLabel.getWidth(),imageLabel.getHeight(),Image.SCALE_SMOOTH);
             imageLabel.setIcon(new ImageIcon(image));
             panel.add(imageLabel);
@@ -179,6 +184,7 @@ public class ResultPanel extends JPanel{
 
             String artists = "Performing live: ";
             int artistAmount = eventDetails.size();
+
             for (int b = 7; b<artistAmount;b++){
                 artists += (eventDetails.get(b) + ", ");
             }
@@ -207,9 +213,14 @@ public class ResultPanel extends JPanel{
             bookButton.setForeground(SystemColor.inactiveCaption);
             bookButton.setBackground(new Color(0, 0, 128));
             bookButton.setBounds(650, 34, 135, 43);
+            bookButton.setVisible(true);
             bookButton.addActionListener(new NewBookingController(Integer.parseInt(eventDetails.get(0))));
-
             panel.add(bookButton);
+
+            priceTxtLabel = new JLabel("Event Price");
+            priceTxtLabel.setBounds(680,40,135,43);
+            priceTxtLabel.setVisible(false);
+            panel.add(priceTxtLabel);
 
             priceLabel = new JLabel("\u00A3 " + results.get(i).get(6));
             priceLabel.setFont(new Font("Open Sans", Font.PLAIN, 18));
@@ -231,6 +242,13 @@ public class ResultPanel extends JPanel{
 
             add(panel);
 
+        }
+    }
+
+    public void hideBookButton(){
+        for(Component panel : this.getComponents()) {
+            panel.getComponentAt(650, 34).setVisible(false);
+            panel.getComponentAt(680,80).setVisible(true);
         }
     }
 

@@ -47,6 +47,8 @@ public class MyAccountView extends JPanel {
 		this.setOpaque(false);
 		this.setLayout(null);
 
+		User user = new User();
+
 		JLabel existDetailsLabel = new JLabel("Existing Details");
 		existDetailsLabel.setForeground(SystemColor.inactiveCaption);
 		existDetailsLabel.setFont(new Font("Open Sans", Font.PLAIN, 20));
@@ -167,7 +169,7 @@ public class MyAccountView extends JPanel {
 						"[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}" +
 						"(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:" +
 						"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)])");
-				User user = new User();
+
 				if(!emailRegex.matcher(email).matches()){
 					lblEmailInvalid.setText("Invalid email address");
 					lblEmailInvalid.setVisible(true);
@@ -345,7 +347,7 @@ public class MyAccountView extends JPanel {
 		/**
 		 * if statement to check the user's type. For displaying or not certain textFields and labels.
 		 */
-		if (User.getData(User.username,"Type").equalsIgnoreCase("Customer")) {
+		if (user.getData(User.username,"Type").equalsIgnoreCase("Customer")) {
 			orgNameTextField.setVisible(false);
 			orgNameLabel.setVisible(false);
 			orgEmailTextField.setVisible(false);
@@ -396,7 +398,7 @@ public class MyAccountView extends JPanel {
 				textFieldArray.add(cardNoTextField);
 				textFieldArray.add(cvvTextField);
 
-				if (User.getData(User.username,"Type").equalsIgnoreCase("organization")){
+				if (user.getData(User.username,"Type").equalsIgnoreCase("organization")){
 					textFieldArray.add(orgNameTextField);
 				}
 				boolean checker = true;

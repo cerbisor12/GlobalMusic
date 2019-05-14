@@ -57,7 +57,7 @@ public class Event {
 	 * @return eventsList arrayList 
 	 */
 	static ArrayList<String> getFutureEventsOrganizer(int ID){
-		String query = "SELECT Name FROM 'tbl_event' WHERE OrganizerID = " + ID + "AND DateOfEvent > NOW();";
+		String query = "SELECT Name FROM tbl_event WHERE OrganizerID = " + ID + " AND DateOfEvent > NOW();";
 		ArrayList<String> futureEventsList = new ArrayList<String>();
 		try {
             ResultSet results = Connect.selectStm(query);

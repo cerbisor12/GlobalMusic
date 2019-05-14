@@ -1,16 +1,9 @@
-import javax.security.auth.RefreshFailedException;
-import javax.security.auth.Refreshable;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.time.LocalDate;
-
-import com.github.lgooddatepicker.components.DatePicker;
-import com.github.lgooddatepicker.components.DatePickerSettings;
-import javax.swing.border.MatteBorder;
 
 /**
  * Class for the homepage (for customer and organization type of users).
@@ -278,13 +271,13 @@ public class HomePageView {
         
         
         JLabel lblLogo = new JLabel("");
-        lblLogo.setIcon(new ImageIcon(LoginView.class.getResource("Images/Logo.jpg")));
+        lblLogo.setIcon(new ImageIcon(Main.IMAGE_DIR+"Logo.jpg"));
         lblLogo.setBounds(186, 583, 200, 96);
         frame.getContentPane().add(lblLogo);
         //frame.getRootPane().setDefaultButton(searchButton1);
         
         JLabel backgroundLabel = new JLabel();
-        backgroundLabel.setIcon(new ImageIcon(HomePageView.class.getResource("Images/Silhouette-Rock-Concert-Wallpaper1.jpg")));
+        backgroundLabel.setIcon(new ImageIcon(Main.IMAGE_DIR+"Silhouette-Rock-Concert-Wallpaper1.jpg"));
         backgroundLabel.setBounds(0, 0, 1280, 690);
         frame.getContentPane().add(backgroundLabel);
 

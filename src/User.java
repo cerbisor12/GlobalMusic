@@ -38,7 +38,7 @@ public class User {
      * @param email the users email address
      * @param phoneNo the users phone number            
      * @param orgName the organization name
-     * @param webAddres the organization web address    
+     * @param webAddress the organization web address
      * @param orgEmail the organization email
      * @param paymentMethod the payment method
      */
@@ -294,7 +294,7 @@ public class User {
      * @param field the actual field from where the data will be returned
      * @return the specified field data
      */
-    public static String getData(String username, String field) {
+    public String getData(String username, String field) {
         String query = "SELECT "+ field+" FROM tbl_user WHERE Username='" + username + "';";
         String data = "";
         try {

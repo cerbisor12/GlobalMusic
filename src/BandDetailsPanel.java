@@ -53,7 +53,7 @@ public class BandDetailsPanel extends JPanel {
 
             JLabel imageLabel = new JLabel("image");
             imageLabel.setBounds(5, 0, 163, 140);
-            ImageIcon img = new ImageIcon((HomePageView.class.getResource(Main.ARTIST_IMAGE_DIR+bandDetails.get(i)[1])));
+            ImageIcon img = new ImageIcon((Main.ARTIST_IMAGE_DIR+bandDetails.get(i)[1]));
             Image image = img.getImage().getScaledInstance(imageLabel.getWidth(),imageLabel.getHeight(),Image.SCALE_SMOOTH);
             imageLabel.setIcon(new ImageIcon(image));
             panel.add(imageLabel);
