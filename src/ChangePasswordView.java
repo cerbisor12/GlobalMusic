@@ -6,13 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
-import javax.swing.event.AncestorEvent;
-import javax.swing.event.AncestorListener;
-import javax.swing.event.ChangeEvent;
 
 /**
  * Class for changing the user's password.
@@ -25,8 +20,8 @@ public class ChangePasswordView extends JPanel {
 	private JPasswordField oldPassField;
 	private JPasswordField newPassField;
 	private JPasswordField confPassField;
-    User user = new User();
-    String password = user.getData(User.username,"Pass");
+    private User user = new User();
+    private String password = user.getData(User.username,"Pass");
 
 	/**
 	 * Create the window
@@ -75,7 +70,7 @@ public class ChangePasswordView extends JPanel {
         	}
         });
         oldPassField.setBounds(250, 222, 152, 22);
-        oldPassField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+        oldPassField.setBorder(new MatteBorder(3, 3, 3, 3, SystemColor.activeCaption));
         oldPassField.setBackground(SystemColor.activeCaption);
         this.add(oldPassField);
         
@@ -107,7 +102,7 @@ public class ChangePasswordView extends JPanel {
             }
         });
         newPassField.setBounds(250, 267, 152, 22);
-        newPassField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+        newPassField.setBorder(new MatteBorder(3, 3, 3, 3, SystemColor.activeCaption));
         newPassField.setBackground(SystemColor.activeCaption);
         this.add(newPassField);
         
@@ -140,7 +135,7 @@ public class ChangePasswordView extends JPanel {
         	}
         });
         confPassField.setBounds(250, 313, 152, 22);
-        confPassField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+        confPassField.setBorder(new MatteBorder(3, 3, 3, 3, SystemColor.activeCaption));
         confPassField.setBackground(SystemColor.activeCaption);
         this.add(confPassField);
         
@@ -148,15 +143,13 @@ public class ChangePasswordView extends JPanel {
         /**
          * Listener for updating the password by querying the database.
          */
-        saveButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-        		if (String.valueOf(oldPassField.getPassword()).equals(password) && String.valueOf(newPassField.getPassword()).equals(
-        				String.copyValueOf(confPassField.getPassword()))) {
-    				user.updatePass(String.valueOf(newPassField.getPassword()).replace("'", "''"), User.username);
-    				JOptionPane.showMessageDialog(null,"Password changed!");
-        		}
-        		
-        	}
+        saveButton.addActionListener(arg0 -> {
+            if (String.valueOf(oldPassField.getPassword()).equals(password) && String.valueOf(newPassField.getPassword()).equals(
+                    String.copyValueOf(confPassField.getPassword()))) {
+                user.updatePass(String.valueOf(newPassField.getPassword()).replace("'", "''"), User.username);
+                JOptionPane.showMessageDialog(null,"Password changed!");
+            }
+
         });
         saveButton.setBounds(277, 378, 97, 25);
         saveButton.setForeground(SystemColor.inactiveCaption);

@@ -44,14 +44,12 @@ public class NewBandView extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					NewBandView window = new NewBandView();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		EventQueue.invokeLater(() -> {
+			try {
+				NewBandView window = new NewBandView();
+				window.frame.setVisible(true);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		});
 	}
@@ -114,13 +112,9 @@ public class NewBandView extends JFrame {
         cancelButton.setBorderPainted(false);
         
         /**
-         * Action listener for closing the window by pressing the cancel buton.
+         * Action listener for closing the window by pressing the cancel button.
          */
-        cancelButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
-			}
-		});
+        cancelButton.addActionListener(e -> frame.dispose());
 		frame.getContentPane().add(cancelButton);
 		
 		JSeparator separator = new JSeparator();
@@ -136,21 +130,21 @@ public class NewBandView extends JFrame {
 		frame.getContentPane().add(separator_1);
 		
 		nameTxtField = new JTextField();
-		nameTxtField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		nameTxtField.setBorder(new MatteBorder(3, 3, 3, 3, SystemColor.activeCaption));
         nameTxtField.setBackground(SystemColor.activeCaption);
 		nameTxtField.setBounds(93, 58, 116, 22);
 		frame.getContentPane().add(nameTxtField);
 		nameTxtField.setColumns(10);
 		
 		genreTxtField = new JTextField();
-		genreTxtField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		genreTxtField.setBorder(new MatteBorder(3, 3, 3, 3, SystemColor.activeCaption));
         genreTxtField.setBackground(SystemColor.activeCaption);
 		genreTxtField.setBounds(93, 87, 116, 22);
 		frame.getContentPane().add(genreTxtField);
 		genreTxtField.setColumns(10);
 		
 		linkTxtField = new JTextField();
-		linkTxtField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		linkTxtField.setBorder(new MatteBorder(3, 3, 3, 3, SystemColor.activeCaption));
         linkTxtField.setBackground(SystemColor.activeCaption);
 		linkTxtField.setBounds(93, 145, 116, 22);
 		frame.getContentPane().add(linkTxtField);
@@ -160,7 +154,7 @@ public class NewBandView extends JFrame {
 		/**
 		 * Static combobox populated with an arrayList of Strings. Will display the agents available for selection.
 		 */
-		agentComboBox = new JComboBox<String>();
+		agentComboBox = new JComboBox<>();
 		ArrayList<String> aList = agent.getAgentsList();
 		aList.add(0, "-Add new Agent-");
 		agentComboBox.setModel(new DefaultComboBoxModel(aList.toArray()));
@@ -170,12 +164,10 @@ public class NewBandView extends JFrame {
 		/**
 		 * Listener for checking if the selection equals "Add new Agent", if so another popup will appear for adding the new agent's details.
 		 */
-		agentComboBox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Object selected = agentComboBox.getSelectedItem();
-                if(selected.toString().equals("-Add new Agent-"))
-                	new NewAgentView();
-			}
+		agentComboBox.addActionListener(e -> {
+			Object selected = agentComboBox.getSelectedItem();
+if(selected.toString().equals("-Add new Agent-"))
+				new NewAgentView();
 		});
 		frame.getContentPane().add(agentComboBox);
 
@@ -190,27 +182,25 @@ public class NewBandView extends JFrame {
 		/**
 		 * Listener for the "upload" button, adding an image to the new artist. Restricted to .jpg, .png and .jpeg formats only. 
 		 */
-		uploadButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				JFileChooser fileChooser = new JFileChooser();
-				fileChooser.setFileFilter(new FileNameExtensionFilter("Images","jpg","png","jpeg"));
+		uploadButton.addActionListener(arg0 -> {
+			JFileChooser fileChooser = new JFileChooser();
+			fileChooser.setFileFilter(new FileNameExtensionFilter("Images","jpg","png","jpeg"));
 
-				try {
-					if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
-						File file = fileChooser.getSelectedFile();
-						imageName = file.getName();
-						lblImageName.setText(imageName);
+			try {
+				if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+					File file = fileChooser.getSelectedFile();
+					imageName = file.getName();
+					lblImageName.setText(imageName);
 
-						Files.copy(file.toPath(), Paths.get(System.getProperty("user.dir")+"/"+Main.ARTIST_IMAGE_DIR+file.getName()),
-								java.nio.file.StandardCopyOption.REPLACE_EXISTING,
-								java.nio.file.StandardCopyOption.COPY_ATTRIBUTES,
-								java.nio.file.LinkOption.NOFOLLOW_LINKS );
-					}else {
-						imageName = "No file selected!";
-					}
-				}catch(Exception e1) {
-					e1.printStackTrace();
+					Files.copy(file.toPath(), Paths.get(System.getProperty("user.dir")+"/"+Main.ARTIST_IMAGE_DIR+file.getName()),
+							java.nio.file.StandardCopyOption.REPLACE_EXISTING,
+							java.nio.file.StandardCopyOption.COPY_ATTRIBUTES,
+							java.nio.file.LinkOption.NOFOLLOW_LINKS );
+				}else {
+					imageName = "No file selected!";
 				}
+			}catch(Exception e1) {
+				e1.printStackTrace();
 			}
 		});
 		uploadButton.setBorderPainted(false);
@@ -236,25 +226,23 @@ public class NewBandView extends JFrame {
          * Such as null name, null genre, the agent combobox set to "Add new Agent", or the image is not uploaded.
          * After completing the process, the JList's default model will be modified to include the new artist.
          */
-		addButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if ( (nameTxtField.getText() == null || nameTxtField.getText().isEmpty()) || (genreTxtField.getText() == null ||
-						genreTxtField.getText().isEmpty()) || agentComboBox.getSelectedItem().toString().equals("-Add new Agent-")) {
-					JOptionPane.showMessageDialog(null,"Please fill in all the * fields.");
+		addButton.addActionListener(arg0 -> {
+			if ( (nameTxtField.getText() == null || nameTxtField.getText().isEmpty()) || (genreTxtField.getText() == null ||
+					genreTxtField.getText().isEmpty()) || agentComboBox.getSelectedItem().toString().equals("-Add new Agent-")) {
+				JOptionPane.showMessageDialog(null,"Please fill in all the * fields.");
+			}
+			else if(lblImageName.getText().equals("")){
+				JOptionPane.showMessageDialog(null,"No Image Selected!");
+			}
+			else {
+				int agentID = agent.getAgentId(agentComboBox.getSelectedItem().toString());
+				Band band =new Band(nameTxtField.getText().replace("'", "''"),genreTxtField.getText().replace("'", "''"),linkTxtField.getText().replace("'", "''"),imageName,agentID);
+				DefaultListModel performersModel = new DefaultListModel();
+				for(int i = 0; i < band.getAllBands().size(); i++) {
+					performersModel.addElement(band.getAllBands().get(i));
+					EventOrganizerView.allPerformersList.setModel(performersModel);
 				}
-				else if(lblImageName.getText().equals("")){
-					JOptionPane.showMessageDialog(null,"No Image Selected!");
-				}
-				else {
-					int agentID = agent.getAgentId(agentComboBox.getSelectedItem().toString());
-					Band band =new Band(nameTxtField.getText().replace("'", "''"),genreTxtField.getText().replace("'", "''"),linkTxtField.getText().replace("'", "''"),imageName,agentID);
-					DefaultListModel performersModel = new DefaultListModel();
-					for(int i = 0; i < band.getAllBands().size(); i++) {
-						performersModel.addElement(band.getAllBands().get(i));
-			        	EventOrganizerView.allPerformersList.setModel(performersModel);
-			        }
-					JOptionPane.showMessageDialog(null,"Band added.");
-				}
+				JOptionPane.showMessageDialog(null,"Band added.");
 			}
 		});
 		addButton.setBounds(236, 204, 98, 25);

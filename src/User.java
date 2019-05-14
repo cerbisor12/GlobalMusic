@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 
 public class User {
-    private int userID, cardCVV;
+    private int cardCVV;
     private long cardNo;
     private String title, fName, lName, address1, address2, town, postcode, password;
     static String username; 
@@ -69,13 +69,13 @@ public class User {
         this.orgEmail = orgEmail;
         this.paymentMethod = paymentMethod;
         this.userType = "customer";
-        if (RegisterView.checkType == false) {
+        if (!RegisterView.checkType) {
         	this.orgName = "";
         	this.orgEmail = "";
         	this.paymentMethod = "On Booking";
         	this.webAddress = "";
         }
-        if (RegisterView.checkType == true)
+        if (RegisterView.checkType)
         	this.userType = "organization";
     }
 
@@ -84,7 +84,7 @@ public class User {
      * This method inserts users details into the database.
      */
     public void insertCustomerData() {
-        String query = "";
+        String query;
             query = "INSERT INTO tbl_user(UserID,Title,Fname,LNAme,Address1,Address2,Town,PostCode,Username,Pass,Email" +
                     ",PhoneNo,CardNo,CVVCode,Type,OrganizationName,WebAddress,OrgEmail,PaymentMethod) VALUES(DEFAULT,'"
                     + this.title + "','" + this.fName + "','" + this.lName + "','" + this.address1 + "','" + this.address2 +
@@ -141,22 +141,7 @@ public class User {
         }
         return false;
     }
-    
-    /**
-     * This method deletes a user from the database with the specified user ID.
-     * @param userID the users ID
-     */
-    public void deleteUser(int userID) {
-        String query = "DELETE FROM tbl_user WHERE ID='" + userID + "';";
-        try {
-            Connect.updateData(query);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());
-        }
-    }
-    
+
     /**
      * This method gives the option to edit user details
      * @param username the users username
@@ -209,8 +194,7 @@ public class User {
             System.out.println(k.getMessage());
         }
         Object[] objDetails = users.toArray();
-    	String[] finalUsers = Arrays.copyOf(objDetails,objDetails.length,String[].class);
-        return finalUsers;
+        return Arrays.copyOf(objDetails,objDetails.length,String[].class);
     }
     
     /**
@@ -257,7 +241,7 @@ public class User {
      */
     public ArrayList<String> detailsList(String username) {
     	String query = "SELECT * FROM `tbl_user` WHERE Username = '" + username + "';";
-    	ArrayList<String> details = new ArrayList<String>();
+    	ArrayList<String> details = new ArrayList<>();
     	try {
 			ResultSet rs = Connect.selectStm(query);
 			
@@ -281,17 +265,12 @@ public class User {
 	    		details.add(rs.getString("WebAddress"));
 	    		
 	    	}
-		} catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException | NullPointerException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NullPointerException f){
-			f.printStackTrace();
 		}
-    	
-    	return details;
+
+        return details;
     }
     
     /**

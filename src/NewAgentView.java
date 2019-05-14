@@ -21,20 +21,17 @@ public class NewAgentView {
 	private JTextField nameTxtField;
 	private JTextField phoneTxtField;
 	private JTextField emailTxtField;
-	static String agentName; 
 
-	/**
+    /**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					NewAgentView window = new NewAgentView();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		EventQueue.invokeLater(() -> {
+			try {
+				NewAgentView window = new NewAgentView();
+				window.frame.setVisible(true);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		});
 	}
@@ -79,21 +76,21 @@ public class NewAgentView {
 		frame.getContentPane().add(phoneLabel);
 		
 		nameTxtField = new JTextField();
-		nameTxtField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.inactiveCaption));
+		nameTxtField.setBorder(new MatteBorder(3, 3, 3, 3, SystemColor.inactiveCaption));
 		nameTxtField.setBackground(SystemColor.inactiveCaption);
 		nameTxtField.setBounds(191, 77, 116, 22);
 		frame.getContentPane().add(nameTxtField);
 		nameTxtField.setColumns(10);
 		
 		phoneTxtField = new JTextField();
-		phoneTxtField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.inactiveCaption));
+		phoneTxtField.setBorder(new MatteBorder(3, 3, 3, 3, SystemColor.inactiveCaption));
 		phoneTxtField.setBackground(SystemColor.inactiveCaption);
 		phoneTxtField.setBounds(191, 106, 116, 22);
 		frame.getContentPane().add(phoneTxtField);
 		phoneTxtField.setColumns(10);
 		
 		emailTxtField = new JTextField();
-		emailTxtField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.inactiveCaption));
+		emailTxtField.setBorder(new MatteBorder(3, 3, 3, 3, SystemColor.inactiveCaption));
 		emailTxtField.setBackground(SystemColor.inactiveCaption);
 		emailTxtField.setBounds(191, 135, 116, 22);
 		frame.getContentPane().add(emailTxtField);
@@ -121,11 +118,7 @@ public class NewAgentView {
         /**
          * Listener for the cancel button, to cancel the process of adding a new agent.
          */
-        cancelButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
-			}
-		});
+        cancelButton.addActionListener(e -> frame.dispose());
 		frame.getContentPane().add(cancelButton);
 		
 		JButton addButton = new JButton("Add agent");
@@ -134,20 +127,18 @@ public class NewAgentView {
 		 * Listener for the "Add Agent" button. After checking if the name field is filled, will write into the database the new agent's details.
 		 * After that, will modify the newBandView agents combobox's model to include the new agent too.
 		 */
-		addButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if (nameTxtField.getText() == null | nameTxtField.getText().equals(""))
-					JOptionPane.showMessageDialog(null,"Please fill in all the * fields.");
+		addButton.addActionListener(arg0 -> {
+			if (nameTxtField.getText() == null | nameTxtField.getText().equals(""))
+				JOptionPane.showMessageDialog(null,"Please fill in all the * fields.");
 
-				else {
-					Agent agent = new Agent(nameTxtField.getText().replace("'", "''"),phoneTxtField.getText().replace("'", "''"),emailTxtField.getText().replace("'", "''"));
-					JOptionPane.showMessageDialog(null,"Agent added.");
-					DefaultComboBoxModel model = new DefaultComboBoxModel(agent.getAgentsList().toArray());
-					model.insertElementAt("-Add new Agent-",0);
-					NewBandView.agentComboBox.setModel(model); 
-					NewBandView.agentComboBox.setSelectedIndex(model.getSize()-1);
-					frame.dispose();
-				}
+			else {
+				Agent agent = new Agent(nameTxtField.getText().replace("'", "''"),phoneTxtField.getText().replace("'", "''"),emailTxtField.getText().replace("'", "''"));
+				JOptionPane.showMessageDialog(null,"Agent added.");
+				DefaultComboBoxModel model = new DefaultComboBoxModel(agent.getAgentsList().toArray());
+				model.insertElementAt("-Add new Agent-",0);
+				NewBandView.agentComboBox.setModel(model);
+				NewBandView.agentComboBox.setSelectedIndex(model.getSize()-1);
+				frame.dispose();
 			}
 		});
 		addButton.setBounds(235, 205, 97, 25);

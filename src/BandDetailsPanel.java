@@ -5,9 +5,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +15,7 @@ import java.util.List;
  */
 public class BandDetailsPanel extends JPanel {
 
-    int eventID;
+    private int eventID;
 
     /**
      * Class' constructor, sets the layout of the panel and the eventID to retrieve data from the database
@@ -35,7 +32,7 @@ public class BandDetailsPanel extends JPanel {
     /**
      * Method for creating individual panels for every performer and adding them to the container panel
      */
-    public void createPanel(){
+    private void createPanel(){
         List<String[]> bandDetails = new Band().getBandDetails(eventID);//get all performer details from the DB
 
         int size = bandDetails.size();

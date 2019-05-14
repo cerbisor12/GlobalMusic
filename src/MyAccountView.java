@@ -301,7 +301,7 @@ public class MyAccountView extends JPanel {
 		JLabel orgNameLabel = new JLabel("Organization Name");
 		orgNameLabel.setBounds(656, 207, 142, 16);
 		orgNameLabel.setForeground(SystemColor.inactiveCaption);
-		orgNameLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
+		orgNameLabel.setFont(new Font("Open Sans", Font.BOLD, 13));
 		this.add(orgNameLabel);
 		
 		orgEmailTextField = new JTextField();
@@ -385,41 +385,39 @@ public class MyAccountView extends JPanel {
 		 * Action listener for the Save button which will eventually update the database after checking if certain textFields are not empty.
 		 * The fields are checked by making a new arraylist and checking if any string contained by it equals "".
 		 */
-		saveButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				ArrayList<JTextField> textFieldArray;
-				textFieldArray = new ArrayList<>();
-				textFieldArray.add(firstNameTextField);
-				textFieldArray.add(lastNameTextField);
-				textFieldArray.add(address1TextField);
-				textFieldArray.add(townTextField);
-				textFieldArray.add(postcodeTextField);
-				textFieldArray.add(emailTextField);
-				textFieldArray.add(cardNoTextField);
-				textFieldArray.add(cvvTextField);
+		saveButton.addActionListener(arg0 -> {
+            ArrayList<JTextField> textFieldArray;
+            textFieldArray = new ArrayList<>();
+            textFieldArray.add(firstNameTextField);
+            textFieldArray.add(lastNameTextField);
+            textFieldArray.add(address1TextField);
+            textFieldArray.add(townTextField);
+            textFieldArray.add(postcodeTextField);
+            textFieldArray.add(emailTextField);
+            textFieldArray.add(cardNoTextField);
+            textFieldArray.add(cvvTextField);
 
-				if (user.getData(User.username,"Type").equalsIgnoreCase("organization")){
-					textFieldArray.add(orgNameTextField);
-				}
-				boolean checker = true;
-				for(JTextField field : textFieldArray) {
-					if (field.getText().equals("")) {
-						checker = false;
-						field.setBackground(new Color(255, 228, 225));
-					} else {
-						field.setBackground(SystemColor.activeCaption);
-					}
-				}
-				if(checker){
-				user.updateDetails(User.username, titleComboBox.getSelectedItem().toString(), firstNameTextField.getText().replace("'", "''"),
-						lastNameTextField.getText().replace("'", "''"), address1TextField.getText().replace("'", "''"), address2TextField.getText().replace("'", "''"), 
-						townTextField.getText().replace("'", "''"), postcodeTextField.getText().replace("'", "''"), emailTextField.getText().replace("'", "''"), 
-						phoneNoTextField.getText().replace("'", "''"), Long.parseLong(cardNoTextField.getText().replace("'", "''")), 
-						Integer.parseInt(cvvTextField.getText().replace("'", "''")), orgNameTextField.getText().replace("'", "''"), orgEmailTextField.getText().replace("'", "''"),
-						webAddressTextField.getText(),paymentComboBox.getSelectedItem().toString());
-				JOptionPane.showMessageDialog(null,"Update successful!");}
-			}
-		});
+            if (user.getData(User.username,"Type").equalsIgnoreCase("organization")){
+                textFieldArray.add(orgNameTextField);
+            }
+            boolean checker = true;
+            for(JTextField field : textFieldArray) {
+                if (field.getText().equals("")) {
+                    checker = false;
+                    field.setBackground(new Color(255, 228, 225));
+                } else {
+                    field.setBackground(SystemColor.activeCaption);
+                }
+            }
+            if(checker){
+            user.updateDetails(User.username, titleComboBox.getSelectedItem().toString(), firstNameTextField.getText().replace("'", "''"),
+                    lastNameTextField.getText().replace("'", "''"), address1TextField.getText().replace("'", "''"), address2TextField.getText().replace("'", "''"),
+                    townTextField.getText().replace("'", "''"), postcodeTextField.getText().replace("'", "''"), emailTextField.getText().replace("'", "''"),
+                    phoneNoTextField.getText().replace("'", "''"), Long.parseLong(cardNoTextField.getText().replace("'", "''")),
+                    Integer.parseInt(cvvTextField.getText().replace("'", "''")), orgNameTextField.getText().replace("'", "''"), orgEmailTextField.getText().replace("'", "''"),
+                    webAddressTextField.getText(),paymentComboBox.getSelectedItem().toString());
+            JOptionPane.showMessageDialog(null,"Update successful!");}
+        });
 		saveButton.setBounds(497, 457, 97, 25);
 		saveButton.setOpaque(false);
 		saveButton.setContentAreaFilled(false);

@@ -1,5 +1,3 @@
-import javax.swing.*;
-import java.io.File;
 import java.sql.*;
 
 /**
@@ -17,10 +15,8 @@ public class Connect
      * Checks if a connection already exists, and creates one if not
      * @return c
      * @throws SQLException
-     * @throws ClassNotFoundException
      */
-    public static Connection connect() throws SQLException, ClassNotFoundException
-    {
+    private static Connection connect() throws SQLException {
         if (c==null){
             //Class.forName("com.mysql.jdbc.Driver");
             c = DriverManager.getConnection("jdbc:mysql://localhost/musicfestivalbookings?serverTimezone=UTC","root","" );
@@ -37,7 +33,7 @@ public class Connect
      */
     public static ResultSet selectStm(String query) throws SQLException,ClassNotFoundException{
         Connection c = connect();
-        ResultSet rs = null;
+        ResultSet rs;
         Statement s = c.createStatement();
         rs = s.executeQuery(query);
         return rs;

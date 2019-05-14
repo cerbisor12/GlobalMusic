@@ -14,13 +14,12 @@ import java.util.Date;
  * @author Rhadoo
  *
  */
-public class NewBookingController implements ActionListener {
+class NewBookingController implements ActionListener {
 
-    int eventID;
+    private int eventID;
 
     NewBookingController(int eventID){
         this.eventID = eventID;
-;
     }
 
     @Override
@@ -34,7 +33,7 @@ public class NewBookingController implements ActionListener {
      * This method adds the event details into the database.
      * @param newBooking
      */
-    public void setEventDetails(NewBookingView newBooking){
+    private void setEventDetails(NewBookingView newBooking){
         String query = "SELECT V.Name venueName,V.Address, V.Capacity, E.*, SUM(NoOfSeats) booked " +
                 "FROM tbl_venue V,tbl_booking B,tbl_event E " +
                 "WHERE E.EventID= "+ eventID +
@@ -53,23 +52,23 @@ public class NewBookingController implements ActionListener {
             newBooking.lblName.setText(rs.getString("Name"));
 
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            SimpleDateFormat finalformat = new SimpleDateFormat("dd/MM/yyyy");
-            String newdate = "";
+            SimpleDateFormat finalFormat = new SimpleDateFormat("dd/MM/yyyy");
+            String newDate = "";
             try{
                 Date date = format.parse(rs.getString("DateOfEvent"));
-                newdate = finalformat.format(date);}
+                newDate = finalFormat.format(date);}
             catch (ParseException e){
                 System.out.println("error");
             }
-            newBooking.lblDate.setText(newdate);
+            newBooking.lblDate.setText(newDate);
 
-            newBooking.lblDuration.setText("Duration: "+ String.valueOf(rs.getInt("Duration"))+ " days");
+            newBooking.lblDuration.setText("Duration: "+ rs.getInt("Duration") + " days");
 
             String venue = rs.getString("venueName")+ "\n" + rs.getString("Address");
             newBooking.txtVenue.setText(venue);
 
             newBooking.availableTickets = rs.getInt("Capacity")-rs.getInt("booked");
-            newBooking.lblAvailableTickets.setText("Available Tickets: " + String.valueOf(newBooking.availableTickets));
+            newBooking.lblAvailableTickets.setText("Available Tickets: " + newBooking.availableTickets);
 
             float price = rs.getFloat("Price");
             double studentPrice = price - 0.15*price;

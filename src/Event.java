@@ -1,4 +1,3 @@
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,13 +10,8 @@ import java.util.ArrayList;
 public class Event {
 	private int ID;
 	private String name = "";
-	private String date ;
-	private int organizerId;
-	private int venueId;
-	private int duration;
-	private float price;
-	private String image;
-	/**
+
+    /**
 	 * Class' constructor
 	 * @param name, event name
 	 * @param price, event price 
@@ -31,15 +25,9 @@ public class Event {
 	public Event(String name, float price, int organizerId, int venueId, String date, String image, int duration) {
 
 		this.name = name;
-		this.price = price;
-		this.organizerId = organizerId;
-		this.venueId = venueId;
-		this.date = date;
-		this.image = image;
-		this.duration = duration;
-		
-		String query = "INSERT INTO tbl_event VALUES(DEFAULT,'" + this.name + "'," + this.price + "," + this.organizerId + "," + this.venueId + ",'" + this.date + "','"
-				+ this.image+"'," + this.duration + ");";
+
+        String query = "INSERT INTO tbl_event VALUES(DEFAULT,'" + this.name + "'," + price + "," + organizerId + "," + venueId + ",'" + date + "','"
+				+ image +"'," + duration + ");";
 		try {
             Connect.updateData(query);
         } catch (SQLException e) {
@@ -58,7 +46,7 @@ public class Event {
 	 */
 	static ArrayList<String> getFutureEventsOrganizer(int ID){
 		String query = "SELECT Name FROM tbl_event WHERE OrganizerID = " + ID + " AND DateOfEvent > NOW();";
-		ArrayList<String> futureEventsList = new ArrayList<String>();
+		ArrayList<String> futureEventsList = new ArrayList<>();
 		try {
             ResultSet results = Connect.selectStm(query);
             while (results.next()) {
@@ -81,7 +69,7 @@ public class Event {
 	public ArrayList<String> eventDetailsList(int eventID) {
 		String query = "SELECT E.*, V.Name VName FROM tbl_event E, tbl_venue V WHERE E.EventID = " + eventID +
 				" AND V.VenueID = E.VenueID;";
-		ArrayList<String> details = new ArrayList<String>();
+		ArrayList<String> details = new ArrayList<>();
 		try {
 			ResultSet rs = Connect.selectStm(query);
 
@@ -95,35 +83,16 @@ public class Event {
 				details.add(String.valueOf(rs.getInt("Duration")));
 
 			}
-		} catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException | NullPointerException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NullPointerException f){
-			f.printStackTrace();
 		}
 
-		return details;
+        return details;
 	}
 
-	
-	
-	/**
-	 * Setters and getters for all the fields.
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	
-	public String getName() {
-		return name;
-	}
 
-	
-	/**
+    /**
 	 * Method for returning an event's id based on its name, by querying database.
 	 * @param name of Event
 	 * @return integer ID, id of event.

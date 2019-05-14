@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
@@ -11,8 +9,8 @@ import javax.mail.internet.*;
 
 class SendMail {
 
-    final static String CANCELLATION_SUB = "One of your bookings have been cancelled :(";
-    final static String CANCELLATION_MSG = "It seems like you had made some bookings for an event that has unfortunately" +
+    private final static String CANCELLATION_SUB = "One of your bookings have been cancelled :(";
+    private final static String CANCELLATION_MSG = "It seems like you had made some bookings for an event that has unfortunately" +
             " been cancelled. Please use the app to review them in detail." +
             " We are sorry about that, a full refund will be issued as soon as possible! \n\n" +
             "We apologize for any inconvenience, and we hope to see you again soon! \n\n" +

@@ -25,9 +25,11 @@ public class NewBookingView {
     JLabel lblFestivalImage, lblName, lblDate, lblDuration, lblAvailableTickets, lblPrice, lblPriceStudent, lblCorpPriceValue;
     JTextArea txtVenue;
 
-    JButton btnProceedToBooking;
+    private JButton btnProceedToBooking;
 
-    JLabel lblAmount, lblTotalTickets, lblNotEnoughTickets;
+    private JLabel lblAmount;
+    private JLabel lblTotalTickets;
+    private JLabel lblNotEnoughTickets;
 
     JScrollPane bandPanel;
 
@@ -37,14 +39,12 @@ public class NewBookingView {
      * Launch the application.
      */
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    NewBookingView window = new NewBookingView();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        EventQueue.invokeLater(() -> {
+            try {
+                NewBookingView window = new NewBookingView();
+                window.frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
     }
@@ -73,12 +73,10 @@ public class NewBookingView {
         User user = new User();
 
         JButton btnExitButton = new JButton("X");
-        btnExitButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                int reply = JOptionPane.showConfirmDialog(null, "Cancel changes?","Back to Search" ,JOptionPane.YES_NO_OPTION);
-                if (reply == JOptionPane.YES_OPTION) {
-                    frame.dispose();
-                }
+        btnExitButton.addActionListener(e -> {
+            int reply = JOptionPane.showConfirmDialog(null, "Cancel changes?","Back to Search" ,JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+                frame.dispose();
             }
         });
         btnExitButton.setFont(new Font("Open Sans", Font.PLAIN, 25));
@@ -207,18 +205,18 @@ public class NewBookingView {
 
         Integer[] intList = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-        JComboBox<Integer> comboBoxFullPrice = new JComboBox<Integer>(intList);
+        JComboBox<Integer> comboBoxFullPrice = new JComboBox<>(intList);
         comboBoxFullPrice.setBackground(SystemColor.activeCaption);
         comboBoxFullPrice.setBounds(773, 371, 84, 20);
         frame.getContentPane().add(comboBoxFullPrice);
 
-        JComboBox<Integer> comboBoxStudentPrice = new JComboBox<Integer>(intList);
+        JComboBox<Integer> comboBoxStudentPrice = new JComboBox<>(intList);
         comboBoxStudentPrice.setBackground(SystemColor.activeCaption);
         comboBoxStudentPrice.setBounds(773, 427, 84, 20);
         frame.getContentPane().add(comboBoxStudentPrice);
         
         
-        JComboBox<Integer> comboBoxCorporatePrice = new JComboBox<Integer>(intList);
+        JComboBox<Integer> comboBoxCorporatePrice = new JComboBox<>(intList);
         comboBoxCorporatePrice.setBackground(SystemColor.activeCaption);
         comboBoxCorporatePrice.setBounds(773, 495, 84, 20);
         //frame.getContentPane().add(comboBoxCorporatePrice);
@@ -226,31 +224,28 @@ public class NewBookingView {
         /**
          * This method takes the values from the comboboxes and updates the number of tickets and total price.
          */
-        ActionListener updateTotal = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int fullPriceTickets = (int) comboBoxFullPrice.getSelectedItem();
-                int studentTickets = (int) comboBoxStudentPrice.getSelectedItem();
-                int corporateTickets = (int) comboBoxCorporatePrice.getSelectedItem();
-                int totalTickets = fullPriceTickets + studentTickets + corporateTickets;
+        ActionListener updateTotal = e -> {
+            int fullPriceTickets = (int) comboBoxFullPrice.getSelectedItem();
+            int studentTickets = (int) comboBoxStudentPrice.getSelectedItem();
+            int corporateTickets = (int) comboBoxCorporatePrice.getSelectedItem();
+            int totalTickets = fullPriceTickets + studentTickets + corporateTickets;
 
-                float totalAmount = fullPriceTickets * Float.parseFloat(lblPrice.getText()) +
-                        studentTickets * Float.parseFloat(lblPriceStudent.getText()) +
-                        corporateTickets * Float.parseFloat(lblCorpPriceValue.getText());
+            float totalAmount = fullPriceTickets * Float.parseFloat(lblPrice.getText()) +
+                    studentTickets * Float.parseFloat(lblPriceStudent.getText()) +
+                    corporateTickets * Float.parseFloat(lblCorpPriceValue.getText());
 
-                lblAmount.setText(String.valueOf(totalAmount));
-                lblTotalTickets.setText(String.valueOf(totalTickets));
+            lblAmount.setText(String.valueOf(totalAmount));
+            lblTotalTickets.setText(String.valueOf(totalTickets));
 
-                if (totalTickets > availableTickets) {
-                    btnProceedToBooking.setEnabled(false);
-                    lblNotEnoughTickets.setVisible(true);
-                } else if (totalTickets == 0) {
-                    btnProceedToBooking.setEnabled(false);
-                    lblNotEnoughTickets.setVisible(false);
-                } else {
-                    btnProceedToBooking.setEnabled(true);
-                    lblNotEnoughTickets.setVisible(false);
-                }
+            if (totalTickets > availableTickets) {
+                btnProceedToBooking.setEnabled(false);
+                lblNotEnoughTickets.setVisible(true);
+            } else if (totalTickets == 0) {
+                btnProceedToBooking.setEnabled(false);
+                lblNotEnoughTickets.setVisible(false);
+            } else {
+                btnProceedToBooking.setEnabled(true);
+                lblNotEnoughTickets.setVisible(false);
             }
         };
 
@@ -371,11 +366,7 @@ public class NewBookingView {
 
 
         JButton btnCancel = new JButton("Cancel");
-        btnCancel.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-            }
-        });
+        btnCancel.addActionListener(e -> frame.setVisible(false));
         btnCancel.setOpaque(false);
         btnCancel.setForeground(SystemColor.inactiveCaption);
         btnCancel.setFont(new Font("Open Sans", Font.PLAIN, 20));

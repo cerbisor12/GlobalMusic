@@ -13,10 +13,12 @@ import java.awt.event.MouseEvent;
 
 public class HomePageView {
 
-	JButton searchButton, myAccountButton, bookingsButton, changePassButton ;
-    JFrame frame;
-    JPanel newPanel;
-    //private String username;
+	private JButton searchButton;
+    private JButton myAccountButton;
+    private JButton bookingsButton;
+    private JButton changePassButton ;
+    private JFrame frame;
+
 
     /**
      * Launch the application.
@@ -77,15 +79,13 @@ public class HomePageView {
          * since there is no point for
          * having the button on its own panel.
          */
-        searchButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                ((CardLayout)c.getLayout()).show(c,"Search");
+        searchButton.addActionListener(e -> {
+            ((CardLayout)c.getLayout()).show(c,"Search");
 
-                searchButton.setEnabled(false);
-                myAccountButton.setEnabled(true);
-                changePassButton.setEnabled(true);
-                bookingsButton.setEnabled(true);
-            }
+            searchButton.setEnabled(false);
+            myAccountButton.setEnabled(true);
+            changePassButton.setEnabled(true);
+            bookingsButton.setEnabled(true);
         });
         searchButton.setForeground(SystemColor.inactiveCaption);
         searchButton.setFont(new Font("Open Sans", Font.PLAIN, 20));
@@ -102,15 +102,13 @@ public class HomePageView {
         /**
          * ibid.
          */
-        myAccountButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        	    ((CardLayout)c.getLayout()).show(c,"MyAccount");
-        	    searchButton.setEnabled(true);
-        	    myAccountButton.setEnabled(false);
-        	    changePassButton.setEnabled(true);
-        	    bookingsButton.setEnabled(true);
+        myAccountButton.addActionListener(e -> {
+            ((CardLayout)c.getLayout()).show(c,"MyAccount");
+            searchButton.setEnabled(true);
+            myAccountButton.setEnabled(false);
+            changePassButton.setEnabled(true);
+            bookingsButton.setEnabled(true);
 
-        	}
         });
         myAccountButton.setForeground(SystemColor.inactiveCaption);
         myAccountButton.setFont(new Font("Open Sans", Font.PLAIN, 20));
@@ -126,15 +124,13 @@ public class HomePageView {
         /**
          * ibid.
          */
-        changePassButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        changePassButton.addActionListener(e -> {
 
-                ((CardLayout)c.getLayout()).show(c,"Password");
-                searchButton.setEnabled(true);
-                myAccountButton.setEnabled(true);
-                changePassButton.setEnabled(false);
-                bookingsButton.setEnabled(true);
-            }
+            ((CardLayout)c.getLayout()).show(c,"Password");
+            searchButton.setEnabled(true);
+            myAccountButton.setEnabled(true);
+            changePassButton.setEnabled(false);
+            bookingsButton.setEnabled(true);
         });
         changePassButton.setForeground(SystemColor.inactiveCaption);
         changePassButton.setFont(new Font("Open Sans", Font.PLAIN, 20));
@@ -150,22 +146,19 @@ public class HomePageView {
         /**
          * ibid.
          */
-        bookingsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        bookingsButton.addActionListener(e -> {
 
-                for (Component card : c.getComponents()){
-                    if (card instanceof BookingsHistoryView){
-                        new BookingsTableController(((BookingsHistoryView) card).table);
-                        }
-                }
-                ((CardLayout)c.getLayout()).show(c,"History");
-
-                searchButton.setEnabled(true);
-                myAccountButton.setEnabled(true);
-                changePassButton.setEnabled(true);
-                bookingsButton.setEnabled(false);
+            for (Component card : c.getComponents()){
+                if (card instanceof BookingsHistoryView){
+                    new BookingsTableController(((BookingsHistoryView) card).table);
+                    }
             }
+            ((CardLayout)c.getLayout()).show(c,"History");
+
+            searchButton.setEnabled(true);
+            myAccountButton.setEnabled(true);
+            changePassButton.setEnabled(true);
+            bookingsButton.setEnabled(false);
         });
         bookingsButton.setForeground(SystemColor.inactiveCaption);
         bookingsButton.setFont(new Font("Open Sans", Font.PLAIN, 20));
@@ -181,11 +174,9 @@ public class HomePageView {
         /**
          * LogOut button listener, to log out of the system and return to the Login window.
          */
-        logOutButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		new LoginView();
-        		frame.setVisible(false);
-        	}
+        logOutButton.addActionListener(e -> {
+            new LoginView();
+            frame.setVisible(false);
         });
         logOutButton.setBounds(27, 426, 200, 53);
         logOutButton.setForeground(SystemColor.inactiveCaption);
@@ -205,14 +196,12 @@ public class HomePageView {
         /**
          * Exit button listener for quiting the application after confirmation.
          */
-        exitButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-            	int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
-                if (reply == JOptionPane.YES_OPTION) {
-                  System.exit(0);
-                }
-            }
-        });
+        exitButton.addActionListener(e -> {
+            int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
+if (reply == JOptionPane.YES_OPTION) {
+System.exit(0);
+}
+});
         exitButton.setFont(new Font("Open Sans", Font.PLAIN, 25));
         exitButton.setBorderPainted(false);
         exitButton.setOpaque(false);

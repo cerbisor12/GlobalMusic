@@ -29,16 +29,14 @@ public class NewVenueView {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					NewVenueView window = new NewVenueView();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		EventQueue.invokeLater(() -> {
+            try {
+                NewVenueView window = new NewVenueView();
+                window.frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 	}
 
 	/**
@@ -63,7 +61,7 @@ public class NewVenueView {
 		frame.setUndecorated(true);
 		
 		JLabel windowTitleLabel = new JLabel("Venue details");
-		windowTitleLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		windowTitleLabel.setFont(new Font("Open Sans", Font.PLAIN, 16));
 		windowTitleLabel.setForeground(SystemColor.inactiveCaption);
 		windowTitleLabel.setBounds(12, 13, 99, 16);
 		frame.getContentPane().add(windowTitleLabel);
@@ -90,11 +88,7 @@ public class NewVenueView {
 		cancelButton.setOpaque(false);
 		cancelButton.setContentAreaFilled(false);
 		cancelButton.setBorderPainted(false);
-		cancelButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
-			}
-		});
+		cancelButton.addActionListener(e -> frame.dispose());
 		frame.getContentPane().add(cancelButton);
 		
 		JSeparator separator = new JSeparator();
@@ -110,14 +104,14 @@ public class NewVenueView {
 		frame.getContentPane().add(separator_1);
 		
 		nameTxtField = new JTextField();
-		nameTxtField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		nameTxtField.setBorder(new MatteBorder(3, 3, 3, 3, SystemColor.activeCaption));
 		nameTxtField.setBounds(191, 77, 116, 22);
 		nameTxtField.setBackground(SystemColor.activeCaption);
 		frame.getContentPane().add(nameTxtField);
 		nameTxtField.setColumns(10);
 		
 		addressTxtField = new JTextField();
-		addressTxtField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		addressTxtField.setBorder(new MatteBorder(3, 3, 3, 3, SystemColor.activeCaption));
 		addressTxtField.setBounds(191, 144, 116, 22);
 		addressTxtField.setBackground(SystemColor.activeCaption);
 		frame.getContentPane().add(addressTxtField);
@@ -145,7 +139,7 @@ public class NewVenueView {
 				}
 			}
 		});
-		capacityTxtField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+		capacityTxtField.setBorder(new MatteBorder(3, 3, 3, 3, SystemColor.activeCaption));
 		capacityTxtField.setBackground(SystemColor.activeCaption);
 		capacityTxtField.setBounds(191, 109, 116, 22);
 		frame.getContentPane().add(capacityTxtField);
@@ -157,23 +151,21 @@ public class NewVenueView {
 		 * This listener checks if all the fields with the venue details are complete and after that writes the new Venue into the database.
 		 * Also will include the new Venue in the eventOrganizerView "venueCombobox" by adding the new venue to its default model.
 		 */
-		addButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if ((nameTxtField.getText() == null | nameTxtField.getText().isEmpty()) | (addressTxtField.getText() == null | addressTxtField.getText().isEmpty())
-						| (capacityTxtField.getText() == null | capacityTxtField.getText().toString().isEmpty())) {
-					JOptionPane.showMessageDialog(null,"Please fill in all the * fields.");
-				}
-				else {
-				new Venue(nameTxtField.getText().replace("'", "''"), addressTxtField.getText().replace("'", "''"), Integer.parseInt(capacityTxtField.getText()));
-				JOptionPane.showMessageDialog(null, "Venue added.");
-				DefaultComboBoxModel model = new DefaultComboBoxModel(Venue.getVenueList().toArray());
-				model.insertElementAt("-Add Venue-",0);
-				EventOrganizerView.venueComboBox.setModel(model);
-				EventOrganizerView.venueComboBox.setSelectedIndex(model.getSize()-1);
-				frame.dispose();
-				}
-			}
-		});
+		addButton.addActionListener(e -> {
+            if ((nameTxtField.getText() == null | nameTxtField.getText().isEmpty()) | (addressTxtField.getText() == null | addressTxtField.getText().isEmpty())
+                    | (capacityTxtField.getText() == null | capacityTxtField.getText().toString().isEmpty())) {
+                JOptionPane.showMessageDialog(null,"Please fill in all the * fields.");
+            }
+            else {
+            new Venue(nameTxtField.getText().replace("'", "''"), addressTxtField.getText().replace("'", "''"), Integer.parseInt(capacityTxtField.getText()));
+            JOptionPane.showMessageDialog(null, "Venue added.");
+            DefaultComboBoxModel model = new DefaultComboBoxModel(Venue.getVenueList().toArray());
+            model.insertElementAt("-Add Venue-",0);
+            EventOrganizerView.venueComboBox.setModel(model);
+            EventOrganizerView.venueComboBox.setSelectedIndex(model.getSize()-1);
+            frame.dispose();
+            }
+        });
 		addButton.setBounds(237, 205, 97, 25);
 		addButton.setForeground(SystemColor.inactiveCaption);
 		addButton.setOpaque(false);

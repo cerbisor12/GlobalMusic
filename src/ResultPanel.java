@@ -3,8 +3,6 @@ import javax.swing.*;
 import com.github.lgooddatepicker.components.DatePicker;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -23,11 +21,6 @@ import java.util.List;
  *
  */
 public class ResultPanel extends JPanel{
-    private JPanel panel;
-    private JLabel nameLabel, dateLabel, imageLabel, bandsLabel, noResults;
-    private JLabel priceLabel, priceTxtLabel;
-    private JTextArea venueLabel;
-    private JButton bookButton;
     /**
      * This constructs the result panel.
      */
@@ -94,7 +87,7 @@ public class ResultPanel extends JPanel{
      * @return resulted events
      */
     private List<List<String>> getResults(String query){
-        ResultSet rs = null;
+        ResultSet rs;
         List<List<String>> results = new ArrayList<>();
 
 
@@ -116,11 +109,12 @@ public class ResultPanel extends JPanel{
                     }
                 }
                 if (has){
-                        int index = results.indexOf(results.stream().filter(e -> e.contains(name)).findAny().get());
+                    //noinspection OptionalGetWithoutIsPresent
+                    int index = results.indexOf(results.stream().filter(e -> e.contains(name)).findAny().get());
                         results.get(index).add(artist);
                 } else{
-                    results.add(new ArrayList<>(Arrays.asList(new String[]{String.valueOf(ID),name,date,image,venue,venueAddress,
-                            String.valueOf(price),artist})));}
+                    results.add(new ArrayList<>(Arrays.asList(String.valueOf(ID),name,date,image,venue,venueAddress,
+                            String.valueOf(price),artist)));}
 
             }
 
@@ -143,10 +137,9 @@ public class ResultPanel extends JPanel{
      */
     private void createPanels(String query){
         List<List<String>> results = getResults(query);
-        System.out.println(results);
         int size= results.size();
         if (size==0){
-            noResults = new JLabel("No results found :(");
+            JLabel noResults = new JLabel("No results found :(");
             noResults.setPreferredSize(new Dimension(844, 374));
             noResults.setHorizontalTextPosition(JLabel.RIGHT);
             noResults.setVerticalTextPosition(JLabel.CENTER);
@@ -162,33 +155,33 @@ public class ResultPanel extends JPanel{
         for (int i=0;i<size;i++){
             List<String> eventDetails = results.get(i);
 
-            panel = new JPanel();
+            JPanel panel = new JPanel();
 
 
             panel.setPreferredSize(new Dimension(200, 50));
             panel.setBounds(71, 70, 730, 139);
             panel.setLayout(null);
 
-            imageLabel = new JLabel("image");
+            JLabel imageLabel = new JLabel("image");
             imageLabel.setBounds(12, 13, 135, 109);
             ImageIcon img = new ImageIcon((Main.EVENT_IMAGE_DIR+eventDetails.get(3)));
-            Image image = img.getImage().getScaledInstance(imageLabel.getWidth(),imageLabel.getHeight(),Image.SCALE_SMOOTH);
+            Image image = img.getImage().getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(),Image.SCALE_SMOOTH);
             imageLabel.setIcon(new ImageIcon(image));
             panel.add(imageLabel);
 
-            nameLabel = new JLabel(eventDetails.get(1));
+            JLabel nameLabel = new JLabel(eventDetails.get(1));
             nameLabel.setFont(new Font("Open Sans", Font.BOLD, 20));
             nameLabel.setBounds(174, 13, 200, 23);
             panel.add(nameLabel);
 
 
-            String artists = "Performing live: ";
+            StringBuilder artists = new StringBuilder("Performing live: ");
             int artistAmount = eventDetails.size();
 
             for (int b = 7; b<artistAmount;b++){
-                artists += (eventDetails.get(b) + ", ");
+                artists.append(eventDetails.get(b)).append(", ");
             }
-            bandsLabel = new JLabel(artists);
+            JLabel bandsLabel = new JLabel(artists.toString());
             bandsLabel.setFont(new Font("Open Sans", Font.PLAIN, 12));
             bandsLabel.setBounds(185, 75, 345, 41);
             bandsLabel.setToolTipText("Click \"Book Tickets\" for more details...");
@@ -204,12 +197,12 @@ public class ResultPanel extends JPanel{
             catch (ParseException e){
                 System.out.println("error");
             }
-            dateLabel = new JLabel("Starting: "+newdate);
+            JLabel dateLabel = new JLabel("Starting: " + newdate);
             dateLabel.setFont(new Font("Open Sans", Font.PLAIN, 12));
             dateLabel.setBounds(170, 49, 120, 16);
             panel.add(dateLabel);
 
-            bookButton = new JButton("Book Tickets");
+            JButton bookButton = new JButton("Book Tickets");
             bookButton.setForeground(SystemColor.inactiveCaption);
             bookButton.setBackground(new Color(0, 0, 128));
             bookButton.setBounds(650, 34, 135, 43);
@@ -217,17 +210,17 @@ public class ResultPanel extends JPanel{
             bookButton.addActionListener(new NewBookingController(Integer.parseInt(eventDetails.get(0))));
             panel.add(bookButton);
 
-            priceTxtLabel = new JLabel("Event Price");
+            JLabel priceTxtLabel = new JLabel("Event Price");
             priceTxtLabel.setBounds(680,40,135,43);
             priceTxtLabel.setVisible(false);
             panel.add(priceTxtLabel);
 
-            priceLabel = new JLabel("\u00A3 " + results.get(i).get(6));
+            JLabel priceLabel = new JLabel("\u00A3 " + results.get(i).get(6));
             priceLabel.setFont(new Font("Open Sans", Font.PLAIN, 18));
             priceLabel.setBounds(700, 97, 56, 16);
             panel.add(priceLabel);
 
-            venueLabel = new JTextArea(results.get(i).get(4)+ "\nAddress: " + results.get(i).get(4));
+            JTextArea venueLabel = new JTextArea(results.get(i).get(4) + "\nAddress: " + results.get(i).get(4));
             venueLabel.setFont(new Font("Open Sans", Font.PLAIN, 12));
             venueLabel.setBounds(350, 25, 229, 30);
             venueLabel.setEditable(false);

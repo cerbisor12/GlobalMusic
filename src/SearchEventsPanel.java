@@ -18,7 +18,7 @@ import java.util.Locale;
  */
 public class SearchEventsPanel extends JPanel {
 
-    JTextField searchTxtField;
+    private JTextField searchTxtField;
 
     /**
      * This is the constructor of the panel with the following details.
@@ -29,7 +29,7 @@ public class SearchEventsPanel extends JPanel {
         this.setLayout(null);
 
         searchTxtField = new JTextField();
-        searchTxtField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+        searchTxtField.setBorder(new MatteBorder(3, 3, 3, 3, SystemColor.activeCaption));
         searchTxtField.setBackground(SystemColor.activeCaption);
         searchTxtField.setBounds(490, 22, 300, 30);
         this.add(searchTxtField);
@@ -67,11 +67,9 @@ public class SearchEventsPanel extends JPanel {
         searchButton1.setBorderPainted(false);
         searchButton1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         searchButton1.setIcon(new ImageIcon(Main.IMAGE_DIR+"SearchIcon.png"));
-        searchButton1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                scrollPane.setViewportView(new ResultPanel(searchTxtField.getText().replace("'", "''")));
-                upcomingLabel.setText("Search Results");            }
-        });
+        searchButton1.addActionListener(e -> {
+            scrollPane.setViewportView(new ResultPanel(searchTxtField.getText().replace("'", "''")));
+            upcomingLabel.setText("Search Results");            });
         searchButton1.setBounds(802, 22, 30, 30);
         this.add(searchButton1);
         
@@ -82,16 +80,14 @@ public class SearchEventsPanel extends JPanel {
         searchButton2.setBorderPainted(false);
         searchButton2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         searchButton2.setIcon(new ImageIcon(Main.IMAGE_DIR+"SearchIcon.png"));
-        searchButton2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        searchButton2.addActionListener(e -> {
 
-                try {
-                    scrollPane.setViewportView(new ResultPanel(datePicker));
-                    upcomingLabel.setText("Search Results");
-                } catch (Exception e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
+            try {
+                scrollPane.setViewportView(new ResultPanel(datePicker));
+                upcomingLabel.setText("Search Results");
+            } catch (Exception e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
             }
         });
         searchButton2.setBounds(802, 65, 30, 30);

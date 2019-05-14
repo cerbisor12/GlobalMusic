@@ -14,21 +14,19 @@ import java.awt.event.MouseEvent;
 public class LoginView {
 
 	private JFrame frame;
-    JTextField usernameField;
-    JPasswordField passwordField;
+    private JTextField usernameField;
+    private JPasswordField passwordField;
 
     /**
      * Launch the application.
      */
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    LoginView window = new LoginView();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        EventQueue.invokeLater(() -> {
+            try {
+                LoginView window = new LoginView();
+                window.frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
     }
@@ -44,7 +42,7 @@ public class LoginView {
     /**
      * Initialize the contents of the frame.
      */
-    public void initialize() {
+    private void initialize() {
         frame = new JFrame();
         frame.setResizable(false);
         frame.setTitle("Global Music");
@@ -56,14 +54,14 @@ public class LoginView {
 
         usernameField = new JTextField();
         usernameField.setBackground(SystemColor.activeCaption);
-        usernameField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+        usernameField.setBorder(new MatteBorder(3, 3, 3, 3, SystemColor.activeCaption));
         usernameField.setBounds(654, 202, 247, 31);
         frame.getContentPane().add(usernameField);
         usernameField.setColumns(10);
 
         passwordField = new JPasswordField();
         passwordField.setBackground(SystemColor.activeCaption);
-        passwordField.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+        passwordField.setBorder(new MatteBorder(3, 3, 3, 3, SystemColor.activeCaption));
         passwordField.setBounds(654, 284, 247, 31);
         frame.getContentPane().add(passwordField);
 
@@ -85,38 +83,36 @@ public class LoginView {
          * Listener for the Login button to check the user's type and open different windows for each of them(except customer and organization).
          * Also checking if the user exists already and if the password matches.
          */
-        btnLogin.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                User user = new User();
-                User.username = usernameField.getText().replace("'", "''");
-                String password = (new String(passwordField.getPassword()));
-                String type = user.getData(User.username, "Type");
-                if (user.loginCheck(User.username,password)) {
-                    if (type.equalsIgnoreCase("Customer") ||
-                            type.equalsIgnoreCase("organization"))
-                    {
-                        new HomePageView();
-                        frame.setVisible(false);
-                    }
-                    else if (type.equalsIgnoreCase("organizer"))
-                    {
-                        new EventOrganizerView();
-                        frame.setVisible(false);
-                    }
-                    else{
-                        new AdminView();
-                        frame.setVisible(false);
-                    }
-                } else if (user.checkFieldInDB("Username",User.username)) {
-                    lblIncorrectUsername.setVisible(false);
-                    lblIncorrectPassword.setVisible(true);
-                    passwordField.setText("");
-                } else if (!user.checkFieldInDB("Username",User.username)) {
+        btnLogin.addActionListener(e -> {
+            User user = new User();
+            User.username = usernameField.getText().replace("'", "''");
+            String password = (new String(passwordField.getPassword()));
+            String type = user.getData(User.username, "Type");
+            if (user.loginCheck(User.username,password)) {
+                if (type.equalsIgnoreCase("Customer") ||
+                        type.equalsIgnoreCase("organization"))
+                {
+                    new HomePageView();
+                    frame.setVisible(false);
+                }
+                else if (type.equalsIgnoreCase("organizer"))
+                {
+                    new EventOrganizerView();
+                    frame.setVisible(false);
+                }
+                else{
+                    new AdminView();
+                    frame.setVisible(false);
+                }
+            } else if (user.checkFieldInDB("Username",User.username)) {
+                lblIncorrectUsername.setVisible(false);
+                lblIncorrectPassword.setVisible(true);
+                passwordField.setText("");
+            } else if (!user.checkFieldInDB("Username",User.username)) {
 
-                    lblIncorrectPassword.setVisible(false);
-                    lblIncorrectUsername.setVisible(true);
-                    usernameField.setText("");}
-            }
+                lblIncorrectPassword.setVisible(false);
+                lblIncorrectUsername.setVisible(true);
+                usernameField.setText("");}
         });
         btnLogin.setBounds(796, 360, 120, 40);
         btnLogin.setForeground(SystemColor.inactiveCaption);
@@ -148,11 +144,9 @@ public class LoginView {
         /**
          * Listener for the register button, which will open the registration window.
          */
-        btnRegister.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new RegisterView();
-                frame.setVisible(false);
-            }
+        btnRegister.addActionListener(e -> {
+            new RegisterView();
+            frame.setVisible(false);
         });
         btnRegister.setForeground(SystemColor.inactiveCaption);
         btnRegister.setFont(new Font("Open Sans", Font.PLAIN, 20));
@@ -170,12 +164,10 @@ public class LoginView {
         /**
          * Exit button listener. Exits the application after user confirmation.
          */
-        btnExitButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
-                if (reply == JOptionPane.YES_OPTION) {
-                  System.exit(0);
-                }
+        btnExitButton.addActionListener(e -> {
+            int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+              System.exit(0);
             }
         });
         btnExitButton.setFont(new Font("Open Sans", Font.PLAIN, 25));
@@ -237,7 +229,7 @@ public class LoginView {
         frame.getContentPane().add(lblImageLabel);
         
         /**
-         * Code for setting the login button available by pressing thse Enter key.
+         * Code for setting the login button available by pressing the Enter key.
          */
         frame.getRootPane().setDefaultButton(btnLogin);
 

@@ -11,9 +11,8 @@ public class Agent {
 	
 
 	private String name;
-	private String email;
-	private String phoneNo;
-	/**
+
+    /**
 	 * Class' constructor with query for inserting data into the database included.
 	 * @param name name of agent
 	 * @param phoneNo agent's phone number
@@ -21,17 +20,17 @@ public class Agent {
 	 */
 	public Agent(String name, String phoneNo, String email) {
 		this.name = name;
-		
-		this.phoneNo = phoneNo;
+
+        String phoneNo1 = phoneNo;
 		if (phoneNo == null) {
-			this.phoneNo = "";}
-			
-		this.email = email;
+			phoneNo1 = "";}
+
+        String email1 = email;
 		if (email == null){
-			this.email = "";}
+			email1 = "";}
 
 		String query = "INSERT INTO tbl_agent(AgentID,Name,PhoneNo,Email)" + 
-				"VALUES(DEFAULT,'" + this.name + "','" + this.phoneNo + "','" + this.email + "');";
+				"VALUES(DEFAULT,'" + this.name + "','" + phoneNo1 + "','" + email1 + "');";
 		try {
             Connect.updateData(query);
         } catch (SQLException e) {
@@ -50,7 +49,7 @@ public class Agent {
 	 */
 	public ArrayList<String> getAgentsList() {
 		String query = "SELECT Name FROM `tbl_agent`;";
-		ArrayList<String> agentsList = new ArrayList<String>();
+		ArrayList<String> agentsList = new ArrayList<>();
 		try {
             ResultSet results = Connect.selectStm(query);
             while (results.next()) {
@@ -65,16 +64,6 @@ public class Agent {
         return agentsList;
 	}
 
-	/**
-	 * Getters and setters for all the fields
-	 */
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	/**
 	 * Static method for getting an agent's Id based on its name.

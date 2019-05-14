@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AnalysisUIOptions">
-    <option name="SCOPE_TYPE" value="8" />
     <option name="CUSTOM_SCOPE_NAME" value="Current File" />
   </component>
   <component name="ChangeListManager">
@@ -12,19 +11,30 @@
       <change beforePath="$PROJECT_DIR$/src/Band.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Band.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BandDetailsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BandDetailsPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BookingHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BookingsTableController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BookingsHistoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BookingsHistoryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BookingsTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BookingsTableController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ChangePasswordView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChangePasswordView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Connect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Connect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CreditCardIconsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CreditCardIconsPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EditEventView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditEventView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Event.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EventOrganizerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventOrganizerView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HomePageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomePageView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MyAccountView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyAccountView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NewAgentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewAgentView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NewBandView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewBandView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NewBookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewBookingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NewBookingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewBookingView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NewVenueView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewVenueView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PopUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegisterView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ResultPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResultPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SearchEventsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchEventsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SendMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SendMail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Venue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Venue.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,478 +65,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EditEventView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+            <state relative-caret-position="120">
+              <caret line="464" column="23" selection-start-line="464" selection-start-column="23" selection-end-line="464" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Booking.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-806">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding>
-                <element signature="e#3018#3198#0" expanded="true" />
-                <element signature="e#3197#3198#0" expanded="true" />
-                <element signature="e#19089#19090#0" expanded="true" />
-                <element signature="e#19138#19139#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="uml://JAVA/">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>JAVA</ID>
-              <OriginalElement />
-              <nodes>
-                <node x="155.0" y="1607.0">com</node>
-                <node x="1258.0" y="1469.0">netscape</node>
-                <node x="1044.6942551541686" y="942.0">SearchEventsPanel</node>
-                <node x="340.0000000000001" y="1103.0">EventOrganizerView</node>
-                <node x="1385.627013774858" y="0.0">User</node>
-                <node x="1427.5208333333333" y="1114.0">HomePageView</node>
-                <node x="648.0625" y="920.0">EditEventView</node>
-                <node x="1562.110921820835" y="898.0">BookingsTableController</node>
-                <node x="67.67715745301894" y="66.0">Band</node>
-                <node x="2071.110921820835" y="767.0">RegisterView</node>
-                <node x="323.8750000000001" y="756.0">NewVenueView</node>
-                <node x="506.0" y="1469.0">toolbarButtonGraphics</node>
-                <node x="303.0" y="1607.0">sun</node>
-                <node x="1048.7291666666667" y="745.0">ResultPanel</node>
-                <node x="749.5275884875019" y="756.0">SendMail</node>
-                <node x="1026.0" y="1469.0">groovyjarjarasm</node>
-                <node x="0.0" y="1607.0">java</node>
-                <node x="1469.610921820835" y="361.0">ChangePasswordView</node>
-                <node x="1962.0" y="1469.0">javax</node>
-                <node x="1157.4791666666667" y="339.0">NewBookingView</node>
-                <node x="1225.6942551541686" y="942.0">BookingsHistoryView</node>
-                <node x="49.875" y="317.0">Agent</node>
-                <node x="1624.0" y="1469.0">images</node>
-                <node x="1833.110921820835" y="569.0">CreditCardIconsPanel</node>
-                <node x="287.8750000000001" y="492.0">Venue</node>
-                <node x="451.0" y="1607.0">org</node>
-                <node x="127.87500000000011" y="558.0">NewAgentView</node>
-                <node x="0.0" y="1469.0">Connect</node>
-                <node x="649.1942551541686" y="88.0">Booking</node>
-                <node x="1043.2291666666667" y="558.0">NewBookingController</node>
-                <node x="1789.360921820835" y="778.0">MyAccountView</node>
-                <node x="599.0" y="1607.0">jdk</node>
-                <node x="1441.0" y="1469.0">META-INF</node>
-                <node x="1793.0" y="1469.0">groovy</node>
-                <node x="1680.0208333333333" y="1103.0">AdminView</node>
-                <node x="1570.7083333333333" y="1254.0">LoginView</node>
-                <node x="1833.110921820835" y="942.0">PopUp</node>
-                <node x="922.1942551541686" y="33.0">Event</node>
-                <node x="225.0" y="1469.0">groovyjarjarcommonscli</node>
-                <node x="42.24782658273989" y="756.0">NewBandView</node>
-                <node x="780.0" y="1469.0">groovyjarjarantlr</node>
-                <node x="1570.7083333333333" y="1375.0">Main</node>
-                <node x="530.8750000000001" y="350.0">BandDetailsPanel</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="MyAccountView" target="User">
-                  <point x="-33.25" y="-13.5" />
-                  <point x="1822.610921820835" y="297.0" />
-                  <point x="1817.6825693304136" y="297.0" />
-                  <point x="78.55555555555554" y="123.5" />
-                </edge>
-                <edge source="EditEventView" target="Booking">
-                  <point x="0.0" y="-35.5" />
-                  <point x="742.0625" y="878.0" />
-                  <point x="739.0275884875019" y="878.0" />
-                  <point x="739.0275884875019" y="297.0" />
-                  <point x="775.6942551541686" y="297.0" />
-                  <point x="0.0" y="35.5" />
-                </edge>
-                <edge source="EventOrganizerView" target="User">
-                  <point x="82.25" y="-35.5" />
-                  <point x="516.2500000000001" y="1083.0" />
-                  <point x="1459.110921820835" y="1083.0" />
-                  <point x="1459.110921820835" y="287.0" />
-                  <point x="1582.0159026637468" y="287.0" />
-                  <point x="-157.11111111111114" y="123.5" />
-                </edge>
-                <edge source="RegisterView" target="User">
-                  <point x="31.5" y="-24.5" />
-                  <point x="2165.610921820835" y="287.0" />
-                  <point x="1974.7936804415244" y="287.0" />
-                  <point x="235.66666666666652" y="123.5" />
-                </edge>
-                <edge source="HomePageView" target="BookingsTableController">
-                  <point x="25.19999999999999" y="-24.5" />
-                  <point x="1515.7208333333333" y="1053.0" />
-                  <point x="1624.610921820835" y="1053.0" />
-                  <point x="-62.5" y="57.5" />
-                </edge>
-                <edge source="AdminView" target="User">
-                  <point x="52.125" y="-35.5" />
-                  <point x="1801.6458333333333" y="1083.0" />
-                  <point x="2060.610921820835" y="1083.0" />
-                  <point x="2060.610921820835" y="297.0" />
-                  <point x="1896.2381248859688" y="297.0" />
-                  <point x="157.11111111111097" y="123.5" />
-                </edge>
-                <edge source="AdminView" target="ResultPanel">
-                  <point x="-52.125" y="-35.5" />
-                  <point x="1697.3958333333333" y="1033.0" />
-                  <point x="1411.1942551541686" y="1033.0" />
-                  <point x="1411.1942551541686" y="868.0" />
-                  <point x="1224.2291666666667" y="868.0" />
-                  <point x="58.5" y="46.5" />
-                </edge>
-                <edge source="NewVenueView" target="Venue">
-                  <point x="0.0" y="-35.5" />
-                  <point x="0.0" y="101.5" />
-                </edge>
-                <edge source="NewBookingView" target="Event">
-                  <point x="0.0" y="-35.5" />
-                  <point x="1226.9791666666667" y="297.0" />
-                  <point x="1229.6942551541686" y="297.0" />
-                  <point x="123.0" y="90.5" />
-                </edge>
-                <edge source="BookingsTableController" target="User">
-                  <point x="0.0" y="-57.5" />
-                  <point x="1687.110921820835" y="297.0" />
-                  <point x="1739.127013774858" y="297.0" />
-                  <point x="0.0" y="123.5" />
-                </edge>
-                <edge source="NewAgentView" target="Agent">
-                  <point x="0.0" y="-35.5" />
-                  <point x="197.3750000000001" y="472.0" />
-                  <point x="211.125" y="472.0" />
-                  <point x="53.75" y="57.5" />
-                </edge>
-                <edge source="LoginView" target="RegisterView">
-                  <point x="34.74999999999994" y="-35.5" />
-                  <point x="1674.9583333333333" y="1214.0" />
-                  <point x="2102.610921820835" y="1214.0" />
-                  <point x="-31.5" y="24.5" />
-                </edge>
-                <edge source="EditEventView" target="User">
-                  <point x="80.57142857142867" y="-35.5" />
-                  <point x="822.6339285714287" y="878.0" />
-                  <point x="1372.4855706075532" y="878.0" />
-                  <point x="1372.4855706075532" y="277.0" />
-                  <point x="1503.4603471081912" y="277.0" />
-                  <point x="-235.66666666666669" y="123.5" />
-                </edge>
-                <edge source="BandDetailsPanel" target="Band">
-                  <point x="0.0" y="-24.5" />
-                  <point x="605.8750000000001" y="287.0" />
-                  <point x="273.30215745301894" y="287.0" />
-                  <point x="88.125" y="57.5" />
-                </edge>
-                <edge source="SearchEventsPanel" target="ResultPanel">
-                  <point x="0.0" y="-13.5" />
-                  <point x="1125.1942551541686" y="868.0" />
-                  <point x="1107.2291666666667" y="868.0" />
-                  <point x="-58.5" y="46.5" />
-                </edge>
-                <edge source="MyAccountView" target="CreditCardIconsPanel">
-                  <point x="33.25" y="-13.5" />
-                  <point x="1889.110921820835" y="720.0" />
-                  <point x="1887.360921820835" y="720.0" />
-                  <point x="-54.25" y="24.5" />
-                </edge>
-                <edge source="HomePageView" target="ChangePasswordView">
-                  <point x="0.0" y="-24.5" />
-                  <point x="1490.5208333333333" y="1043.0" />
-                  <point x="1551.610921820835" y="1043.0" />
-                  <point x="0.0" y="13.5" />
-                </edge>
-                <edge source="HomePageView" target="LoginView">
-                  <point x="31.5" y="24.5" />
-                  <point x="1522.0208333333333" y="1194.0" />
-                  <point x="1633.2583333333332" y="1194.0" />
-                  <point x="-6.9500000000000455" y="-35.5" />
-                </edge>
-                <edge source="ResultPanel" target="NewBookingController">
-                  <point x="0.0" y="-46.5" />
-                  <point x="0.0" y="35.5" />
-                </edge>
-                <edge source="EditEventView" target="Band">
-                  <point x="-26.85714285714289" y="-35.5" />
-                  <point x="715.2053571428571" y="858.0" />
-                  <point x="520.3750000000001" y="858.0" />
-                  <point x="520.3750000000001" y="297.0" />
-                  <point x="214.55215745301894" y="297.0" />
-                  <point x="29.375" y="57.5" />
-                </edge>
-                <edge source="HomePageView" target="MyAccountView">
-                  <point x="50.39999999999998" y="-24.5" />
-                  <point x="1540.9208333333333" y="1063.0" />
-                  <point x="1822.610921820835" y="1063.0" />
-                  <point x="-33.25" y="13.5" />
-                </edge>
-                <edge source="NewBandView" target="Agent">
-                  <point x="0.0" y="-35.5" />
-                  <point x="111.74782658273989" y="720.0" />
-                  <point x="117.375" y="720.0" />
-                  <point x="117.375" y="472.0" />
-                  <point x="103.625" y="472.0" />
-                  <point x="-53.75" y="57.5" />
-                </edge>
-                <edge source="EditEventView" target="Event">
-                  <point x="53.71428571428578" y="-35.5" />
-                  <point x="795.7767857142858" y="868.0" />
-                  <point x="1032.7291666666667" y="868.0" />
-                  <point x="1032.7291666666667" y="297.0" />
-                  <point x="1106.6942551541686" y="297.0" />
-                  <point x="0.0" y="90.5" />
-                </edge>
-                <edge source="Main" target="LoginView">
-                  <point x="0.0" y="-24.5" />
-                  <point x="0.0" y="35.5" />
-                </edge>
-                <edge source="EventOrganizerView" target="NewVenueView">
-                  <point x="-11.75" y="-35.5" />
-                  <point x="422.2500000000001" y="1053.0" />
-                  <point x="358.6250000000001" y="1053.0" />
-                  <point x="-34.75" y="35.5" />
-                </edge>
-                <edge source="RegisterView" target="CreditCardIconsPanel">
-                  <point x="-31.5" y="-24.5" />
-                  <point x="2102.610921820835" y="720.0" />
-                  <point x="1995.860921820835" y="720.0" />
-                  <point x="54.25" y="24.5" />
-                </edge>
-                <edge source="LoginView" target="HomePageView">
-                  <point x="-20.850000000000023" y="-35.5" />
-                  <point x="1619.3583333333333" y="1204.0" />
-                  <point x="1459.0208333333333" y="1204.0" />
-                  <point x="-31.5" y="24.5" />
-                </edge>
-                <edge source="RegisterView" target="LoginView">
-                  <point x="31.5" y="24.5" />
-                  <point x="2165.610921820835" y="878.0" />
-                  <point x="2113.610921820835" y="878.0" />
-                  <point x="2113.610921820835" y="1224.0" />
-                  <point x="1688.8583333333333" y="1224.0" />
-                  <point x="48.650000000000034" y="-35.5" />
-                </edge>
-                <edge source="NewBookingController" target="BandDetailsPanel">
-                  <point x="-61.25" y="-35.5" />
-                  <point x="1104.4791666666667" y="452.0" />
-                  <point x="605.8750000000001" y="452.0" />
-                  <point x="0.0" y="24.5" />
-                </edge>
-                <edge source="EditEventView" target="LoginView">
-                  <point x="62.66666666666674" y="35.5" />
-                  <point x="804.7291666666667" y="1214.0" />
-                  <point x="1605.4583333333333" y="1214.0" />
-                  <point x="-34.75" y="-35.5" />
-                </edge>
-                <edge source="NewBookingView" target="Booking">
-                  <point x="-46.33333333333337" y="-35.5" />
-                  <point x="1180.6458333333333" y="287.0" />
-                  <point x="860.0275884875018" y="287.0" />
-                  <point x="84.33333333333326" y="35.5" />
-                </edge>
-                <edge source="LoginView" target="AdminView">
-                  <point x="6.9500000000000455" y="-35.5" />
-                  <point x="1647.1583333333333" y="1194.0" />
-                  <point x="1714.7708333333333" y="1194.0" />
-                  <point x="-34.75" y="35.5" />
-                </edge>
-                <edge source="ChangePasswordView" target="User">
-                  <point x="0.0" y="-13.5" />
-                  <point x="1551.610921820835" y="297.0" />
-                  <point x="1660.5714582193023" y="297.0" />
-                  <point x="-78.5555555555556" y="123.5" />
-                </edge>
-                <edge source="EventOrganizerView" target="NewBandView">
-                  <point x="-58.75" y="-35.5" />
-                  <point x="375.2500000000001" y="1073.0" />
-                  <point x="76.99782658273989" y="1073.0" />
-                  <point x="-34.75" y="35.5" />
-                </edge>
-                <edge source="AdminView" target="LoginView">
-                  <point x="34.75" y="35.5" />
-                  <point x="1784.2708333333333" y="1204.0" />
-                  <point x="1661.0583333333334" y="1204.0" />
-                  <point x="20.850000000000023" y="-35.5" />
-                </edge>
-                <edge source="NewBandView" target="NewAgentView">
-                  <point x="46.33333333333326" y="-35.5" />
-                  <point x="158.08115991607315" y="720.0" />
-                  <point x="197.3750000000001" y="720.0" />
-                  <point x="0.0" y="35.5" />
-                </edge>
-                <edge source="EventOrganizerView" target="Event">
-                  <point x="11.75" y="-35.5" />
-                  <point x="445.7500000000001" y="1053.0" />
-                  <point x="509.3750000000001" y="1053.0" />
-                  <point x="509.3750000000001" y="472.0" />
-                  <point x="906.2813241196857" y="472.0" />
-                  <point x="906.2813241196857" y="297.0" />
-                  <point x="983.6942551541686" y="297.0" />
-                  <point x="-123.0" y="90.5" />
-                </edge>
-                <edge source="EditEventView" target="NewVenueView">
-                  <point x="-53.71428571428555" y="-35.5" />
-                  <point x="688.3482142857144" y="868.0" />
-                  <point x="428.1250000000001" y="868.0" />
-                  <point x="34.75" y="35.5" />
-                </edge>
-                <edge source="EventOrganizerView" target="LoginView">
-                  <point x="47.0" y="35.5" />
-                  <point x="481.0000000000001" y="1224.0" />
-                  <point x="1591.5583333333332" y="1224.0" />
-                  <point x="-48.65000000000009" y="-35.5" />
-                </edge>
-                <edge source="EditEventView" target="SendMail">
-                  <point x="26.85714285714289" y="-35.5" />
-                  <point x="768.9196428571429" y="858.0" />
-                  <point x="858.5275884875019" y="858.0" />
-                  <point x="0.0" y="35.5" />
-                </edge>
-                <edge source="AdminView" target="PopUp">
-                  <point x="17.375" y="-35.5" />
-                  <point x="1766.8958333333333" y="1073.0" />
-                  <point x="1871.610921820835" y="1073.0" />
-                  <point x="0.0" y="13.5" />
-                </edge>
-                <edge source="HomePageView" target="BookingsHistoryView">
-                  <point x="-25.200000000000045" y="-24.5" />
-                  <point x="1465.3208333333332" y="1063.0" />
-                  <point x="1313.1942551541686" y="1063.0" />
-                  <point x="0.0" y="13.5" />
-                </edge>
-                <edge source="LoginView" target="User">
-                  <point x="62.5499999999999" y="-35.5" />
-                  <point x="1702.7583333333332" y="1234.0" />
-                  <point x="2207.610921820835" y="1234.0" />
-                  <point x="2207.610921820835" y="277.0" />
-                  <point x="2053.34923599708" y="277.0" />
-                  <point x="314.22222222222206" y="123.5" />
-                </edge>
-                <edge source="NewBookingController" target="NewBookingView">
-                  <point x="61.25" y="-35.5" />
-                  <point x="0.0" y="35.5" />
-                </edge>
-                <edge source="EventOrganizerView" target="Booking">
-                  <point x="-35.25" y="-35.5" />
-                  <point x="398.7500000000001" y="1063.0" />
-                  <point x="277.3750000000001" y="1063.0" />
-                  <point x="277.3750000000001" y="462.0" />
-                  <point x="728.0275884875019" y="462.0" />
-                  <point x="728.0275884875019" y="297.0" />
-                  <point x="691.3609218208353" y="297.0" />
-                  <point x="-84.33333333333326" y="35.5" />
-                </edge>
-                <edge source="NewBookingView" target="User">
-                  <point x="46.33333333333337" y="-35.5" />
-                  <point x="1273.3125" y="267.0" />
-                  <point x="1424.9047915526357" y="267.0" />
-                  <point x="-314.22222222222223" y="123.5" />
-                </edge>
-                <edge source="EditEventView" target="EventOrganizerView">
-                  <point x="0.0" y="35.5" />
-                  <point x="742.0625" y="1073.0" />
-                  <point x="492.7500000000001" y="1073.0" />
-                  <point x="58.75" y="-35.5" />
-                </edge>
-                <edge source="PopUp" target="MyAccountView">
-                  <point x="0.0" y="-13.5" />
-                  <point x="1871.610921820835" y="878.0" />
-                  <point x="1889.110921820835" y="878.0" />
-                  <point x="33.25" y="13.5" />
-                </edge>
-                <edge source="NewBandView" target="Band">
-                  <point x="-46.33333333333326" y="-35.5" />
-                  <point x="65.41449324940663" y="720.0" />
-                  <point x="37.0" y="720.0" />
-                  <point x="37.0" y="297.0" />
-                  <point x="155.80215745301894" y="297.0" />
-                  <point x="-29.375" y="57.5" />
-                </edge>
-                <edge source="HomePageView" target="SearchEventsPanel">
-                  <point x="-50.400000000000034" y="-24.5" />
-                  <point x="1440.1208333333334" y="1073.0" />
-                  <point x="1125.1942551541686" y="1073.0" />
-                  <point x="0.0" y="13.5" />
-                </edge>
-                <edge source="EditEventView" target="NewBandView">
-                  <point x="-80.57142857142844" y="-35.5" />
-                  <point x="661.4910714285716" y="878.0" />
-                  <point x="146.4978265827399" y="878.0" />
-                  <point x="34.75" y="35.5" />
-                </edge>
-                <edge source="EventOrganizerView" target="EditEventView">
-                  <point x="35.25" y="-35.5" />
-                  <point x="469.2500000000001" y="1063.0" />
-                  <point x="679.3958333333333" y="1063.0" />
-                  <point x="-62.66666666666674" y="35.5" />
-                </edge>
-                <edge source="EventOrganizerView" target="Band">
-                  <point x="-82.25" y="-35.5" />
-                  <point x="351.7500000000001" y="1083.0" />
-                  <point x="26.0" y="1083.0" />
-                  <point x="26.0" y="287.0" />
-                  <point x="97.05215745301894" y="287.0" />
-                  <point x="-88.125" y="57.5" />
-                </edge>
-                <edge source="LoginView" target="EventOrganizerView">
-                  <point x="-62.55000000000007" y="-35.5" />
-                  <point x="1577.6583333333333" y="1234.0" />
-                  <point x="387.0000000000001" y="1234.0" />
-                  <point x="-47.0" y="35.5" />
-                </edge>
-                <edge source="AdminView" target="BookingsTableController">
-                  <point x="-17.375" y="-35.5" />
-                  <point x="1732.1458333333333" y="1053.0" />
-                  <point x="1749.610921820835" y="1053.0" />
-                  <point x="62.5" y="57.5" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="0.7740211311373523" x="1355.9818532198492" y="341.747229805685" />
-              <SelectedNodes />
-              <Categories>
-                <Category>Methods</Category>
-              </Categories>
-              <SCOPE>All</SCOPE>
-              <VISIBILITY>private</VISIBILITY>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Event.java">
+        <entry file="file://$PROJECT_DIR$/src/CreditCardIconsPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="111" column="4" lean-forward="true" selection-start-line="111" selection-start-column="4" selection-end-line="111" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Agent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="77" selection-start-line="77" selection-end-line="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="130" column="95" selection-start-line="130" selection-start-column="95" selection-end-line="130" selection-end-column="95" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LoginView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="96" column="21" lean-forward="true" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/NewBandView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+            <state relative-caret-position="128">
+              <caret line="24" column="97" selection-start-line="24" selection-start-column="97" selection-end-line="24" selection-end-column="97" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -534,26 +98,65 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EventOrganizerView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
-              <caret line="41" column="19" lean-forward="true" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+            <state relative-caret-position="120">
+              <caret line="482" column="47" selection-start-line="482" selection-start-column="47" selection-end-line="482" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HomePageView.java">
+        <entry file="file://$PROJECT_DIR$/src/NewBookingController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+            <state relative-caret-position="111">
+              <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AdminView.java">
+        <entry file="file://$PROJECT_DIR$/src/NewVenueView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2023">
-              <caret line="139" column="71" selection-start-line="139" selection-start-column="71" selection-end-line="139" selection-end-column="71" />
+            <state relative-caret-position="128">
+              <caret line="63" column="52" selection-start-line="63" selection-start-column="52" selection-end-line="63" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/RegisterView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="89" column="65" selection-start-line="89" selection-start-column="65" selection-end-line="89" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NewBandView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="114" column="76" selection-start-line="114" selection-start-column="76" selection-end-line="114" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/LoginView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="231" column="69" selection-start-line="231" selection-start-column="69" selection-end-line="231" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MyAccountView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="385" column="50" selection-start-line="385" selection-start-column="50" selection-end-line="385" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -595,6 +198,8 @@
       <find>user.</find>
       <find>new Event</find>
       <find>event.</find>
+      <find>System.out.println(fie</find>
+      <find>System.out.println(</find>
     </findStrings>
     <replaceStrings>
       <replace>lblImageLabel.add</replace>
@@ -620,32 +225,33 @@
         <option value="$PROJECT_DIR$/src/EventsPanel.java" />
         <option value="$PROJECT_DIR$/src/MyTable.java" />
         <option value="$PROJECT_DIR$/src/ToDoList" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/CreditCardIconsPanel.java" />
-        <option value="$PROJECT_DIR$/src/NewVenueView.java" />
         <option value="$PROJECT_DIR$/src/PopUp.java" />
-        <option value="$PROJECT_DIR$/src/RegisterView.java" />
-        <option value="$PROJECT_DIR$/src/ResultPanel.java" />
-        <option value="$PROJECT_DIR$/src/NewBookingController.java" />
         <option value="$PROJECT_DIR$/src/SearchEventsPanel.java" />
-        <option value="$PROJECT_DIR$/src/MyAccountView.java" />
         <option value="$PROJECT_DIR$/src/AdminView.java" />
         <option value="$PROJECT_DIR$/src/BookingHistoryController.java" />
         <option value="$PROJECT_DIR$/src/NewAgentView.java" />
         <option value="$PROJECT_DIR$/src/Booking.java" />
         <option value="$PROJECT_DIR$/src/BandDetailsPanel.java" />
         <option value="$PROJECT_DIR$/src/Band.java" />
-        <option value="$PROJECT_DIR$/src/NewBandView.java" />
         <option value="$PROJECT_DIR$/src/NewBookingView.java" />
         <option value="$PROJECT_DIR$/src/ChangePasswordView.java" />
         <option value="$PROJECT_DIR$/src/BookingsHistoryView.java" />
-        <option value="$PROJECT_DIR$/src/HomePageView.java" />
         <option value="$PROJECT_DIR$/src/User.java" />
-        <option value="$PROJECT_DIR$/src/LoginView.java" />
-        <option value="$PROJECT_DIR$/src/EventOrganizerView.java" />
-        <option value="$PROJECT_DIR$/src/EditEventView.java" />
-        <option value="$PROJECT_DIR$/src/Agent.java" />
         <option value="$PROJECT_DIR$/src/Event.java" />
+        <option value="$PROJECT_DIR$/src/ResultPanel.java" />
+        <option value="$PROJECT_DIR$/src/Agent.java" />
+        <option value="$PROJECT_DIR$/src/BookingsTableController.java" />
+        <option value="$PROJECT_DIR$/src/HomePageView.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/CreditCardIconsPanel.java" />
+        <option value="$PROJECT_DIR$/src/EditEventView.java" />
+        <option value="$PROJECT_DIR$/src/EventOrganizerView.java" />
+        <option value="$PROJECT_DIR$/src/LoginView.java" />
+        <option value="$PROJECT_DIR$/src/MyAccountView.java" />
+        <option value="$PROJECT_DIR$/src/NewBandView.java" />
+        <option value="$PROJECT_DIR$/src/NewBookingController.java" />
+        <option value="$PROJECT_DIR$/src/NewVenueView.java" />
+        <option value="$PROJECT_DIR$/src/RegisterView.java" />
       </list>
     </option>
   </component>
@@ -715,6 +321,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.uml" />
   </component>
   <component name="RecentsManager">
@@ -797,7 +404,7 @@
       <option name="presentableId" value="Default" />
       <updated>1557179149142</updated>
       <workItem from="1557680538988" duration="5358000" />
-      <workItem from="1557863747595" duration="4400000" />
+      <workItem from="1557863747595" duration="6640000" />
     </task>
     <task id="LOCAL-00001" summary="Added libraries">
       <created>1557179615123</created>
@@ -918,17 +525,65 @@
       <option name="project" value="LOCAL" />
       <updated>1557859338026</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Changed static to instance methods">
+      <created>1557868402201</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1557868402201</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9758000" />
+    <option name="totallyTimeSpent" value="11998000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2753404" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2753404" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Inspection Results" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49924356" weight="0.33387887" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.9039334" weight="0.3289689" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49621785" weight="0.3289689" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.096066564" side_tool="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49924356" weight="0.3289689" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3289689" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="11" weight="0.3289689" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Database" order="7" weight="0.32980332" />
+      <window_info anchor="right" id="Maven" order="8" weight="0.32980332" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2753404" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -957,38 +612,6 @@
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Database" order="7" weight="0.32980332" />
-      <window_info anchor="right" id="Maven" order="8" weight="0.32980332" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2753404" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49924356" visible="true" weight="0.33387887" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.9039334" weight="0.3289689" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49621785" weight="0.3289689" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.096066564" side_tool="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49924356" weight="0.3289689" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3289689" />
-      <window_info anchor="bottom" id="Dependency Viewer" order="11" weight="0.3289689" />
-      <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Maven" order="8" weight="0.32980332" />
     </layout-to-restore>
   </component>
@@ -1060,7 +683,8 @@
     <MESSAGE value="Added confirm Bookings functionality to AdminView" />
     <MESSAGE value="Changed directory of all Images" />
     <MESSAGE value="EventView Org pull" />
-    <option name="LAST_COMMIT_MESSAGE" value="EventView Org pull" />
+    <MESSAGE value="Changed static to instance methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed static to instance methods" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1163,41 +787,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CreditCardIconsPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-382">
-          <caret line="74" column="61" selection-start-line="74" selection-start-column="61" selection-end-line="74" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NewVenueView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="185" column="67" selection-start-line="185" selection-start-column="67" selection-end-line="185" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PopUp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="95" column="99" selection-start-line="95" selection-start-column="99" selection-end-line="95" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RegisterView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="740" column="58" selection-start-line="740" selection-start-column="58" selection-end-line="740" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -1208,42 +801,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ResultPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="173" column="83" selection-start-line="173" selection-start-column="83" selection-end-line="173" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MyTable.java" />
-    <entry file="file://$PROJECT_DIR$/src/BookingsTableController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="59" column="48" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
-          <folding>
-            <element signature="e#3664#3665#0" expanded="true" />
-            <element signature="e#3695#3696#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Booking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="84" column="22" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NewBookingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="56" column="32" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BandDetailsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -1272,34 +830,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MyAccountView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="413" column="21" selection-start-line="413" selection-start-column="16" selection-end-line="413" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ChangePasswordView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-426">
-          <caret line="28" column="57" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BookingsHistoryView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
           <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HomePageView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1317,51 +851,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LoginView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="96" column="21" lean-forward="true" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EventOrganizerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="41" column="19" lean-forward="true" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EditEventView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding>
-            <element signature="e#3018#3198#0" expanded="true" />
-            <element signature="e#3197#3198#0" expanded="true" />
-            <element signature="e#19089#19090#0" expanded="true" />
-            <element signature="e#19138#19139#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NewBandView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Agent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="77" selection-start-line="77" selection-end-line="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Event.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret line="111" column="4" lean-forward="true" selection-start-line="111" selection-start-column="4" selection-end-line="111" selection-end-column="4" />
+          <caret line="94" column="2" selection-start-line="94" selection-start-column="2" selection-end-line="94" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classDiagram.uml">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="" y="">com</node>
+            <node x="" y="">netscape</node>
+            <node x="" y="">SearchEventsPanel</node>
+            <node x="" y="">EventOrganizerView</node>
+            <node x="" y="">User</node>
+            <node x="" y="">HomePageView</node>
+            <node x="" y="">EditEventView</node>
+            <node x="" y="">Band</node>
+            <node x="" y="">RegisterView</node>
+            <node x="" y="">NewVenueView</node>
+            <node x="" y="">toolbarButtonGraphics</node>
+            <node x="" y="">sun</node>
+            <node x="" y="">ResultPanel</node>
+            <node x="" y="">SendMail</node>
+            <node x="" y="">groovyjarjarasm</node>
+            <node x="" y="">java</node>
+            <node x="" y="">ChangePasswordView</node>
+            <node x="" y="">javax</node>
+            <node x="" y="">NewBookingView</node>
+            <node x="" y="">BookingsHistoryView</node>
+            <node x="" y="">Agent</node>
+            <node x="" y="">images</node>
+            <node x="" y="">CreditCardIconsPanel</node>
+            <node x="" y="">Venue</node>
+            <node x="" y="">org</node>
+            <node x="" y="">NewAgentView</node>
+            <node x="" y="">Connect</node>
+            <node x="" y="">Booking</node>
+            <node x="" y="">NewBookingController</node>
+            <node x="" y="">MyAccountView</node>
+            <node x="" y="">jdk</node>
+            <node x="" y="">META-INF</node>
+            <node x="" y="">groovy</node>
+            <node x="" y="">AdminView</node>
+            <node x="" y="">LoginView</node>
+            <node x="" y="">PopUp</node>
+            <node x="" y="">Event</node>
+            <node x="" y="">groovyjarjarcommonscli</node>
+            <node x="" y="">NewBandView</node>
+            <node x="" y="">groovyjarjarantlr</node>
+            <node x="" y="">Main</node>
+            <node x="" y="">BandDetailsPanel</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.7301173402868318" x="885.3339285714285" y="363.5" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram/C:/Users/aran0/IdeaProjects/GlobalMusic/src">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="240.0" y="240.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
         </state>
       </provider>
     </entry>
@@ -1371,414 +946,581 @@
           <ID>JAVA</ID>
           <OriginalElement />
           <nodes>
-            <node x="155.0" y="1607.0">com</node>
-            <node x="1258.0" y="1469.0">netscape</node>
-            <node x="1044.6942551541686" y="942.0">SearchEventsPanel</node>
-            <node x="340.0000000000001" y="1103.0">EventOrganizerView</node>
-            <node x="1385.627013774858" y="0.0">User</node>
-            <node x="1427.5208333333333" y="1114.0">HomePageView</node>
-            <node x="648.0625" y="920.0">EditEventView</node>
-            <node x="1562.110921820835" y="898.0">BookingsTableController</node>
-            <node x="67.67715745301894" y="66.0">Band</node>
-            <node x="2071.110921820835" y="767.0">RegisterView</node>
-            <node x="323.8750000000001" y="756.0">NewVenueView</node>
-            <node x="506.0" y="1469.0">toolbarButtonGraphics</node>
-            <node x="303.0" y="1607.0">sun</node>
-            <node x="1048.7291666666667" y="745.0">ResultPanel</node>
-            <node x="749.5275884875019" y="756.0">SendMail</node>
-            <node x="1026.0" y="1469.0">groovyjarjarasm</node>
-            <node x="0.0" y="1607.0">java</node>
-            <node x="1469.610921820835" y="361.0">ChangePasswordView</node>
-            <node x="1962.0" y="1469.0">javax</node>
-            <node x="1157.4791666666667" y="339.0">NewBookingView</node>
-            <node x="1225.6942551541686" y="942.0">BookingsHistoryView</node>
-            <node x="49.875" y="317.0">Agent</node>
-            <node x="1624.0" y="1469.0">images</node>
-            <node x="1833.110921820835" y="569.0">CreditCardIconsPanel</node>
-            <node x="287.8750000000001" y="492.0">Venue</node>
-            <node x="451.0" y="1607.0">org</node>
-            <node x="127.87500000000011" y="558.0">NewAgentView</node>
-            <node x="0.0" y="1469.0">Connect</node>
-            <node x="649.1942551541686" y="88.0">Booking</node>
-            <node x="1043.2291666666667" y="558.0">NewBookingController</node>
-            <node x="1789.360921820835" y="778.0">MyAccountView</node>
-            <node x="599.0" y="1607.0">jdk</node>
-            <node x="1441.0" y="1469.0">META-INF</node>
-            <node x="1793.0" y="1469.0">groovy</node>
-            <node x="1680.0208333333333" y="1103.0">AdminView</node>
-            <node x="1570.7083333333333" y="1254.0">LoginView</node>
-            <node x="1833.110921820835" y="942.0">PopUp</node>
-            <node x="922.1942551541686" y="33.0">Event</node>
-            <node x="225.0" y="1469.0">groovyjarjarcommonscli</node>
-            <node x="42.24782658273989" y="756.0">NewBandView</node>
-            <node x="780.0" y="1469.0">groovyjarjarantlr</node>
-            <node x="1570.7083333333333" y="1375.0">Main</node>
-            <node x="530.8750000000001" y="350.0">BandDetailsPanel</node>
+            <node x="1443.0" y="3267.0">com</node>
+            <node x="464.0" y="3267.0">netscape</node>
+            <node x="1154.5556330961508" y="2194.5">SearchEventsPanel</node>
+            <node x="371.3750000000001" y="2456.0">EventOrganizerView</node>
+            <node x="1503.1084108739283" y="0.0">User</node>
+            <node x="1530.4166666666667" y="2522.0">HomePageView</node>
+            <node x="698.5000000000001" y="2095.0">EditEventView</node>
+            <node x="1681.5972997628173" y="2161.0">BookingsTableController</node>
+            <node x="112.6441251596425" y="220.0">Band</node>
+            <node x="2184.597299762818" y="1544.0">RegisterView</node>
+            <node x="368.5000000000001" y="1698.0">NewVenueView</node>
+            <node x="2990.097299762818" y="0.0">toolbarButtonGraphics</node>
+            <node x="1584.0" y="3267.0">sun</node>
+            <node x="1151.625" y="1599.0">ResultPanel</node>
+            <node x="833.3056330961508" y="1698.0">SendMail</node>
+            <node x="239.0" y="3267.0">groovyjarjarasm</node>
+            <node x="1295.0" y="3267.0">java</node>
+            <node x="1576.0972997628173" y="925.5">ChangePasswordView</node>
+            <node x="1140.0" y="3267.0">javax</node>
+            <node x="1223.875" y="782.0">NewBookingView</node>
+            <node x="1339.5556330961508" y="2194.5">BookingsHistoryView</node>
+            <node x="110.0" y="913.5">Agent</node>
+            <node x="816.0" y="3267.0">images</node>
+            <node x="1949.5972997628178" y="1289.0">CreditCardIconsPanel</node>
+            <node x="352.0000000000001" y="1300.0">Venue</node>
+            <node x="1725.0" y="3267.0">org</node>
+            <node x="166.0" y="1289.0">NewAgentView</node>
+            <node x="2494.097299762818" y="0.0">Connect</node>
+            <node x="710.5000000000001" y="209.5">Booking</node>
+            <node x="1155.625" y="1332.5">NewBookingController</node>
+            <node x="1880.6179757343552" y="1577.5">MyAccountView</node>
+            <node x="1866.0" y="3267.0">jdk</node>
+            <node x="640.0" y="3267.0">META-INF</node>
+            <node x="978.0" y="3267.0">groovy</node>
+            <node x="1783.7916666666667" y="2555.0">AdminView</node>
+            <node x="1669.6666666666667" y="2873.0">LoginView</node>
+            <node x="1949.5972997628173" y="2206.0">PopUp</node>
+            <node x="1041.3056330961508" y="176.0">Event</node>
+            <node x="2716.097299762818" y="0.0">groovyjarjarcommonscli</node>
+            <node x="36.5" y="1665.0">NewBandView</node>
+            <node x="0.0" y="3267.0">groovyjarjarantlr</node>
+            <node x="1680.1666666666667" y="3084.0">Main</node>
+            <node x="592.0000000000001" y="958.0">BandDetailsPanel</node>
           </nodes>
           <notes />
           <edges>
             <edge source="MyAccountView" target="User">
-              <point x="-33.25" y="-13.5" />
-              <point x="1822.610921820835" y="297.0" />
-              <point x="1817.6825693304136" y="297.0" />
-              <point x="78.55555555555554" y="123.5" />
+              <point x="-56.99999999999977" y="-212.0" />
+              <point x="1937.6179757343557" y="1519.0" />
+              <point x="1939.0972997628178" y="1519.0" />
+              <point x="1939.0972997628178" y="762.0" />
+              <point x="1933.3306330961505" y="762.0" />
+              <point x="78.22222222222217" y="356.0" />
             </edge>
             <edge source="EditEventView" target="Booking">
-              <point x="0.0" y="-35.5" />
-              <point x="742.0625" y="878.0" />
-              <point x="739.0275884875019" y="878.0" />
-              <point x="739.0275884875019" y="297.0" />
-              <point x="775.6942551541686" y="297.0" />
-              <point x="0.0" y="35.5" />
+              <point x="0.0" y="-135.5" />
+              <point x="818.0000000000001" y="762.0" />
+              <point x="863.5000000000001" y="762.0" />
+              <point x="0.0" y="146.5" />
             </edge>
             <edge source="EventOrganizerView" target="User">
-              <point x="82.25" y="-35.5" />
-              <point x="516.2500000000001" y="1083.0" />
-              <point x="1459.110921820835" y="1083.0" />
-              <point x="1459.110921820835" y="287.0" />
-              <point x="1582.0159026637468" y="287.0" />
-              <point x="-157.11111111111114" y="123.5" />
+              <point x="105.0" y="-168.5" />
+              <point x="596.3750000000001" y="2436.0" />
+              <point x="1565.5972997628173" y="2436.0" />
+              <point x="1565.5972997628173" y="752.0" />
+              <point x="1698.663966429484" y="752.0" />
+              <point x="-156.44444444444434" y="356.0" />
             </edge>
             <edge source="RegisterView" target="User">
-              <point x="31.5" y="-24.5" />
-              <point x="2165.610921820835" y="287.0" />
-              <point x="1974.7936804415244" y="287.0" />
-              <point x="235.66666666666652" y="123.5" />
+              <point x="57.0" y="-245.5" />
+              <point x="2355.597299762818" y="752.0" />
+              <point x="2089.7750775405952" y="752.0" />
+              <point x="234.66666666666697" y="356.0" />
             </edge>
             <edge source="HomePageView" target="BookingsTableController">
-              <point x="25.19999999999999" y="-24.5" />
-              <point x="1515.7208333333333" y="1053.0" />
-              <point x="1624.610921820835" y="1053.0" />
-              <point x="-62.5" y="57.5" />
+              <point x="35.40000000000009" y="-102.5" />
+              <point x="1654.3166666666668" y="2406.0" />
+              <point x="1743.3472997628173" y="2406.0" />
+              <point x="-61.75" y="69.5" />
             </edge>
             <edge source="AdminView" target="User">
-              <point x="52.125" y="-35.5" />
-              <point x="1801.6458333333333" y="1083.0" />
-              <point x="2060.610921820835" y="1083.0" />
-              <point x="2060.610921820835" y="297.0" />
-              <point x="1896.2381248859688" y="297.0" />
-              <point x="157.11111111111097" y="123.5" />
+              <point x="69.75" y="-69.5" />
+              <point x="1946.5416666666667" y="2436.0" />
+              <point x="2174.097299762818" y="2436.0" />
+              <point x="2174.097299762818" y="762.0" />
+              <point x="2011.5528553183726" y="762.0" />
+              <point x="156.44444444444434" y="356.0" />
             </edge>
             <edge source="AdminView" target="ResultPanel">
-              <point x="-52.125" y="-35.5" />
-              <point x="1697.3958333333333" y="1033.0" />
-              <point x="1411.1942551541686" y="1033.0" />
-              <point x="1411.1942551541686" y="868.0" />
-              <point x="1224.2291666666667" y="868.0" />
-              <point x="58.5" y="46.5" />
+              <point x="-69.75" y="-69.5" />
+              <point x="1807.0416666666667" y="2386.0" />
+              <point x="1509.0556330961508" y="2386.0" />
+              <point x="1509.0556330961508" y="2065.0" />
+              <point x="1324.875" y="2065.0" />
+              <point x="57.75" y="190.5" />
             </edge>
             <edge source="NewVenueView" target="Venue">
-              <point x="0.0" y="-35.5" />
-              <point x="0.0" y="101.5" />
+              <point x="0.0" y="-91.5" />
+              <point x="0.0" y="91.5" />
             </edge>
             <edge source="NewBookingView" target="Event">
-              <point x="0.0" y="-35.5" />
-              <point x="1226.9791666666667" y="297.0" />
-              <point x="1229.6942551541686" y="297.0" />
-              <point x="123.0" y="90.5" />
+              <point x="0.0" y="-223.5" />
+              <point x="1322.875" y="762.0" />
+              <point x="1346.3056330961508" y="762.0" />
+              <point x="122.0" y="180.0" />
             </edge>
             <edge source="BookingsTableController" target="User">
-              <point x="0.0" y="-57.5" />
-              <point x="1687.110921820835" y="297.0" />
-              <point x="1739.127013774858" y="297.0" />
-              <point x="0.0" y="123.5" />
+              <point x="0.0" y="-69.5" />
+              <point x="1805.0972997628173" y="762.0" />
+              <point x="1855.1084108739283" y="762.0" />
+              <point x="0.0" y="356.0" />
             </edge>
             <edge source="NewAgentView" target="Agent">
-              <point x="0.0" y="-35.5" />
-              <point x="197.3750000000001" y="472.0" />
-              <point x="211.125" y="472.0" />
-              <point x="53.75" y="57.5" />
+              <point x="0.0" y="-102.5" />
+              <point x="46.0" y="92.0" />
             </edge>
             <edge source="LoginView" target="RegisterView">
-              <point x="34.74999999999994" y="-35.5" />
-              <point x="1674.9583333333333" y="1214.0" />
-              <point x="2102.610921820835" y="1214.0" />
-              <point x="-31.5" y="24.5" />
+              <point x="48.25" y="-80.5" />
+              <point x="1814.4166666666667" y="2833.0" />
+              <point x="2255.4071018062396" y="2833.0" />
+              <point x="2255.4071018062396" y="2075.0" />
+              <point x="2241.597299762818" y="2075.0" />
+              <point x="-57.0" y="245.5" />
             </edge>
             <edge source="EditEventView" target="User">
-              <point x="80.57142857142867" y="-35.5" />
-              <point x="822.6339285714287" y="878.0" />
-              <point x="1372.4855706075532" y="878.0" />
-              <point x="1372.4855706075532" y="277.0" />
-              <point x="1503.4603471081912" y="277.0" />
-              <point x="-235.66666666666669" y="123.5" />
+              <point x="102.42857142857144" y="-135.5" />
+              <point x="920.4285714285716" y="2075.0" />
+              <point x="1498.4071018062396" y="2075.0" />
+              <point x="1498.4071018062396" y="742.0" />
+              <point x="1620.4417442072613" y="742.0" />
+              <point x="-234.66666666666674" y="356.0" />
             </edge>
             <edge source="BandDetailsPanel" target="Band">
-              <point x="0.0" y="-24.5" />
-              <point x="605.8750000000001" y="287.0" />
-              <point x="273.30215745301894" y="287.0" />
-              <point x="88.125" y="57.5" />
+              <point x="0.0" y="-47.5" />
+              <point x="668.0000000000001" y="752.0" />
+              <point x="319.1441251596425" y="752.0" />
+              <point x="88.5" y="136.0" />
             </edge>
             <edge source="SearchEventsPanel" target="ResultPanel">
-              <point x="0.0" y="-13.5" />
-              <point x="1125.1942551541686" y="868.0" />
-              <point x="1107.2291666666667" y="868.0" />
-              <point x="-58.5" y="46.5" />
+              <point x="0.0" y="-36.0" />
+              <point x="1237.0556330961508" y="2065.0" />
+              <point x="1209.375" y="2065.0" />
+              <point x="-57.75" y="190.5" />
             </edge>
             <edge source="MyAccountView" target="CreditCardIconsPanel">
-              <point x="33.25" y="-13.5" />
-              <point x="1889.110921820835" y="720.0" />
-              <point x="1887.360921820835" y="720.0" />
-              <point x="-54.25" y="24.5" />
+              <point x="57.00000000000023" y="-212.0" />
+              <point x="2051.6179757343557" y="1519.0" />
+              <point x="2003.0972997628178" y="1519.0" />
+              <point x="-53.5" y="102.5" />
             </edge>
             <edge source="HomePageView" target="ChangePasswordView">
-              <point x="0.0" y="-24.5" />
-              <point x="1490.5208333333333" y="1043.0" />
-              <point x="1551.610921820835" y="1043.0" />
-              <point x="0.0" y="13.5" />
+              <point x="0.0" y="-102.5" />
+              <point x="1618.9166666666667" y="2396.0" />
+              <point x="1671.0972997628173" y="2396.0" />
+              <point x="0.0" y="80.0" />
             </edge>
             <edge source="HomePageView" target="LoginView">
-              <point x="31.5" y="24.5" />
-              <point x="1522.0208333333333" y="1194.0" />
-              <point x="1633.2583333333332" y="1194.0" />
-              <point x="-6.9500000000000455" y="-35.5" />
+              <point x="44.25" y="102.5" />
+              <point x="1663.1666666666667" y="2813.0" />
+              <point x="1756.5166666666667" y="2813.0" />
+              <point x="-9.650000000000091" y="-80.5" />
             </edge>
             <edge source="ResultPanel" target="NewBookingController">
-              <point x="0.0" y="-46.5" />
-              <point x="0.0" y="35.5" />
+              <point x="0.0" y="-190.5" />
+              <point x="0.0" y="59.0" />
             </edge>
             <edge source="EditEventView" target="Band">
-              <point x="-26.85714285714289" y="-35.5" />
-              <point x="715.2053571428571" y="858.0" />
-              <point x="520.3750000000001" y="858.0" />
-              <point x="520.3750000000001" y="297.0" />
-              <point x="214.55215745301894" y="297.0" />
-              <point x="29.375" y="57.5" />
+              <point x="-34.14285714285711" y="-135.5" />
+              <point x="783.857142857143" y="2055.0" />
+              <point x="581.5000000000001" y="2055.0" />
+              <point x="581.5000000000001" y="762.0" />
+              <point x="260.1441251596425" y="762.0" />
+              <point x="29.5" y="136.0" />
             </edge>
             <edge source="HomePageView" target="MyAccountView">
-              <point x="50.39999999999998" y="-24.5" />
-              <point x="1540.9208333333333" y="1063.0" />
-              <point x="1822.610921820835" y="1063.0" />
-              <point x="-33.25" y="13.5" />
+              <point x="70.79999999999995" y="-102.5" />
+              <point x="1689.7166666666667" y="2416.0" />
+              <point x="1939.0972997628173" y="2416.0" />
+              <point x="1939.0972997628173" y="2075.0" />
+              <point x="1937.6179757343552" y="2075.0" />
+              <point x="-57.0" y="212.0" />
             </edge>
             <edge source="NewBandView" target="Agent">
-              <point x="0.0" y="-35.5" />
-              <point x="111.74782658273989" y="720.0" />
-              <point x="117.375" y="720.0" />
-              <point x="117.375" y="472.0" />
-              <point x="103.625" y="472.0" />
-              <point x="-53.75" y="57.5" />
+              <point x="0.0" y="-124.5" />
+              <point x="-46.0" y="92.0" />
             </edge>
             <edge source="EditEventView" target="Event">
-              <point x="53.71428571428578" y="-35.5" />
-              <point x="795.7767857142858" y="868.0" />
-              <point x="1032.7291666666667" y="868.0" />
-              <point x="1032.7291666666667" y="297.0" />
-              <point x="1106.6942551541686" y="297.0" />
-              <point x="0.0" y="90.5" />
+              <point x="68.28571428571433" y="-135.5" />
+              <point x="886.2857142857144" y="2065.0" />
+              <point x="1141.125" y="2065.0" />
+              <point x="1141.125" y="762.0" />
+              <point x="1224.3056330961508" y="762.0" />
+              <point x="0.0" y="180.0" />
             </edge>
             <edge source="Main" target="LoginView">
-              <point x="0.0" y="-24.5" />
-              <point x="0.0" y="35.5" />
+              <point x="0.0" y="-69.0" />
+              <point x="0.0" y="80.5" />
             </edge>
             <edge source="EventOrganizerView" target="NewVenueView">
-              <point x="-11.75" y="-35.5" />
-              <point x="422.2500000000001" y="1053.0" />
-              <point x="358.6250000000001" y="1053.0" />
-              <point x="-34.75" y="35.5" />
+              <point x="-15.0" y="-168.5" />
+              <point x="476.3750000000001" y="2406.0" />
+              <point x="412.2500000000001" y="2406.0" />
+              <point x="-43.75" y="91.5" />
             </edge>
             <edge source="RegisterView" target="CreditCardIconsPanel">
-              <point x="-31.5" y="-24.5" />
-              <point x="2102.610921820835" y="720.0" />
-              <point x="1995.860921820835" y="720.0" />
-              <point x="54.25" y="24.5" />
+              <point x="-57.0" y="-245.5" />
+              <point x="2241.597299762818" y="1519.0" />
+              <point x="2110.097299762818" y="1519.0" />
+              <point x="53.5" y="102.5" />
             </edge>
             <edge source="LoginView" target="HomePageView">
-              <point x="-20.850000000000023" y="-35.5" />
-              <point x="1619.3583333333333" y="1204.0" />
-              <point x="1459.0208333333333" y="1204.0" />
-              <point x="-31.5" y="24.5" />
+              <point x="-28.950000000000045" y="-80.5" />
+              <point x="1737.2166666666667" y="2823.0" />
+              <point x="1574.6666666666667" y="2823.0" />
+              <point x="-44.25" y="102.5" />
             </edge>
             <edge source="RegisterView" target="LoginView">
-              <point x="31.5" y="24.5" />
-              <point x="2165.610921820835" y="878.0" />
-              <point x="2113.610921820835" y="878.0" />
-              <point x="2113.610921820835" y="1224.0" />
-              <point x="1688.8583333333333" y="1224.0" />
-              <point x="48.650000000000034" y="-35.5" />
+              <point x="57.0" y="245.5" />
+              <point x="2355.597299762818" y="2075.0" />
+              <point x="2266.4071018062396" y="2075.0" />
+              <point x="2266.4071018062396" y="2843.0" />
+              <point x="1833.7166666666667" y="2843.0" />
+              <point x="67.54999999999995" y="-80.5" />
             </edge>
             <edge source="NewBookingController" target="BandDetailsPanel">
-              <point x="-61.25" y="-35.5" />
-              <point x="1104.4791666666667" y="452.0" />
-              <point x="605.8750000000001" y="452.0" />
-              <point x="0.0" y="24.5" />
+              <point x="-55.75" y="-59.0" />
+              <point x="1211.375" y="1249.0" />
+              <point x="668.0000000000001" y="1249.0" />
+              <point x="0.0" y="47.5" />
             </edge>
             <edge source="EditEventView" target="LoginView">
-              <point x="62.66666666666674" y="35.5" />
-              <point x="804.7291666666667" y="1214.0" />
-              <point x="1605.4583333333333" y="1214.0" />
-              <point x="-34.75" y="-35.5" />
+              <point x="79.66666666666663" y="135.5" />
+              <point x="897.6666666666667" y="2833.0" />
+              <point x="1717.9166666666667" y="2833.0" />
+              <point x="-48.25" y="-80.5" />
             </edge>
             <edge source="NewBookingView" target="Booking">
-              <point x="-46.33333333333337" y="-35.5" />
-              <point x="1180.6458333333333" y="287.0" />
-              <point x="860.0275884875018" y="287.0" />
-              <point x="84.33333333333326" y="35.5" />
+              <point x="-66.0" y="-223.5" />
+              <point x="1256.875" y="752.0" />
+              <point x="965.5000000000001" y="752.0" />
+              <point x="102.0" y="146.5" />
             </edge>
             <edge source="LoginView" target="AdminView">
-              <point x="6.9500000000000455" y="-35.5" />
-              <point x="1647.1583333333333" y="1194.0" />
-              <point x="1714.7708333333333" y="1194.0" />
-              <point x="-34.75" y="35.5" />
+              <point x="9.650000000000091" y="-80.5" />
+              <point x="1775.8166666666668" y="2813.0" />
+              <point x="1830.2916666666667" y="2813.0" />
+              <point x="-46.5" y="69.5" />
             </edge>
             <edge source="ChangePasswordView" target="User">
-              <point x="0.0" y="-13.5" />
-              <point x="1551.610921820835" y="297.0" />
-              <point x="1660.5714582193023" y="297.0" />
-              <point x="-78.5555555555556" y="123.5" />
+              <point x="0.0" y="-80.0" />
+              <point x="1671.0972997628173" y="762.0" />
+              <point x="1776.886188651706" y="762.0" />
+              <point x="-78.22222222222217" y="356.0" />
             </edge>
             <edge source="EventOrganizerView" target="NewBandView">
-              <point x="-58.75" y="-35.5" />
-              <point x="375.2500000000001" y="1073.0" />
-              <point x="76.99782658273989" y="1073.0" />
-              <point x="-34.75" y="35.5" />
+              <point x="-75.0" y="-168.5" />
+              <point x="416.3750000000001" y="2426.0" />
+              <point x="96.0" y="2426.0" />
+              <point x="-59.5" y="124.5" />
             </edge>
             <edge source="AdminView" target="LoginView">
-              <point x="34.75" y="35.5" />
-              <point x="1784.2708333333333" y="1204.0" />
-              <point x="1661.0583333333334" y="1204.0" />
-              <point x="20.850000000000023" y="-35.5" />
+              <point x="46.5" y="69.5" />
+              <point x="1923.2916666666667" y="2823.0" />
+              <point x="1795.1166666666668" y="2823.0" />
+              <point x="28.950000000000045" y="-80.5" />
             </edge>
             <edge source="NewBandView" target="NewAgentView">
-              <point x="46.33333333333326" y="-35.5" />
-              <point x="158.08115991607315" y="720.0" />
-              <point x="197.3750000000001" y="720.0" />
-              <point x="0.0" y="35.5" />
+              <point x="79.33333333333331" y="-124.5" />
+              <point x="234.83333333333326" y="1519.0" />
+              <point x="248.5" y="1519.0" />
+              <point x="0.0" y="102.5" />
             </edge>
             <edge source="EventOrganizerView" target="Event">
-              <point x="11.75" y="-35.5" />
-              <point x="445.7500000000001" y="1053.0" />
-              <point x="509.3750000000001" y="1053.0" />
-              <point x="509.3750000000001" y="472.0" />
-              <point x="906.2813241196857" y="472.0" />
-              <point x="906.2813241196857" y="297.0" />
-              <point x="983.6942551541686" y="297.0" />
-              <point x="-123.0" y="90.5" />
+              <point x="15.0" y="-168.5" />
+              <point x="506.3750000000001" y="2406.0" />
+              <point x="570.5000000000001" y="2406.0" />
+              <point x="570.5000000000001" y="1269.0" />
+              <point x="1016.0405947819746" y="1269.0" />
+              <point x="1016.0405947819746" y="762.0" />
+              <point x="1102.3056330961508" y="762.0" />
+              <point x="-122.0" y="180.0" />
             </edge>
             <edge source="EditEventView" target="NewVenueView">
-              <point x="-53.71428571428555" y="-35.5" />
-              <point x="688.3482142857144" y="868.0" />
-              <point x="428.1250000000001" y="868.0" />
-              <point x="34.75" y="35.5" />
+              <point x="-68.28571428571433" y="-135.5" />
+              <point x="749.7142857142858" y="2065.0" />
+              <point x="499.7500000000001" y="2065.0" />
+              <point x="43.75" y="91.5" />
             </edge>
             <edge source="EventOrganizerView" target="LoginView">
-              <point x="47.0" y="35.5" />
-              <point x="481.0000000000001" y="1224.0" />
-              <point x="1591.5583333333332" y="1224.0" />
-              <point x="-48.65000000000009" y="-35.5" />
+              <point x="60.0" y="168.5" />
+              <point x="551.3750000000001" y="2843.0" />
+              <point x="1698.6166666666666" y="2843.0" />
+              <point x="-67.55000000000018" y="-80.5" />
             </edge>
             <edge source="EditEventView" target="SendMail">
-              <point x="26.85714285714289" y="-35.5" />
-              <point x="768.9196428571429" y="858.0" />
-              <point x="858.5275884875019" y="858.0" />
-              <point x="0.0" y="35.5" />
+              <point x="34.14285714285711" y="-135.5" />
+              <point x="852.1428571428572" y="2055.0" />
+              <point x="940.8056330961508" y="2055.0" />
+              <point x="0.0" y="91.5" />
             </edge>
             <edge source="AdminView" target="PopUp">
-              <point x="17.375" y="-35.5" />
-              <point x="1766.8958333333333" y="1073.0" />
-              <point x="1871.610921820835" y="1073.0" />
-              <point x="0.0" y="13.5" />
+              <point x="23.25" y="-69.5" />
+              <point x="1900.0416666666667" y="2426.0" />
+              <point x="1991.0972997628173" y="2426.0" />
+              <point x="0.0" y="24.5" />
             </edge>
             <edge source="HomePageView" target="BookingsHistoryView">
-              <point x="-25.200000000000045" y="-24.5" />
-              <point x="1465.3208333333332" y="1063.0" />
-              <point x="1313.1942551541686" y="1063.0" />
-              <point x="0.0" y="13.5" />
+              <point x="-35.40000000000009" y="-102.5" />
+              <point x="1583.5166666666667" y="2416.0" />
+              <point x="1419.0556330961508" y="2416.0" />
+              <point x="0.0" y="36.0" />
             </edge>
             <edge source="LoginView" target="User">
-              <point x="62.5499999999999" y="-35.5" />
-              <point x="1702.7583333333332" y="1234.0" />
-              <point x="2207.610921820835" y="1234.0" />
-              <point x="2207.610921820835" y="277.0" />
-              <point x="2053.34923599708" y="277.0" />
-              <point x="314.22222222222206" y="123.5" />
+              <point x="86.84999999999991" y="-80.5" />
+              <point x="1853.0166666666667" y="2853.0" />
+              <point x="2423.097299762818" y="2853.0" />
+              <point x="2423.097299762818" y="742.0" />
+              <point x="2167.997299762817" y="742.0" />
+              <point x="312.8888888888887" y="356.0" />
             </edge>
             <edge source="NewBookingController" target="NewBookingView">
-              <point x="61.25" y="-35.5" />
-              <point x="0.0" y="35.5" />
+              <point x="55.75" y="-59.0" />
+              <point x="0.0" y="223.5" />
             </edge>
             <edge source="EventOrganizerView" target="Booking">
-              <point x="-35.25" y="-35.5" />
-              <point x="398.7500000000001" y="1063.0" />
-              <point x="277.3750000000001" y="1063.0" />
-              <point x="277.3750000000001" y="462.0" />
-              <point x="728.0275884875019" y="462.0" />
-              <point x="728.0275884875019" y="297.0" />
-              <point x="691.3609218208353" y="297.0" />
-              <point x="-84.33333333333326" y="35.5" />
+              <point x="-45.0" y="-168.5" />
+              <point x="446.3750000000001" y="2416.0" />
+              <point x="341.5000000000001" y="2416.0" />
+              <point x="341.5000000000001" y="1259.0" />
+              <point x="807.0000000000001" y="1259.0" />
+              <point x="807.0000000000001" y="762.0" />
+              <point x="761.5000000000001" y="762.0" />
+              <point x="-102.0" y="146.5" />
             </edge>
             <edge source="NewBookingView" target="User">
-              <point x="46.33333333333337" y="-35.5" />
-              <point x="1273.3125" y="267.0" />
-              <point x="1424.9047915526357" y="267.0" />
-              <point x="-314.22222222222223" y="123.5" />
+              <point x="66.0" y="-223.5" />
+              <point x="1388.875" y="732.0" />
+              <point x="1542.2195219850391" y="732.0" />
+              <point x="-312.8888888888889" y="356.0" />
             </edge>
             <edge source="EditEventView" target="EventOrganizerView">
-              <point x="0.0" y="35.5" />
-              <point x="742.0625" y="1073.0" />
-              <point x="492.7500000000001" y="1073.0" />
-              <point x="58.75" y="-35.5" />
+              <point x="0.0" y="135.5" />
+              <point x="818.0000000000001" y="2426.0" />
+              <point x="566.3750000000001" y="2426.0" />
+              <point x="75.0" y="-168.5" />
             </edge>
             <edge source="PopUp" target="MyAccountView">
-              <point x="0.0" y="-13.5" />
-              <point x="1871.610921820835" y="878.0" />
-              <point x="1889.110921820835" y="878.0" />
-              <point x="33.25" y="13.5" />
+              <point x="0.0" y="-24.5" />
+              <point x="1991.0972997628173" y="2075.0" />
+              <point x="2051.6179757343557" y="2075.0" />
+              <point x="57.00000000000023" y="212.0" />
             </edge>
             <edge source="NewBandView" target="Band">
-              <point x="-46.33333333333326" y="-35.5" />
-              <point x="65.41449324940663" y="720.0" />
-              <point x="37.0" y="720.0" />
-              <point x="37.0" y="297.0" />
-              <point x="155.80215745301894" y="297.0" />
-              <point x="-29.375" y="57.5" />
+              <point x="-79.33333333333326" y="-124.5" />
+              <point x="76.16666666666674" y="1519.0" />
+              <point x="68.5" y="1519.0" />
+              <point x="68.5" y="762.0" />
+              <point x="201.1441251596425" y="762.0" />
+              <point x="-29.5" y="136.0" />
             </edge>
             <edge source="HomePageView" target="SearchEventsPanel">
-              <point x="-50.400000000000034" y="-24.5" />
-              <point x="1440.1208333333334" y="1073.0" />
-              <point x="1125.1942551541686" y="1073.0" />
-              <point x="0.0" y="13.5" />
+              <point x="-70.79999999999995" y="-102.5" />
+              <point x="1548.1166666666668" y="2426.0" />
+              <point x="1237.0556330961508" y="2426.0" />
+              <point x="0.0" y="36.0" />
             </edge>
             <edge source="EditEventView" target="NewBandView">
-              <point x="-80.57142857142844" y="-35.5" />
-              <point x="661.4910714285716" y="878.0" />
-              <point x="146.4978265827399" y="878.0" />
-              <point x="34.75" y="35.5" />
+              <point x="-102.42857142857144" y="-135.5" />
+              <point x="715.5714285714287" y="2075.0" />
+              <point x="215.0" y="2075.0" />
+              <point x="59.5" y="124.5" />
             </edge>
             <edge source="EventOrganizerView" target="EditEventView">
-              <point x="35.25" y="-35.5" />
-              <point x="469.2500000000001" y="1063.0" />
-              <point x="679.3958333333333" y="1063.0" />
-              <point x="-62.66666666666674" y="35.5" />
+              <point x="45.0" y="-168.5" />
+              <point x="536.3750000000001" y="2416.0" />
+              <point x="738.3333333333335" y="2416.0" />
+              <point x="-79.66666666666663" y="135.5" />
             </edge>
             <edge source="EventOrganizerView" target="Band">
-              <point x="-82.25" y="-35.5" />
-              <point x="351.7500000000001" y="1083.0" />
-              <point x="26.0" y="1083.0" />
-              <point x="26.0" y="287.0" />
-              <point x="97.05215745301894" y="287.0" />
-              <point x="-88.125" y="57.5" />
+              <point x="-105.0" y="-168.5" />
+              <point x="386.3750000000001" y="2436.0" />
+              <point x="26.0" y="2436.0" />
+              <point x="26.0" y="752.0" />
+              <point x="142.1441251596425" y="752.0" />
+              <point x="-88.5" y="136.0" />
             </edge>
             <edge source="LoginView" target="EventOrganizerView">
-              <point x="-62.55000000000007" y="-35.5" />
-              <point x="1577.6583333333333" y="1234.0" />
-              <point x="387.0000000000001" y="1234.0" />
-              <point x="-47.0" y="35.5" />
+              <point x="-86.85000000000014" y="-80.5" />
+              <point x="1679.3166666666666" y="2853.0" />
+              <point x="431.3750000000001" y="2853.0" />
+              <point x="-60.0" y="168.5" />
             </edge>
             <edge source="AdminView" target="BookingsTableController">
-              <point x="-17.375" y="-35.5" />
-              <point x="1732.1458333333333" y="1053.0" />
-              <point x="1749.610921820835" y="1053.0" />
-              <point x="62.5" y="57.5" />
+              <point x="-23.25" y="-69.5" />
+              <point x="1853.5416666666667" y="2406.0" />
+              <point x="1866.8472997628173" y="2406.0" />
+              <point x="61.75" y="69.5" />
             </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="0.7740211311373523" x="1355.9818532198492" y="341.747229805685" />
-          <SelectedNodes />
+          <settings layout="Hierarchic Group" zoom="0.31443009545199324" x="640.2857142857143" y="1396.2857142857142" />
+          <SelectedNodes>
+            <node>com</node>
+            <node>netscape</node>
+            <node>SearchEventsPanel</node>
+            <node>EventOrganizerView</node>
+            <node>User</node>
+            <node>HomePageView</node>
+            <node>EditEventView</node>
+            <node>BookingsTableController</node>
+            <node>Band</node>
+            <node>RegisterView</node>
+            <node>NewVenueView</node>
+            <node>toolbarButtonGraphics</node>
+            <node>sun</node>
+            <node>ResultPanel</node>
+            <node>SendMail</node>
+            <node>groovyjarjarasm</node>
+            <node>java</node>
+            <node>ChangePasswordView</node>
+            <node>javax</node>
+            <node>NewBookingView</node>
+            <node>BookingsHistoryView</node>
+            <node>Agent</node>
+            <node>images</node>
+            <node>CreditCardIconsPanel</node>
+            <node>Venue</node>
+            <node>org</node>
+            <node>NewAgentView</node>
+            <node>Connect</node>
+            <node>Booking</node>
+            <node>NewBookingController</node>
+            <node>MyAccountView</node>
+            <node>jdk</node>
+            <node>META-INF</node>
+            <node>groovy</node>
+            <node>AdminView</node>
+            <node>LoginView</node>
+            <node>PopUp</node>
+            <node>Event</node>
+            <node>groovyjarjarcommonscli</node>
+            <node>NewBandView</node>
+            <node>groovyjarjarantlr</node>
+            <node>Main</node>
+            <node>BandDetailsPanel</node>
+          </SelectedNodes>
           <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
             <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ResultPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="138" column="55" selection-start-line="138" selection-start-column="55" selection-end-line="138" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Agent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="65" column="4" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BookingsTableController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="98" column="4" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HomePageView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ChangePasswordView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2150">
+          <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Booking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-806">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CreditCardIconsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="24" column="97" selection-start-line="24" selection-start-column="97" selection-end-line="24" selection-end-column="97" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EditEventView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="464" column="23" selection-start-line="464" selection-start-column="23" selection-end-line="464" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EventOrganizerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="482" column="47" selection-start-line="482" selection-start-column="47" selection-end-line="482" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LoginView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="231" column="69" selection-start-line="231" selection-start-column="69" selection-end-line="231" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyAccountView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="385" column="50" selection-start-line="385" selection-start-column="50" selection-end-line="385" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NewBandView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="114" column="76" selection-start-line="114" selection-start-column="76" selection-end-line="114" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NewBookingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NewVenueView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="63" column="52" selection-start-line="63" selection-start-column="52" selection-end-line="63" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RegisterView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="89" column="65" selection-start-line="89" selection-start-column="65" selection-end-line="89" selection-end-column="65" />
         </state>
       </provider>
     </entry>

@@ -9,12 +9,6 @@ import java.util.List;
  *
  */
 public class Band {
-	
-	private String name = "";
-	private String genre = "";
-	private String link = "";
-	private String image = "";
-	private int agent;
 
 
 	public Band(){}
@@ -27,14 +21,9 @@ public class Band {
 	 * @param ID
 	 */
 	public Band(String name, String genre, String link,String image, int ID) {
-		if (this.link == null)
-				this.link = "";
-		this.name = name;
-		this.genre = genre;
-		this.image = image;
-		this.agent = ID;
-		
-		String query = "INSERT INTO tbl_band VALUES(DEFAULT,'"+ this.name + "','" + this.genre + "','" + this.image + "', '" + this.link +"', '" + this.agent + "');";
+		String link1 = "";
+
+		String query = "INSERT INTO tbl_band VALUES(DEFAULT,'"+ name + "','" + genre + "','" + image + "', '" + link1 +"', '" + ID + "');";
 		try {
             Connect.updateData(query);
         } catch (SQLException e) {
@@ -50,7 +39,7 @@ public class Band {
 	 */
 	public ArrayList<String> getAllBands(){
 		String query = "SELECT Name FROM tbl_band;";
-		ArrayList<String> bandsList = new ArrayList<String>();
+		ArrayList<String> bandsList = new ArrayList<>();
 		try {
             ResultSet results = Connect.selectStm(query);
             while (results.next()) {
@@ -73,7 +62,7 @@ public class Band {
 	public ArrayList<String> getEventBands(int eventID) {
 		String query = "SELECT B.Name FROM tbl_band B, tbl_event_band EB WHERE EB.EventID = " +eventID +
 		" AND B.BandID = EB.BandID;";
-		ArrayList<String> bandsList = new ArrayList<String>();
+		ArrayList<String> bandsList = new ArrayList<>();
 		try {
 			ResultSet results = Connect.selectStm(query);
 			while (results.next()) {

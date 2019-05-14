@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,11 +14,15 @@ import java.util.regex.*;
 
 public class CreditCardIconsPanel extends JPanel{
 
-    private JLabel visaIcon, masterIcon, amexIcon, dinersIcon, discoverIcon, jcbIcon;
+    private JLabel visaIcon;
+    private JLabel masterIcon;
+    private JLabel amexIcon;
+    private JLabel dinersIcon;
+    private JLabel discoverIcon;
 
     /**
      * Class' constructor for creating the toolbar with all icons
-     * Creates and positions the panel on its parent container (container Layout must be Absolut)
+     * Creates and positions the panel on its parent container (container Layout must be Absolute)
      * @param posX the horizontal position on the parent container
      * @param posY the vertical position on the parent container
      */
@@ -45,11 +48,11 @@ public class CreditCardIconsPanel extends JPanel{
         masterIcon.setIcon(new ImageIcon(image));
         this.add(masterIcon);
 
-        jcbIcon = new JLabel();
+        JLabel jcbIcon = new JLabel();
         jcbIcon.setBounds(60,0,28, 20);
         jcbIcon.setSize(new Dimension(28, 20));
         img = new ImageIcon(Main.CARD_ICON_DIR+"JCBIcon.jpg");
-        image = img.getImage().getScaledInstance(jcbIcon.getWidth(),jcbIcon.getHeight(),Image.SCALE_SMOOTH);
+        image = img.getImage().getScaledInstance(jcbIcon.getWidth(), jcbIcon.getHeight(),Image.SCALE_SMOOTH);
         jcbIcon.setIcon(new ImageIcon(image));
         this.add(jcbIcon);
 
@@ -93,7 +96,7 @@ public class CreditCardIconsPanel extends JPanel{
         Pattern regJCB= Pattern.compile("^(?:2131|1800|35\\d{3})\\d{11}$");
 
         //Create dictionary with regex as key and respective Icon as value
-        Map<Pattern, JLabel> typeOfCard = new HashMap<Pattern, JLabel>();
+        Map<Pattern, JLabel> typeOfCard = new HashMap<>();
         typeOfCard.put(regVisa, visaIcon);
         typeOfCard.put(regMaster,masterIcon);
         typeOfCard.put(regExpress,amexIcon);

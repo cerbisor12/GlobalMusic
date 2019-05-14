@@ -80,7 +80,7 @@ public class BookingsTableController {
                 String event = rs.getString("Event");
                 int tickets = rs.getInt("Tickets");
 
-                String paid = "";
+                String paid;
                 if(rs.getInt("Paid")==1){ paid = "\u2611"; }
                 else{ paid = "\u2612"; }
 
@@ -98,33 +98,28 @@ public class BookingsTableController {
     }
 
 
-    public String getUsername() {
-        return username;
-    }
-
     private TableCellRenderer createRenderer(){
 
 
-           TableCellRenderer renderer = new DefaultTableCellRenderer(){
-            @Override
-            public Component getTableCellRendererComponent(JTable table,
-                                                           Object value, boolean isSelected, boolean hasFocus, int row, int col) {
-                DefaultTableCellRenderer renderer = (DefaultTableCellRenderer) super.getTableCellRendererComponent(table,value,isSelected,hasFocus,row,col);
-                String status = (String)table.getModel().getValueAt(row, 6);
-                //System.out.println("Status: "+status);
+        return new DefaultTableCellRenderer(){
+         @Override
+         public Component getTableCellRendererComponent(JTable table,
+                                                        Object value, boolean isSelected, boolean hasFocus, int row, int col) {
+             DefaultTableCellRenderer renderer1 = (DefaultTableCellRenderer) super.getTableCellRendererComponent(table,value,isSelected,hasFocus,row,col);
+             String status = (String)table.getModel().getValueAt(row, 6);
+             //System.out.println("Status: "+status);
 
-                renderer.setHorizontalAlignment(SwingConstants.CENTER);
+             renderer1.setHorizontalAlignment(SwingConstants.CENTER);
 
-                renderer.setText(value.toString());
-                if ("cancelled".equalsIgnoreCase(status)) {
-                    setBackground(Color.PINK);
-                } else if("confirmed".equalsIgnoreCase(status)) {
-                    setBackground(new Color(164, 247, 37));
-                } else {setBackground(table.getBackground());}
-                return this;
-            }
-        };
-        return renderer;
+             renderer1.setText(value.toString());
+             if ("cancelled".equalsIgnoreCase(status)) {
+                 setBackground(Color.PINK);
+             } else if("confirmed".equalsIgnoreCase(status)) {
+                 setBackground(new Color(164, 247, 37));
+             } else {setBackground(table.getBackground());}
+             return this;
+         }
+     };
     }
 
     public static void updateStatus(JTable table){

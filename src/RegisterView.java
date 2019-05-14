@@ -59,7 +59,7 @@ public class RegisterView {
     /**
      * Initialize the contents of the frame.
      */
-    public void initialize() {
+    private void initialize() {
         frame = new JFrame();
         frame.getContentPane().setFont(new Font("Open Sans", Font.BOLD, 11));
         frame.getContentPane().setForeground(new Color(128, 128, 128));
@@ -73,7 +73,7 @@ public class RegisterView {
 
 
 
-        JLabel lblEmailInvalid = new JLabel("Email Allready Exists");
+        JLabel lblEmailInvalid = new JLabel("Email Already Exists");
         lblEmailInvalid.setForeground(Color.RED);
         lblEmailInvalid.setBounds(119, 361, 124, 14);
         frame.getContentPane().add(lblEmailInvalid);
@@ -87,7 +87,7 @@ public class RegisterView {
         lblBetweenAnd.setVisible(true);
 
 
-        JLabel lblUsernameAlreadyExists = new JLabel("Username Allready Exists");
+        JLabel lblUsernameAlreadyExists = new JLabel("Username Already Exists");
         lblUsernameAlreadyExists.setForeground(Color.RED);
         lblUsernameAlreadyExists.setBounds(119, 437, 150, 14);
         frame.getContentPane().add(lblUsernameAlreadyExists);
@@ -137,14 +137,12 @@ public class RegisterView {
         lblAllFields.setVisible(false);
 
         JButton btnExitButton = new JButton("X");
-        btnExitButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-            	int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
-                if (reply == JOptionPane.YES_OPTION) {
-                  System.exit(0);
-                }
-            }
-        });
+        btnExitButton.addActionListener(e -> {
+            int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
+if (reply == JOptionPane.YES_OPTION) {
+System.exit(0);
+}
+});
         btnExitButton.setFont(new Font("Open Sans", Font.PLAIN, 25));
         btnExitButton.setForeground(SystemColor.inactiveCaption);
         btnExitButton.setBounds(1205, 13, 63, 53);
@@ -156,9 +154,7 @@ public class RegisterView {
         
         
         JButton minimizeButton = new JButton("___");
-        minimizeButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-        	}
+        minimizeButton.addActionListener(arg0 -> {
         });
         minimizeButton.setForeground(SystemColor.inactiveCaption);
         minimizeButton.addMouseListener(new MouseAdapter() {
@@ -184,7 +180,7 @@ public class RegisterView {
         lblTitle.setVisible(true);
 
 
-        JComboBox<String> titleComboBox = new JComboBox<String>();
+        JComboBox<String> titleComboBox = new JComboBox<>();
         titleComboBox.setBackground(SystemColor.activeCaption);
         titleComboBox.setToolTipText("");
         titleComboBox.setMaximumRowCount(2);
@@ -206,7 +202,7 @@ public class RegisterView {
 
         firstNameField = new JTextField();
         firstNameField.setBackground(SystemColor.activeCaption);
-        firstNameField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        firstNameField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         firstNameField.setBounds(119, 129, 150, 20);
         frame.getContentPane().add(firstNameField);
         firstNameField.setColumns(10);
@@ -223,7 +219,7 @@ public class RegisterView {
 
         lastNameField = new JTextField();
         lastNameField.setBackground(SystemColor.activeCaption);
-        lastNameField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        lastNameField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         lastNameField.setBounds(393, 129, 150, 20);
         frame.getContentPane().add(lastNameField);
         lastNameField.setColumns(10);
@@ -240,7 +236,7 @@ public class RegisterView {
 
         addressOneField = new JTextField();
         addressOneField.setBackground(SystemColor.activeCaption);
-        addressOneField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        addressOneField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         addressOneField.setBounds(119, 199, 150, 20);
         frame.getContentPane().add(addressOneField);
         addressOneField.setColumns(10);
@@ -258,7 +254,7 @@ public class RegisterView {
         addressTwoField = new JTextField();
         addressTwoField.setText("");
         addressTwoField.setBackground(SystemColor.activeCaption);
-        addressTwoField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        addressTwoField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         addressTwoField.setBounds(393, 199, 150, 20);
         frame.getContentPane().add(addressTwoField);
         addressTwoField.setColumns(10);
@@ -275,7 +271,7 @@ public class RegisterView {
 
         townField = new JTextField();
         townField.setBackground(SystemColor.activeCaption);
-        townField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        townField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         townField.setBounds(119, 268, 150, 20);
         frame.getContentPane().add(townField);
         townField.setColumns(10);
@@ -355,7 +351,7 @@ public class RegisterView {
         phoneNoField = new JTextField();
         phoneNoField.setText("");
         phoneNoField.setBackground(SystemColor.activeCaption);
-        phoneNoField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        phoneNoField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         phoneNoField.setBounds(393, 342, 150, 20);
         frame.getContentPane().add(phoneNoField);
         phoneNoField.setColumns(10);
@@ -374,16 +370,16 @@ public class RegisterView {
          */
         usernameField = new JTextField();
         usernameField.setBackground(SystemColor.activeCaption);
-        usernameField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        usernameField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         usernameField.setBounds(119, 416, 150, 20);
         frame.getContentPane().add(usernameField);
         usernameField.setColumns(10);
         usernameField.setVisible(true);
         usernameField.addFocusListener(new FocusListener() {
-            public void focusGained(FocusEvent e) {};
+            public void focusGained(FocusEvent e) {}
             public void focusLost(FocusEvent e) {
                 User user = new User();
-                user.setUsername(usernameField.getText());
+                User.username = usernameField.getText();
                 if (user.checkFieldInDB("Username",User.username)) {
                     lblUsernameAlreadyExists.setVisible(true);
                     usernameField.setText("");
@@ -407,7 +403,7 @@ public class RegisterView {
          */
         passwordField = new JTextField();
         passwordField.setBackground(SystemColor.activeCaption);
-        passwordField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        passwordField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         passwordField.setBounds(119, 494, 150, 20);
         frame.getContentPane().add(passwordField);
         passwordField.setColumns(10);
@@ -438,7 +434,7 @@ public class RegisterView {
          */
         confirmPasswordField = new JTextField();
         confirmPasswordField.setBackground(SystemColor.activeCaption);
-        confirmPasswordField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        confirmPasswordField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         confirmPasswordField.setBounds(393, 494, 150, 20);
         frame.getContentPane().add(confirmPasswordField);
         confirmPasswordField.setColumns(10);
@@ -510,7 +506,7 @@ public class RegisterView {
 
         orgNameField = new JTextField();
         orgNameField.setBackground(SystemColor.activeCaption);
-        orgNameField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        orgNameField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         orgNameField.setBounds(771, 195, 150, 20);
         frame.getContentPane().add(orgNameField);
         orgNameField.setColumns(10);
@@ -520,14 +516,14 @@ public class RegisterView {
         orgEmailField = new JTextField();
         orgEmailField.setText("");
         orgEmailField.setBackground(SystemColor.activeCaption);
-        orgEmailField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        orgEmailField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         orgEmailField.setBounds(1097, 195, 150, 20);
         frame.getContentPane().add(orgEmailField);
         orgEmailField.setColumns(10);
         orgEmailField.setVisible(false);
 
 
-        JComboBox<String> paymentComboBox = new JComboBox<String>();
+        JComboBox<String> paymentComboBox = new JComboBox<>();
         paymentComboBox.setBackground(SystemColor.activeCaption);
         paymentComboBox.setBounds(1096, 265, 151, 20);
         paymentComboBox.setMaximumRowCount(2);
@@ -545,7 +541,7 @@ public class RegisterView {
 
         cardNoField = new JTextField();
         cardNoField.setBackground(SystemColor.activeCaption);
-        cardNoField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        cardNoField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         cardNoField.setBounds(119, 563, 180, 20);
         frame.getContentPane().add(cardNoField);
         cardNoField.setColumns(10);
@@ -571,7 +567,7 @@ public class RegisterView {
          */
         CVVField = new JTextField();
         CVVField.setBackground(SystemColor.activeCaption);
-        CVVField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        CVVField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         CVVField.setBounds(393, 563, 150, 20);
         frame.getContentPane().add(CVVField);
         CVVField.setColumns(10);
@@ -599,7 +595,7 @@ public class RegisterView {
 
         webAddressField = new JTextField();
         webAddressField.setBackground(SystemColor.activeCaption);
-        webAddressField.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        webAddressField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         webAddressField.setBounds(771, 265, 150, 20);
         frame.getContentPane().add(webAddressField);
         webAddressField.setColumns(10);
@@ -607,32 +603,30 @@ public class RegisterView {
 
 
         JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Corporate Organization");
-        chckbxNewCheckBox_1.setBorder(new MatteBorder(3, 3, 3, 3, (Color) SystemColor.activeCaption));
+        chckbxNewCheckBox_1.setBorder(new MatteBorder(3, 3, 3, 3, SystemColor.activeCaption));
         chckbxNewCheckBox_1.setBackground(SystemColor.activeCaption);
         chckbxNewCheckBox_1.setForeground(SystemColor.inactiveCaptionBorder);
         chckbxNewCheckBox_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        chckbxNewCheckBox_1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                if(chckbxNewCheckBox_1.isSelected()) {
-                    lblOrganizationName.setVisible(true);
-                    orgNameField.setVisible(true);
-                    lblOrganizationEmail.setVisible(true);
-                    orgEmailField.setVisible(true);
-                    lblPaymentMethod.setVisible(true);
-                    paymentComboBox.setVisible(true);
-                    lblWebAddress.setVisible(true);
-                    webAddressField.setVisible(true);
-                }
-                else {
-                    lblOrganizationName.setVisible(false);
-                    orgNameField.setVisible(false);
-                    lblOrganizationEmail.setVisible(false);
-                    orgEmailField.setVisible(false);
-                    lblPaymentMethod.setVisible(false);
-                    paymentComboBox.setVisible(false);
-                    lblWebAddress.setVisible(false);
-                    webAddressField.setVisible(false);
-                }
+        chckbxNewCheckBox_1.addActionListener(arg0 -> {
+            if(chckbxNewCheckBox_1.isSelected()) {
+                lblOrganizationName.setVisible(true);
+                orgNameField.setVisible(true);
+                lblOrganizationEmail.setVisible(true);
+                orgEmailField.setVisible(true);
+                lblPaymentMethod.setVisible(true);
+                paymentComboBox.setVisible(true);
+                lblWebAddress.setVisible(true);
+                webAddressField.setVisible(true);
+            }
+            else {
+                lblOrganizationName.setVisible(false);
+                orgNameField.setVisible(false);
+                lblOrganizationEmail.setVisible(false);
+                orgEmailField.setVisible(false);
+                lblPaymentMethod.setVisible(false);
+                paymentComboBox.setVisible(false);
+                lblWebAddress.setVisible(false);
+                webAddressField.setVisible(false);
             }
         });
         chckbxNewCheckBox_1.setFont(new Font("Open Sans", Font.BOLD, 13));
@@ -655,60 +649,54 @@ public class RegisterView {
         btnRegisterButton.setBounds(981, 516, 140, 40);
         frame.getContentPane().add(btnRegisterButton);
         btnRegisterButton.setVisible(true);
-        btnRegisterButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ArrayList<JTextField> textFieldArray;
-                textFieldArray = new ArrayList<>();
-                textFieldArray.add(firstNameField);
-                textFieldArray.add(lastNameField);
-                textFieldArray.add(addressOneField);
-                textFieldArray.add(townField);
-                textFieldArray.add(postcodeField);
-                textFieldArray.add(emailField);
-                textFieldArray.add(usernameField);
-                textFieldArray.add(passwordField);
-                textFieldArray.add(confirmPasswordField);
-                textFieldArray.add(cardNoField);
-                textFieldArray.add(CVVField);
+        btnRegisterButton.addActionListener(e -> {
+            ArrayList<JTextField> textFieldArray;
+            textFieldArray = new ArrayList<>();
+            textFieldArray.add(firstNameField);
+            textFieldArray.add(lastNameField);
+            textFieldArray.add(addressOneField);
+            textFieldArray.add(townField);
+            textFieldArray.add(postcodeField);
+            textFieldArray.add(emailField);
+            textFieldArray.add(usernameField);
+            textFieldArray.add(passwordField);
+            textFieldArray.add(confirmPasswordField);
+            textFieldArray.add(cardNoField);
+            textFieldArray.add(CVVField);
 
-                if (chckbxNewCheckBox_1.isSelected()){
-                    textFieldArray.add(orgNameField);
-                    RegisterView.checkType = true;
-                }
-                boolean checker = true;
-                for(JTextField field : textFieldArray) {
-                    System.out.println(field.getText());
-                    if (field.getText().equals("")) {
-                        checker = false;
-                        field.setBackground(new Color(255, 228, 225));
-                    } else {
-                    	field.setBackground(SystemColor.inactiveCaption);
-                    }
-                }
-                if (checker){
-                    User newUser = new User(Long.parseLong(cardNoField.getText().replace("'", "''")),Integer.parseInt(CVVField.getText().replace("'", "''")),
-                            titleComboBox.getSelectedItem().toString(), firstNameField.getText().replace("'", "''"), lastNameField.getText().replace("'", "''"),
-                            addressOneField.getText().replace("'", "''"), addressTwoField.getText().replace("'", "''"), townField.getText().replace("'", "''"), 
-                            postcodeField.getText().replace("'", "''"),usernameField.getText().replace("'", "''"), passwordField.getText().replace("'", "''"), 
-                            emailField.getText().replace("'", "''"), phoneNoField.getText().replace("'", "''"),orgNameField.getText().replace("'", "''"),
-                            webAddressField.getText().replace("'", "''"), orgEmailField.getText().replace("'", "''"),
-                            paymentComboBox.getSelectedItem().toString());
-                    newUser.insertCustomerData();
-                    JOptionPane.showMessageDialog(null,"Registration successful! Please Login!");
-                    new LoginView();
-                    frame.setVisible(false); }
-                else{lblAllFields.setVisible(true);}
+            if (chckbxNewCheckBox_1.isSelected()){
+                textFieldArray.add(orgNameField);
+                RegisterView.checkType = true;
             }
+            boolean checker = true;
+            for(JTextField field : textFieldArray) {
+                if (field.getText().equals("")) {
+                    checker = false;
+                    field.setBackground(new Color(255, 228, 225));
+                } else {
+                    field.setBackground(SystemColor.inactiveCaption);
+                }
+            }
+            if (checker){
+                User newUser = new User(Long.parseLong(cardNoField.getText().replace("'", "''")),Integer.parseInt(CVVField.getText().replace("'", "''")),
+                        titleComboBox.getSelectedItem().toString(), firstNameField.getText().replace("'", "''"), lastNameField.getText().replace("'", "''"),
+                        addressOneField.getText().replace("'", "''"), addressTwoField.getText().replace("'", "''"), townField.getText().replace("'", "''"),
+                        postcodeField.getText().replace("'", "''"),usernameField.getText().replace("'", "''"), passwordField.getText().replace("'", "''"),
+                        emailField.getText().replace("'", "''"), phoneNoField.getText().replace("'", "''"),orgNameField.getText().replace("'", "''"),
+                        webAddressField.getText().replace("'", "''"), orgEmailField.getText().replace("'", "''"),
+                        paymentComboBox.getSelectedItem().toString());
+                newUser.insertCustomerData();
+                JOptionPane.showMessageDialog(null,"Registration successful! Please Login!");
+                new LoginView();
+                frame.setVisible(false); }
+            else{lblAllFields.setVisible(true);}
         });
 
 
         JButton btnCancelButton = new JButton("Cancel");
-        btnCancelButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                new LoginView();
-                frame.setVisible(false);
-            }
+        btnCancelButton.addActionListener(arg0 -> {
+            new LoginView();
+            frame.setVisible(false);
         });
         btnCancelButton.setBounds(766, 516, 120, 40);
         btnCancelButton.setForeground(SystemColor.inactiveCaption);

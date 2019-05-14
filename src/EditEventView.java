@@ -1,7 +1,6 @@
 import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 
-import java.awt.EventQueue;
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -69,12 +68,10 @@ public class EditEventView {
         /**
          * Listener for exiting the application after confirmation.
          */
-        btnExitButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
-                if (reply == JOptionPane.YES_OPTION) {
-                    System.exit(0);
-                }
+        btnExitButton.addActionListener(e -> {
+            int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+                System.exit(0);
             }
         });
         btnExitButton.setFont(new Font("Open Sans", Font.PLAIN, 25));
@@ -113,11 +110,9 @@ public class EditEventView {
         /**
          * Listener for the Add Event button.
          */
-        btnAddNewEvent.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new EventOrganizerView();
-                frame.setVisible(false);
-            }
+        btnAddNewEvent.addActionListener(e -> {
+            new EventOrganizerView();
+            frame.setVisible(false);
         });
         btnAddNewEvent.setBounds(22, 171, 190, 53);
         btnAddNewEvent.setForeground(SystemColor.inactiveCaption);
@@ -140,11 +135,9 @@ public class EditEventView {
         /**
          * Logout Button listener, opens the Login window.
          */
-        btnLogOut.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                new LoginView();
-                frame.setVisible(false);
-            }
+        btnLogOut.addActionListener(arg0 -> {
+            new LoginView();
+            frame.setVisible(false);
         });
         frame.getContentPane().setLayout(null);
         frame.getContentPane().add(btnLogOut);
@@ -181,7 +174,7 @@ public class EditEventView {
         /**
          * Combobox populated with all the events made available by a certain organizer.
          */
-        JComboBox<String> comboBoxEventName = new JComboBox<String>();
+        JComboBox<String> comboBoxEventName = new JComboBox<>();
         comboBoxEventName.setBackground(SystemColor.activeCaption);
         comboBoxEventName.setBounds(605, 191, 159, 20);
         comboBoxEventName.setModel(new DefaultComboBoxModel(Event.getFutureEventsOrganizer(user.getUserId(User.username)).toArray()));
@@ -223,7 +216,7 @@ public class EditEventView {
 
         textFieldDuration = new JTextField();
         textFieldDuration.setColumns(10);
-        textFieldDuration.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        textFieldDuration.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         textFieldDuration.setBackground(SystemColor.activeCaption);
         textFieldDuration.setBounds(605, 313, 159, 20);
         /**
@@ -258,7 +251,7 @@ public class EditEventView {
          * Combobox populated with available venues, with 'add venue' as the default option.
          * If selected, opens the newVenueView window.
          */
-        comboBoxVenue = new JComboBox<String>();
+        comboBoxVenue = new JComboBox<>();
         ArrayList venuesList = Venue.getVenueList();
         venuesList.add(0, "-Add Venue-");
         comboBoxVenue.setBounds(987, 188, 159, 20);
@@ -267,12 +260,10 @@ public class EditEventView {
         comboBoxVenue.setSelectedIndex(-1);
         comboBoxVenue.setEnabled(false);
         comboBoxVenue.setEditable(false);
-        comboBoxVenue.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                Object selected = comboBoxVenue.getSelectedItem();
-                if (selected.toString().equals("-Add Venue-"))
-                    new NewVenueView();
-            }
+        comboBoxVenue.addActionListener(e -> {
+            Object selected = comboBoxVenue.getSelectedItem();
+            if (selected.toString().equals("-Add Venue-"))
+                new NewVenueView();
         });
         frame.getContentPane().add(comboBoxVenue);
 
@@ -286,7 +277,7 @@ public class EditEventView {
 
         textFieldPrice = new JTextField();
         textFieldPrice.setColumns(10);
-        textFieldPrice.setBorder(new MatteBorder(2, 2, 2, 2, (Color) SystemColor.activeCaption));
+        textFieldPrice.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
         textFieldPrice.setBackground(SystemColor.activeCaption);
         textFieldPrice.setBounds(987, 251, 159, 20);
         frame.getContentPane().add(textFieldPrice);
@@ -308,27 +299,25 @@ public class EditEventView {
         /**
          * Listener for uploading a new image. Only certain formats accepted, "jpg","png","jpeg".
          */
-        btnUploadButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setFileFilter(new FileNameExtensionFilter("Images","jpg","png","jpeg"));
+        btnUploadButton.addActionListener(arg0 -> {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setFileFilter(new FileNameExtensionFilter("Images","jpg","png","jpeg"));
 
-                try {
-                    if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
-                        File file = fileChooser.getSelectedFile();
-                        lblImgName.setText(file.getName());
+            try {
+                if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+                    File file = fileChooser.getSelectedFile();
+                    lblImgName.setText(file.getName());
 
-                        Files.copy(file.toPath(), Paths.get(System.getProperty("user.dir")+"/"+Main.EVENT_IMAGE_DIR+file.getName()),
-                                java.nio.file.StandardCopyOption.REPLACE_EXISTING,
-                                java.nio.file.StandardCopyOption.COPY_ATTRIBUTES,
-                                java.nio.file.LinkOption.NOFOLLOW_LINKS );
-                    }else {
-                        if(lblImgName.getText().equals("")){
-                            lblImgName.setText("No file selected!");}
-                    }
-                }catch(Exception e1) {
-                    e1.printStackTrace();
+                    Files.copy(file.toPath(), Paths.get(System.getProperty("user.dir")+"/"+Main.EVENT_IMAGE_DIR+file.getName()),
+                            java.nio.file.StandardCopyOption.REPLACE_EXISTING,
+                            java.nio.file.StandardCopyOption.COPY_ATTRIBUTES,
+                            java.nio.file.LinkOption.NOFOLLOW_LINKS );
+                }else {
+                    if(lblImgName.getText().equals("")){
+                        lblImgName.setText("No file selected!");}
                 }
+            }catch(Exception e1) {
+                e1.printStackTrace();
             }
         });
         btnUploadButton.setBorderPainted(false);
@@ -386,16 +375,14 @@ public class EditEventView {
         /**
          * Listener for adding an artist to the event.
          */
-        addPerformerToEvent.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if(!allPerformersList.isSelectionEmpty()) {
-                    String addedBand = (String) allPerformersList.getSelectedValue();
-                    if (addedPerformersModel.contains(addedBand))
-                        JOptionPane.showMessageDialog(null, "Band already added.");
-                    else{
-                        addedPerformersModel.addElement(addedBand);
-                        allPerformersModel.removeElement(addedBand);}
-                }
+        addPerformerToEvent.addActionListener(e -> {
+            if(!allPerformersList.isSelectionEmpty()) {
+                String addedBand = (String) allPerformersList.getSelectedValue();
+                if (addedPerformersModel.contains(addedBand))
+                    JOptionPane.showMessageDialog(null, "Band already added.");
+                else{
+                    addedPerformersModel.addElement(addedBand);
+                    allPerformersModel.removeElement(addedBand);}
             }
         });
         addPerformerToEvent.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -412,13 +399,11 @@ public class EditEventView {
         /**
          * Listener for removing the artist from the already added list.
          */
-        removePerformerFromEvent.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if(!addedPerfList.isSelectionEmpty()){
-                    String addedBand = (String) addedPerfList.getSelectedValue();
-                    allPerformersModel.addElement(addedBand);
-                    addedPerformersModel.removeElement(addedBand);}
-            }
+        removePerformerFromEvent.addActionListener(e -> {
+            if(!addedPerfList.isSelectionEmpty()){
+                String addedBand = (String) addedPerfList.getSelectedValue();
+                allPerformersModel.addElement(addedBand);
+                addedPerformersModel.removeElement(addedBand);}
         });
         removePerformerFromEvent.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         removePerformerFromEvent.setFont(new Font("Dialog", Font.PLAIN, 18));
@@ -430,29 +415,25 @@ public class EditEventView {
         removePerformerFromEvent.setEnabled(false);
         frame.getContentPane().add(removePerformerFromEvent);
 
-        JSeparator addSeperator = new JSeparator();
-        addSeperator.setBackground(SystemColor.inactiveCaption);
-        addSeperator.setForeground(SystemColor.inactiveCaption);
-        addSeperator.setOpaque(true);
-        addSeperator.setBounds(845, 460, 70, 3);
-        frame.getContentPane().add(addSeperator);
+        JSeparator addSeparator = new JSeparator();
+        addSeparator.setBackground(SystemColor.inactiveCaption);
+        addSeparator.setForeground(SystemColor.inactiveCaption);
+        addSeparator.setOpaque(true);
+        addSeparator.setBounds(845, 460, 70, 3);
+        frame.getContentPane().add(addSeparator);
 
-        JSeparator removeSeperator = new JSeparator();
-        removeSeperator.setBackground(SystemColor.inactiveCaption);
-        removeSeperator.setForeground(SystemColor.inactiveCaption);
-        removeSeperator.setOpaque(true);
-        removeSeperator.setBounds(822, 510, 110, 3);
-        frame.getContentPane().add(removeSeperator);
+        JSeparator removeSeparator = new JSeparator();
+        removeSeparator.setBackground(SystemColor.inactiveCaption);
+        removeSeparator.setForeground(SystemColor.inactiveCaption);
+        removeSeparator.setOpaque(true);
+        removeSeparator.setBounds(822, 510, 110, 3);
+        frame.getContentPane().add(removeSeparator);
 
         JButton addNewPerfButton = new JButton("Add Performer");
         /**
          * Listener for adding a new performer to the database, opens NewBandView window.
          */
-        addNewPerfButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new NewBandView();
-            }
-        });
+        addNewPerfButton.addActionListener(e -> new NewBandView());
         addNewPerfButton.setBounds(439, 467, 154, 25);
         addNewPerfButton.setOpaque(false);
         addNewPerfButton.setContentAreaFilled(false);
@@ -481,11 +462,11 @@ public class EditEventView {
         frame.getContentPane().add(btnSaveButton);
 
 
-        JLabel lblSavecancelEvent = new JLabel("Edit/Cancel Event");
-        lblSavecancelEvent.setForeground(SystemColor.inactiveCaption);
-        lblSavecancelEvent.setFont(new Font("Open Sans", Font.BOLD, 18));
-        lblSavecancelEvent.setBounds(776, 86, 215, 21);
-        frame.getContentPane().add(lblSavecancelEvent);
+        JLabel lblSaveCancelEvent = new JLabel("Edit/Cancel Event");
+        lblSaveCancelEvent.setForeground(SystemColor.inactiveCaption);
+        lblSaveCancelEvent.setFont(new Font("Open Sans", Font.BOLD, 18));
+        lblSaveCancelEvent.setBounds(776, 86, 215, 21);
+        frame.getContentPane().add(lblSaveCancelEvent);
 
 
         JSeparator separatorSave = new JSeparator();
@@ -524,94 +505,86 @@ public class EditEventView {
         /**
          * Combobox listener for populating the fields with the selected event's details by creating an arrayList and extracting values one by one.
          */
-        comboBoxEventName.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int eventID = event.getEventId(comboBoxEventName.getSelectedItem().toString());
-                ArrayList<String> details = event.eventDetailsList(eventID);
-                textFieldPrice.setText(details.get(2));
-                comboBoxVenue.setSelectedItem(details.get(3));
-                LocalDate date = null;
-                try{
-                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                    date = format.parse(details.get(4)).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();}
-                catch(ParseException f){
-                    System.out.println("wrong format");}
-                datePicker.setDate(date);
+        comboBoxEventName.addActionListener(e -> {
+            int eventID = event.getEventId(comboBoxEventName.getSelectedItem().toString());
+            ArrayList<String> details = event.eventDetailsList(eventID);
+            textFieldPrice.setText(details.get(2));
+            comboBoxVenue.setSelectedItem(details.get(3));
+            LocalDate date = null;
+            try{
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                date = format.parse(details.get(4)).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();}
+            catch(ParseException f){
+                System.out.println("wrong format");}
+            datePicker.setDate(date);
 
-                lblImgName.setText(details.get(5));
-                textFieldDuration.setText(details.get(6));
+            lblImgName.setText(details.get(5));
+            textFieldDuration.setText(details.get(6));
 
-                ArrayList<String> bandsInEvent = band.getEventBands(Integer.parseInt(details.get(0)));
-                addedPerformersModel.removeAllElements();
-                for(String band : bandsInEvent) {
-                    addedPerformersModel.addElement(band); }
-                addedPerfList.setModel(addedPerformersModel);
-                
-                comboBoxVenue.setEnabled(true);
-                btnSaveButton.setEnabled(true);
-                addPerformerToEvent.setEnabled(true);
-                btnCancel.setEnabled(true);
-                removePerformerFromEvent.setEnabled(true);
-                addPerformerToEvent.setEnabled(true);
+            ArrayList<String> bandsInEvent = band.getEventBands(Integer.parseInt(details.get(0)));
+            addedPerformersModel.removeAllElements();
+            for(String band1 : bandsInEvent) {
+                addedPerformersModel.addElement(band1); }
+            addedPerfList.setModel(addedPerformersModel);
 
-            }
+            comboBoxVenue.setEnabled(true);
+            btnSaveButton.setEnabled(true);
+            addPerformerToEvent.setEnabled(true);
+            btnCancel.setEnabled(true);
+            removePerformerFromEvent.setEnabled(true);
+            addPerformerToEvent.setEnabled(true);
+
         });
 
         /**
          * Listener for updating event details by querying the database.
          */
-        btnSaveButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                if (checkEmptyFields()) {
-                    int eventId = event.getEventId(comboBoxEventName.getSelectedItem().toString());
-                    String eventName = comboBoxEventName.getSelectedItem().toString().replace("'", "''");
-                    float price = Float.parseFloat(textFieldPrice.getText());
-                    int venueID = Venue.getVenueId(comboBoxVenue.getSelectedItem().toString());
-                    String date = datePicker.getDate().toString();
-                    String image = lblImgName.getText();
-                    int duration = Integer.parseInt(textFieldDuration.getText());
-                    event.updateEventDetails(eventId, eventName, price, venueID, date, image, duration);
-                    for (int i = 0; i < addedPerfList.getModel().getSize(); i++) {
-                        String performerName = addedPerfList.getModel().getElementAt(i).toString().replace("'", "''");
-                        int bandID = band.getPerfID(performerName);
-                        String query = "DELETE FROM tbl_event_band WHERE EventID = " + eventId + "; " +
-                                "INSERT IGNORE INTO tbl_event_band VALUES(" + eventId + "," + bandID + ");";
-                        try {
-                            Connect.updateData(query);
-                        } catch (SQLException | ClassNotFoundException e) {
-                            e.printStackTrace();
-                        }
+        btnSaveButton.addActionListener(arg0 -> {
+            if (checkEmptyFields()) {
+                int eventId = event.getEventId(comboBoxEventName.getSelectedItem().toString());
+                String eventName = comboBoxEventName.getSelectedItem().toString().replace("'", "''");
+                float price = Float.parseFloat(textFieldPrice.getText());
+                int venueID = Venue.getVenueId(comboBoxVenue.getSelectedItem().toString());
+                String date = datePicker.getDate().toString();
+                String image = lblImgName.getText();
+                int duration = Integer.parseInt(textFieldDuration.getText());
+                event.updateEventDetails(eventId, eventName, price, venueID, date, image, duration);
+                for (int i = 0; i < addedPerfList.getModel().getSize(); i++) {
+                    String performerName = addedPerfList.getModel().getElementAt(i).toString().replace("'", "''");
+                    int bandID = band.getPerfID(performerName);
+                    String query = "DELETE FROM tbl_event_band WHERE EventID = " + eventId + "; " +
+                            "INSERT IGNORE INTO tbl_event_band VALUES(" + eventId + "," + bandID + ");";
+                    try {
+                        Connect.updateData(query);
+                    } catch (SQLException | ClassNotFoundException e) {
+                        e.printStackTrace();
                     }
-                    JOptionPane.showMessageDialog(null, "Update successful!");
                 }
+                JOptionPane.showMessageDialog(null, "Update successful!");
             }
         });
 
         /**
          * Listener for canceling the event. Opens the EditEventView.
          */
-        btnCancel.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int eventId = event.getEventId(comboBoxEventName.getSelectedItem().toString());
-                List<List<String>> customerInfo = booking.getCustomerInfo(eventId);
+        btnCancel.addActionListener(e -> {
+            int eventId = event.getEventId(comboBoxEventName.getSelectedItem().toString());
+            List<List<String>> customerInfo = booking.getCustomerInfo(eventId);
 
-                for (List cust : customerInfo){
-                    String email = cust.get(0).toString();
-                    String title = cust.get(1).toString();
-                    String lName = cust.get(2).toString();
-                    new SendMail(title,lName).sendCancellationMail(email);
-                }
-
-                booking.updateStatus(eventId,"cancelled");
-                event.deleteEvent(eventId);
-				JOptionPane.showMessageDialog(null,"Event cancelled.");
-                frame.dispose();
-                new EditEventView();
-
-
+            for (List cust : customerInfo){
+                String email = cust.get(0).toString();
+                String title = cust.get(1).toString();
+                String lName = cust.get(2).toString();
+                new SendMail(title,lName).sendCancellationMail(email);
             }
+
+            booking.updateStatus(eventId,"cancelled");
+            event.deleteEvent(eventId);
+            JOptionPane.showMessageDialog(null,"Event cancelled.");
+            frame.dispose();
+            new EditEventView();
+
+
         });
     }
 

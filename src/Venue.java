@@ -49,7 +49,7 @@ public class Venue {
 	 */
 	static ArrayList<String> getVenueList() {
 		String query = "SELECT Name FROM `tbl_venue`;";
-		ArrayList<String> venuesList = new ArrayList<String>();
+		ArrayList<String> venuesList = new ArrayList<>();
 		try {
             ResultSet results = Connect.selectStm(query);
             while (results.next()) {

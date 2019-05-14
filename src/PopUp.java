@@ -33,27 +33,17 @@ public class PopUp extends JFrame {
         setUndecorated(true);
         MyAccountView panel = new MyAccountView();
         panel.setBounds(0, 0, 0, 0);
-        panel.saveButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		dispose();
-        	}
-        });
+        panel.saveButton.addActionListener(e -> dispose());
         panel.cancelButton.setVisible(true);
         panel.cancelBtnSeparator.setVisible(true);
-        panel.cancelButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-			}
-        });
+        panel.cancelButton.addActionListener(e -> dispose());
         getContentPane().add(panel);
         setVisible(true);
         JButton btnExitButton = new JButton("X");
-        btnExitButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
-                if (reply == JOptionPane.YES_OPTION) {
-                  System.exit(0);
-                }
+        btnExitButton.addActionListener(e -> {
+            int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+              System.exit(0);
             }
         });
         btnExitButton.setFont(new Font("Open Sans", Font.PLAIN, 25));
@@ -67,9 +57,7 @@ public class PopUp extends JFrame {
         
         
         JButton minimizeButton = new JButton("___");
-        minimizeButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-        	}
+        minimizeButton.addActionListener(arg0 -> {
         });
         minimizeButton.setForeground(SystemColor.inactiveCaption);
         minimizeButton.addMouseListener(new MouseAdapter() {

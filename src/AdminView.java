@@ -32,16 +32,14 @@ public class AdminView {
      * Launch the application.
      */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AdminView window = new AdminView();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		EventQueue.invokeLater(() -> {
+            try {
+                AdminView window = new AdminView();
+                window.frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 	}
 
     /**
@@ -71,12 +69,10 @@ public class AdminView {
         /**
          * Listener for exiting the application after user's confirmation.
          */
-        btnExitButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
-                if (reply == JOptionPane.YES_OPTION) {
-                  System.exit(0);
-                }
+        btnExitButton.addActionListener(e -> {
+            int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+              System.exit(0);
             }
         });
         btnExitButton.setFont(new Font("Open Sans", Font.PLAIN, 25));
@@ -119,11 +115,9 @@ public class AdminView {
         /**
          * Listener for logging out of the system, opens the LoginView.
          */
-        btnLogOut.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                new LoginView();
-                frame.setVisible(false);
-            }
+        btnLogOut.addActionListener(arg0 -> {
+            new LoginView();
+            frame.setVisible(false);
         });
         frame.getContentPane().setLayout(null);
         frame.getContentPane().add(btnLogOut);
@@ -138,11 +132,9 @@ public class AdminView {
          * Combobox populated with all users names for selection.
          */
         JComboBox comboBoxUsername = new JComboBox(user.getAllUsernames());
-        comboBoxUsername.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		User.username = comboBoxUsername.getSelectedItem().toString();
-        		new PopUp();
-        	}
+        comboBoxUsername.addActionListener(e -> {
+            User.username = comboBoxUsername.getSelectedItem().toString();
+            new PopUp();
         });
         comboBoxUsername.setBackground(SystemColor.activeCaption);
         comboBoxUsername.setBounds(204, 55, 182, 25);
@@ -166,12 +158,7 @@ public class AdminView {
         btnConfirmAll.setBorderPainted(false);
         btnConfirmAll.setContentAreaFilled(false);
         btnConfirmAll.setVisible(false);
-        btnConfirmAll.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                BookingsTableController.updateStatus(tableConfirmBooking);
-            }
-        });
+        btnConfirmAll.addActionListener(e -> BookingsTableController.updateStatus(tableConfirmBooking));
         frame.getContentPane().add(btnConfirmAll);
 
         JSeparator separatorConfirmAll = new JSeparator();
@@ -196,13 +183,11 @@ public class AdminView {
         /**
          * Listener for setting the event panel visible.
          */
-        btnViewEventList.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                scrollPaneViewEvent.setVisible(true);
-                scrollPaneConfirmBooking.setVisible(false);
-                btnConfirmAll.setVisible(false);
-                separatorConfirmAll.setVisible(false);
-            }
+        btnViewEventList.addActionListener(e -> {
+            scrollPaneViewEvent.setVisible(true);
+            scrollPaneConfirmBooking.setVisible(false);
+            btnConfirmAll.setVisible(false);
+            separatorConfirmAll.setVisible(false);
         });
         btnViewEventList.setBounds(27, 173, 190, 53);
         btnViewEventList.setForeground(SystemColor.inactiveCaption);
@@ -225,13 +210,11 @@ public class AdminView {
         /**
          * Listener for setting the confirm booking panel visible.
          */
-        btnConfirmBooking.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                scrollPaneViewEvent.setVisible(false);
-                scrollPaneConfirmBooking.setVisible(true);
-                btnConfirmAll.setVisible(true);
-                separatorConfirmAll.setVisible(true);
-            }
+        btnConfirmBooking.addActionListener(arg0 -> {
+            scrollPaneViewEvent.setVisible(false);
+            scrollPaneConfirmBooking.setVisible(true);
+            btnConfirmAll.setVisible(true);
+            separatorConfirmAll.setVisible(true);
         });
         frame.getContentPane().add(btnConfirmBooking);
         btnConfirmBooking.setVisible(true);
@@ -241,13 +224,11 @@ public class AdminView {
         /**
          * Listener for generating invoices.
          */
-        btnGenerateInvoice.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                scrollPaneViewEvent.setVisible(false);
-                scrollPaneConfirmBooking.setVisible(false);
-                btnConfirmAll.setVisible(false);
-                separatorConfirmAll.setVisible(false);
-            }
+        btnGenerateInvoice.addActionListener(e -> {
+            scrollPaneViewEvent.setVisible(false);
+            scrollPaneConfirmBooking.setVisible(false);
+            btnConfirmAll.setVisible(false);
+            separatorConfirmAll.setVisible(false);
         });
         btnGenerateInvoice.setBounds(27, 332, 190, 53);
         btnGenerateInvoice.setForeground(SystemColor.inactiveCaption);
