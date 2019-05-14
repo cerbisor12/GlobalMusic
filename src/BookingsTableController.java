@@ -23,7 +23,6 @@ public class BookingsTableController {
     public BookingsTableController(JTable table){
 
         List<List<Object>> data = getBookings(username);
-        System.out.println(data);
         if (data.size()>1){
             Object[] columnNames = data.get(0).toArray();
             data.remove(0);
@@ -53,7 +52,6 @@ public class BookingsTableController {
 
     private List<List<Object>> getBookings(String username){
         String userID;
-        System.out.println("username "+username);
         if(username.equals("admin")){
             userID = "'%'";
         }else{userID = String.valueOf(new User().getUserId(username));}
