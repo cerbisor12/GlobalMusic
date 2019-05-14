@@ -54,12 +54,14 @@ public class Booking {
 
     }
 
+    public Booking(){}
+
     /**
      * method for updating event's status.
      * @param eventID event's ID
      * @param status new status;
      */
-    static void updateStatus(int eventID, String status){
+    public void updateStatus(int eventID, String status){
         String query = "UPDATE tbl_booking SET Status= '"+ status + "',EventID= null WHERE EventID = "+ eventID +";";
 
         try {
@@ -74,7 +76,7 @@ public class Booking {
      * @param eventID the event's id
      * @return ArrayList of strings filled with email, title and name of the customer.
      */
-    static List<List<String>> getCustomerInfo(int eventID){
+    public List<List<String>> getCustomerInfo(int eventID){
         String query = "SELECT U.LName, U.Title, U.Email FROM tbl_user U, tbl_booking B WHERE B.EventID = " +eventID +
                 " AND B.CustomerID = U.UserID;";
         List<List<String>> customerInfo = new ArrayList<>();

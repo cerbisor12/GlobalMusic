@@ -65,6 +65,7 @@ public class AdminView {
         frame.setLocationRelativeTo(null);
         frame.setUndecorated(true);
 
+        User user = new User();
 
         JButton btnExitButton = new JButton("X");
         /**
@@ -136,7 +137,7 @@ public class AdminView {
         /**
          * Combobox populated with all users names for selection.
          */
-        JComboBox comboBoxUsername = new JComboBox(User.userList());
+        JComboBox comboBoxUsername = new JComboBox(user.getAllUsernames());
         comboBoxUsername.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		User.username = comboBoxUsername.getSelectedItem().toString();
@@ -168,7 +169,7 @@ public class AdminView {
         btnConfirmAll.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                BookingHistoryController.updateStatus(tableConfirmBooking);
+                BookingsTableController.updateStatus(tableConfirmBooking);
             }
         });
         frame.getContentPane().add(btnConfirmAll);
@@ -187,7 +188,7 @@ public class AdminView {
         scrollPaneConfirmBooking.setVisible(false);
         
         tableConfirmBooking = new JTable();
-        new BookingHistoryController(tableConfirmBooking);
+        new BookingsTableController(tableConfirmBooking);
         tableConfirmBooking.setBackground(SystemColor.inactiveCaption);
         scrollPaneConfirmBooking.setViewportView(tableConfirmBooking);
 

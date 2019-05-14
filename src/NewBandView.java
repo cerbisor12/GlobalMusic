@@ -76,7 +76,9 @@ public class NewBandView extends JFrame {
 		frame.getContentPane().setLayout(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setUndecorated(true);
-		
+
+		Agent agent = new Agent();
+
 		JLabel windowTitleLabel = new JLabel("Band details");
 		windowTitleLabel.setFont(new Font("Open Sans", Font.PLAIN, 16));
 		windowTitleLabel.setForeground(SystemColor.inactiveCaption);
@@ -159,7 +161,7 @@ public class NewBandView extends JFrame {
 		 * Static combobox populated with an arrayList of Strings. Will display the agents available for selection.
 		 */
 		agentComboBox = new JComboBox<String>();
-		ArrayList<String> aList = Agent.getAgentsList();
+		ArrayList<String> aList = agent.getAgentsList();
 		aList.add(0, "-Add new Agent-");
 		agentComboBox.setModel(new DefaultComboBoxModel(aList.toArray()));
 		agentComboBox.setBackground(SystemColor.activeCaption);
@@ -244,11 +246,11 @@ public class NewBandView extends JFrame {
 					JOptionPane.showMessageDialog(null,"No Image Selected!");
 				}
 				else {
-					int agentID = Agent.getAgentId(agentComboBox.getSelectedItem().toString());					
-					new Band(nameTxtField.getText().replace("'", "''"),genreTxtField.getText().replace("'", "''"),linkTxtField.getText().replace("'", "''"),imageName,agentID);
+					int agentID = agent.getAgentId(agentComboBox.getSelectedItem().toString());
+					Band band =new Band(nameTxtField.getText().replace("'", "''"),genreTxtField.getText().replace("'", "''"),linkTxtField.getText().replace("'", "''"),imageName,agentID);
 					DefaultListModel performersModel = new DefaultListModel();
-					for(int i = 0; i < Band.getAllBands().size(); i++) {
-						performersModel.addElement(Band.getAllBands().get(i));
+					for(int i = 0; i < band.getAllBands().size(); i++) {
+						performersModel.addElement(band.getAllBands().get(i));
 			        	EventOrganizerView.allPerformersList.setModel(performersModel);
 			        }
 					JOptionPane.showMessageDialog(null,"Band added.");

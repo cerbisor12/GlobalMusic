@@ -1,6 +1,5 @@
 import javax.swing.*;
 import javax.swing.table.*;
-import javax.swing.text.DefaultEditorKit;
 import java.awt.*;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -14,14 +13,14 @@ import java.util.List;
  * @author x64
  *
  */
-public class BookingHistoryController{
+public class BookingsTableController {
 
 
     private String username = User.username;
 
 
     
-    public BookingHistoryController(JTable table){
+    public BookingsTableController(JTable table){
 
         List<List<Object>> data = getBookings(username);
         System.out.println(data);
@@ -57,7 +56,7 @@ public class BookingHistoryController{
         System.out.println("username "+username);
         if(username.equals("admin")){
             userID = "'%'";
-        }else{userID = String.valueOf(User.getUserId(username));}
+        }else{userID = String.valueOf(new User().getUserId(username));}
         String query = "SELECT B.BookingNo,B.DateOFBooking 'Date' , IFNULL(E.Name,'-') 'Event', B.NoOfSeats 'Tickets'," +
                 " B.TotalPrice 'Total (£)',B.Paid, B.Status FROM tbl_booking B " +
                 "LEFT JOIN tbl_event E ON E.EventID = B.EventID WHERE CustomerID LIKE "+ userID +";";
@@ -133,7 +132,7 @@ public class BookingHistoryController{
         try{
             Connect.updateData(query);
         }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
-        new BookingHistoryController(table);
+        new BookingsTableController(table);
     }
 
 

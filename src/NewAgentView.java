@@ -140,9 +140,9 @@ public class NewAgentView {
 					JOptionPane.showMessageDialog(null,"Please fill in all the * fields.");
 
 				else {
-					new Agent(nameTxtField.getText().replace("'", "''"),phoneTxtField.getText().replace("'", "''"),emailTxtField.getText().replace("'", "''"));
+					Agent agent = new Agent(nameTxtField.getText().replace("'", "''"),phoneTxtField.getText().replace("'", "''"),emailTxtField.getText().replace("'", "''"));
 					JOptionPane.showMessageDialog(null,"Agent added.");
-					DefaultComboBoxModel model = new DefaultComboBoxModel(Agent.getAgentsList().toArray());
+					DefaultComboBoxModel model = new DefaultComboBoxModel(agent.getAgentsList().toArray());
 					model.insertElementAt("-Add new Agent-",0);
 					NewBandView.agentComboBox.setModel(model); 
 					NewBandView.agentComboBox.setSelectedIndex(model.getSize()-1);

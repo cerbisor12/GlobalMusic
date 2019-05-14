@@ -78,82 +78,7 @@ public class User {
         if (RegisterView.checkType == true)
         	this.userType = "organization";
     }
-    
-    /**
-     * This method returns the users ID.
-     * @return userID
-     */
-    public int getID() {
-        return userID;
-    }
-    
-    /**
-     * This methos sets the users ID.
-     * @param userID
-     */
-    public void setID(int userID) {
-        this.userID = userID;
-    }
-    
-    /**
-     * This method sets the users username.
-     * @param username
-     */
-    public void setUsername(String username) {
-    	User.username = username;
-    }
 
-//    public String getUsername() {
-//        return username;
-//    }
-
-    /**
-     * This method returns the users password.
-     * @return password
-     */
-    public String getPassword() {
-        return password;
-    }
-    
-    /**
-     * This method sets the users password.
-     * @param password
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
-    /**
-     * This method returns the users email address.
-     * @return email
-     */
-    public String getEmail() {
-        return email;
-    }
-    
-    /**
-     * This method sets the users email address.
-     * @param email
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    /**
-     * This method returns the user type.
-     * @return userType
-     */
-    public String getUserType() {
-        return userType;
-    }
-    
-    /**
-     * This method sets the user type
-     * @param userType
-     */
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
     
     /**
      * This method inserts users details into the database.
@@ -202,8 +127,8 @@ public class User {
      * This method checks if the input made by the user exists in the database. 
      * @return true or false depending on the users input
      */
-    public boolean loginCheck() {
-        String query = "SELECT * FROM tbl_user WHERE Username='" + User.username + "' AND Pass='" + this.password + "';";
+    public boolean loginCheck(String username, String password) {
+        String query = "SELECT * FROM tbl_user WHERE Username='" + username + "' AND Pass='" + password + "';";
         try {
             ResultSet results = Connect.selectStm(query);
             if (results.next()) {
@@ -221,7 +146,7 @@ public class User {
      * This method deletes a user from the database with the specified user ID.
      * @param userID the users ID
      */
-    public static void deleteUser(int userID) {
+    public void deleteUser(int userID) {
         String query = "DELETE FROM tbl_user WHERE ID='" + userID + "';";
         try {
             Connect.updateData(query);
@@ -251,7 +176,7 @@ public class User {
      * @param webAddress the organization web address
      * @param paymentMethod the payment method
      */
-    static void updateDetails(String username,String title, String firstName, String lastName, String addressOne, String addressTwo, String town, String postcode,
+    public void updateDetails(String username,String title, String firstName, String lastName, String addressOne, String addressTwo, String town, String postcode,
     		String email, String phoneNumber, long cardNumber, int cvv, String orgName, String orgEmail, String webAddress, String paymentMethod) {
     	
     	String query = "UPDATE tbl_user SET Title='"+ title +"', FName = '"+ firstName +"', LName = '"+lastName+"', Address1 = '"+addressOne+"', Address2 = '"+addressTwo+""
@@ -269,7 +194,7 @@ public class User {
      * This method returns a list of all the users that are registered from the database.
      * @return finalUsers list
      */
-    public static String[] userList() {
+    public String[] getAllUsernames() {
         String query = "SELECT Username FROM tbl_user;";
         ArrayList<String> users = new ArrayList<>();
         try {
@@ -314,7 +239,7 @@ public class User {
      * @param newPass the new users password
      * @param username the actual user that is changing password
      */
-    static void updatePass(String newPass, String username) {
+    public void updatePass(String newPass, String username) {
     	String query = "UPDATE tbl_user SET Pass='" + newPass + "' WHERE Username='" + username + "'"; 
 
     	try {
@@ -330,7 +255,7 @@ public class User {
      * @param username the users username
      * @return users details
      */
-    public static ArrayList<String> detailsList(String username) {
+    public ArrayList<String> detailsList(String username) {
     	String query = "SELECT * FROM `tbl_user` WHERE Username = '" + username + "';";
     	ArrayList<String> details = new ArrayList<String>();
     	try {
@@ -374,7 +299,7 @@ public class User {
      * @param username the users username
      * @return users ID
      */
-    static int getUserId(String username) {
+    public int getUserId(String username) {
     	String query = "SELECT * FROM tbl_user WHERE Username = '" + username + "';";
     	int ID = 0;
     	try {
@@ -389,8 +314,5 @@ public class User {
     	return ID;
     }
 
-    public static void main(String[] args) {
-    	int ID = User.getUserId("cerbisor");
-        System.out.println(ID);
-    }
+
 }

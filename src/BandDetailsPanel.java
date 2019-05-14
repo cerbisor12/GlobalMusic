@@ -36,7 +36,7 @@ public class BandDetailsPanel extends JPanel {
      * Method for creating individual panels for every performer and adding them to the container panel
      */
     public void createPanel(){
-        List<String[]> bandDetails = Band.getBandDetails(eventID);//get all performer details from the DB
+        List<String[]> bandDetails = new Band().getBandDetails(eventID);//get all performer details from the DB
 
         int size = bandDetails.size();
         //set the size of container panel according to the number of performers

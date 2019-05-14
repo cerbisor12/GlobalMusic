@@ -88,10 +88,10 @@ public class LoginView {
         btnLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 User user = new User();
-                user.setUsername(usernameField.getText().replace("'", "''"));
-                user.setPassword(new String(passwordField.getPassword()));
+                User.username = usernameField.getText().replace("'", "''");
+                String password = (new String(passwordField.getPassword()));
                 String type = user.getData(User.username, "Type");
-                if (user.loginCheck()) {
+                if (user.loginCheck(User.username,password)) {
                     if (type.equalsIgnoreCase("Customer") ||
                             type.equalsIgnoreCase("organization"))
                     {

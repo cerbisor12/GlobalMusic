@@ -37,21 +37,7 @@ public class EditEventView {
     private DatePicker datePicker;
     private JLabel lblImgName;
 
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    EditEventView window = new EditEventView();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+
 
     /**
      * Create the application.
@@ -74,6 +60,10 @@ public class EditEventView {
         frame.setLocationRelativeTo(null);
         frame.setUndecorated(true);
 
+        User user = new User();
+        Event event = new Event();
+        Band band = new Band();
+        Booking booking = new Booking();
 
         JButton btnExitButton = new JButton("X");
         /**
@@ -194,7 +184,7 @@ public class EditEventView {
         JComboBox<String> comboBoxEventName = new JComboBox<String>();
         comboBoxEventName.setBackground(SystemColor.activeCaption);
         comboBoxEventName.setBounds(605, 191, 159, 20);
-        comboBoxEventName.setModel(new DefaultComboBoxModel(Event.getFutureEventsOrganizer(User.getUserId(User.username)).toArray()));
+        comboBoxEventName.setModel(new DefaultComboBoxModel(Event.getFutureEventsOrganizer(user.getUserId(User.username)).toArray()));
         comboBoxEventName.setSelectedIndex(-1);
         comboBoxEventName.setEditable(false);
         frame.getContentPane().add(comboBoxEventName);
@@ -359,7 +349,7 @@ public class EditEventView {
         lblLogo.setBounds(186, 583, 200, 96);
         frame.getContentPane().add(lblLogo);
 
-        ArrayList<String> bandsAvailable = Band.getAllBands();
+        ArrayList<String> bandsAvailable = band.getAllBands();
 
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setBounds(605, 407, 189, 140);
@@ -537,7 +527,8 @@ public class EditEventView {
         comboBoxEventName.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ArrayList<String> details = Event.eventDetailsList(comboBoxEventName.getSelectedItem().toString());
+                int eventID = event.getEventId(comboBoxEventName.getSelectedItem().toString());
+                ArrayList<String> details = event.eventDetailsList(eventID);
                 textFieldPrice.setText(details.get(2));
                 comboBoxVenue.setSelectedItem(details.get(3));
                 LocalDate date = null;
@@ -551,7 +542,7 @@ public class EditEventView {
                 lblImgName.setText(details.get(5));
                 textFieldDuration.setText(details.get(6));
 
-                ArrayList<String> bandsInEvent = Band.getEventBands(Integer.parseInt(details.get(0)));
+                ArrayList<String> bandsInEvent = band.getEventBands(Integer.parseInt(details.get(0)));
                 addedPerformersModel.removeAllElements();
                 for(String band : bandsInEvent) {
                     addedPerformersModel.addElement(band); }
@@ -573,17 +564,17 @@ public class EditEventView {
         btnSaveButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 if (checkEmptyFields()) {
-                    int eventId = Event.getEventId(comboBoxEventName.getSelectedItem().toString());
+                    int eventId = event.getEventId(comboBoxEventName.getSelectedItem().toString());
                     String eventName = comboBoxEventName.getSelectedItem().toString().replace("'", "''");
                     float price = Float.parseFloat(textFieldPrice.getText());
                     int venueID = Venue.getVenueId(comboBoxVenue.getSelectedItem().toString());
                     String date = datePicker.getDate().toString();
                     String image = lblImgName.getText();
                     int duration = Integer.parseInt(textFieldDuration.getText());
-                    Event.updateEventDetails(eventId, eventName, price, venueID, date, image, duration);
+                    event.updateEventDetails(eventId, eventName, price, venueID, date, image, duration);
                     for (int i = 0; i < addedPerfList.getModel().getSize(); i++) {
                         String performerName = addedPerfList.getModel().getElementAt(i).toString().replace("'", "''");
-                        int bandID = Band.getPerfID(performerName);
+                        int bandID = band.getPerfID(performerName);
                         String query = "DELETE FROM tbl_event_band WHERE EventID = " + eventId + "; " +
                                 "INSERT IGNORE INTO tbl_event_band VALUES(" + eventId + "," + bandID + ");";
                         try {
@@ -603,8 +594,8 @@ public class EditEventView {
         btnCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int eventId = Event.getEventId(comboBoxEventName.getSelectedItem().toString());
-                List<List<String>> customerInfo = Booking.getCustomerInfo(eventId);
+                int eventId = event.getEventId(comboBoxEventName.getSelectedItem().toString());
+                List<List<String>> customerInfo = booking.getCustomerInfo(eventId);
 
                 for (List cust : customerInfo){
                     String email = cust.get(0).toString();
@@ -613,8 +604,8 @@ public class EditEventView {
                     new SendMail(title,lName).sendCancellationMail(email);
                 }
 
-                Booking.updateStatus(eventId,"cancelled");
-                Event.deleteEvent(eventId);
+                booking.updateStatus(eventId,"cancelled");
+                event.deleteEvent(eventId);
 				JOptionPane.showMessageDialog(null,"Event cancelled.");
                 frame.dispose();
                 new EditEventView();

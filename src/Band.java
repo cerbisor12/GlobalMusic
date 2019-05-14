@@ -15,7 +15,9 @@ public class Band {
 	private String link = "";
 	private String image = "";
 	private int agent;
-	
+
+
+	public Band(){}
 	/**
 	 * Class' constructor with query for inserting data in the database included.
 	 * @param name
@@ -46,7 +48,7 @@ public class Band {
 	 * Static method to get all the bands.
 	 * @return Returns an ArrayList of strings, which contains all the bands existing in the database.
 	 */
-	static ArrayList<String> getAllBands(){
+	public ArrayList<String> getAllBands(){
 		String query = "SELECT Name FROM tbl_band;";
 		ArrayList<String> bandsList = new ArrayList<String>();
 		try {
@@ -68,7 +70,7 @@ public class Band {
 	 * @param eventID event's ID for identifying the desired event
 	 * @return ArrayList of strings which contains all the bands registered with the event.
 	 */
-	static ArrayList<String> getEventBands(int eventID) {
+	public ArrayList<String> getEventBands(int eventID) {
 		String query = "SELECT B.Name FROM tbl_band B, tbl_event_band EB WHERE EB.EventID = " +eventID +
 		" AND B.BandID = EB.BandID;";
 		ArrayList<String> bandsList = new ArrayList<String>();
@@ -86,7 +88,7 @@ public class Band {
 		return bandsList;
 	}
 
-	static int getPerfID(String bandName) {
+	public int getPerfID(String bandName) {
 		String query = "SELECT * FROM tbl_band WHERE Name = '" + bandName + "';";
     	int ID = 0;
     	try {
@@ -101,7 +103,7 @@ public class Band {
     	return ID;
 	}
 
-	public static List<String[]> getBandDetails(int eventID){
+	public List<String[]> getBandDetails(int eventID){
 		String query = "SELECT B.Name, B.Image, B.Genre, B.Link FROM tbl_band B, tbl_event_band EB WHERE EventID= "+eventID+
 				" AND B.BandID = EB.BandID";
 		List<String[]> bandDetails = new ArrayList<>();

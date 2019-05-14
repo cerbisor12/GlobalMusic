@@ -70,6 +70,7 @@ public class NewBookingView {
         frame.getContentPane().setLayout(null);
         frame.setUndecorated(true);
 
+        User user = new User();
 
         JButton btnExitButton = new JButton("X");
         btnExitButton.addActionListener(new ActionListener() {
@@ -329,10 +330,10 @@ public class NewBookingView {
         	 */
             @Override
             public void actionPerformed(ActionEvent e) {
-                String bookingNo = User.username + String.valueOf(new Timestamp(System.currentTimeMillis()).getTime());
+                String bookingNo = User.username + new Timestamp(System.currentTimeMillis()).getTime();
                 float price = Float.parseFloat(lblAmount.getText());
-                int customerID = User.getUserId(User.username);
-                int eventID = Event.getEventId(lblName.getText());
+                int customerID = user.getUserId(User.username);
+                int eventID = new Event().getEventId(lblName.getText());
 
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 String date = format.format(new Date());
@@ -343,7 +344,7 @@ public class NewBookingView {
 
                 String msg = "Total Tickets: " + lblTotalTickets.getText() +
                         "\nAmount to be paid: " + lblAmount.getText() + "\u00A3\n";
-                User user = new User();
+
                 String paymentMethod =user.getData(User.username, "PaymentMethod");
                 String CardNo =user.getData(User.username,"CardNo");
                 String CVV = user.getData(User.username,"CVV");

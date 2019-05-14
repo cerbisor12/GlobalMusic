@@ -48,7 +48,7 @@ public class Agent {
 	 * Static method for retrieving all agents.
 	 * @return Returns an arrayList filled with strings representing the names of all agents existing in the database.
 	 */
-	static ArrayList<String> getAgentsList() {
+	public ArrayList<String> getAgentsList() {
 		String query = "SELECT Name FROM `tbl_agent`;";
 		ArrayList<String> agentsList = new ArrayList<String>();
 		try {
@@ -76,28 +76,12 @@ public class Agent {
 		this.name = name;
 	}
 
-	public String getPhoneNo() {
-		return phoneNo;
-	}
-
-	public void setPhoneNo(String phoneNo) {
-		this.phoneNo = phoneNo;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
 	/**
 	 * Static method for getting an agent's Id based on its name.
 	 * @param name Name of Agent
 	 * @return Returns an integer matching agent's ID.
 	 */
-	static int getAgentId(String name) {
+	public int getAgentId(String name) {
 		String query = "SELECT AgentID FROM tbl_agent WHERE Name ='" + name + "';";
 		int ID = 0;
 		try {

@@ -31,7 +31,7 @@ public class BookingsHistoryView extends JPanel {
         this.add(scrollPane);
 
         table = new JTable();
-        new BookingHistoryController(table);
+        //new BookingsTableController(table);
         table.setBackground(SystemColor.inactiveCaption);
         scrollPane.setViewportView(table);
 

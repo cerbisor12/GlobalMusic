@@ -50,21 +50,6 @@ public class EventOrganizerView {
 	 private DatePicker datePicker;
 	 private JList addedPerfList;
 
-	    /**
-	     * Launch the application.
-	     */
-	    public static void main(String[] args) {
-	        EventQueue.invokeLater(new Runnable() {
-	            public void run() {
-	                try {
-	                    EventOrganizerView window = new EventOrganizerView();
-	                    window.frame.setVisible(true);
-	                } catch (Exception e) {
-	                    e.printStackTrace();
-	                }
-	            }
-	        });
-	    }
 
 	    /**
 	     * Create the application.
@@ -88,6 +73,10 @@ public class EventOrganizerView {
 	        frame.setUndecorated(true);
 
 
+	        User user = new User();
+	        Event event = new Event();
+	        Booking booking = new Booking();
+	        Band band = new Band();
 
 	        JButton btnExitButton = new JButton("X");
 	        /**
@@ -404,7 +393,7 @@ public class EventOrganizerView {
 	        lblLogo.setBounds(186, 583, 200, 96);
 	        frame.getContentPane().add(lblLogo);
 
-	        ArrayList<String> bandsAvailable = Band.getAllBands();
+	        ArrayList<String> bandsAvailable = band.getAllBands();
 
 	        JScrollPane scrollPane = new JScrollPane();
 	        scrollPane.setBounds(605, 407, 189, 140);
@@ -539,18 +528,19 @@ public class EventOrganizerView {
 	        	public void actionPerformed(ActionEvent arg0) {
 					if (checkEmptyFields()) {
 						LocalDate eventDate = datePicker.getDate();
-						new Event(textEventName.getText().replace("'", "''"), Float.parseFloat(textFieldPrice.getText()), User.getUserId(User.username),
+						new Event(textEventName.getText().replace("'", "''"), Float.parseFloat(textFieldPrice.getText()), user.getUserId(User.username),
 								Venue.getVenueId(venueComboBox.getSelectedItem().toString()), eventDate.toString(), imageName, Integer.parseInt(textDuration.getText()));
-						int EventID = Event.getEventId(textEventName.getText().replace("'", "''"));
+						int EventID = event.getEventId(textEventName.getText().replace("'", "''"));
 						for (int i = 0; i < addedPerfList.getModel().getSize(); i++) {
-							String query = "INSERT INTO tbl_event_band VALUES(" + EventID + "," + Band.getPerfID(addedPerfList.getModel().getElementAt(i).toString().replace("'", "''")) + ");";
+							String query = "INSERT INTO tbl_event_band VALUES(" + EventID + "," + band.getPerfID(addedPerfList.getModel().getElementAt(i).toString().replace("'", "''")) + ");";
 							try {
 								Connect.updateData(query);
-								JOptionPane.showMessageDialog(null,"Event Added successfully");
+
 							} catch (SQLException | ClassNotFoundException e) {
 								e.printStackTrace();
 							}
 						}
+						JOptionPane.showMessageDialog(null,"Event Added successfully");
 					}
 				}
 	        });
@@ -580,7 +570,7 @@ public class EventOrganizerView {
 	     * 
 	     */
 	private boolean checkEmptyFields(){
-		if (textFieldPrice.getText().equals("") || textDuration.getText().equals("") || textEventName.equals("")){
+		if (textFieldPrice.getText().equals("") || textDuration.getText().equals("") || textEventName.getText().equals("")){
 			JOptionPane.showMessageDialog(null,"Please fill all fields!");
 			return false;
 		}else if (datePicker.getDate().equals(LocalDate.now())){

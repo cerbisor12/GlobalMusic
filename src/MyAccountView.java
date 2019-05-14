@@ -362,7 +362,7 @@ public class MyAccountView extends JPanel {
 		 * First a string ArrayList to get the user's details.
 		 * Secondly, populating all the textField with the existing details.
 		 */
-		ArrayList<String> details = User.detailsList(User.username);
+		ArrayList<String> details = user.detailsList(User.username);
 		titleComboBox.setSelectedItem(details.get(0));
 		firstNameTextField.setText(details.get(1));
 		lastNameTextField.setText(details.get(2));
@@ -411,7 +411,7 @@ public class MyAccountView extends JPanel {
 					}
 				}
 				if(checker){
-				User.updateDetails(User.username, titleComboBox.getSelectedItem().toString(), firstNameTextField.getText().replace("'", "''"), 
+				user.updateDetails(User.username, titleComboBox.getSelectedItem().toString(), firstNameTextField.getText().replace("'", "''"),
 						lastNameTextField.getText().replace("'", "''"), address1TextField.getText().replace("'", "''"), address2TextField.getText().replace("'", "''"), 
 						townTextField.getText().replace("'", "''"), postcodeTextField.getText().replace("'", "''"), emailTextField.getText().replace("'", "''"), 
 						phoneNoTextField.getText().replace("'", "''"), Long.parseLong(cardNoTextField.getText().replace("'", "''")), 

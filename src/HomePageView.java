@@ -156,7 +156,7 @@ public class HomePageView {
 
                 for (Component card : c.getComponents()){
                     if (card instanceof BookingsHistoryView){
-                        new BookingHistoryController(((BookingsHistoryView) card).table);
+                        new BookingsTableController(((BookingsHistoryView) card).table);
                         }
                 }
                 ((CardLayout)c.getLayout()).show(c,"History");
