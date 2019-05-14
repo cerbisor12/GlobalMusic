@@ -8,11 +8,6 @@
     <list default="true" id="b89e92a4-688d-4fc7-9b4b-7d8c1d6995f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdminView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BookingHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BookingHistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BookingsHistoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BookingsHistoryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomePageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomePageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PopUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ToDoList" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToDoList" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AdminView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="169" column="73" selection-start-line="169" selection-start-column="73" selection-end-line="169" selection-end-column="73" />
+            <state relative-caret-position="328">
+              <caret line="306" column="1" lean-forward="true" selection-start-line="306" selection-start-column="1" selection-end-line="306" selection-end-column="1" />
               <folding>
                 <element signature="e#6235#6236#0" expanded="true" />
                 <element signature="e#6306#6307#0" expanded="true" />
@@ -74,7 +69,7 @@
         <entry file="file://$PROJECT_DIR$/src/LoginView.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1345">
-              <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -257,7 +252,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557776120030" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557849882414" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -433,7 +428,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557767968329</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added confirm Bookings functionality to AdminView">
+      <created>1557776326578</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1557776326578</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -558,7 +560,8 @@
     <MESSAGE value="Additional Edits and Corrections&#10;&#10;Check ToDoList.txt for extra info (-- means completed task)" />
     <MESSAGE value="JavaDoc comments complete (hopefully)" />
     <MESSAGE value="Added View Events to AdminView" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added View Events to AdminView" />
+    <MESSAGE value="Added confirm Bookings functionality to AdminView" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added confirm Bookings functionality to AdminView" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -880,7 +883,7 @@
     <entry file="file://$PROJECT_DIR$/src/LoginView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1345">
-          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -896,8 +899,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="169" column="73" selection-start-line="169" selection-start-column="73" selection-end-line="169" selection-end-column="73" />
+        <state relative-caret-position="328">
+          <caret line="306" column="1" lean-forward="true" selection-start-line="306" selection-start-column="1" selection-end-line="306" selection-end-column="1" />
           <folding>
             <element signature="e#6235#6236#0" expanded="true" />
             <element signature="e#6306#6307#0" expanded="true" />

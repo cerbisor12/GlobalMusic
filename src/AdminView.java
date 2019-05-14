@@ -199,8 +199,8 @@ public class AdminView {
             public void actionPerformed(ActionEvent e) {
                 scrollPaneViewEvent.setVisible(true);
                 scrollPaneConfirmBooking.setVisible(false);
-                btnConfirmAll.setVisible(true);
-                separatorConfirmAll.setVisible(true);
+                btnConfirmAll.setVisible(false);
+                separatorConfirmAll.setVisible(false);
             }
         });
         btnViewEventList.setBounds(27, 173, 190, 53);
@@ -228,6 +228,8 @@ public class AdminView {
             public void actionPerformed(ActionEvent arg0) {
                 scrollPaneViewEvent.setVisible(false);
                 scrollPaneConfirmBooking.setVisible(true);
+                btnConfirmAll.setVisible(true);
+                separatorConfirmAll.setVisible(true);
 
             }
         });
@@ -243,6 +245,8 @@ public class AdminView {
             public void actionPerformed(ActionEvent e) {
                 scrollPaneViewEvent.setVisible(false);
                 scrollPaneConfirmBooking.setVisible(false);
+                btnConfirmAll.setVisible(false);
+                separatorConfirmAll.setVisible(false);
             }
         });
         btnGenerateInvoice.setBounds(27, 332, 190, 53);
