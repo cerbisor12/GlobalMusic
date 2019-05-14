@@ -371,7 +371,7 @@ public class EventOrganizerView {
 	        	}
 	        });
 	        btnUploadButton.setBorderPainted(false);
-	        btnUploadButton.setIcon(new ImageIcon(Main.IMAGE_DIR+"UploadButton.jpg"));
+	        btnUploadButton.setIcon(new ImageIcon(Main.IMAGE_DIR+"UploadButton.jpg"));//right dir
 	        btnUploadButton.setBounds(987, 312, 159, 23);
 	        btnUploadButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	        frame.getContentPane().add(btnUploadButton);
