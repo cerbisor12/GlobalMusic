@@ -357,10 +357,11 @@ public class EventOrganizerView {
 							imageName = file.getName();
 							lblImageName.setText(imageName);
 
-							Files.copy(file.toPath(),Paths.get(System.getProperty("user.dir")+"/src/"+Main.EVENT_IMAGE_DIR+file.getName()),
+							Files.copy(file.toPath(),Paths.get(System.getProperty("user.dir")+"/src/"+Main.EVENT_IMAGE_DIR+imageName),
 									StandardCopyOption.REPLACE_EXISTING,
 									StandardCopyOption.COPY_ATTRIBUTES,
 									LinkOption.NOFOLLOW_LINKS );
+							System.out.println("From: " + file.toPath()+ " To: " +Paths.get(System.getProperty("user.dir")+"/src/"+Main.EVENT_IMAGE_DIR+imageName));
 						}else {
                             if(lblImageName.getText().equals("")){
                                 lblImageName.setText("No file selected!");}
@@ -546,11 +547,10 @@ public class EventOrganizerView {
 							String query = "INSERT INTO tbl_event_band VALUES(" + EventID + "," + Band.getPerfID(addedPerfList.getModel().getElementAt(i).toString().replace("'", "''")) + ");";
 							try {
 								Connect.updateData(query);
-								JOptionPane.showMessageDialog(null,"Event Added successfully");
 							} catch (SQLException | ClassNotFoundException e) {
 								e.printStackTrace();
 							}
-						}
+						}JOptionPane.showMessageDialog(null,"Event Added successfully");
 					}
 				}
 	        });
