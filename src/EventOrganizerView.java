@@ -431,8 +431,7 @@ lblImageName.setText("No file selected!");}
 					if (addedPerformersModel.contains(addedBand))
 						JOptionPane.showMessageDialog(null, "Band already added.");
 					else{
-						addedPerformersModel.addElement(addedBand);
-						allPerformersModel.removeElement(addedBand);}
+						addedPerformersModel.addElement(addedBand); }
 				}
 			});
 	        addPerformerToEvent.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -451,7 +450,6 @@ lblImageName.setText("No file selected!");}
             removePerformerFromEvent.addActionListener(e -> {
 				if(!addedPerfList.isSelectionEmpty()) {
 					String addedBand = (String) addedPerfList.getSelectedValue();
-					allPerformersModel.addElement(addedBand);
 					addedPerformersModel.removeElement(addedBand);
 				}
 			});

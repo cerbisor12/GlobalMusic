@@ -242,7 +242,9 @@ if(selected.toString().equals("-Add new Agent-"))
 					performersModel.addElement(band.getAllBands().get(i));
 					EventOrganizerView.allPerformersList.setModel(performersModel);
 				}
+				frame.dispose();
 				JOptionPane.showMessageDialog(null,"Band added.");
+
 			}
 		});
 		addButton.setBounds(236, 204, 98, 25);

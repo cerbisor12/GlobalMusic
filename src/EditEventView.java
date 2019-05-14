@@ -381,8 +381,7 @@ public class EditEventView {
                 if (addedPerformersModel.contains(addedBand))
                     JOptionPane.showMessageDialog(null, "Band already added.");
                 else{
-                    addedPerformersModel.addElement(addedBand);
-                    allPerformersModel.removeElement(addedBand);}
+                    addedPerformersModel.addElement(addedBand); }
             }
         });
         addPerformerToEvent.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -402,7 +401,6 @@ public class EditEventView {
         removePerformerFromEvent.addActionListener(e -> {
             if(!addedPerfList.isSelectionEmpty()){
                 String addedBand = (String) addedPerfList.getSelectedValue();
-                allPerformersModel.addElement(addedBand);
                 addedPerformersModel.removeElement(addedBand);}
         });
         removePerformerFromEvent.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -506,7 +504,7 @@ public class EditEventView {
          * Combobox listener for populating the fields with the selected event's details by creating an arrayList and extracting values one by one.
          */
         comboBoxEventName.addActionListener(e -> {
-            int eventID = event.getEventId(comboBoxEventName.getSelectedItem().toString());
+            int eventID = event.getEventId(comboBoxEventName.getSelectedItem().toString().replace("'","''"));
             ArrayList<String> details = event.eventDetailsList(eventID);
             textFieldPrice.setText(details.get(2));
             comboBoxVenue.setSelectedItem(details.get(3));
@@ -541,27 +539,28 @@ public class EditEventView {
          */
         btnSaveButton.addActionListener(arg0 -> {
             if (checkEmptyFields()) {
-                int eventId = event.getEventId(comboBoxEventName.getSelectedItem().toString());
+
                 String eventName = comboBoxEventName.getSelectedItem().toString().replace("'", "''");
+                int eventId = event.getEventId(eventName);
                 float price = Float.parseFloat(textFieldPrice.getText());
                 int venueID = Venue.getVenueId(comboBoxVenue.getSelectedItem().toString());
                 String date = datePicker.getDate().toString();
                 String image = lblImgName.getText();
                 int duration = Integer.parseInt(textFieldDuration.getText());
                 event.updateEventDetails(eventId, eventName, price, venueID, date, image, duration);
+                try{
                 for (int i = 0; i < addedPerfList.getModel().getSize(); i++) {
                     String performerName = addedPerfList.getModel().getElementAt(i).toString().replace("'", "''");
                     int bandID = band.getPerfID(performerName);
                     String query = "DELETE FROM tbl_event_band WHERE EventID = " + eventId + "; " +
                             "INSERT IGNORE INTO tbl_event_band VALUES(" + eventId + "," + bandID + ");";
-                    try {
-                        Connect.updateData(query);
+                        Connect.updateData(query);}
                     } catch (SQLException | ClassNotFoundException e) {
                         e.printStackTrace();
                     }
                 }
                 JOptionPane.showMessageDialog(null, "Update successful!");
-            }
+
         });
 
         /**

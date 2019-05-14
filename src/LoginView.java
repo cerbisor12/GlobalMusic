@@ -88,8 +88,8 @@ public class LoginView {
             User user = new User();
             User.username = usernameField.getText().replace("'", "''");
             String password = (new String(passwordField.getPassword()));
-            String type = user.getData(User.username, "Type");
             if (user.loginCheck(User.username,password)) {
+                String type = user.getData(User.username, "Type");
                 if (type.equalsIgnoreCase("Customer") ||
                         type.equalsIgnoreCase("organization"))
                 {

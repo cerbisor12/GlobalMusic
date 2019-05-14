@@ -342,7 +342,7 @@ public class NewBookingView {
 
                 String paymentMethod =user.getData(User.username, "PaymentMethod");
                 String CardNo =user.getData(User.username,"CardNo");
-                String CVV = user.getData(User.username,"CVV");
+                String CVV = user.getData(User.username,"CVVCode");
                 if (paymentMethod.equalsIgnoreCase("On Booking")) {
                     msg += "Card No: " + CardNo +
                             " Card CVV: " + CVV;
