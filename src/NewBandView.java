@@ -235,7 +235,7 @@ if(selected.toString().equals("-Add new Agent-"))
 				JOptionPane.showMessageDialog(null,"No Image Selected!");
 			}
 			else {
-				int agentID = agent.getAgentId(agentComboBox.getSelectedItem().toString());
+				int agentID = agent.getAgentId(agentComboBox.getSelectedItem().toString().replace("'", "''"));
 				Band band =new Band(nameTxtField.getText().replace("'", "''"),genreTxtField.getText().replace("'", "''"),linkTxtField.getText().replace("'", "''"),imageName,agentID);
 				DefaultListModel performersModel = new DefaultListModel();
 				for(int i = 0; i < band.getAllBands().size(); i++) {

@@ -506,7 +506,7 @@ lblImageName.setText("No file selected!");}
 				if (checkEmptyFields()) {
 					LocalDate eventDate = datePicker.getDate();
 					new Event(textEventName.getText().replace("'", "''"), Float.parseFloat(textFieldPrice.getText()), user.getUserId(User.username),
-							Venue.getVenueId(venueComboBox.getSelectedItem().toString()), eventDate.toString(), imageName, Integer.parseInt(textDuration.getText()));
+							Venue.getVenueId(venueComboBox.getSelectedItem().toString().replace("'", "''")), eventDate.toString(), imageName, Integer.parseInt(textDuration.getText()));
 					int EventID = event.getEventId(textEventName.getText().replace("'", "''"));
 					for (int i = 0; i < addedPerfList.getModel().getSize(); i++) {
 						String query = "INSERT INTO tbl_event_band VALUES(" + EventID + "," + band.getPerfID(addedPerfList.getModel().getElementAt(i).toString().replace("'", "''")) + ");";

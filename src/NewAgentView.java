@@ -38,6 +38,7 @@ public class NewAgentView {
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.entryPoint
 	 */
 	public NewAgentView() {
 		initialize();
@@ -57,7 +58,7 @@ public class NewAgentView {
 		JLabel windowTitleLabel = new JLabel("Agent details");
 		windowTitleLabel.setFont(new Font("Open Sans", Font.PLAIN, 16));
 		windowTitleLabel.setForeground(SystemColor.inactiveCaption);
-		windowTitleLabel.setBounds(12, 13, 92, 20);
+		windowTitleLabel.setBounds(12, 13, 125, 20);
 		frame.getContentPane().add(windowTitleLabel);
 		
 		JLabel nameLabel = new JLabel("Name*");

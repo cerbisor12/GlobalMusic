@@ -379,7 +379,7 @@ System.exit(0);
             public void focusGained(FocusEvent e) {}
             public void focusLost(FocusEvent e) {
                 User user = new User();
-                User.username = usernameField.getText();
+                User.username = usernameField.getText().replace("'", "");
                 if (user.checkFieldInDB("Username",User.username)) {
                     lblUsernameAlreadyExists.setVisible(true);
                     usernameField.setText("");

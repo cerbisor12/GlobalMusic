@@ -328,7 +328,7 @@ public class NewBookingView {
                 String bookingNo = User.username + new Timestamp(System.currentTimeMillis()).getTime();
                 float price = Float.parseFloat(lblAmount.getText());
                 int customerID = user.getUserId(User.username);
-                int eventID = new Event().getEventId(lblName.getText());
+                int eventID = new Event().getEventId(lblName.getText().replace("'", "''"));
 
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 String date = format.format(new Date());

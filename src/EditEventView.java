@@ -543,18 +543,20 @@ public class EditEventView {
                 String eventName = comboBoxEventName.getSelectedItem().toString().replace("'", "''");
                 int eventId = event.getEventId(eventName);
                 float price = Float.parseFloat(textFieldPrice.getText());
-                int venueID = Venue.getVenueId(comboBoxVenue.getSelectedItem().toString());
+                int venueID = Venue.getVenueId(comboBoxVenue.getSelectedItem().toString().replace("'", "''"));
                 String date = datePicker.getDate().toString();
                 String image = lblImgName.getText();
                 int duration = Integer.parseInt(textFieldDuration.getText());
                 event.updateEventDetails(eventId, eventName, price, venueID, date, image, duration);
                 try{
+                	String query = "DELETE FROM tbl_event_band WHERE EventID = " + eventId + "; " ;
+                	Connect.updateData(query);
                 for (int i = 0; i < addedPerfList.getModel().getSize(); i++) {
                     String performerName = addedPerfList.getModel().getElementAt(i).toString().replace("'", "''");
                     int bandID = band.getPerfID(performerName);
-                    String query = "DELETE FROM tbl_event_band WHERE EventID = " + eventId + "; " +
-                            "INSERT IGNORE INTO tbl_event_band VALUES(" + eventId + "," + bandID + ");";
-                        Connect.updateData(query);}
+                    
+                    String query2 = "INSERT IGNORE INTO tbl_event_band VALUES(" + eventId + "," + bandID + ");";
+                    Connect.updateData(query2);}
                     } catch (SQLException | ClassNotFoundException e) {
                         e.printStackTrace();
                     }

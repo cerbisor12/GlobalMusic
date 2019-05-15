@@ -87,7 +87,7 @@ public class LoginView {
         btnLogin.addActionListener(e -> {
             User user = new User();
             User.username = usernameField.getText().replace("'", "''");
-            String password = (new String(passwordField.getPassword()));
+            String password = (new String(passwordField.getPassword()).replace("'", "''"));
             if (user.loginCheck(User.username,password)) {
                 String type = user.getData(User.username, "Type");
                 if (type.equalsIgnoreCase("Customer") ||

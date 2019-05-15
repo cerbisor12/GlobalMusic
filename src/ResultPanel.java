@@ -23,6 +23,7 @@ import java.util.List;
 public class ResultPanel extends JPanel{
     /**
      * This constructs the result panel.
+     * @wbp.parser.constructor
      */
     public ResultPanel(boolean showFutureEvents){
     	//////////////////////////////////////
@@ -171,11 +172,11 @@ public class ResultPanel extends JPanel{
 
             JLabel nameLabel = new JLabel(eventDetails.get(1));
             nameLabel.setFont(new Font("Open Sans", Font.BOLD, 20));
-            nameLabel.setBounds(174, 13, 200, 23);
+            nameLabel.setBounds(174, 13, 300, 23);
             panel.add(nameLabel);
 
 
-            StringBuilder artists = new StringBuilder("Performing live: ");
+            StringBuilder artists = new StringBuilder("Performing: ");
             int artistAmount = eventDetails.size();
 
             for (int b = 7; b<artistAmount;b++){
@@ -183,7 +184,7 @@ public class ResultPanel extends JPanel{
             }
             JLabel bandsLabel = new JLabel(artists.toString());
             bandsLabel.setFont(new Font("Open Sans", Font.PLAIN, 12));
-            bandsLabel.setBounds(185, 75, 345, 41);
+            bandsLabel.setBounds(185, 75, 450, 41);
             bandsLabel.setToolTipText("Click \"Book Tickets\" for more details...");
             panel.add(bandsLabel);
 
@@ -222,7 +223,7 @@ public class ResultPanel extends JPanel{
 
             JTextArea venueLabel = new JTextArea(results.get(i).get(4) + "\nAddress: " + results.get(i).get(4));
             venueLabel.setFont(new Font("Open Sans", Font.PLAIN, 12));
-            venueLabel.setBounds(350, 25, 229, 30);
+            venueLabel.setBounds(350, 40, 229, 30);
             venueLabel.setEditable(false);
             panel.add(venueLabel);
 
