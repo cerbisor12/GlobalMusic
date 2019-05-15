@@ -1,5 +1,6 @@
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -77,5 +78,27 @@ public class Booking {
         return customerInfo;
 
     }
+     public List<List<String>> getBookingsperMonth(String username){
+        List<List<String>> bookings = new ArrayList<>();
+        int month = LocalDate.now().getMonthValue();
+        String query = "SELECT B.NoOfSeats, B.BookingNo, E.Name, B.TotalPrice FROM tbl_booking B, tbl_event E, tbl_user U" +
+                " WHERE U.username = '" +username + "' AND U.UserID = B.CustomerID AND E.EventID = B.EventID " +
+                " AND B.Paid = 0 AND MONTH(B.DateOFBooking) = "+month;
+        try{
+            ResultSet rs = Connect.selectStm(query);
+            while(rs.next()){
+                String tickets = String.valueOf(rs.getInt(1));
+                String bookingNo = rs.getString(2);
+                String event = rs.getString(3);
+                String total = String.valueOf(rs.getFloat(4));
+
+                List<String> booking = Arrays.asList(tickets,bookingNo,event,total);
+                bookings.add(booking);
+            }
+        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+
+        return bookings;
+     }
+
 
 }

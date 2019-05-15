@@ -179,8 +179,8 @@ public class User {
      * This method returns a list of all the users that are registered from the database.
      * @return finalUsers list
      */
-    public String[] getAllUsernames() {
-        String query = "SELECT Username FROM tbl_user;";
+    public String[] getAllUsernames(String typeFilter) {
+        String query = "SELECT Username FROM tbl_user WHERE Type = '"+ typeFilter +"';";
         ArrayList<String> users = new ArrayList<>();
         try {
             ResultSet results = Connect.selectStm(query);
@@ -263,6 +263,7 @@ public class User {
 	    		details.add(rs.getString("OrgEmail"));
 	    		details.add(rs.getString("PaymentMethod"));
 	    		details.add(rs.getString("WebAddress"));
+	    		details.add(String.valueOf(rs.getInt("UserID")));
 	    		
 	    	}
 		} catch (ClassNotFoundException | NullPointerException | SQLException e) {

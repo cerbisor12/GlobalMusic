@@ -327,18 +327,21 @@ public class EventOrganizerView {
 	         */
 	        btnUploadButton.addActionListener(arg0 -> {
 				JFileChooser fileChooser = new JFileChooser();
-				fileChooser.setFileFilter(new FileNameExtensionFilter("Images","jpg","png","jpeg"));
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("Images","jpg","png","jpeg");
+				fileChooser.setFileFilter(filter);
 
 				try {
 					if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
 						File file = fileChooser.getSelectedFile();
+						if(filter.accept(file)){
 						imageName = file.getName();
 						lblImageName.setText(imageName);
 
 						Files.copy(file.toPath(),Paths.get(System.getProperty("user.dir")+"/"+Main.EVENT_IMAGE_DIR+file.getName()),
 								StandardCopyOption.REPLACE_EXISTING,
 								StandardCopyOption.COPY_ATTRIBUTES,
-								LinkOption.NOFOLLOW_LINKS );
+								LinkOption.NOFOLLOW_LINKS );}
+						else{JOptionPane.showMessageDialog(null,"Invalid file type");}
 					}else {
 if(lblImageName.getText().equals("")){
 lblImageName.setText("No file selected!");}

@@ -13,7 +13,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.nio.file.Files;
+import java.nio.file.LinkOption;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
@@ -184,20 +186,24 @@ if(selected.toString().equals("-Add new Agent-"))
 		 */
 		uploadButton.addActionListener(arg0 -> {
 			JFileChooser fileChooser = new JFileChooser();
-			fileChooser.setFileFilter(new FileNameExtensionFilter("Images","jpg","png","jpeg"));
+			FileNameExtensionFilter filter = new FileNameExtensionFilter("Images","jpg","png","jpeg");
+			fileChooser.setFileFilter(filter);
 
 			try {
 				if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
 					File file = fileChooser.getSelectedFile();
-					imageName = file.getName();
-					lblImageName.setText(imageName);
+					if(filter.accept(file)){
+						imageName = file.getName();
+						lblImageName.setText(imageName);
 
-					Files.copy(file.toPath(), Paths.get(System.getProperty("user.dir")+"/"+Main.ARTIST_IMAGE_DIR+file.getName()),
-							java.nio.file.StandardCopyOption.REPLACE_EXISTING,
-							java.nio.file.StandardCopyOption.COPY_ATTRIBUTES,
-							java.nio.file.LinkOption.NOFOLLOW_LINKS );
+						Files.copy(file.toPath(),Paths.get(System.getProperty("user.dir")+"/"+Main.EVENT_IMAGE_DIR+file.getName()),
+								StandardCopyOption.REPLACE_EXISTING,
+								StandardCopyOption.COPY_ATTRIBUTES,
+								LinkOption.NOFOLLOW_LINKS );}
+					else{JOptionPane.showMessageDialog(null,"Invalid file type");}
 				}else {
-					imageName = "No file selected!";
+					if(lblImageName.getText().equals("")){
+						lblImageName.setText("No file selected!");}
 				}
 			}catch(Exception e1) {
 				e1.printStackTrace();

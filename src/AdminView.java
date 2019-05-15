@@ -1,21 +1,10 @@
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.SystemColor;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JSeparator;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
+import java.util.List;
+import javax.swing.*;
 
 /**
  * Class for creating the frame for the admin's window.
@@ -26,6 +15,7 @@ public class AdminView {
 
 	private JFrame frame;
     private JTable tableConfirmBooking;
+    private JPanel genInvPanel;
 
 
     /**
@@ -132,7 +122,7 @@ public class AdminView {
         /**
          * Combobox populated with all users names for selection.
          */
-        JComboBox comboBoxUsername = new JComboBox(user.getAllUsernames());
+        JComboBox comboBoxUsername = new JComboBox(user.getAllUsernames("customer' OR Type = 'organization"));
         comboBoxUsername.addActionListener(e -> {
             User.username = comboBoxUsername.getSelectedItem().toString();
             new PopUp();
@@ -189,6 +179,7 @@ public class AdminView {
             scrollPaneConfirmBooking.setVisible(false);
             btnConfirmAll.setVisible(false);
             separatorConfirmAll.setVisible(false);
+            genInvPanel.setVisible(false);
         });
         btnViewEventList.setBounds(27, 173, 190, 53);
         btnViewEventList.setForeground(SystemColor.inactiveCaption);
@@ -200,26 +191,91 @@ public class AdminView {
         frame.getContentPane().add(btnViewEventList);
 
 
-        JButton btnConfirmBooking = new JButton("Confirm Booking");
-        btnConfirmBooking.setBounds(27, 253, 190, 53);
-        btnConfirmBooking.setForeground(SystemColor.inactiveCaption);
-        btnConfirmBooking.setFont(new Font("Open Sans", Font.PLAIN, 20));
-        btnConfirmBooking.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        btnConfirmBooking.setOpaque(false);
-        btnConfirmBooking.setBorderPainted(false);
-        btnConfirmBooking.setContentAreaFilled(false);
+        JButton confirmBooking = new JButton("Confirm Booking");
+        confirmBooking.setBounds(27, 253, 190, 53);
+        confirmBooking.setForeground(SystemColor.inactiveCaption);
+        confirmBooking.setFont(new Font("Open Sans", Font.PLAIN, 20));
+        confirmBooking.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        confirmBooking.setOpaque(false);
+        confirmBooking.setBorderPainted(false);
+        confirmBooking.setContentAreaFilled(false);
         /**
          * Listener for setting the confirm booking panel visible.
          */
-        btnConfirmBooking.addActionListener(arg0 -> {
+        confirmBooking.addActionListener(arg0 -> {
             scrollPaneViewEvent.setVisible(false);
             scrollPaneConfirmBooking.setVisible(true);
             btnConfirmAll.setVisible(true);
             separatorConfirmAll.setVisible(true);
+            genInvPanel.setVisible(false);
         });
-        frame.getContentPane().add(btnConfirmBooking);
-        btnConfirmBooking.setVisible(true);
+        frame.getContentPane().add(confirmBooking);
+        confirmBooking.setVisible(true);
 
+
+
+        genInvPanel = new JPanel();
+        genInvPanel.setOpaque(false);
+        genInvPanel.setLayout(null);
+        genInvPanel.setBounds(300,100,900,500);
+        genInvPanel.setVisible(false);
+        frame.add(genInvPanel);
+
+        JScrollPane scrollPane = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scrollPane.setBounds(0,0,900,400);
+        scrollPane.setPreferredSize(new Dimension(900,400));
+
+
+        CardLayout cardLayout = new CardLayout();
+        Container c = new Container();
+        c.setLayout(cardLayout);
+        c.setPreferredSize(new Dimension(800,700));
+        scrollPane.setViewportView(c);
+
+        JButton btnPrevious = new JButton("<");
+        btnPrevious.setBounds(700,400,50,50);
+        btnPrevious.addActionListener(arg0->{cardLayout.previous(c);});
+
+        JButton btnNext = new JButton(">");
+        btnNext.setBounds(850,400,50,50);
+        btnNext.addActionListener(arg0->{cardLayout.next(c);});
+
+        JButton saveAndSend = new JButton("Save and Send Invoices");
+        saveAndSend.setBounds(400,450,250,50);
+        saveAndSend.setForeground(SystemColor.inactiveCaption);
+        saveAndSend.setFont(new Font("Open Sans", Font.PLAIN, 20));
+        saveAndSend.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        saveAndSend.setOpaque(false);
+        saveAndSend.setBorderPainted(false);
+        saveAndSend.setContentAreaFilled(false);
+        saveAndSend.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (Component card : c.getComponents()) {
+                    if (card instanceof InvoicePanel) {
+                        ((InvoicePanel) card).saveInvoice();
+                        String fullname = ((InvoicePanel) card).getFullName();
+                        String email = ((InvoicePanel) card).getEmail();
+                        String imageName = ((InvoicePanel) card).getInvoiceFileName();
+                        new SendMail(null, fullname, email).sendMonthlyInvoice(imageName);
+                    }
+                }
+                JOptionPane.showMessageDialog(null, "Invoices sent successfully");
+            }
+        });
+        JLabel browseInvoices = new JLabel("Browse");
+        browseInvoices.setBounds(750,400,100,50);
+        browseInvoices.setForeground(SystemColor.inactiveCaption);
+        browseInvoices.setFont(new Font("Open Sans",Font.BOLD,22));
+        browseInvoices.setHorizontalAlignment(SwingConstants.CENTER);
+
+        genInvPanel.add(browseInvoices);
+        genInvPanel.add(btnPrevious);
+        genInvPanel.add(btnNext);
+        genInvPanel.add(scrollPane);
+        genInvPanel.add(saveAndSend);
+
+        frame.add(genInvPanel);
 
         JButton btnGenerateInvoice = new JButton("Generate Invoice");
         /**
@@ -238,7 +294,28 @@ public class AdminView {
         btnGenerateInvoice.setOpaque(false);
         btnGenerateInvoice.setBorderPainted(false);
         btnGenerateInvoice.setContentAreaFilled(false);
+        btnGenerateInvoice.addActionListener(arg0->{
+            scrollPaneConfirmBooking.setVisible(false);
+            btnConfirmAll.setVisible(false);
+            separatorConfirmAll.setVisible(false);
+            scrollPaneViewEvent.setVisible(false);
+            genInvPanel.setVisible(true);
+
+            String[] organizations = user.getAllUsernames("organization");
+            int counter = 0;
+            for(String username : organizations){
+                int ID = user.getUserId(username);
+                List<String> customerInfo = user.detailsList(username);
+                List<List<String>> bookings = new Booking().getBookingsperMonth(username);
+                if (bookings.size()>0){
+                c.add(username,new InvoicePanel(bookings,customerInfo,counter++));}
+                else c.add(new JLabel("No Pending Invoices"));
+
+            }
+        });
         frame.getContentPane().add(btnGenerateInvoice);
+
+
 
 
 

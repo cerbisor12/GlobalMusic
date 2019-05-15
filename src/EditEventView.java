@@ -301,17 +301,20 @@ public class EditEventView {
          */
         btnUploadButton.addActionListener(arg0 -> {
             JFileChooser fileChooser = new JFileChooser();
-            fileChooser.setFileFilter(new FileNameExtensionFilter("Images","jpg","png","jpeg"));
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Images","jpg","png","jpeg");
+            fileChooser.setFileFilter(filter);
 
             try {
                 if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
                     File file = fileChooser.getSelectedFile();
+                    if(filter.accept(file)){
                     lblImgName.setText(file.getName());
 
                     Files.copy(file.toPath(), Paths.get(System.getProperty("user.dir")+"/"+Main.EVENT_IMAGE_DIR+file.getName()),
                             java.nio.file.StandardCopyOption.REPLACE_EXISTING,
                             java.nio.file.StandardCopyOption.COPY_ATTRIBUTES,
-                            java.nio.file.LinkOption.NOFOLLOW_LINKS );
+                            java.nio.file.LinkOption.NOFOLLOW_LINKS );}
+                    else{JOptionPane.showMessageDialog(null,"Invalid File Type");}
                 }else {
                     if(lblImgName.getText().equals("")){
                         lblImgName.setText("No file selected!");}
@@ -576,7 +579,7 @@ public class EditEventView {
                 String email = cust.get(0).toString();
                 String title = cust.get(1).toString();
                 String lName = cust.get(2).toString();
-                new SendMail(title,lName).sendCancellationMail(email);
+                new SendMail(title,lName,email).sendCancellationMail();
             }
 
             booking.updateStatus(eventId,"cancelled");
