@@ -216,26 +216,7 @@ public class LoginView {
         minimizeButton.setBounds(1154, 20, 63, 38);
         frame.getContentPane().add(minimizeButton);
         
-        JLabel lblNewLabel = new JLabel("");
-        lblNewLabel.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mousePressed(MouseEvent e) {
-        		int x = e.getX();
-        		int y = e.getY();
-        	}
-        });
-        lblNewLabel.addMouseMotionListener(new MouseMotionAdapter() {
-        	@Override
-        	public void mouseDragged(MouseEvent e) {
-        		int x = e.getXOnScreen();
-        		int y = e.getYOnScreen();
-        		
-        		this.mouseDragged(e);
-        		
-        	}
-        });
-        lblNewLabel.setBounds(0, 0, 1297, 96);
-        frame.getContentPane().add(lblNewLabel);
+        
 
         
         JLabel lblLogo = new JLabel("");
