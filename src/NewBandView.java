@@ -204,7 +204,7 @@ if(selected.toString().equals("-Add new Agent-"))
 			}
 		});
 		uploadButton.setBorderPainted(false);
-        uploadButton.setIcon(new ImageIcon(Main.IMAGE_DIR+"Upload.jpg"));
+        uploadButton.setIcon(new ImageIcon(Main.IMAGE_DIR+"UploadButton.jpg"));
 		uploadButton.setBounds(245, 100, 159, 23);
 		uploadButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		frame.getContentPane().add(uploadButton);
