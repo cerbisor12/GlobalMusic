@@ -3,14 +3,15 @@ import java.awt.SystemColor;
 import javax.swing.*;
 
 /**
- * Class for viewing existing bookings.
+ * JPanel that includes a scrolled table for viewing bookings
+ *
  *
  */
 public class BookingsHistoryView extends JPanel {
 
-
-	JTable table;
-    /*
+    BookingsTableController controller;
+    JTable table;
+    /**
 	 * Create the window
 	 */
 	public BookingsHistoryView() {
@@ -24,7 +25,8 @@ public class BookingsHistoryView extends JPanel {
         this.add(scrollPane);
 
         table = new JTable();
-        //new BookingsTableController(table);
+        //Set the data and edit the table
+        controller =new BookingsTableController(table);
         table.setBackground(SystemColor.inactiveCaption);
         scrollPane.setViewportView(table);
 
@@ -36,4 +38,16 @@ public class BookingsHistoryView extends JPanel {
 
           
 	}
+
+    /**
+     * Used for updating the data after change(e.g new booking added)
+     */
+	public void refreshTableData(){
+	    new BookingsTableController(table);
+    }
+
+    /**
+     * Used for updating the status(pending to confirmed..) of the bookings
+     */
+    public void updateStatus(){controller.updateStatus();}
 }

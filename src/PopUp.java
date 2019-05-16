@@ -32,12 +32,16 @@ public class PopUp extends JFrame {
         setUndecorated(true);
         MyAccountView panel = new MyAccountView();
         panel.setBounds(0, 0, 0, 0);
+
+        //Alter the MyAccountView to show cancel button and dispose frame on save
         panel.saveButton.addActionListener(e -> dispose());
         panel.cancelButton.setVisible(true);
         panel.cancelBtnSeparator.setVisible(true);
         panel.cancelButton.addActionListener(e -> dispose());
         getContentPane().add(panel);
         setVisible(true);
+
+        //Exit the application
         JButton btnExitButton = new JButton("X");
         btnExitButton.addActionListener(e -> {
             int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
@@ -54,7 +58,7 @@ public class PopUp extends JFrame {
         btnExitButton.setContentAreaFilled(false);
         this.getContentPane().add(btnExitButton);
         
-        
+        //Minimize the application
         JButton minimizeButton = new JButton("___");
         minimizeButton.addActionListener(arg0 -> {
         });

@@ -4,25 +4,26 @@ import javax.activation.FileDataSource;
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.activation.DataSource;
-import javax.swing.*;
+
 
 /**
- * This class handles the canceled events, by sending email messages 
- * to all the users that have bought tickets. 
+ * Class for sending emails using the gmail server
+ *
  */
 
 class SendMail {
 
-
-
+    //Account created for the needs of the project
     private final static String FROM = "GlobalMusicAdm1n@gmail.com";
     private final static String PASSWORD = "b1c1a1a4c1b3c2!";
 
     private String title;
     private String lastName;
     private String email;
+
+
     /**
-     * This constructs the details of the user that will receive the canceling email.
+     * Set the details of the user that will receive the email.
      * @param title the title of the user
      * @param lastName the last name of the user
      * @param email the email of the user
@@ -36,7 +37,7 @@ class SendMail {
     
     
     /**
-     * This method send's the canceling of the event email.
+     * Send an email to the customer to inform him of cancelled bookings
      *
      */
     public void sendCancellationMail(){
@@ -77,6 +78,10 @@ class SendMail {
 
     }
 
+    /**
+     * Send an email to the corporate customer with his monthly invoice attached
+     * @param invName String - the invoice file name
+     */
     public void sendMonthlyInvoice(String invName){
         //Get properties object
         Properties props = new Properties();
@@ -96,12 +101,15 @@ class SendMail {
                     }
                 });
         //compose message
+
+        //Subject and Main body
         String monthlyInvSub = "Your monthly invoice is ready";
         String monthlyInvMsg = "Dear "+ lastName+ ", \n"+
         "Please find attached your monthly Invoice from Global Music regarding the bookings you made "+
                 "during last month on behalf of your company. \n\n" +
                 "Payment details are included on the invoice, kindly proceed with payment as soon as possible." +
                 "\n\nBest Regards, \nThe Global Music Admin Team";
+
         try {
             MimeMessage message = new MimeMessage(session);
             message.addRecipient(Message.RecipientType.TO,new InternetAddress(email));
@@ -110,27 +118,30 @@ class SendMail {
             BodyPart msgBodyPart = new MimeBodyPart();
             msgBodyPart.setText(monthlyInvMsg);
 
+            //create a Mutipart object to include both the main body and the attachment
             Multipart multipart = new MimeMultipart();
+
+            //add main body to multipart
             multipart.addBodyPart(msgBodyPart);
 
+            //create the attachment
             msgBodyPart = new MimeBodyPart();
             String filename = Main.INVOICES_DIR + invName;
             DataSource source = new FileDataSource(filename);
             msgBodyPart.setDataHandler(new DataHandler(source));
             msgBodyPart.setFileName(invName);
+
+            //add attachment to the multipart
             multipart.addBodyPart(msgBodyPart);
 
+            //set message
             message.setContent(multipart);
-            //sendCancellationMail message
+
+            //send email
             Transport.send(message);
 
         } catch (MessagingException e) {throw new RuntimeException(e);}
 
     }
 
-    public static void main(String[] args) {
-        //FROM,PASSWORD,to,subject,message
-        new SendMail("Mrs","Krezia","aran0ia90@gmail.com").sendMonthlyInvoice("Inv_1.jpg");
-        //change FROM, PASSWORD and to
-    }
 }

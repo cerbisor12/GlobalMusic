@@ -13,7 +13,7 @@ import java.util.Date;
 import javax.swing.*;
 
 /**
- *This class is for users to book concert tickets.  
+ *Class that creates a frame for the user to make a new booking
  *
  */
 
@@ -36,7 +36,7 @@ public class NewBookingView {
 
 
     /**
-     * Create the application.
+     * Create the frame
      */
     public NewBookingView() {
         initialize();
@@ -56,8 +56,10 @@ public class NewBookingView {
         frame.getContentPane().setLayout(null);
         frame.setUndecorated(true);
 
+        //User object for getting/altering data
         User user = new User();
 
+        //Disposes the frame
         JButton btnExitButton = new JButton("X");
         btnExitButton.addActionListener(e -> {
             int reply = JOptionPane.showConfirmDialog(null, "Cancel changes?","Back to Search" ,JOptionPane.YES_NO_OPTION);
@@ -74,7 +76,7 @@ public class NewBookingView {
         btnExitButton.setContentAreaFilled(false);
         frame.getContentPane().add(btnExitButton);
 
-
+        //Minimizes the frame
         JButton minimizeButton = new JButton("___");
         minimizeButton.setForeground(SystemColor.inactiveCaption);
         minimizeButton.addMouseListener(new MouseAdapter() {
@@ -132,7 +134,7 @@ public class NewBookingView {
         txtVenue.setForeground(SystemColor.inactiveCaption);
         txtVenue.setFont(new Font("Open Sans", Font.BOLD, 14));
         txtVenue.setLineWrap(true);
-        txtVenue.setText("Venue      Address      ");
+        txtVenue.setText("Venue+Address");
         txtVenue.setBounds(46, 494, 200, 40);
         frame.getContentPane().add(txtVenue);
 
@@ -205,10 +207,10 @@ public class NewBookingView {
         JComboBox<Integer> comboBoxCorporatePrice = new JComboBox<>(intList);
         comboBoxCorporatePrice.setBackground(SystemColor.activeCaption);
         comboBoxCorporatePrice.setBounds(773, 495, 84, 20);
-        //frame.getContentPane().add(comboBoxCorporatePrice);
 
-        /**
-         * This method takes the values from the comboboxes and updates the number of tickets and total price.
+        /*
+        ActionListener for number of tickets comboboxes, calculates the totals
+        Also checks if there are enough available tickets
          */
         ActionListener updateTotal = e -> {
             int fullPriceTickets = (int) comboBoxFullPrice.getSelectedItem();
@@ -235,6 +237,7 @@ public class NewBookingView {
             }
         };
 
+        //add action listener to all comboboxes
         comboBoxCorporatePrice.addActionListener(updateTotal);
         comboBoxFullPrice.addActionListener(updateTotal);
         comboBoxStudentPrice.addActionListener(updateTotal);
@@ -253,6 +256,7 @@ public class NewBookingView {
         //frame.getContentPane().add(lblCorpPriceValue);
         String type = new User().getData(User.username,"Type");
 
+        //give the corporate price option only to corporate representives
         if (type.equalsIgnoreCase("organization")) {
             frame.getContentPane().add(lblCorpPriceValue);
             frame.getContentPane().add(lblCorporateTicketPrice);
@@ -293,6 +297,10 @@ public class NewBookingView {
         frame.getContentPane().add(lblNotEnoughTickets);
 
 
+        /*
+        Show a pop up dialog with the booking summary and the user's payment details
+        and ask for confirmation of booking. On confirmation, add booking to the database
+         */
         btnProceedToBooking = new JButton("Proceed To Booking");
         btnProceedToBooking.setBounds(715, 615, 250, 23);
         btnProceedToBooking.setForeground(SystemColor.inactiveCaption);
@@ -303,12 +311,6 @@ public class NewBookingView {
         btnProceedToBooking.setContentAreaFilled(false);
         btnProceedToBooking.setEnabled(false);
         btnProceedToBooking.addActionListener(new ActionListener() {
-        	/**
-        	 * This method checks if the payment is made on booking or
-        	 * on a monthly invoice in case the user is corporate,
-        	 * it gives a pop up window with the booking details to 
-        	 * double check if the user had done the booking correctly.
-        	 */
             @Override
             public void actionPerformed(ActionEvent e) {
                 String bookingNo = User.username + new Timestamp(System.currentTimeMillis()).getTime();
@@ -350,7 +352,7 @@ public class NewBookingView {
         });
         frame.getContentPane().add(btnProceedToBooking);
 
-
+        //Dispose frame
         JButton btnCancel = new JButton("Cancel");
         btnCancel.addActionListener(e -> frame.setVisible(false));
         btnCancel.setOpaque(false);

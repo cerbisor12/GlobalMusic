@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Class for creating Agent object.
- *
+ *Provides methods for retrieving/updating data from the database agent table
  */
 public class Agent {
 	
@@ -28,22 +28,23 @@ public class Agent {
 		if (email == null){
 			email1 = "";}
 
+		//Insert data to database
 		String query = "INSERT INTO tbl_agent(AgentID,Name,PhoneNo,Email)" + 
 				"VALUES(DEFAULT,'" + this.name + "','" + phoneNo1 + "','" + email1 + "');";
 		try {
             Connect.updateData(query);
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());
-        }
+            e.printStackTrace(); }
 	}
-	
+
+	/**
+	 * General Constructor for using methods to get/change data from the database
+	 */
 	public Agent() {
 	}	
 	
 	/**
-	 * Static method for retrieving all agents.
+	 * Method for retrieving all agents.
 	 * @return Returns an arrayList filled with strings representing the names of all agents existing in the database.
 	 */
 	public ArrayList<String> getAgentsList() {
@@ -57,15 +58,14 @@ public class Agent {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());
         }
         return agentsList;
 	}
 
 
 	/**
-	 * Static method for getting an agent's Id based on its name.
+	 * Method for getting an agent's Id based on its name.
+	 * Assumes that Agent name is unique, else gets the first AgentID
 	 * @param name Name of Agent
 	 * @return Returns an integer matching agent's ID.
 	 */
@@ -78,8 +78,6 @@ public class Agent {
             ID = Integer.parseInt(rs.getString("AgentID"));
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException f) {
-            System.out.println(f.getMessage());
         }
         return ID;
 	}

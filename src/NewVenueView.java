@@ -1,11 +1,8 @@
 
 import java.awt.Cursor;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.SystemColor;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
@@ -14,8 +11,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
 /**
- * This class is for adding venues by the concert organizer.
- *
+ * Class that creates a frame for adding a new venue
  */
 public class NewVenueView {
 
@@ -25,7 +21,7 @@ public class NewVenueView {
 	private JTextField capacityTxtField;
 
 	/**
-	 * Create the application.
+	 * Create the frame
 	 */
 	public NewVenueView() {
 		initialize();
@@ -108,9 +104,7 @@ public class NewVenueView {
 		numberFormatLabel.setVisible(false);
 		frame.getContentPane().add(numberFormatLabel);
 		
-		/**
-		 * This method checks if the value of the capacity is an integer.
-		 */
+		//check if entered value is an integer
 		capacityTxtField = new JTextField();
 		capacityTxtField.addFocusListener(new FocusAdapter() {
 			@Override
@@ -132,7 +126,7 @@ public class NewVenueView {
 		
 		
 		JButton addButton = new JButton("Add venue");
-		/**
+		/*
 		 * This listener checks if all the fields with the venue details are complete and after that writes the new Venue into the database.
 		 * Also will include the new Venue in the eventOrganizerView "venueCombobox" by adding the new venue to its default model.
 		 */
@@ -146,8 +140,8 @@ public class NewVenueView {
             JOptionPane.showMessageDialog(null, "Venue added.");
             DefaultComboBoxModel model = new DefaultComboBoxModel(Venue.getVenueList().toArray());
             model.insertElementAt("-Add Venue-",0);
-            EventOrganizerView.venueComboBox.setModel(model);
-            EventOrganizerView.venueComboBox.setSelectedIndex(model.getSize()-1);
+            OrganizerAddEventView.venueComboBox.setModel(model);
+            OrganizerAddEventView.venueComboBox.setSelectedIndex(model.getSize()-1);
             frame.dispose();
             }
         });

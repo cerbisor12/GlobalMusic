@@ -8,8 +8,14 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Child Class of JPanel, takes customer details and bookings as data and creates an invoice
+ * Provides methods for saving a screenshot of the panel as an image
+ */
+
 public class InvoicePanel extends JPanel {
 
+    //font styles
     final Font LABEL_FONT = new Font("Calibri", Font.BOLD, 14);
     final Font VALUE_FONT = new Font("Calibri", Font.PLAIN, 14);
 
@@ -17,32 +23,48 @@ public class InvoicePanel extends JPanel {
     private int invoiceID, customerID;
     private String email, imageName;
 
+    /**
+     * Class' constructor, creates the panel and sets data
+     * @param bookings multidimensional array, including all monthly bookings of one customer
+     * @param customerDetails array including all customer's details
+     * @param counter used for controlling the invoice number
+     */
     public InvoicePanel(List<List<String>> bookings, List<String> customerDetails,int counter) {
-        initialize();
-        double amount = addBookingContainer(bookings);
-        this.invoiceID = getLatestInvID()+counter+1;
-        this.customerID = setDetails(amount, customerDetails);
-        this.email = customerDetails.get(7);
-
-//        String query = "INSERT INTO tbl_invoice VALUES("+invoiceID+", "+customerID+", '"+LocalDate.now()+"');";
-//        try{
-//            System.out.println(query);
-//            Connect.updateData(query);
-//        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
-
+        initialize(); //create invoice template
+        double amount = addBookingContainer(bookings); //add bookings to invoice and return the total amount
+        this.invoiceID = getLatestInvID()+counter+1; //calculate the invoice's number, based on the DB
+        this.customerID = setDetails(amount, customerDetails); //set the generic customer data and set the customer ID
+        this.email = customerDetails.get(7); //set the customer's email
 
     }
+
+    /**
+     *
+     * @return String - customer's email
+     */
     public String getEmail(){
         return this.email;
     }
 
+    /**
+     *
+     * @return String - customer's full name (title, first name, last name)
+     */
     public String getFullName(){
         return representiveName.getText();
     }
 
+    /**
+     *
+     * @return String - the saved Invoice's filename
+     */
     public String getInvoiceFileName(){
-        return imageName;
+        return this.imageName;
     }
+
+    /**
+     * Create the invoice template with all fields and images
+     */
     private void initialize() {
         setLayout(null);
         setSize(800, 700);
@@ -178,8 +200,13 @@ public class InvoicePanel extends JPanel {
     }
 
 
+    /**
+     * Saves the panel as an image to the projects directory,
+     * adds a new record to the database
+     * and updates the bookings included to the invoice to paid
+     */
     public void saveInvoice(InvoicePanel this) {
-        BufferedImage img = getScreenShot(this);
+        BufferedImage img = getScreenShot();
         imageName = "Inv_"+invoiceID+".jpg";
         String query = "UPDATE tbl_booking SET Paid = 1 WHERE CustomerID = "+customerID+";";
         String query2 = "INSERT INTO tbl_invoice VALUES("+invoiceID+", "+customerID+", '"+LocalDate.now()+"');";
@@ -194,21 +221,27 @@ public class InvoicePanel extends JPanel {
         }
     }
 
+    /**
+     *
+     * @return BufferedImage of JPanel
+     */
+    private BufferedImage getScreenShot(InvoicePanel this) {
 
-    private BufferedImage getScreenShot(
-            Component component) {
-
-        BufferedImage image = new BufferedImage(
-                component.getWidth(),
-                component.getHeight(),
+        BufferedImage image = new BufferedImage(getWidth(), getHeight(),
                 BufferedImage.TYPE_INT_RGB
         );
         // call the Component's paint method, using
         // the Graphics object of the image.
-        component.paint(image.getGraphics()); // alternately use .printAll(..)
+        this.paint(image.getGraphics()); // alternately use .printAll(..)
         return image;
     }
 
+    /**
+     * For every booking, adds a new container with its details to the template
+     * On the process, calculates and returns the total amount
+     * @param bookings ,monthly, for one customer
+     * @return double-total amount
+     */
     private double addBookingContainer(List<List<String>> bookings) {
         double totalAmount = 0;
         int x = 10;
@@ -248,6 +281,12 @@ public class InvoicePanel extends JPanel {
     }
 
 
+    /**
+     * Using CustomerDetails, resets the labels on the template with correct data and returns the customer's ID
+     * @param amount the total amount of the invoice
+     * @param customerDetails all customer's info
+     * @return int Customer's ID
+     */
     private int setDetails(double amount, List<String> customerDetails) {
         invNoValue.setText(String.valueOf(invoiceID));//Make table in the DB for invoices, get last invNo +1
         invDateValue.setText(LocalDate.now().toString());
@@ -258,9 +297,15 @@ public class InvoicePanel extends JPanel {
         representiveName.setText(fullName);
         totalAmount.setText(String.valueOf(amount));
 
-        return Integer.parseInt(customerDetails.get(15));
+        int customerID = Integer.parseInt(customerDetails.get(15));
+
+        return customerID;
     }
 
+    /**
+     * Queries the database for the biggest Inv No
+     * @return int biggest Invoice Number in database
+     */
     private int getLatestInvID(){
         String query = "SELECT InvNo FROM tbl_invoice ORDER BY InvNo DESC LIMIT 1";
         int invID = 0;
@@ -268,29 +313,9 @@ public class InvoicePanel extends JPanel {
             ResultSet rs = Connect.selectStm(query);
             while(rs.next()){
             invID = rs.getInt(1);}
-        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        }catch(SQLException e){e.printStackTrace();}
         return invID;
     }
 
-
-//    public static void main(String[] args) {
-//        JFrame frame = new JFrame();
-//        InvoicePanel invoicePanel = new InvoicePanel(new Booking().getCustomerInfo(3),new User().detailsList("newuser"));
-//        JScrollPane scrollPane = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-//        scrollPane.setSize(900, 600);
-//        frame.add(scrollPane);
-//        scrollPane.setViewportView(invoicePanel);
-//
-//        frame.setLayout(null);
-//
-//        JButton screenshot = new JButton("Screenshot");
-//        screenshot.setBounds(0, 220, 100, 30);
-//        screenshot.addActionListener(invoicePanel);
-//        frame.add(screenshot);
-//
-//        frame.setSize(scrollPane.getSize());
-//        frame.setVisible(true);
-//
-//    }
 
 }

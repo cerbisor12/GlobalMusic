@@ -10,7 +10,7 @@ import javax.swing.*;
 import javax.swing.border.MatteBorder;
 
 /**
- * Class for changing the user's password.
+ * Child Class of JPanel for changing the user's password.
  *
  */
 public class ChangePasswordView extends JPanel {
@@ -52,8 +52,8 @@ public class ChangePasswordView extends JPanel {
         incorrectPassLabel.setVisible(false);
         
         oldPassField = new JPasswordField();
-        /**
-         * Focus listener for checking if the old password is correct.
+        /*
+         * check if the entered password matches the saved one
          */
         oldPassField.addFocusListener(new FocusAdapter() {
         	@Override
@@ -85,8 +85,8 @@ public class ChangePasswordView extends JPanel {
         this.add(lblBetween5and16);
         
         newPassField = new JPasswordField();
-        /**
-         * Focus listener for checking the length of the new password.
+        /*
+         * check if the entered new password is in allowed length limits
          */
         newPassField.addFocusListener(new FocusAdapter() {
             @Override
@@ -118,8 +118,8 @@ public class ChangePasswordView extends JPanel {
         passDontMatchLabel.setVisible(false);
         
         confPassField = new JPasswordField();
-        /**
-         * Focus listener for checking if the new passwords match.
+        /*
+         * check if entered password matches with new password
          */
         confPassField.addFocusListener(new FocusAdapter() {
         	@Override
@@ -139,8 +139,8 @@ public class ChangePasswordView extends JPanel {
         this.add(confPassField);
         
         JButton saveButton = new JButton("Save");
-        /**
-         * Listener for updating the password by querying the database.
+        /*
+         * Recheck the entered passwords and if all are correct, update the password in the database
          */
         saveButton.addActionListener(arg0 -> {
             if (String.valueOf(oldPassField.getPassword()).equals(password) && String.valueOf(newPassField.getPassword()).equals(

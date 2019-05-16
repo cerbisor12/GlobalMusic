@@ -12,12 +12,11 @@ public class Connect
     /**
      *
      * Checks if a connection already exists, and creates one if not
-     * @return c
-     * @throws SQLException
+     * @return JDBC Connection c
+     * @throws SQLException SQLException
      */
     private static Connection connect() throws SQLException {
         if (c==null){
-            //Class.forName("com.mysql.jdbc.Driver");
             c = DriverManager.getConnection("jdbc:mysql://localhost/musicfestivalbookings?serverTimezone=UTC","root","" );
         }
         return c;
@@ -25,12 +24,11 @@ public class Connect
 
     /**
      * General method for executing SQL Select Statements and return their result set
-     * @param query
+     * @param query any mySQL SELECT statement
      * @return ResultSet
-     * @throws SQLException
-     * @throws ClassNotFoundException
+     * @throws SQLException SQLException
      */
-    public static ResultSet selectStm(String query) throws SQLException,ClassNotFoundException{
+    public static ResultSet selectStm(String query) throws SQLException{
         Connection c = connect();
         ResultSet rs;
         Statement s = c.createStatement();
@@ -40,12 +38,11 @@ public class Connect
 
     /**
      * General method for SQL statements that update/alter the data (no Results)
-     * @param query
-     * @throws SQLException
-     * @throws ClassNotFoundException
+     * @param query any mySQL statement(UPDATE, DELETE,... not SELECT)
+     * @throws SQLException SQLException
+     *
      */
-    public static void updateData(String query) throws SQLException,ClassNotFoundException
-    {
+    public static void updateData(String query) throws SQLException{
         Connection c = connect();
         Statement s = c.createStatement();
         s.executeUpdate(query);

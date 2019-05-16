@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 
 /**
- * This class is for registering the users.
+ * Class that creates a frame for creating a new customer user
  *
  */
 public class RegisterView {
@@ -33,7 +33,7 @@ public class RegisterView {
 
 
     /**
-     * Create the application.
+     * Create the frame.
      */
     public RegisterView() {
         initialize();
@@ -120,13 +120,14 @@ public class RegisterView {
         frame.getContentPane().add(lblAllFields);
         lblAllFields.setVisible(false);
 
+        //Exit the application
         JButton btnExitButton = new JButton("X");
         btnExitButton.addActionListener(e -> {
             int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
-if (reply == JOptionPane.YES_OPTION) {
-System.exit(0);
-}
-});
+            if (reply == JOptionPane.YES_OPTION) {
+                System.exit(0);
+                }
+        });
         btnExitButton.setFont(new Font("Open Sans", Font.PLAIN, 25));
         btnExitButton.setForeground(SystemColor.inactiveCaption);
         btnExitButton.setBounds(1205, 13, 63, 53);
@@ -136,7 +137,7 @@ System.exit(0);
         btnExitButton.setContentAreaFilled(false);
         frame.getContentPane().add(btnExitButton);
         
-        
+        //Minimize the application
         JButton minimizeButton = new JButton("___");
         minimizeButton.addActionListener(arg0 -> {
         });
@@ -286,9 +287,7 @@ System.exit(0);
         frame.getContentPane().add(lblEmail);
         lblEmail.setVisible(true);
 
-        /**
-         * This method checks if the email address already exists in the database.
-         */
+
         emailField = new JTextField();
         emailField.setBackground(SystemColor.activeCaption);
         emailField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
@@ -296,6 +295,7 @@ System.exit(0);
         frame.getContentPane().add(emailField);
         emailField.setColumns(10);
         emailField.setVisible(true);
+        //check if entered value is formatted as email and then if it exists already in the database
         emailField.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {}
             public void focusLost(FocusEvent e) {
@@ -349,9 +349,7 @@ System.exit(0);
         frame.getContentPane().add(lblUsername);
         lblUsername.setVisible(true);
 
-        /**
-         * This method checks if the username already exists in the database.
-         */
+
         usernameField = new JTextField();
         usernameField.setBackground(SystemColor.activeCaption);
         usernameField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
@@ -359,6 +357,7 @@ System.exit(0);
         frame.getContentPane().add(usernameField);
         usernameField.setColumns(10);
         usernameField.setVisible(true);
+        //Check if username already exists in database
         usernameField.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {}
             public void focusLost(FocusEvent e) {
@@ -382,9 +381,7 @@ System.exit(0);
         frame.getContentPane().add(lblPassword);
         lblPassword.setVisible(true);
 
-        /**
-         * This method checks if the password meets the input requirements.
-         */
+
         passwordField = new JTextField();
         passwordField.setBackground(SystemColor.activeCaption);
         passwordField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
@@ -392,6 +389,7 @@ System.exit(0);
         frame.getContentPane().add(passwordField);
         passwordField.setColumns(10);
         passwordField.setVisible(true);
+        //Check if entered value meets requirements
         passwordField.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {}
@@ -413,9 +411,7 @@ System.exit(0);
         frame.getContentPane().add(lblConfirmPassword);
         lblConfirmPassword.setVisible(true);
 
-        /**
-         * This method makes sure that the users inputs is the same as in the password field.
-         */
+
         confirmPasswordField = new JTextField();
         confirmPasswordField.setBackground(SystemColor.activeCaption);
         confirmPasswordField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
@@ -423,6 +419,7 @@ System.exit(0);
         frame.getContentPane().add(confirmPasswordField);
         confirmPasswordField.setColumns(10);
         confirmPasswordField.setVisible(true);
+        //Check if entered value matched the passwordfield
         confirmPasswordField.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {}
@@ -435,9 +432,6 @@ System.exit(0);
                 else{lblIncorrectPassword_1.setVisible(false);}
             }
         });
-
-
-
 
 
         JLabel lblOrganizationName = new JLabel("Organization Name *");
@@ -517,9 +511,7 @@ System.exit(0);
         frame.getContentPane().add(paymentComboBox);
         paymentComboBox.setVisible(false);
 
-        /**
-         * This method checks if the user entered a valid card number.
-         */
+        //create new mini panel with all acceptable credit card icons
         cardIconPanel = new CreditCardIconsPanel(119,543);
         frame.add(cardIconPanel);
 
@@ -530,6 +522,7 @@ System.exit(0);
         frame.getContentPane().add(cardNoField);
         cardNoField.setColumns(10);
         cardNoField.setVisible(true);
+        //Validate card Number and show respective card Icon on cardIconPanel
         cardNoField.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {}
@@ -546,9 +539,6 @@ System.exit(0);
             }
         });
 
-        /**
-         * This method checks if the CVV code is a 3 number digit.
-         */
         CVVField = new JTextField();
         CVVField.setBackground(SystemColor.activeCaption);
         CVVField.setBorder(new MatteBorder(2, 2, 2, 2, SystemColor.activeCaption));
@@ -556,6 +546,7 @@ System.exit(0);
         frame.getContentPane().add(CVVField);
         CVVField.setColumns(10);
         CVVField.setVisible(true);
+        //Check if entered value is 3 digits long
         CVVField.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {}
@@ -565,7 +556,7 @@ System.exit(0);
                 try{
                     Integer.parseInt(CVVField.getText());
                     if (!(CVVField.getText().length()==3)){
-                        lblInvalidCVV.setText("Invalid Card Number");
+                        lblInvalidCVV.setText("Invalid CVV Number");
                         lblInvalidCVV.setVisible(true);
                     } else {
                     	lblInvalidCVV.setVisible(false);
@@ -591,6 +582,7 @@ System.exit(0);
         chckbxNewCheckBox_1.setBackground(SystemColor.activeCaption);
         chckbxNewCheckBox_1.setForeground(SystemColor.inactiveCaptionBorder);
         chckbxNewCheckBox_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        //If user selects it, fields for registering organization details become available
         chckbxNewCheckBox_1.addActionListener(arg0 -> {
             if(chckbxNewCheckBox_1.isSelected()) {
                 lblOrganizationName.setVisible(true);
@@ -619,9 +611,10 @@ System.exit(0);
         chckbxNewCheckBox_1.setVisible(true);
 
 
-        /**
-         * This method adds the user details into the database, and checks if
-         * the user is an organization or normal user.
+        /*
+        Check if user registers as corporate and set user type accordingly
+        Check if all necessary fields are filled
+        Create new User object and add to the database
          */
         JButton btnRegisterButton = new JButton("Register");
         btnRegisterButton.setForeground(SystemColor.inactiveCaption);
@@ -676,7 +669,7 @@ System.exit(0);
             else{lblAllFields.setVisible(true);}
         });
 
-
+        //Back to LoginView, no changes saved
         JButton btnCancelButton = new JButton("Cancel");
         btnCancelButton.addActionListener(arg0 -> {
             new LoginView();

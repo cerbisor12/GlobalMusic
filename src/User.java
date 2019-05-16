@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * This class creates, adds to database, checks login and erases users.
- *
+ * Class for creating a new User object
+ * Writes new records in the database
+ * Includes methods for updating/deleting and checking data against the database
  */
 
 public class User {
@@ -80,7 +81,7 @@ public class User {
 
     
     /**
-     * This method inserts users details into the database.
+     * Create a new database record
      */
     public void insertCustomerData() {
         String query;
@@ -90,25 +91,21 @@ public class User {
                     "','" + this.town + "','" + this.postcode + "','" + User.username + "','" + this.password + "','" + this.email + "','" +
                     this.phoneNo + "'," + this.cardNo + "," + this.cardCVV + ",'" + this.userType + "','" + this.orgName + "','" +
                     this.webAddress + "','" + this.orgEmail + "','" + this.paymentMethod + "');";
-        
-
         try {
             Connect.updateData(query);
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());
         }
     }
     
     /**
-     * This method checks if the attribute exists in the specified field in the database.
+     * This method checks if the value exists in the specified field in the database.
      * @param field table column
-     * @param attribute actual data in the column
+     * @param value data in the column
      * @return results
      */
-    public boolean checkFieldInDB(String field, String attribute) {
-        String query = "SELECT * FROM tbl_user WHERE " + field + "='" + attribute + "';";
+    public boolean checkFieldInDB(String field, String value) {
+        String query = "SELECT * FROM tbl_user WHERE " + field + "='" + value + "';";
         try {
             ResultSet results = Connect.selectStm(query);
             if (results.next()) {
@@ -116,14 +113,12 @@ public class User {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());
         }
         return false;
     }
     
     /**
-     * This method checks if the input made by the user exists in the database. 
+     * True if username and password combination exist in database
      * @return true or false depending on the users input
      */
     public boolean loginCheck(String username, String password) {
@@ -135,14 +130,13 @@ public class User {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());
         }
         return false;
     }
 
     /**
-     * This method gives the option to edit user details
+     * Update customer details in the database
+     *
      * @param username the users username
      * @param title the users gender
      * @param firstName the users first name
@@ -169,14 +163,15 @@ public class User {
     							+ "WHERE Username ='" + username + "';";
     	try {
 			Connect.updateData(query);
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
     }
     /**
-     * This method returns a list of all the users that are registered from the database.
-     * @return finalUsers list
+     * This method returns a list of all the users that are registered from the database,
+     * filtered on type
+     *
+     * @return String[] usernames
      */
     public String[] getAllUsernames(String typeFilter) {
         String query = "SELECT Username FROM tbl_user WHERE Type = '"+ typeFilter +"';";
@@ -189,18 +184,17 @@ public class User {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());
         }
+
         Object[] objDetails = users.toArray();
         return Arrays.copyOf(objDetails,objDetails.length,String[].class);
     }
     
     /**
      * This method returns a specified data from the users details.
-     * @param username the actual username
-     * @param field the actual field from where the data will be returned
-     * @return the specified field data
+     * @param username customer's username
+     * @param field String- the field needed
+     * @return String - field value
      */
     public String getData(String username, String field) {
         String query = "SELECT "+ field+" FROM tbl_user WHERE Username='" + username + "';";
@@ -211,14 +205,13 @@ public class User {
             data = rs.getString(field);
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException f) {
-            System.out.println(f.getMessage());
         }
         return data;
     }
 
     /**
-     * This method allows a user to change his password.
+     * Update the password in the database
+     *
      * @param newPass the new users password
      * @param username the actual user that is changing password
      */
@@ -227,14 +220,14 @@ public class User {
 
     	try {
 			Connect.updateData(query);
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
     }
     
     /**
-     * This method returns all the details of a specified username.
+     * Returns a list of all customer details
+     *
      * @param username the users username
      * @return users details
      */
@@ -265,8 +258,7 @@ public class User {
 	    		details.add(String.valueOf(rs.getInt("UserID")));
 	    		
 	    	}
-		} catch (ClassNotFoundException | NullPointerException | SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (NullPointerException | SQLException e) {
 			e.printStackTrace();
 		}
 
@@ -287,8 +279,6 @@ public class User {
         	ID = rs.getInt("UserID");
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException f) {
-            System.out.println(f.getMessage());
         }
     	return ID;
     }

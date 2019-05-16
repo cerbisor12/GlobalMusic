@@ -20,7 +20,7 @@ public class HomePageView {
 
 
     /**
-     * Create the application.
+     * Create the frame
      */
     public HomePageView() {
         initialize();
@@ -38,7 +38,7 @@ public class HomePageView {
         frame.setLocationRelativeTo(null);
         frame.getContentPane().setLayout(null);
 
-        /**
+        /*
          * Container for creating the 4 panels in one frame.
          * With CardLayout.
          */
@@ -54,13 +54,13 @@ public class HomePageView {
         ((CardLayout)c.getLayout()).first(c);
         frame.add(c);
 
+        /*
+            Each of the 4 following buttons loads the corresponding
+            panel on the container's cardLayout, disables itself and activates
+            the rest of the buttons
+         */
 
         searchButton = new JButton("Search events");
-        /**
-         * Search button listener to hide the search button while on this panel. This happens for every other button
-         * since there is no point for
-         * having the button on its own panel.
-         */
         searchButton.addActionListener(e -> {
             ((CardLayout)c.getLayout()).show(c,"Search");
 
@@ -81,9 +81,6 @@ public class HomePageView {
         frame.getContentPane().add(searchButton);
 
         myAccountButton = new JButton("My Account");
-        /**
-         * ibid.
-         */
         myAccountButton.addActionListener(e -> {
             ((CardLayout)c.getLayout()).show(c,"MyAccount");
             searchButton.setEnabled(true);
@@ -103,9 +100,6 @@ public class HomePageView {
         frame.getContentPane().add(myAccountButton);
         
         changePassButton = new JButton("Change Password");
-        /**
-         * ibid.
-         */
         changePassButton.addActionListener(e -> {
 
             ((CardLayout)c.getLayout()).show(c,"Password");
@@ -125,14 +119,11 @@ public class HomePageView {
         frame.getContentPane().add(changePassButton);
 
         bookingsButton = new JButton("My bookings");
-        /**
-         * ibid.
-         */
         bookingsButton.addActionListener(e -> {
-
+            //Check if the card is a BookingHistoryView object and refreshes the data on the table
             for (Component card : c.getComponents()){
                 if (card instanceof BookingsHistoryView){
-                    new BookingsTableController(((BookingsHistoryView) card).table);
+                    ((BookingsHistoryView) card).refreshTableData();
                     }
             }
             ((CardLayout)c.getLayout()).show(c,"History");
@@ -151,11 +142,9 @@ public class HomePageView {
         bookingsButton.setToolTipText("View your booked events");
         bookingsButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         frame.getContentPane().add(bookingsButton);
-        
+
+        //Load the LoginView
         JButton logOutButton = new JButton("Log Out");
-        /**
-         * LogOut button listener, to log out of the system and return to the Login window.
-         */
         logOutButton.addActionListener(e -> {
             new LoginView();
             frame.setVisible(false);
@@ -172,18 +161,15 @@ public class HomePageView {
 
         
         
-       
+       //Exit the application
         JButton exitButton = new JButton("X");
         exitButton.setForeground(SystemColor.inactiveCaption);
-        /**
-         * Exit button listener for quiting the application after confirmation.
-         */
         exitButton.addActionListener(e -> {
             int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
-if (reply == JOptionPane.YES_OPTION) {
-System.exit(0);
-}
-});
+            if (reply == JOptionPane.YES_OPTION) {
+                System.exit(0);
+            }
+        });
         exitButton.setFont(new Font("Open Sans", Font.PLAIN, 25));
         exitButton.setBorderPainted(false);
         exitButton.setOpaque(false);
@@ -192,11 +178,9 @@ System.exit(0);
         exitButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         frame.getContentPane().add(exitButton);
 
+        //Minimize the application
         JButton minimizeButton = new JButton("___");
         minimizeButton.setForeground(SystemColor.inactiveCaption);
-        /**
-         * Listener for minimizing the window.
-         */
         minimizeButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent arg0) {

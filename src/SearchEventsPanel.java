@@ -57,24 +57,20 @@ public class SearchEventsPanel extends JPanel {
         scrollPane.setBounds(123, 139, 844, 374);
         scrollPane.setBackground(Color.BLACK);
         this.add(scrollPane);
-        scrollPane.setViewportView(new ResultPanel(true));
+        scrollPane.setViewportView(new EventListPanel(true));
         
-        /**
-         * This method searches for events by a specified name and displays them in the events panel.
-         */
+        //Update the scrollPane with search results
         JButton searchButton1 = new JButton("");
         searchButton1.setBorderPainted(false);
         searchButton1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         searchButton1.setIcon(new ImageIcon(Main.IMAGE_DIR+"SearchIcon.png"));
         searchButton1.addActionListener(e -> {
-            scrollPane.setViewportView(new ResultPanel(searchTxtField.getText().replace("'", "''")));
+            scrollPane.setViewportView(new EventListPanel(searchTxtField.getText().replace("'", "''")));
             upcomingLabel.setText("Search Results");            });
         searchButton1.setBounds(802, 22, 30, 30);
         this.add(searchButton1);
         
-        /**
-         * This method searches for events by a specified date and displays them in the events panel.
-         */
+        //Search for events on chosen date and update the scrollPane accordingly
         JButton searchButton2 = new JButton("");
         searchButton2.setBorderPainted(false);
         searchButton2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -82,10 +78,9 @@ public class SearchEventsPanel extends JPanel {
         searchButton2.addActionListener(e -> {
 
             try {
-                scrollPane.setViewportView(new ResultPanel(datePicker));
+                scrollPane.setViewportView(new EventListPanel(datePicker));
                 upcomingLabel.setText("Search Results");
             } catch (Exception e1) {
-                // TODO Auto-generated catch block
                 e1.printStackTrace();
             }
         });

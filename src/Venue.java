@@ -3,8 +3,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * This class is developed for the Concert Organizer in order
- * to handle the venues of the concerts.
+ * Class for creating new Venue objects and records in the database
+ * Provides methods for retrieving data from the database
  */
 
 public class Venue {
@@ -32,8 +32,6 @@ public class Venue {
             Connect.updateData(query);
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());
         }
 	}
 	
@@ -58,8 +56,6 @@ public class Venue {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());
         }
         return venuesList;
 	}
@@ -80,39 +76,7 @@ public class Venue {
 	public String getName() {
 		return name;
 	}
-	
-	/**
-	 * This method sets the address of the venue.
-	 * @param address
-	 */
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	
-	/**
-	 * This method returns the address of the venue.
-	 * @return address
-	 */
-	public String getAddress() {
-		return address;
-	}
-	
-	/**
-	 * This method sets the capacity of the venue.
-	 * @param capacity
-	 */
-	public void setCapacity(int capacity) {
-		this.capacity = capacity;
-	}
-	
-	/**
-	 * This method returns the capacity of the venue.
-	 * @return
-	 */
-	public int getCapacity() {
-		return capacity;
-	}
-	
+
 	/**
 	 * This method returns the venue ID from the database according to the venue name.
 	 * @param name the name of the venue
@@ -127,8 +91,6 @@ public class Venue {
             ID = Integer.parseInt(rs.getString("VenueID"));
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException f) {
-            System.out.println(f.getMessage());
         }
         return ID;
 	}

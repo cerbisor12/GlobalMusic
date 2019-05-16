@@ -8,30 +8,14 @@ import javax.swing.*;
 
 /**
  * Class for creating the frame for the admin's window.
- * @author x64
  *
  */
 public class AdminView {
 
 	private JFrame frame;
-    private JTable tableConfirmBooking;
+    private BookingsHistoryView tableConfirmBooking;
     private JPanel genInvPanel;
 
-
-    /**
-     * Launch the application.
-     * @wbp.parser.entryPoint
-     */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-            try {
-                AdminView window = new AdminView();
-                window.frame.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-	}
 
     /**
      * Create the application.
@@ -57,7 +41,7 @@ public class AdminView {
         User user = new User();
 
         JButton btnExitButton = new JButton("X");
-        /**
+        /*
          * Listener for exiting the application after user's confirmation.
          */
         btnExitButton.addActionListener(e -> {
@@ -78,7 +62,7 @@ public class AdminView {
         
         JButton minimizeButton = new JButton("___");
         minimizeButton.setForeground(SystemColor.inactiveCaption);
-        /**
+        /*
          * Listener for minimizing the window.
          */
         minimizeButton.addMouseListener(new MouseAdapter() {
@@ -103,7 +87,7 @@ public class AdminView {
         btnLogOut.setOpaque(false);
         btnLogOut.setBorderPainted(false);
         btnLogOut.setContentAreaFilled(false);
-        /**
+        /*
          * Listener for logging out of the system, opens the LoginView.
          */
         btnLogOut.addActionListener(arg0 -> {
@@ -119,13 +103,11 @@ public class AdminView {
         lblChooseUsername.setFont(new Font("Open Sans", Font.BOLD, 14));
         frame.getContentPane().add(lblChooseUsername);
         
-        /**
-         * Combobox populated with all users names for selection.
-         */
+        //Create comboBox with all customer and organization usernames for the admin to choose and edit
         JComboBox comboBoxUsername = new JComboBox(user.getAllUsernames("customer' OR Type = 'organization"));
         comboBoxUsername.addActionListener(e -> {
             User.username = comboBoxUsername.getSelectedItem().toString();
-            new PopUp();
+            new PopUp();//open the MyaccountView corresponding to chosen username
         });
         comboBoxUsername.setBackground(SystemColor.activeCaption);
         comboBoxUsername.setBounds(204, 55, 182, 25);
@@ -135,9 +117,10 @@ public class AdminView {
         scrollPaneViewEvent.setBounds(400, 173, 840, 374);
         scrollPaneViewEvent.setBackground(Color.BLACK);
         frame.getContentPane().add(scrollPaneViewEvent);
-        ResultPanel resultPanel = new ResultPanel(false);
-        resultPanel.hideBookButton();
-        scrollPaneViewEvent.setViewportView(resultPanel);
+        //Create panel including all events and add it to scrollpane
+        EventListPanel eventListPanel = new EventListPanel(false);
+        eventListPanel.hideBookButton();
+        scrollPaneViewEvent.setViewportView(eventListPanel);
 
 
         JButton btnConfirmAll = new JButton("Confirm All Bookings");
@@ -149,7 +132,8 @@ public class AdminView {
         btnConfirmAll.setBorderPainted(false);
         btnConfirmAll.setContentAreaFilled(false);
         btnConfirmAll.setVisible(false);
-        btnConfirmAll.addActionListener(e -> BookingsTableController.updateStatus(tableConfirmBooking));
+        //change status of pending bookings to confirmed if they are paid
+        btnConfirmAll.addActionListener(e -> tableConfirmBooking.updateStatus());
         frame.getContentPane().add(btnConfirmAll);
 
         JSeparator separatorConfirmAll = new JSeparator();
@@ -160,15 +144,10 @@ public class AdminView {
         separatorConfirmAll.setOpaque(true);
         frame.getContentPane().add(separatorConfirmAll);
 
-        JScrollPane scrollPaneConfirmBooking = new JScrollPane();
-        scrollPaneConfirmBooking.setBounds(448, 173, 750, 300);
-        frame.getContentPane().add(scrollPaneConfirmBooking);
-        scrollPaneConfirmBooking.setVisible(false);
-        
-        tableConfirmBooking = new JTable();
-        new BookingsTableController(tableConfirmBooking);
+        //Panel including the booking History Table, including all bookings
+        tableConfirmBooking = new BookingsHistoryView();
         tableConfirmBooking.setBackground(SystemColor.inactiveCaption);
-        scrollPaneConfirmBooking.setViewportView(tableConfirmBooking);
+        frame.getContentPane().add(tableConfirmBooking);
 
         JButton btnViewEventList = new JButton("View Event List");
         /**
@@ -176,7 +155,8 @@ public class AdminView {
          */
         btnViewEventList.addActionListener(e -> {
             scrollPaneViewEvent.setVisible(true);
-            scrollPaneConfirmBooking.setVisible(false);
+
+            tableConfirmBooking.setVisible(false);
             btnConfirmAll.setVisible(false);
             separatorConfirmAll.setVisible(false);
             genInvPanel.setVisible(false);
@@ -199,12 +179,12 @@ public class AdminView {
         confirmBooking.setOpaque(false);
         confirmBooking.setBorderPainted(false);
         confirmBooking.setContentAreaFilled(false);
-        /**
-         * Listener for setting the confirm booking panel visible.
+        /*
+         * Listener for setting the booking History panel visible.
          */
         confirmBooking.addActionListener(arg0 -> {
             scrollPaneViewEvent.setVisible(false);
-            scrollPaneConfirmBooking.setVisible(true);
+            tableConfirmBooking.setVisible(true);
             btnConfirmAll.setVisible(true);
             separatorConfirmAll.setVisible(true);
             genInvPanel.setVisible(false);
@@ -213,7 +193,7 @@ public class AdminView {
         confirmBooking.setVisible(true);
 
 
-
+        //Panel for generating and saving/sending monthly invoices
         genInvPanel = new JPanel();
         genInvPanel.setOpaque(false);
         genInvPanel.setLayout(null);
@@ -221,6 +201,7 @@ public class AdminView {
         genInvPanel.setVisible(false);
         frame.add(genInvPanel);
 
+        //------------Create and add components for the genInvPanel
         JScrollPane scrollPane = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         scrollPane.setBounds(0,0,900,400);
         scrollPane.setPreferredSize(new Dimension(900,400));
@@ -250,6 +231,10 @@ public class AdminView {
         saveAndSend.setContentAreaFilled(false);
         saveAndSend.addActionListener(new ActionListener() {
             @Override
+            /*
+            For every card(=invoice) save Invoice data to DB, image to directory
+            and finally send them to organizations
+             */
             public void actionPerformed(ActionEvent e) {
                 for (Component card : c.getComponents()) {
                     if (card instanceof InvoicePanel) {
@@ -269,11 +254,19 @@ public class AdminView {
         browseInvoices.setFont(new Font("Open Sans",Font.BOLD,22));
         browseInvoices.setHorizontalAlignment(SwingConstants.CENTER);
 
+        JSeparator saveAndSendSeparator = new JSeparator();
+        saveAndSendSeparator.setBounds(400, 485, 250, 3);
+        saveAndSendSeparator.setBackground(SystemColor.inactiveCaption);
+        saveAndSendSeparator.setForeground(SystemColor.inactiveCaption);
+        saveAndSendSeparator.setOpaque(true);
+
         genInvPanel.add(browseInvoices);
         genInvPanel.add(btnPrevious);
         genInvPanel.add(btnNext);
         genInvPanel.add(scrollPane);
         genInvPanel.add(saveAndSend);
+        genInvPanel.add(saveAndSendSeparator);
+        //------------------------------------------------------------------------
 
         frame.add(genInvPanel);
 
@@ -281,12 +274,7 @@ public class AdminView {
         /**
          * Listener for generating invoices.
          */
-        btnGenerateInvoice.addActionListener(e -> {
-            scrollPaneViewEvent.setVisible(false);
-            scrollPaneConfirmBooking.setVisible(false);
-            btnConfirmAll.setVisible(false);
-            separatorConfirmAll.setVisible(false);
-        });
+
         btnGenerateInvoice.setBounds(27, 332, 190, 53);
         btnGenerateInvoice.setForeground(SystemColor.inactiveCaption);
         btnGenerateInvoice.setFont(new Font("Open Sans", Font.PLAIN, 20));
@@ -294,30 +282,39 @@ public class AdminView {
         btnGenerateInvoice.setOpaque(false);
         btnGenerateInvoice.setBorderPainted(false);
         btnGenerateInvoice.setContentAreaFilled(false);
+        //Create one monthly invoice for every organization user and add them to cardLayout
         btnGenerateInvoice.addActionListener(arg0->{
-            scrollPaneConfirmBooking.setVisible(false);
+            //view only the genInvPanel
+            tableConfirmBooking.setVisible(false);
             btnConfirmAll.setVisible(false);
             separatorConfirmAll.setVisible(false);
             scrollPaneViewEvent.setVisible(false);
             genInvPanel.setVisible(true);
 
+            //get all organizations
             String[] organizations = user.getAllUsernames("organization");
-            int counter = 0;
+            int counter = 0; //used for creating accurate invoice numbers
+            //get bookings of latest month for every organization
             for(String username : organizations){
-                int ID = user.getUserId(username);
+                //get all customer info
                 List<String> customerInfo = user.detailsList(username);
-                List<List<String>> bookings = new Booking().getBookingsperMonth(username);
+                //get all bookings
+                List<List<String>> bookings = new Booking().getBookingsPerMonth(username);
+                //create organization invoice if any bookings were made
                 if (bookings.size()>0){
                 c.add(username,new InvoicePanel(bookings,customerInfo,counter++));}
-                else c.add(new JLabel("No Pending Invoices"));
+
+                //if no invoices were created, show msg and disable the save button
+                if(c.getComponents().length == 0){
+                    c.add(new JLabel("No Pending Invoices"));
+                    saveAndSend.setEnabled(false);}
 
             }
         });
         frame.getContentPane().add(btnGenerateInvoice);
 
 
-
-
+        //Separators for buttons and background images--------
 
         JSeparator separatorViewEvent = new JSeparator();
         separatorViewEvent.setBounds(41, 212, 159, 3);

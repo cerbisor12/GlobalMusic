@@ -1,6 +1,4 @@
-import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.SystemColor;
 import javax.swing.JLabel;
@@ -10,14 +8,12 @@ import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
-import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.border.MatteBorder;
@@ -27,7 +23,7 @@ import javax.swing.JFileChooser;
 import java.awt.Rectangle;
 
 /**
- * This class is for adding artists by the organizer.
+ * Class that creates a frame for adding new performers
  *
  */
 
@@ -43,7 +39,7 @@ public class NewBandView extends JFrame {
 
 
 	/**
-	 * Create the application.
+	 * Create the frame.
 	 */
 	public NewBandView() {
 		initialize();
@@ -98,10 +94,7 @@ public class NewBandView extends JFrame {
 		cancelButton.setOpaque(false);
         cancelButton.setContentAreaFilled(false);
         cancelButton.setBorderPainted(false);
-        
-        /**
-         * Action listener for closing the window by pressing the cancel button.
-         */
+        //Dispose the frame without adding a band
         cancelButton.addActionListener(e -> frame.dispose());
 		frame.getContentPane().add(cancelButton);
 		
@@ -139,8 +132,9 @@ public class NewBandView extends JFrame {
 		linkTxtField.setColumns(10);
 		
 		
-		/**
-		 * Static combobox populated with an arrayList of Strings. Will display the agents available for selection.
+		/*
+		Static combobox to be altered from other frames.
+		Populated with existing agents and the option to add a new one
 		 */
 		agentComboBox = new JComboBox<>();
 		ArrayList<String> aList = agent.getAgentsList();
@@ -149,12 +143,10 @@ public class NewBandView extends JFrame {
 		agentComboBox.setBackground(SystemColor.activeCaption);
 		agentComboBox.setBounds(93, 116, 116, 22);
 		agentComboBox.setEditable(false);
-		/**
-		 * Listener for checking if the selection equals "Add new Agent", if so another popup will appear for adding the new agent's details.
-		 */
+		//if "add new agent" is selected, load the NewAgentView to add a new agent
 		agentComboBox.addActionListener(e -> {
 			Object selected = agentComboBox.getSelectedItem();
-if(selected.toString().equals("-Add new Agent-"))
+			if(selected.toString().equals("-Add new Agent-"))
 				new NewAgentView();
 		});
 		frame.getContentPane().add(agentComboBox);
@@ -164,17 +156,14 @@ if(selected.toString().equals("-Add new Agent-"))
 		lblImageName.setForeground(SystemColor.inactiveCaption);
 		lblImageName.setFont(new Font("Open Sans", Font.PLAIN, 12));
 		frame.getContentPane().add(lblImageName);
-		
+
+
+		//Loads a JFileChooser , limited on Images and saves the selected image to the project directory
 		JButton uploadButton = new JButton();
-		
-		/**
-		 * Listener for the "upload" button, adding an image to the new artist. Restricted to .jpg, .png and .jpeg formats only. 
-		 */
 		uploadButton.addActionListener(arg0 -> {
 			JFileChooser fileChooser = new JFileChooser();
 			FileNameExtensionFilter filter = new FileNameExtensionFilter("Images","jpg","png","jpeg");
 			fileChooser.setFileFilter(filter);
-
 			try {
 				if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
 					File file = fileChooser.getSelectedFile();
@@ -213,8 +202,8 @@ if(selected.toString().equals("-Add new Agent-"))
         addButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         addButton.setBorderPainted(false);
         
-        /**
-         * Listener for the "Add Band" button. Inserts all the details of the new artist into the database after checking if some requirements are met or not.
+        /*
+         * Inserts all the details of the new artist into the database after checking if some requirements are met or not.
          * Such as null name, null genre, the agent combobox set to "Add new Agent", or the image is not uploaded.
          * After completing the process, the JList's default model will be modified to include the new artist.
          */
@@ -232,7 +221,7 @@ if(selected.toString().equals("-Add new Agent-"))
 				DefaultListModel performersModel = new DefaultListModel();
 				for(int i = 0; i < band.getAllBands().size(); i++) {
 					performersModel.addElement(band.getAllBands().get(i));
-					EventOrganizerView.allPerformersList.setModel(performersModel);
+					OrganizerAddEventView.allPerformersList.setModel(performersModel);
 				}
 				frame.dispose();
 				JOptionPane.showMessageDialog(null,"Band added.");

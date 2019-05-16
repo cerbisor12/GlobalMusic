@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 import javax.swing.border.MatteBorder;
 
 /**
- * Class for viewing and editing account details.
+ * Child Class of JPanel for viewing and editing customer details
  *
  */
 
@@ -154,9 +154,7 @@ public class MyAccountView extends JPanel {
 		emailTextField.setBounds(116, 325, 180, 30);
 		emailTextField.setBackground(SystemColor.activeCaption);
 		emailTextField.setColumns(10);
-		/**
-		 * Focus listener to check the format of the email address.
-		 */
+		//Check if entered text is of correct format and if the email exists in database already
 		emailTextField.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {}
 			public void focusLost(FocusEvent e) {
@@ -220,9 +218,7 @@ public class MyAccountView extends JPanel {
 		cardNoTextField.setBounds(116, 411, 180, 30);
 		cardNoTextField.setBackground(SystemColor.activeCaption);
 		cardNoTextField.setColumns(10);
-		/**
-		 * Focus listener for checking the card number format.
-		 */
+		//check the card number and if valid, show the corresponding card icon
 		cardNoTextField.addFocusListener(new FocusListener() {
 			@Override
 			public void focusGained(FocusEvent e) {}
@@ -258,9 +254,7 @@ public class MyAccountView extends JPanel {
 		cvvTextField.setBounds(432, 390, 180, 30);
 		cvvTextField.setBackground(SystemColor.activeCaption);
 		cvvTextField.setColumns(10);
-		/**
-		 * Focus listener to check the cvvNumber format.
-		 */
+		//check the format and length of entered value
 		cvvTextField.addFocusListener(new FocusListener() {
 			@Override
 			public void focusGained(FocusEvent e) {}
@@ -343,9 +337,7 @@ public class MyAccountView extends JPanel {
 		webAddressLabel.setFont(new Font("Open Sans", Font.BOLD, 13));
 		this.add(webAddressLabel);
 		
-		/**
-		 * if statement to check the user's type. For displaying or not certain textFields and labels.
-		 */
+		//show organization details if customer is of type 'organization'
 		if (user.getData(User.username,"Type").equalsIgnoreCase("Customer")) {
 			orgNameTextField.setVisible(false);
 			orgNameLabel.setVisible(false);
@@ -357,9 +349,8 @@ public class MyAccountView extends JPanel {
 			webAddressLabel.setVisible(false);
 		}
 		
-		/**
-		 * First a string ArrayList to get the user's details.
-		 * Secondly, populating all the textField with the existing details.
+		/*
+		 Get all customer details from the database and populate the textfields
 		 */
 		ArrayList<String> details = user.detailsList(User.username);
 		titleComboBox.setSelectedItem(details.get(0));
@@ -378,12 +369,8 @@ public class MyAccountView extends JPanel {
 		paymentComboBox.setSelectedItem(details.get(13));
 		webAddressTextField.setText(details.get(14));
 		
-		
+		//Get text from textfields and update the customer's record in the database
 		saveButton = new JButton("Save");
-		/**
-		 * Action listener for the Save button which will eventually update the database after checking if certain textFields are not empty.
-		 * The fields are checked by making a new arraylist and checking if any string contained by it equals "".
-		 */
 		saveButton.addActionListener(arg0 -> {
             ArrayList<JTextField> textFieldArray;
             textFieldArray = new ArrayList<>();
@@ -399,6 +386,7 @@ public class MyAccountView extends JPanel {
             if (user.getData(User.username,"Type").equalsIgnoreCase("organization")){
                 textFieldArray.add(orgNameTextField);
             }
+            //check if all fields are field
             boolean checker = true;
             for(JTextField field : textFieldArray) {
                 if (field.getText().equals("")) {
@@ -408,6 +396,7 @@ public class MyAccountView extends JPanel {
                     field.setBackground(SystemColor.activeCaption);
                 }
             }
+            //update the database
             if(checker){
             user.updateDetails(User.username, titleComboBox.getSelectedItem().toString(), firstNameTextField.getText().replace("'", "''"),
                     lastNameTextField.getText().replace("'", "''"), address1TextField.getText().replace("'", "''"), address2TextField.getText().replace("'", "''"),

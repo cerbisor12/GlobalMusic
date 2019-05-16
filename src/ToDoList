@@ -1,4 +1,4 @@
---1. On EditEventView -> somehow we have to delete the performers that have been removed from the tbl_event_band
+--1. On OrganizerEditEventView -> somehow we have to delete the performers that have been removed from the tbl_event_band
 --2. On both EditEvent and AddEvent -> we need checkers to see if all fields are filled
 --3. On BookingHistory -> Maybe change to another colour if the booking is cancelled?
 --4. On BookingHistory -> Fix the table names which were fucked up after the changes :)

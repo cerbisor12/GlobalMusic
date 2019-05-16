@@ -1,10 +1,11 @@
 import java.awt.*;
 
 /**
- * This application is developed for Global Music which is a Booking Agency.
+ * This application is developed for Global Music which is a Booking Agency for musical festivals.
  * It is allowing to login in with four different types of users (admin, customer, 
  * corporate organisation and event organiser) each of these users having their own
  * personalised view of the application.
+ *
  * Class for running the main frame of the application.
  * @author Dimitra Krezia, Radu Popescu, Daniel Serbanescu.
  *
@@ -18,6 +19,10 @@ public class Main {
     final static String INVOICES_DIR = "Images/Invoices/";
 
 
+    /**
+     * Starts the application
+     * @param args
+     */
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
             try {

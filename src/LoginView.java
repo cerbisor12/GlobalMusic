@@ -1,11 +1,8 @@
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
 
 /**
  * Class for creating the login window.
@@ -19,7 +16,7 @@ public class LoginView {
 
 
     /**
-     * Create the application.
+     * Create the frame
      */
     public LoginView() {
         initialize();
@@ -64,12 +61,13 @@ public class LoginView {
         frame.getContentPane().add(lblIncorrectUsername);
         lblIncorrectUsername.setVisible(false);
 
-        JButton btnLogin = new JButton("Login");
-        
-        /**
-         * Listener for the Login button to check the user's type and open different windows for each of them(except customer and organization).
-         * Also checking if the user exists already and if the password matches.
+        /*
+        Checks:
+        -if the username exists in database
+        -if the password matches the username in the database
+        Then gets the user's type and loads the appropriate homepage
          */
+        JButton btnLogin = new JButton("Login");
         btnLogin.addActionListener(e -> {
             User user = new User();
             User.username = usernameField.getText().replace("'", "''");
@@ -84,7 +82,7 @@ public class LoginView {
                 }
                 else if (type.equalsIgnoreCase("organizer"))
                 {
-                    new EventOrganizerView();
+                    new OrganizerAddEventView();
                     frame.setVisible(false);
                 }
                 else{
@@ -126,11 +124,8 @@ public class LoginView {
 
 
 
-
+        //Loads the RegisterView
         JButton btnRegister = new JButton("Register");
-        /**
-         * Listener for the register button, which will open the registration window.
-         */
         btnRegister.addActionListener(e -> {
             new RegisterView();
             frame.setVisible(false);
@@ -146,11 +141,8 @@ public class LoginView {
 
 
 
-
+        //Exit the application
         JButton btnExitButton = new JButton("X");
-        /**
-         * Exit button listener. Exits the application after user confirmation.
-         */
         btnExitButton.addActionListener(e -> {
             int reply = JOptionPane.showConfirmDialog(null, "Are you sure?", "Exit?", JOptionPane.YES_NO_OPTION);
             if (reply == JOptionPane.YES_OPTION) {
@@ -183,12 +175,9 @@ public class LoginView {
         separator_1.setOpaque(true);
         frame.getContentPane().add(separator_1);
         
-        
+        //Minimize the application
         JButton minimizeButton = new JButton("___");
         minimizeButton.setForeground(SystemColor.inactiveCaption);
-        /**
-         * Listener for the minimize button which will hide the window.
-         */
         minimizeButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent arg0) {
@@ -217,9 +206,7 @@ public class LoginView {
         lblImageLabel.setBounds(0, 0, 1297, 693);
         frame.getContentPane().add(lblImageLabel);
         
-        /**
-         * Code for setting the login button available by pressing the Enter key.
-         */
+        //Set action of btnLogin as Default Action on 'Enter'
         frame.getRootPane().setDefaultButton(btnLogin);
         
         

@@ -10,7 +10,7 @@ import javax.swing.border.MatteBorder;
 import java.awt.Color;
 
 /**
- * Class for adding new agents.
+ * Class that creates a frame for adding a new agent
  *
  */
 
@@ -23,8 +23,7 @@ public class NewAgentView {
 
 
 	/**
-	 * Create the application.
-	 * @wbp.parser.entryPoint
+	 * Create the frame
 	 */
 	public NewAgentView() {
 		initialize();
@@ -102,18 +101,15 @@ public class NewAgentView {
 		cancelButton.setOpaque(false);
         cancelButton.setContentAreaFilled(false);
         cancelButton.setBorderPainted(false);
-        /**
-         * Listener for the cancel button, to cancel the process of adding a new agent.
-         */
+        //close the frame, no agents added
         cancelButton.addActionListener(e -> frame.dispose());
 		frame.getContentPane().add(cancelButton);
-		
-		JButton addButton = new JButton("Add agent");
-		
-		/**
-		 * Listener for the "Add Agent" button. After checking if the name field is filled, will write into the database the new agent's details.
-		 * After that, will modify the newBandView agents combobox's model to include the new agent too.
+
+		/*
+			Create new agent object(adds to the database as well) after checking all nessecary fields are filled
+			Add new agent name to the combobox that called this frame and set it as selected value
 		 */
+		JButton addButton = new JButton("Add agent");
 		addButton.addActionListener(arg0 -> {
 			if (nameTxtField.getText() == null | nameTxtField.getText().equals(""))
 				JOptionPane.showMessageDialog(null,"Please fill in all the * fields.");

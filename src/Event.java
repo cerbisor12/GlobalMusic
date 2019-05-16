@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 /**
  * Event class for creating event objects.
+ * Writes new events to the database and provides methods for retrieving/updating data
  *
  */
 public class Event {
-	private int ID;
 	private String name = "";
 
     /**
@@ -31,12 +31,13 @@ public class Event {
             Connect.updateData(query);
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());
         }
 		
-	}	
-	
+	}
+
+	/**
+	 * General constructor for retrieving/updating database data without creating a new record
+	 */
 	public Event(){ }
 	/**
 	 * Method for returning events based on organizer's id by querying the database.
@@ -53,10 +54,8 @@ public class Event {
                 futureEventsList.add(event);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());
-        }
+            e.printStackTrace();}
+
         return futureEventsList;
 	}
 
@@ -82,8 +81,7 @@ public class Event {
 				details.add(String.valueOf(rs.getInt("Duration")));
 
 			}
-		} catch (ClassNotFoundException | NullPointerException | SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (NullPointerException | SQLException e) {
 			e.printStackTrace();
 		}
 
@@ -105,8 +103,6 @@ public class Event {
             ID = rs.getInt("EventID");
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException f) {
-            System.out.println(f.getMessage());
         }
         return ID;
 	}
@@ -128,14 +124,14 @@ public class Event {
                 "WHERE EventID = " + eventID + ";";
         try {
             Connect.updateData(query);
-        } catch (ClassNotFoundException | SQLException e) {
-            // TODO Auto-generated catch block
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     /**
      * Method for canceling an event based on it's ID by querying the database.
+	 * First deletes all band-event entries for this event and then the event record
      * @param eventID 
      */
     public void deleteEvent(int eventID){
@@ -145,8 +141,7 @@ public class Event {
         try {
             Connect.updateData(query);
             Connect.updateData(query1);
-        } catch (ClassNotFoundException | SQLException e) {
-            // TODO Auto-generated catch block
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

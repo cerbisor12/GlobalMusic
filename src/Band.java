@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Class for creating a new band Object.
+ * Provides methods to retrieve/update data from the database band table.
  *
  */
 public class Band {
@@ -20,20 +21,18 @@ public class Band {
 	 * @param ID
 	 */
 	public Band(String name, String genre, String link,String image, int ID) {
-		String link1 = "";
 
-		String query = "INSERT INTO tbl_band VALUES(DEFAULT,'"+ name + "','" + genre + "','" + image + "', '" + link1 +"', '" + ID + "');";
+		//Insert data to database
+		String query = "INSERT INTO tbl_band VALUES(DEFAULT,'"+ name + "','" + genre + "','" + image + "', '" + link +"', '" + ID + "');";
 		try {
             Connect.updateData(query);
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());
         }
 	}
 	
 	/**
-	 * Static method to get all the bands.
+	 * Method to get all the bands.
 	 * @return Returns an ArrayList of strings, which contains all the bands existing in the database.
 	 */
 	public ArrayList<String> getAllBands(){
@@ -47,14 +46,12 @@ public class Band {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());
         }
         return bandsList;
 	}
 
 	/**
-	 * static method for retrieving the bands of a certain event/
+	 * Method for retrieving the bands of a certain event/
 	 * @param eventID event's ID for identifying the desired event
 	 * @return ArrayList of strings which contains all the bands registered with the event.
 	 */
@@ -70,12 +67,17 @@ public class Band {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} catch (ClassNotFoundException k) {
-			System.out.println(k.getMessage());
 		}
+
 		return bandsList;
 	}
 
+	/**
+	 * Get the ID of a performer based on the name.
+	 * Assumes that the performer name is unique, else gets the first result ID.
+	 * @param bandName the performer's name
+	 * @return ID - the performer's ID
+	 */
 	public int getPerfID(String bandName) {
 		String query = "SELECT * FROM tbl_band WHERE Name = '" + bandName + "';";
     	int ID = 0;
@@ -85,12 +87,15 @@ public class Band {
         	ID = rs.getInt("BandID");
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException f) {
-            System.out.println(f.getMessage());
         }
     	return ID;
 	}
 
+	/**
+	 * Return a multidimensional array including details for each performer included on an event
+	 * @param eventID the event's ID
+	 * @return - List<String[]> object with all event performer's details
+	 */
 	public List<String[]> getBandDetails(int eventID){
 		String query = "SELECT B.Name, B.Image, B.Genre, B.Link FROM tbl_band B, tbl_event_band EB WHERE EventID= "+eventID+
 				" AND B.BandID = EB.BandID";
@@ -107,8 +112,7 @@ public class Band {
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
-		} catch (ClassNotFoundException k) {
-			System.out.println(k.getMessage());}
+		}
 
 		return bandDetails;
 	}

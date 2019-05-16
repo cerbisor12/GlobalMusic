@@ -6,7 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Class for the creation of Booking objects and writing into database.
+ * Class for the creation of Booking objects.
+ * Writes and retrieves/updates data from the database booking table.
  *
  */
 public class Booking {
@@ -29,31 +30,34 @@ public class Booking {
                 + status +"'," + price + ");";
         try {
             Connect.updateData(query);
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
 
+    /**
+     * General constructor to be used from classes that need to retreive data from the db without creating a new record
+     */
     public Booking(){}
 
     /**
-     * method for updating event's status.
+     * Method for updating event's status.
      * @param eventID event's ID
      * @param status new status;
      */
-    public void updateStatus(int eventID, String status){
+    public void cancelBookings(int eventID, String status){
         String query = "UPDATE tbl_booking SET Status= '"+ status + "',EventID= null WHERE EventID = "+ eventID +";";
 
         try {
             Connect.updateData(query);
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * Get customer's detail based on certain event.
+     * Get details for every customer that made a booking for a specified event
      * @param eventID the event's id
      * @return ArrayList of strings filled with email, title and name of the customer.
      */
@@ -72,12 +76,22 @@ public class Booking {
                 List<String> cust = Arrays.asList(email,title,lName);
                 customerInfo.add(cust);
             }
-        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        }catch(SQLException e){e.printStackTrace();}
 
         return customerInfo;
 
     }
-     public List<List<String>> getBookingsperMonth(String username){
+
+    /**
+     * Used for creating Monthly Invoices.
+     * Returns a multidimensional array that includes all booking details of the specified customer for the current month.
+     * Should be changed to previous month(so a whole month invoice can be created) but left unchanged for app
+     * demonstration reasons.
+     *
+     * @param username of the specified customer
+     * @return List<List<String>> of all monthly bookings for one customer
+     */
+     public List<List<String>> getBookingsPerMonth(String username){
         List<List<String>> bookings = new ArrayList<>();
         int month = LocalDate.now().getMonthValue();
         String query = "SELECT B.NoOfSeats, B.BookingNo, E.Name, B.TotalPrice FROM tbl_booking B, tbl_event E, tbl_user U" +
@@ -94,7 +108,7 @@ public class Booking {
                 List<String> booking = Arrays.asList(tickets,bookingNo,event,total);
                 bookings.add(booking);
             }
-        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        }catch(SQLException e){e.printStackTrace();}
 
         return bookings;
      }

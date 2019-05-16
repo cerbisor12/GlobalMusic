@@ -29,8 +29,8 @@ class NewBookingController implements ActionListener {
     }
     
     /**
-     * This method adds the event details into the database.
-     * @param newBooking
+     * Populate the NewBookingView textfields with event details
+     * @param newBooking NewBookingView
      */
     private void setEventDetails(NewBookingView newBooking){
         String query = "SELECT V.Name venueName,V.Address, V.Capacity, E.*, SUM(NoOfSeats) booked " +
@@ -78,8 +78,7 @@ class NewBookingController implements ActionListener {
 
         }catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException k) {
-            System.out.println(k.getMessage());}
+        }
     }
 
 

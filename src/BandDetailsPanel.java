@@ -8,9 +8,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 /**
- *
  * Creates the JPanel for displaying the performers included on an event on the NewBookingView
- *
  */
 public class BandDetailsPanel extends JPanel {
 
@@ -18,7 +16,7 @@ public class BandDetailsPanel extends JPanel {
 
     /**
      * Class' constructor, sets the layout of the panel and the eventID to retrieve data from the database
-     * @param eventID
+     * @param eventID got from the search result panel the user chose
      */
     public BandDetailsPanel(int eventID){
         this.setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
@@ -75,14 +73,14 @@ public class BandDetailsPanel extends JPanel {
             websiteBtn.setContentAreaFilled(false);
             websiteBtn.setBorderPainted(false);
             websiteBtn.addActionListener(new ActionListener() {
-                /**
+                /*
                  * Action Listener for opening website on default browser
                  * @author Brajesh Kumar
                  * Source: https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
                  */
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    String url = "https://"+websiteBtn.getText();
+                    String url = "https://"+websiteBtn.getText();//set the url
 
                     if(Desktop.isDesktopSupported()){
                         Desktop desktop = Desktop.getDesktop();
