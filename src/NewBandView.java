@@ -1,25 +1,15 @@
 import java.awt.Cursor;
-import javax.swing.JFrame;
+import javax.swing.*;
 import java.awt.SystemColor;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
-import javax.swing.ImageIcon;
 import java.awt.Font;
-import javax.swing.JButton;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
-import javax.swing.JSeparator;
-import javax.swing.JTextField;
 import javax.swing.border.MatteBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
 import java.awt.Rectangle;
 
 /**
@@ -36,12 +26,15 @@ public class NewBandView extends JFrame {
 	static JComboBox<String> agentComboBox; 
 	private String imageName = "";
 	private JLabel lblImageName;
+	Object panel;
 
 
 	/**
 	 * Create the frame.
 	 */
-	public NewBandView() {
+	public NewBandView(Object panel) {
+	    this.panel = panel;
+        System.out.println(panel.getClass());
 		initialize();
 		frame.setVisible(true);
 	}
@@ -171,7 +164,7 @@ public class NewBandView extends JFrame {
 						imageName = file.getName();
 						lblImageName.setText(imageName);
 
-						Files.copy(file.toPath(),Paths.get(System.getProperty("user.dir")+"/"+Main.EVENT_IMAGE_DIR+file.getName()),
+						Files.copy(file.toPath(),Paths.get(System.getProperty("user.dir")+"/"+Main.ARTIST_IMAGE_DIR+file.getName()),
 								StandardCopyOption.REPLACE_EXISTING,
 								StandardCopyOption.COPY_ATTRIBUTES,
 								LinkOption.NOFOLLOW_LINKS );}
@@ -221,7 +214,13 @@ public class NewBandView extends JFrame {
 				DefaultListModel performersModel = new DefaultListModel();
 				for(int i = 0; i < band.getAllBands().size(); i++) {
 					performersModel.addElement(band.getAllBands().get(i));
-					OrganizerAddEventView.allPerformersList.setModel(performersModel);
+					if (panel instanceof OrganizerAddEventView){
+					    ((OrganizerAddEventView) panel).allPerformersList.setModel(performersModel); }
+					else if(panel instanceof OrganizerEditEventView){
+					    ((OrganizerEditEventView) panel).allPerformersList.setModel(performersModel);
+                    }else{
+                        System.out.println(panel.getClass());
+                    }
 				}
 				frame.dispose();
 				JOptionPane.showMessageDialog(null,"Band added.");

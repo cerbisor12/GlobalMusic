@@ -42,7 +42,7 @@ public class OrganizerAddEventView {
 	 private JTextField textDuration;
 	 private JTextField textFieldPrice;
 	 static JComboBox<String> venueComboBox;
-	 static JList allPerformersList;
+	 public JList allPerformersList;
 	 private String imageName = "";
 	 private JLabel lblImageName;
 	 private DatePicker datePicker;
@@ -451,13 +451,13 @@ public class OrganizerAddEventView {
 
             //Loads the NewBandView for adding a new Band
 	        JButton addNewPerfButton = new JButton("Add Performer");
-	        addNewPerfButton.addActionListener(e -> new NewBandView());
+	        addNewPerfButton.addActionListener(e -> new NewBandView(this));
 	        addNewPerfButton.setBounds(439, 467, 154, 25);
 	        addNewPerfButton.setOpaque(false);
 	        addNewPerfButton.setContentAreaFilled(false);
 	        addNewPerfButton.setBorderPainted(false);
 	        addNewPerfButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-	        addNewPerfButton.setFont(new Font("Dialog", Font.PLAIN, 18));
+	        addNewPerfButton.setFont(new Font("Open Sans", Font.PLAIN, 18));
 	        addNewPerfButton.setForeground(SystemColor.inactiveCaption);
 	        frame.getContentPane().add(addNewPerfButton);
 

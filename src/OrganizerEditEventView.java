@@ -30,7 +30,7 @@ public class OrganizerEditEventView {
     private JFrame frame;
     private JTextField textFieldDuration;
     private JTextField textFieldPrice;
-    static JList allPerformersList, addedPerfList;
+    public JList allPerformersList, addedPerfList;
     private JComboBox<String> comboBoxVenue;
     private DatePicker datePicker;
     private JLabel lblImgName;
@@ -245,21 +245,8 @@ public class OrganizerEditEventView {
 
 
         //Combobox populated with all available venues and the option to add a new one
-        comboBoxVenue = new JComboBox<>();
-        ArrayList venuesList = Venue.getVenueList();
-        venuesList.add(0, "-Add Venue-");
-        comboBoxVenue.setBounds(987, 188, 159, 20);
-        comboBoxVenue.setBackground(SystemColor.activeCaption);
-        comboBoxVenue.setModel(new DefaultComboBoxModel(venuesList.toArray()));
-        comboBoxVenue.setSelectedIndex(-1);
+        comboBoxVenue = OrganizerAddEventView.venueComboBox;
         comboBoxVenue.setEnabled(false);
-        comboBoxVenue.setEditable(false);
-        //Load NewVenueView to add a new venue to the database
-        comboBoxVenue.addActionListener(e -> {
-            Object selected = comboBoxVenue.getSelectedItem();
-            if (selected.toString().equals("-Add Venue-"))
-                new NewVenueView();
-        });
         frame.getContentPane().add(comboBoxVenue);
 
 
@@ -427,13 +414,13 @@ public class OrganizerEditEventView {
         /*
          * Opens the NewBandView to add a new performer to the database
          */
-        addNewPerfButton.addActionListener(e -> new NewBandView());
+        addNewPerfButton.addActionListener(e -> new NewBandView(this));
         addNewPerfButton.setBounds(439, 467, 154, 25);
         addNewPerfButton.setOpaque(false);
         addNewPerfButton.setContentAreaFilled(false);
         addNewPerfButton.setBorderPainted(false);
         addNewPerfButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        addNewPerfButton.setFont(new Font("Dialog", Font.PLAIN, 18));
+        addNewPerfButton.setFont(new Font("Open Sans", Font.PLAIN, 18));
         addNewPerfButton.setForeground(SystemColor.inactiveCaption);
         frame.getContentPane().add(addNewPerfButton);
 
