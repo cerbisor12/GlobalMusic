@@ -3,7 +3,6 @@ import java.sql.*;
 /**
  *
  * Class for establishing connection to the DB through JDBC
- * @author aran0ia
  *
  */
 public class Connect

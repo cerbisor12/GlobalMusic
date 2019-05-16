@@ -28,7 +28,6 @@ import java.awt.Rectangle;
 
 /**
  * This class is for adding artists by the organizer.
- * @author x64
  *
  */
 
@@ -42,19 +41,6 @@ public class NewBandView extends JFrame {
 	private String imageName = "";
 	private JLabel lblImageName;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-			try {
-				NewBandView window = new NewBandView();
-				window.frame.setVisible(true);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

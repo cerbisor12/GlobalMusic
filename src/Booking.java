@@ -7,7 +7,6 @@ import java.util.List;
 
 /**
  * Class for the creation of Booking objects and writing into database.
- * @author x64
  *
  */
 public class Booking {

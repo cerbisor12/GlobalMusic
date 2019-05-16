@@ -10,7 +10,6 @@ import java.util.List;
 /**
  *
  * Creates the JPanel for displaying the performers included on an event on the NewBookingView
- * @author x64
  *
  */
 public class BandDetailsPanel extends JPanel {

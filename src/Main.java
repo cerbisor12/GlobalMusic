@@ -1,8 +1,12 @@
 import java.awt.*;
 
 /**
+ * This application is developed for Global Music which is a Booking Agency.
+ * It is allowing to login in with four different types of users (admin, customer, 
+ * corporate organisation and event organiser) each of these users having their own
+ * personalised view of the application.
  * Class for running the main frame of the application.
- * @author x64
+ * @author Dimitra Krezia, Radu Popescu, Daniel Serbanescu.
  *
  */
 public class Main {

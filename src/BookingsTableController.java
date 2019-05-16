@@ -10,7 +10,6 @@ import java.util.List;
 
 /**
  * Class for populating the BookingHistoryView table and making the panel.
- * @author x64
  *
  */
 public class BookingsTableController {

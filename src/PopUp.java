@@ -15,7 +15,6 @@ import javax.swing.ImageIcon;
 /**
  * This class is for the admin, it gives him the option to edit users accounts.
  * The pop up uses the MyAccountView class.
- * @author Rhadoo
  *
  */
 public class PopUp extends JFrame {

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 /**
  * Class for creating Agent object.
- * @author x64
  *
  */
 public class Agent {

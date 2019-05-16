@@ -23,7 +23,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * Class for editing or canceling an event.
- * @author x64
  *
  */
 public class EditEventView {

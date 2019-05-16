@@ -15,7 +15,6 @@ import java.awt.event.FocusEvent;
 
 /**
  * This class is for adding venues by the concert organizer.
- * @author Rhadoo
  *
  */
 public class NewVenueView {
@@ -24,20 +23,6 @@ public class NewVenueView {
 	private JTextField nameTxtField;
 	private JTextField addressTxtField;
 	private JTextField capacityTxtField;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-            try {
-                NewVenueView window = new NewVenueView();
-                window.frame.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-	}
 
 	/**
 	 * Create the application.

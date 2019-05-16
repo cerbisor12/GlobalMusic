@@ -5,7 +5,6 @@ import java.util.Arrays;
 
 /**
  * This class creates, adds to database, checks login and erases users.
- * @author Rhadoo
  *
  */
 

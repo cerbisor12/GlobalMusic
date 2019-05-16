@@ -9,7 +9,6 @@ import java.awt.event.MouseMotionAdapter;
 
 /**
  * Class for creating the login window.
- * @author x64
  *
  */
 public class LoginView {
@@ -18,19 +17,6 @@ public class LoginView {
     private JTextField usernameField;
     private JPasswordField passwordField;
 
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            try {
-                LoginView window = new LoginView();
-                window.frame.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
 
     /**
      * Create the application.

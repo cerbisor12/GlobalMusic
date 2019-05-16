@@ -5,7 +5,6 @@ import java.util.List;
 
 /**
  * Class for creating a new band Object.
- * @author x64
  *
  */
 public class Band {

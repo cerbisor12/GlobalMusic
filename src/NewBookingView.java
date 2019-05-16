@@ -14,7 +14,6 @@ import javax.swing.*;
 
 /**
  *This class is for users to book concert tickets.  
- * @author Rhadoo
  *
  */
 
@@ -35,19 +34,6 @@ public class NewBookingView {
 
     private JFrame frame;
 
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            try {
-                NewBookingView window = new NewBookingView();
-                window.frame.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
 
     /**
      * Create the application.
@@ -410,20 +396,5 @@ public class NewBookingView {
 
 
     }
-//        public List<Object> getEventDetails(int eventID){
-//	        List<Object> eventDetails = new ArrayList<>();
-//	        String query = "SELECT * from tbl_event WHERE EventID="+eventID+";";
-//	        try{
-//                ResultSet rs = Connect.selectStm(query);
-//                rs.next();
-//
-//                eventDetails.add(rs.getString("Name"));
-//                float eventPrice = rs.getFloat("Price");
-//                eventDetails.add(eventPrice);
-//                String eventDate = rs.getString("DateOFEvent");
-//                String eventImage = rs.getString("Image");
-//                int eventDuration = rs.getInt("Duration");
-//
-//        }
-//	}
+
 }

@@ -11,7 +11,6 @@ import java.awt.Color;
 
 /**
  * Class for adding new agents.
- * @author x64
  *
  */
 
@@ -22,19 +21,6 @@ public class NewAgentView {
 	private JTextField phoneTxtField;
 	private JTextField emailTxtField;
 
-    /**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-			try {
-				NewAgentView window = new NewAgentView();
-				window.frame.setVisible(true);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

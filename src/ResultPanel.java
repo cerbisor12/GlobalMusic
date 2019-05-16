@@ -13,11 +13,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-@SuppressWarnings("serial")
 
 /**
  * This class displays the events in a result panel.
- * @author Rhadoo
  *
  */
 public class ResultPanel extends JPanel{

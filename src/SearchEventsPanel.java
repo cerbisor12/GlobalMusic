@@ -13,7 +13,6 @@ import java.util.Locale;
 
 /**
  * This class creates a panel that includes all the events in the event list.
- * @author Rhadoo
  *
  */
 public class SearchEventsPanel extends JPanel {

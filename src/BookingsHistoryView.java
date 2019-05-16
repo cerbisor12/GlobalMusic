@@ -4,7 +4,6 @@ import javax.swing.*;
 
 /**
  * Class for viewing existing bookings.
- * @author x64
  *
  */
 public class BookingsHistoryView extends JPanel {

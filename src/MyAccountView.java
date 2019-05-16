@@ -12,7 +12,6 @@ import javax.swing.border.MatteBorder;
 
 /**
  * Class for viewing and editing account details.
- * @author x64
  *
  */
 

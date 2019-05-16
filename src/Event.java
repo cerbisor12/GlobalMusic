@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 /**
  * Event class for creating event objects.
- * @author x64
  *
  */
 public class Event {

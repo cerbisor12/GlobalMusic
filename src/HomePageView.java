@@ -7,7 +7,6 @@ import java.awt.event.MouseEvent;
 
 /**
  * Class for the homepage (for customer and organization type of users).
- * @author x64
  *
  */
 
@@ -19,23 +18,6 @@ public class HomePageView {
     private JButton changePassButton ;
     private JFrame frame;
 
-
-    /**
-     * Launch the application.
-     */
-//    public static void main(String[] args) {
-//        EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                try {
-//                	HomePageView window = new HomePageView();
-//                    window.frame.setVisible(true);
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//        }
-//    
 
     /**
      * Create the application.

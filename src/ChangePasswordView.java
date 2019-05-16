@@ -11,7 +11,6 @@ import javax.swing.border.MatteBorder;
 
 /**
  * Class for changing the user's password.
- * @author x64
  *
  */
 public class ChangePasswordView extends JPanel {

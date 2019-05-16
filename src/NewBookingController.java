@@ -11,7 +11,6 @@ import java.util.Date;
 /**
  * This class takes data from the event table according to the event ID and populates 
  * all the fields from the NewBookingView. 
- * @author Rhadoo
  *
  */
 class NewBookingController implements ActionListener {

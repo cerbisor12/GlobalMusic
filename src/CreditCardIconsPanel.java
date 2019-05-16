@@ -8,8 +8,6 @@ import java.util.regex.*;
  *
  * Child class of JPanel, creates a toolbar with all credit card icons. Combined with a text field, it checks
  * if the input is a valid credit card number and displays the respective icon.
- *
- * @author aran0ia
  */
 
 public class CreditCardIconsPanel extends JPanel{

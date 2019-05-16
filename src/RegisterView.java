@@ -8,7 +8,6 @@ import java.util.regex.Pattern;
 
 /**
  * This class is for registering the users.
- * @author Rhadoo
  *
  */
 public class RegisterView {
@@ -32,21 +31,6 @@ public class RegisterView {
     static boolean checkType = false;
     private CreditCardIconsPanel cardIconPanel;
 
-    /**
-     * Launch the application.
-     */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					RegisterView window = new RegisterView();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 
     /**
      * Create the application.

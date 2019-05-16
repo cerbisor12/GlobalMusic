@@ -33,7 +33,6 @@ import com.github.lgooddatepicker.components.DatePickerSettings;
 
 /**
  * Class for displaying the event organizer type of user's main window.
- * @author x64
  *
  */
 public class EventOrganizerView {
