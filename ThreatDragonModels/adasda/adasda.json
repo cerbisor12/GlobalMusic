@@ -5,8 +5,18 @@
     "description": "dsada"
   },
   "detail": {
-    "contributors": [],
-    "diagrams": [],
+    "contributors": [
+      {
+        "name": "dasda"
+      }
+    ],
+    "diagrams": [
+      {
+        "title": "dsada",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 0
+      }
+    ],
     "reviewer": "sdada"
   }
 }
